@@ -1,16 +1,16 @@
 import React, { PropTypes } from 'react'
 
-const App = ({ children }) => (
+const Page = ({ children }) => (
   <div>123
     {children}
   </div>
 )
 
-// App.propTypes = {
-//   children: PropTypes.any.isRequired,
-// }
+Page.propTypes = {
+  children: PropTypes.any.isRequired,
+}
 
 export { Header } from './Header'
 export { Footer } from './Footer'
 export { NotFound } from './NotFound'
-export default App
+export default Page

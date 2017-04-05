@@ -2,7 +2,7 @@ import React from 'react'
 // import { Route } from 'react-router-dom'
 import { Switch, Route, Redirect } from 'react-router'
 
-import App, { NotFound } from 'components/App'
+import Page, { NotFound } from 'components/Page'
 // import Feedback from './components/Feedback'
 // import Post from './components/Post'
 // import PostForm from './components/PostForm'
@@ -10,8 +10,7 @@ import App, { NotFound } from 'components/App'
 
 export default (
   <Switch>
-    <Redirect push from='/old-path' to='/new-path'/>
-    <Route exact path="/new-path" component={App} />
+    <Route exact path="/" component={Page} />
     <Route component={NotFound}/>
   </Switch>
   //
