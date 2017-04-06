@@ -4,7 +4,7 @@ import { routerReducer } from 'react-router-redux'
 // import flows from './flows'
 // import hubs from './hubs'
 // import postForm from './postForm'
-// import posts from './posts'
+import posts from './posts'
 // import currentUser from './currentUser'
 
 export default combineReducers({
@@ -13,6 +13,6 @@ export default combineReducers({
   // flows,
   // hubs,
   // postForm,
-  // posts,
+  posts,
   // currentUser,
 })

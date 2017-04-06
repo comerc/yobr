@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "body-parser": "^1.17.1",
+    "isomorphic-fetch": "^2.2.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-helmet": "^5.0.2",
@@ -24,7 +25,9 @@
     "react-router-dom": "^4.0.0",
     "react-router-redux": "next",
     "redux": "^3.6.0",
-    "redux-act": "^1.1.1"
+    "redux-act": "^1.1.1",
+    "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.0"
   },
   "scripts": {
     "server": "node server",

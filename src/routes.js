@@ -1,8 +1,9 @@
 import React from 'react'
-// import { Route } from 'react-router-dom'
-import { Switch, Route, Redirect } from 'react-router'
+import { Route } from 'react-router-dom'
+import { Switch, Redirect } from 'react-router'
 
-import Page, { NotFound } from 'components/Page'
+import { NotFound } from 'components/Page'
+import { PostListPage } from 'components/Post'
 // import Feedback from './components/Feedback'
 // import Post from './components/Post'
 // import PostForm from './components/PostForm'
@@ -10,7 +11,7 @@ import Page, { NotFound } from 'components/Page'
 
 export default (
   <Switch>
-    <Route exact path="/" component={Page} />
+    <Route exact path="/" component={PostListPage} />
     <Route component={NotFound}/>
   </Switch>
   //
