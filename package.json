@@ -28,8 +28,8 @@
   },
   "scripts": {
     "server": "node server",
-    "dev": "BROWSER=none npm start",
-    "start": "react-app-rewired start",
+    "start": "BROWSER=none npm run client",
+    "client": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject"
