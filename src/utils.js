@@ -1,4 +1,5 @@
 import React from 'react'
+import isFunction from 'lodash/isFunction'
 
 export const pureComponent = (fn) => {
   class Wrapper extends React.PureComponent {
@@ -32,28 +33,24 @@ export const handleSubmit = (isLoading, save) => (event) => {
   event.preventDefault()
   if (!isLoading) {
     save()
-    // .then(() => console.log('true')).catch(() => console.log('false'))
   }
 }
 
 export const ga = (eventCategory, eventAction, eventLabel) => () => {
-  if (typeof window.ga === 'function') {
+  if (isFunction(window.ga)) {
     window.ga('send', 'event', eventCategory, eventAction, eventLabel)
   }
 }
 
 export const plural = (value, form1, form2, form3) => {
-  // TODO реализовать plural
   return value
 }
 
 export const urlencode = (s) => {
-  // TODO реализовать urlencode
   return s
 }
 
 export const formatDateTime = (dateTime) => {
-  // TODO реализовать formatDateTime
   return dateTime + ''
 }
 
