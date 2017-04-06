@@ -15,9 +15,11 @@ const fileName = path.resolve('server/data/storage.json')
 const api = (server) => {
   server.get('/api/posts', (req, res) => {
     pify(fs.readFile)(fileName)
-      .then(posts =>
-        res.set('Content-Type', 'application/json; charset=utf-8').send(posts)
-      )
+      .then(posts => {
+        res.set('Access-Control-Allow-Origin', '*')
+        res.set('Content-Type', 'application/json; charset=utf-8')
+        res.send(posts)
+      })
       .catch(error => {
         console.log('error', error)
         res.sendStatus(HTTP_ISE)
@@ -54,9 +56,11 @@ const api = (server) => {
       .then(posts =>
         pify(fs.writeFile)(fileName, JSON.stringify(posts), 'utf-8')
       )
-      .then(() =>
-        res.set('Content-Type', 'text/plain; charset=utf-8').send(post.id)
-      )
+      .then(() => {
+        res.set('Access-Control-Allow-Origin', '*')
+        res.set('Content-Type', 'text/plain; charset=utf-8')
+        res.send(post.id)
+      })
       .catch(error => {
         console.log('error', error)
         res.sendStatus(HTTP_ISE)
