@@ -22,7 +22,6 @@ const PostList = ({ posts }) => (
         )}
       </ul>
     </div> */}
-    {/* TODO если массив пустой, то сообщить об отсутствии данных */}
     <div className={s.main}>
       {posts.map((post) => (
         <Post key={post.id} {...post} isTeaser />
@@ -58,7 +57,6 @@ const filteredPosts = createSelector(
         element.flow.id === filterId)
     }
     if (filterType === 'hub') {
-      // TODO фильтр по хабу
       return []
     }
     if (filterType === 'all') {
@@ -67,9 +65,6 @@ const filteredPosts = createSelector(
     return []
   }
 )
-
-// TODO преобразовать flows к массиву нужно тут и memoize
-// TODO вынести flows в отдельный компонент
 
 const mapStateToProps = (state, ownProps) => ({
   posts: filteredPosts(state, ownProps)

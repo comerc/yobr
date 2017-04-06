@@ -5,7 +5,6 @@ const PostBody = ({ isTeaser, content, children }) => (
   <div className={cx({ 'crop': isTeaser })}>
     <div
       className={cx("content", "htmlFormat")}
-      // TODO dangerouslySetInnerHTML={{ __html: content }}
     >{content}</div>
     {children}
   </div>

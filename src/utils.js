@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 
 export const pureComponent = (fn) => {
   class Wrapper extends React.PureComponent {
@@ -6,7 +6,7 @@ export const pureComponent = (fn) => {
       return fn(this.props, this.context)
     }
   }
-  // сомнительно, т.к. подписывает на контекст как и функциональный компонент,
+  // не надо, т.к. подписывает на контекст как и функциональный компонент,
   // так и оболочку-PureComponent; лучше назначать сразу оболочке (снаружи)
   // Wrapper.contextTypes = fn.contextTypes
   Wrapper.displayName = fn.name

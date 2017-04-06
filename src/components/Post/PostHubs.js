@@ -3,8 +3,6 @@ import cx from 'classnames'
 import { ga } from 'app/utils'
 import Link from 'next/link'
 
-// TODO реализовать переходы по хабам
-
 const onClick = (hub) => (event) => {
   event.preventDefault()
   alert(event.target.href)

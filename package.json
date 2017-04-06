@@ -27,6 +27,7 @@
     "redux-act": "^1.1.1"
   },
   "scripts": {
+    "server": "node server",
     "dev": "BROWSER=none npm start",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",

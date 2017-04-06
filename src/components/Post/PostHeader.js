@@ -3,8 +3,6 @@ import { formatDateTime } from 'app/utils'
 import PostTitle from './PostTitle'
 import PostHubs from './PostHubs'
 
-// TODO кнопка редактирования только для собственных статей
-
 const PostHeader = ({ isTeaser, published, flow, id, title, hubs, isDraft }) => (
   <div>
     <span className="published">{formatDateTime(published)}</span>
