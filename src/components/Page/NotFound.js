@@ -14,8 +14,8 @@ export const NotFound = () => (
     </div>
     <h1>Страница не найдена</h1>
     <p>Страница устарела, была удалена или не существовала вовсе</p>
-    <div className="back">
-      <Link to="/"><span>Вернуться на главную</span></Link>
+    <div className="back-button">
+      <Link to="/"><span className="back-text">Вернуться на главную</span></Link>
     </div>
     <style jsx global>{`
       body {
@@ -30,6 +30,9 @@ export const NotFound = () => (
         height: 100vh;
         overflow: auto;
       }
+      a {
+        text-decoration: none;
+      }
     `}</style>
     <style jsx>{`
       .not-found {
@@ -40,14 +43,14 @@ export const NotFound = () => (
         width: 100px;
         height: 100px;
       }
-      .back {
+      .back-button {
         border: 2px solid gray;
         border-radius: 8px;
         padding: 8px;
         background: #eee;
         display: inline-block;
       }
-      .back span {
+      .back-text {
         color: green;
       }
     `}</style>
