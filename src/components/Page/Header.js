@@ -8,4 +8,4 @@ Header.propTypes = {
   children: PropTypes.any.isRequired,
 }
 
-export { Header }
+export default Header

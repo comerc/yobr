@@ -8,4 +8,4 @@ Footer.propTypes = {
   children: PropTypes.any.isRequired,
 }
 
-export { Footer }
+export default Footer
