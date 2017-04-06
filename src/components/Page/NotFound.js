@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 
 import logo from 'resources/logo.svg'
 
-export const NotFound = () => (
+const NotFound = () => (
   <div className="not-found">
     <Helmet
       defaultTitle="YOBR"
@@ -56,3 +56,5 @@ export const NotFound = () => (
     `}</style>
   </div>
 )
+
+export { NotFound }
