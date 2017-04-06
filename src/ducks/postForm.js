@@ -1,7 +1,6 @@
 import { createAction, createReducer } from 'redux-act'
-import Router from 'next/router'
-import { POST_FORM_TITLE_MAX, POST_FORM_HUBS_MAX } from 'app/consts'
-import { sleep } from 'app/utils'
+import { POST_FORM_TITLE_MAX, POST_FORM_HUBS_MAX } from 'consts'
+import { sleep } from 'utils'
 import isEmpty from 'lodash/isEmpty'
 import { actions as appActions } from './app'
 import { actions as postsActions } from './posts'
@@ -131,9 +130,6 @@ export const actions = {
       dispatch(setField({ key, value }))
     }
   },
-  // TODO вынести в отдельный редюсер
-  // readAutosave: () => dispatch => sleep(1000),
-  // saveAutosave: () => dispatch => sleep(1000),
 }
 
 const initialState = {
