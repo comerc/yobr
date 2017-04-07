@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-// import app from './app'
+import app from './app'
 import flows from './flows'
 // import hubs from './hubs'
 // import postForm from './postForm'
@@ -9,7 +9,7 @@ import posts from './posts'
 
 export default combineReducers({
   routing: routerReducer,
-  // app,
+  app,
   flows,
   // hubs,
   // postForm,

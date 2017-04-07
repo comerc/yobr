@@ -8,20 +8,32 @@ const set = createAction(`${NS}SET`)
 
 const read = () => (dispatch) => {
   dispatch(appActions.setLoading(true))
-  setTimeout(() =>
-    fetch('http://localhost:9000/api/posts')
-      .then(response => {
-        return response.json()
-      })
-      .then(posts => {
+  let isTimeout = false
+  let isFetch = false
+  setTimeout(() => {
+    isTimeout = true
+    if (isFetch) {
+      dispatch(appActions.setLoading(false))
+    }
+  }, 500) // демонстрировать isLoading не менее 500 мс
+  fetch('http://localhost:9000/api/posts')
+    .then(response => {
+      return response.json()
+    })
+    .then(posts => {
+      isFetch = true
+      if (isTimeout) {
         dispatch(appActions.setLoading(false))
-        dispatch(set(posts))
-      })
-      .catch(error => {
+      }
+      dispatch(set(posts))
+    })
+    .catch(error => {
+      isFetch = true
+      if (isTimeout) {
         dispatch(appActions.setLoading(false))
-        dispatch(appActions.setMainError(error.toString()))
-      })
-  , 1000)
+      }
+      dispatch(appActions.setMainError(error.toString()))
+    })
 }
 
 // // TODO перенести в postForm > save

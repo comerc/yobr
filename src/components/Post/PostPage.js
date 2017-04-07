@@ -3,9 +3,11 @@ import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 import { bindActionCreators } from 'redux'
 import { actions } from 'ducks/posts'
-import Post from './Post'
 import Page, { Header, Footer } from 'components/Page'
 import Helmet from 'react-helmet'
+import { NotFoundPage } from 'components/Page'
+
+import Post from './Post'
 
 class PostPage extends React.Component {
   componentDidMount() {
@@ -13,14 +15,20 @@ class PostPage extends React.Component {
     read({ id })
   }
   render() {
-    const { post } = this.props
+    const { isLoading, post } = this.props
+    if (!isLoading && post === void 0) {
+      return <NotFoundPage />
+    }
     return (
       <Page>
         <Helmet
           defaultTitle="Yobr"
         />
         <Header>Header</Header>
-        <Post {...post} />
+        {isLoading
+          ? <div>Загрузка...</div>
+          : <Post {...post} />
+        }
         <Footer>Footer</Footer>
       </Page>
     )
@@ -28,6 +36,7 @@ class PostPage extends React.Component {
 }
 
 PostPage.propTypes = {
+  isLoading: PropTypes.bool,
   id: PropTypes.number,
   post: PropTypes.object,
   read: PropTypes.func,
@@ -47,6 +56,7 @@ const post = createSelector(
 )
 
 const mapStateToProps = (state, props) => ({
+  isLoading: state.app.isLoading,
   id: getId(state, props),
   post: post(state, props),
 })
