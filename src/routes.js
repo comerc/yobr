@@ -2,7 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import { Switch, Redirect } from 'react-router'
 
-import { NotFound } from 'components/Page'
+import { NotFoundPage } from 'components/Page'
 import { PostPage, PostListPage } from 'components/Post'
 // import PostFormPage from 'components/PostFormPage'
 
@@ -12,7 +12,7 @@ export default (
     <Route exact path="/all" component={PostListPage} />
     <Route exact path="/:filterType(flow|hub)/:filteredId" component={PostListPage} />
     <Route exact path="/post/:id(\d+)" component={PostPage} />
-    <Route component={NotFound}/>
+    <Route component={NotFoundPage}/>
   </Switch>
   //
   // <Route path="/" component={App}>
