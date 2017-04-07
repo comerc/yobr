@@ -1,4 +1,5 @@
 import { createAction, createReducer } from 'redux-act'
+import { push } from 'react-router-redux'
 import { POST_FORM_TITLE_MAX, POST_FORM_HUBS_MAX } from 'consts'
 import { sleep } from 'utils'
 import isEmpty from 'lodash/isEmpty'

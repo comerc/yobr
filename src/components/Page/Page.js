@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 
 const Page = ({ children }) => (
-  <div>123
+  <div>
     {children}
   </div>
 )

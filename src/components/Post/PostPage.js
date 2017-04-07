@@ -1,27 +1,49 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
+import { bindActionCreators } from 'redux'
+import { actions } from 'ducks/posts'
 import Post from './Post'
 
-const PostPage = ({ ...post }) => (
-  <Post {...post} />
-)
-
-PostPage.propTypes = {
-  // id: PropTypes.number,
+class PostPage extends React.Component {
+  componentDidMount() {
+    const { read, id } = this.props
+    read({ id })
+  }
+  render() {
+    const { post } = this.props
+    return <Post {...post} />
+  }
 }
 
-const getId = (state, ownProps) =>
-  ownProps.id
+PostPage.propTypes = {
+  id: PropTypes.number,
+  post: PropTypes.object,
+  read: PropTypes.func,
+}
+
+const getId = (state, props) =>
+  parseInt(props.match.params.id, 10)
 
 const getPosts = (state) =>
   state.posts
 
-const mapStateToProps = createSelector(
+const post = createSelector(
   [getPosts, getId],
   (posts, id) =>
     posts.find(element =>
       element.id === id)
 )
 
-export default connect(mapStateToProps)(PostPage)
+const mapStateToProps = (state, props) => ({
+  id: getId(state, props),
+  post: post(state, props),
+})
+
+const mapDispatchToProps = (dispatch) => {
+  const { read } = actions
+  return bindActionCreators({ read }, dispatch)
+}
+
+export { PostPage } // тупой компонент для тестирования
+export default connect(mapStateToProps, mapDispatchToProps)(PostPage)

@@ -3,15 +3,15 @@ import { Route } from 'react-router-dom'
 import { Switch, Redirect } from 'react-router'
 
 import { NotFound } from 'components/Page'
-import { PostListPage } from 'components/Post'
-// import Feedback from './components/Feedback'
-// import Post from './components/Post'
-// import PostForm from './components/PostForm'
-// import PostTeaserList from './components/PostTeaserList'
+import { PostPage, PostListPage } from 'components/Post'
+// import PostFormPage from 'components/PostFormPage'
 
 export default (
   <Switch>
-    <Route exact path="/" component={PostListPage} />
+    <Route exact path="/"><Redirect to="/all"/></Route>
+    <Route exact path="/all" component={PostListPage} />
+    <Route exact path="/:filterType(flow|hub)/:filteredId" component={PostListPage} />
+    <Route exact path="/post/:id(\d+)" component={PostPage} />
     <Route component={NotFound}/>
   </Switch>
   //

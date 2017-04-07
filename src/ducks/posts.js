@@ -1,20 +1,27 @@
 import { createAction, createReducer } from 'redux-act'
 import 'isomorphic-fetch'
+import { actions as appActions } from './app'
 
 const NS = '@@posts/'
 
 const set = createAction(`${NS}SET`)
 
 const read = () => (dispatch) => {
-  fetch('http://localhost:9000/api/posts', {
-    credentials: 'same-origin',
-  })
-    .then(response => {
-      return response.json()
-    })
-    .then(posts =>
-      dispatch(set(posts))
-    )
+  dispatch(appActions.setLoading(true))
+  setTimeout(() =>
+    fetch('http://localhost:9000/api/posts')
+      .then(response => {
+        return response.json()
+      })
+      .then(posts => {
+        dispatch(appActions.setLoading(false))
+        dispatch(set(posts))
+      })
+      .catch(error => {
+        dispatch(appActions.setLoading(false))
+        dispatch(appActions.setMainError(error.toString()))
+      })
+  , 1000)
 }
 
 // // TODO перенести в postForm > save

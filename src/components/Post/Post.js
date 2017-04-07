@@ -25,52 +25,53 @@ import React, { PropTypes } from 'react'
 //     <br/>
 //   </div>
 // )
-//
-// Post.propTypes = {
-//   id: PropTypes.number,
-//   published: PropTypes.string,
-//   flow: PropTypes.shape({
-//     id: PropTypes.string,
-//     name: PropTypes.string,
-//   }),
-//   hubs: PropTypes.arrayOf(PropTypes.shape({
-//     id: PropTypes.string,
-//     name: PropTypes.string,
-//   })).isRequired,
-//   title: PropTypes.string,
-//   isDraft: PropTypes.bool,
-//   author: PropTypes.shape({
-//     id: PropTypes.number,
-//     nick: PropTypes.string,
-//     name: PropTypes.string,
-//     specialization: PropTypes.string,
-//     contacts: PropTypes.arrayOf(PropTypes.shape({
-//       type: PropTypes.string,
-//       url: PropTypes.string,
-//     })),
-//     votingCounter: PropTypes.number,
-//     karma: PropTypes.number,
-//     rating: PropTypes.number,
-//   }),
-//   company: PropTypes.shape({
-//     id: PropTypes.number,
-//     avatar: PropTypes.string,
-//     name: PropTypes.string,
-//     specialization: PropTypes.string,
-//     contacts: PropTypes.arrayOf(PropTypes.shape({
-//       type: PropTypes.string,
-//       url: PropTypes.string,
-//     })),
-//     rating: PropTypes.number,
-//   }),
-//   tags: PropTypes.arrayOf(PropTypes.string),
-//   content: PropTypes.string,
-//   viewsCount: PropTypes.number,
-//   favoritesCount: PropTypes.number,
-//   isTeaser: PropTypes.bool,
-// }
 
 const Post = ({ id, title }) => (<div>{id} - {title}</div>)
 
+Post.propTypes = {
+  id: PropTypes.number,
+  published: PropTypes.string,
+  flow: PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+  }),
+  hubs: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+  })).isRequired,
+  title: PropTypes.string,
+  isDraft: PropTypes.bool,
+  author: PropTypes.shape({
+    id: PropTypes.number,
+    nick: PropTypes.string,
+    name: PropTypes.string,
+    specialization: PropTypes.string,
+    contacts: PropTypes.arrayOf(PropTypes.shape({
+      type: PropTypes.string,
+      url: PropTypes.string,
+    })),
+    votingCounter: PropTypes.number,
+    karma: PropTypes.number,
+    rating: PropTypes.number,
+  }),
+  company: PropTypes.shape({
+    id: PropTypes.number,
+    avatar: PropTypes.string,
+    name: PropTypes.string,
+    specialization: PropTypes.string,
+    contacts: PropTypes.arrayOf(PropTypes.shape({
+      type: PropTypes.string,
+      url: PropTypes.string,
+    })),
+    rating: PropTypes.number,
+  }),
+  tags: PropTypes.arrayOf(PropTypes.string),
+  content: PropTypes.string,
+  viewsCount: PropTypes.number,
+  favoritesCount: PropTypes.number,
+  isTeaser: PropTypes.bool,
+}
+
+export { default as PostPage } from './PostPage'
 export { default as PostListPage } from './PostListPage'
 export default Post

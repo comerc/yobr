@@ -1,103 +1,92 @@
 import React, { PropTypes } from 'react'
-import { actions } from 'ducks/posts'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { createSelector } from 'reselect'
+import { actions } from 'ducks/posts'
+import Page, { Header, Footer } from 'components/Page'
+import Helmet from 'react-helmet'
+
 import Post from './Post'
 // import PostAdd from './PostAdd'
-// import Link from './Link'
 
 class PostListPage extends React.Component {
   componentDidMount() {
-    const { dispatch, filterType, filteredId } = this.props
-    dispatch(actions.read({ filterType, filteredId }))
+    const { read, filterType, filteredId } = this.props
+    read({ filterType, filteredId })
   }
   render() {
     const { posts } = this.props
     return (
-      <div>
+      <Page>
+        <Helmet
+          defaultTitle="Yobr"
+        />
+        <Header>Header
+          {/* <div className="flows">
+            <ul>
+              {Object.keys(flows).map(key =>
+                <li key={key}>
+                  <Link to={`/flows/${key}`}>{flows[key].name}</Link>
+                </li>
+              )}
+            </ul>
+          </div> */}
+        </Header>
+        {/* <PostAdd/> */}
         <div className="main">
-          {posts.map((post) => (
-            <Post key={post.id} {...post} isTeaser />
-          ))}
+          {posts.map(post => <Post key={post.id} {...post} isTeaser />)}
         </div>
-
-      </div>
+        <Footer>Footer</Footer>
+      </Page>
     )
   }
 }
 
-// class PostListPage extends React.Component {
-//
-//
-//   render() {
-//     const { posts } = this.props
-//     return (
-//       <div>
-//         {/* <PostAdd/> */}
-//         {/* <div className={s.links}>
-//           <Link to="/post/add">Добавить</Link>
-//           <span> | </span>
-//           <Link to="/feedback">Обратная связь</Link>
-//         </div> */}
-//         {/* <div className={s.flows}>
-//           <ul>
-//             {Object.keys(flows).map(key =>
-//               <li key={key}>
-//                 <Link to={`/flows/${key}`}>{flows[key].name}</Link>
-//               </li>
-//             )}
-//           </ul>
-//         </div> */}
-//         <div className="main">
-//           {posts.map((post) => (
-//             // <Post key={post.id} {...post} isTeaser />
-//             <div key={post.id}>{...post}</div>
-//           ))}
-//         </div>
-//       </div>
-//     )
-//   }
-// }
+PostListPage.propTypes = {
+  filterType: PropTypes.string,
+  filterId: PropTypes.string,
+  posts: PropTypes.arrayOf(PropTypes.object),
+  flows: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+  })),
+  read: PropTypes.func,
+}
 
-// PostListPage.propTypes = {
-//   filterType: PropTypes.string,
-//   filterId: PropTypes.string,
-//   // posts: PropTypes.arrayOf(PropTypes.shape(Post.propTypes)),
-//   // flows: PropTypes.arrayOf(PropTypes.shape({
-//   //   id: PropTypes.string,
-//   //   name: PropTypes.string,
-//   // })),
-// }
-//
-// const getFilterType = (state, ownProps) =>
-//   ownProps.filterType
-//
-// const getFilterId = (state, ownProps) =>
-//   ownProps.filterId
-//
-// const getPosts = (state) =>
-//   state.posts
-//
-// const filteredPosts = createSelector(
-//   [getPosts, getFilterType, getFilterId],
-//   (posts, filterType, filterId) => {
-//     if (filterType === 'flow') {
-//       return posts.filter(element =>
-//         element.flow.id === filterId)
-//     }
-//     if (filterType === 'hub') {
-//       return []
-//     }
-//     if (filterType === 'all') {
-//       return posts
-//     }
-//     return []
-//   }
-// )
-//
-const mapStateToProps = (state, ownProps) => ({
-  // posts: filteredPosts(state, ownProps)
-  posts: state.posts
+const getFilterType = (state, props) =>
+  props.match.params.filterType
+
+const getFilterId = (state, props) =>
+  props.match.params.filterId
+
+const getPosts = (state) =>
+  state.posts
+
+const filteredPosts = createSelector(
+  [getPosts, getFilterType, getFilterId],
+  (posts, filterType, filterId) => {
+    if (filterType === 'flow') {
+      return posts.filter(element =>
+        element.flow.id === filterId)
+    }
+    if (filterType === 'hub') {
+      return []
+    }
+    return posts
+  }
+)
+
+const mapStateToProps = (state, props) => ({
+  filterType: getFilterType(state, props),
+  filterId: getFilterId(state, props),
+  posts: filteredPosts(state, props),
+  flows: state.flows,
 })
 
-export default connect(mapStateToProps)(PostListPage)
+const mapDispatchToProps = (dispatch) => {
+  const { read } = actions
+  return bindActionCreators({ read }, dispatch)
+}
+
+export { PostListPage } // тупой компонент для тестирования
+export default connect(mapStateToProps, mapDispatchToProps)(PostListPage)

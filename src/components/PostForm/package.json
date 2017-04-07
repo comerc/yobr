@@ -2,5 +2,8 @@
   "name": "PostForm",
   "version": "0.0.0",
   "private": true,
-  "main": "./PostForm.js"
+  "main": "./PostForm.js",
+  "moduleRoots": [
+    "../.."
+  ]
 }
