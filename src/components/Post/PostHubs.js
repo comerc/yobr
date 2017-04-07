@@ -3,20 +3,14 @@ import cx from 'classnames'
 import { ga } from 'utils'
 import { Link } from 'react-router-dom'
 
-const onClick = (hub) => (event) => {
-  event.preventDefault()
-  alert(event.target.href)
-  ga('hub', 'feed page', hub.name)
-}
-
 const PostHubs = ({ hubs }) => (
   <ul>
     {hubs.map(hub =>
       <li key={hub.id}>
         <Link
-          to={`/post/hub/${hub.id}/`}
+          to={`/hub/${hub.id}/`}
           title={hub.isSubscribed ? 'Вы подписаны на этот хаб' : 'Вы не подписаны на этот хаб'}
-          onClick={onClick(hub)}
+          onClick={ga('hub', 'feed page', hub.name)}
           className={cx({ 'subscribed': hub.isSubscribed })}
         >{hub.name}</Link>
         {hub.isProfiled && <span className="profiled" title="Профильный хаб">*</span>}

@@ -8,10 +8,10 @@ import { PostPage, PostListPage } from 'components/Post'
 
 export default (
   <Switch>
-    <Route exact path="/"><Redirect to="/all"/></Route>
-    <Route exact path="/all" component={PostListPage} />
-    <Route exact path="/:filterType(flow|hub)/:filteredId" component={PostListPage} />
-    <Route exact path="/post/:id(\d+)" component={PostPage} />
+    <Route exact path="/"><Redirect to="/all/"/></Route>
+    <Route exact path="/all/" component={PostListPage} />
+    <Route exact path="/:filterType(flow|hub)/:filterId/" component={PostListPage} />
+    <Route exact path="/post/:id(\d+)/" component={PostPage} />
     <Route component={NotFoundPage}/>
   </Switch>
   //

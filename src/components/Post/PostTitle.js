@@ -7,7 +7,7 @@ const PostTitle = ({ isTeaser, flow, id, title, isDraft }) => (
     <h1>
       {isTeaser ?
         <span>
-          <Link className="flow" to={`/post/flow/${flow.id}/`} onClick={ga('flow', 'feed page', flow.name)}>{flow.name}</Link>
+          <Link className="flow" to={`/flow/${flow.id}/`} onClick={ga('flow', 'feed page', flow.name)}>{flow.name}</Link>
           <span className="arrow"> → </span>
           <Link className="link" to={`/post/${id}/`}>{title}</Link>
         </span>
@@ -15,7 +15,7 @@ const PostTitle = ({ isTeaser, flow, id, title, isDraft }) => (
         {title}
       }
       {isDraft && <sup>&nbsp;*&nbsp;черновик</sup>}
-      <sup>&nbsp;<Link className="link" to={`/post/${id}/edit`}>edit</Link></sup>
+      <sup>&nbsp;<Link className="link" to={`/post/edit/${id}/`}>edit</Link></sup>
     </h1>
   </div>
 )

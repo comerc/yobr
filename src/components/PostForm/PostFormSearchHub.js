@@ -7,7 +7,7 @@ const onNewRequest = (input, hubs, sourceHubs, isValidate) => (chosenRequest, in
   if (index === -1) {
   } else {
     const hub = sourceHubs[index]
-    if (hubs.find(element => element.id === hub.id) === void 0) {
+    if (!hubs.find(element => element.id === hub.id)) {
       hubs = hubs.slice()
       hubs.push(hub)
       input({ key: 'hubs', value: hubs })

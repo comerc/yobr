@@ -15,7 +15,7 @@ class PostPage extends React.Component {
   }
   render() {
     const { isLoading, post } = this.props
-    if (!isLoading && post === void 0) {
+    if (!isLoading && !post) {
       return <NotFoundPage />
     }
     return (

@@ -26,11 +26,12 @@ class PostListPage extends React.Component {
             <ul>
               {Object.keys(flows).map(key =>
                 <li key={key}>
-                  <Link to={`/flows/${key}`}>{flows[key].name}</Link>
+                  <Link to={`/flows/${key}/`}>{flows[key].name}</Link>
                 </li>
               )}
             </ul>
           </div> */}
+          {/* <div class="selected-hub"></div> */}
         </Header>
         {/* <PostAdd/> */}
         {isLoading
@@ -76,7 +77,9 @@ const filteredPosts = createSelector(
         element.flow.id === filterId)
     }
     if (filterType === 'hub') {
-      return []
+      return posts.filter(post =>
+        post.hubs.find(hub => hub.id === filterId)
+      )
     }
     return posts
   }

@@ -5,7 +5,7 @@ import { pureComponent } from 'app/utils'
 
 const PostAdd = () => (
   <div>
-    <FloatingActionButton mini={true} href="/post/add">
+    <FloatingActionButton mini={true} href="/post/add/">
       <ContentAdd />
     </FloatingActionButton>
   </div>
