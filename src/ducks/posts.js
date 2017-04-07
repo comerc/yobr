@@ -72,7 +72,6 @@ const initialState = []
 const reducer = createReducer({
   [set]: (state, posts) => posts.slice(),
   [setPost]: (state, post) => {
-    console.log(state)
     const posts = state.slice()
     const index = posts.findIndex(element => element.id === post.id)
     if (index > -1) {

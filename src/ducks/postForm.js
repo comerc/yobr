@@ -42,7 +42,6 @@ const read = id => (dispatch, getState) => {
   dispatch(appActions.setLoading(true))
   dispatch(reset())
   const state = getState()
-  console.log('getState', state)
   const posts = state.posts
   const post = posts.find(element => element.id === id)
   if (post) {
@@ -94,7 +93,9 @@ const save = () => (dispatch, getState) => {
     dispatch(appActions.setMainError('Исправьте ошибки в форме'))
     return
   }
-  dispatch(appActions.setMainError())
+  if (state.app.mainError) {
+    dispatch(appActions.setMainError())
+  }
   dispatch(setSubmitting(true))
   const clearPost = ({ searchHub, errors, isSubmitting, ...result }) => result
   fetch('http://localhost:9000/api/post/', {
@@ -108,7 +109,6 @@ const save = () => (dispatch, getState) => {
       return response.json()
     })
     .then(post => {
-      console.log(post)
       dispatch(postsActions.setPost(post))
       dispatch(setSubmitting(false))
       dispatch(push(`/post/${post.id}/`))
