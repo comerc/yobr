@@ -4,6 +4,8 @@ import { createSelector } from 'reselect'
 import { bindActionCreators } from 'redux'
 import { actions } from 'ducks/posts'
 import Post from './Post'
+import Page, { Header, Footer } from 'components/Page'
+import Helmet from 'react-helmet'
 
 class PostPage extends React.Component {
   componentDidMount() {
@@ -12,7 +14,16 @@ class PostPage extends React.Component {
   }
   render() {
     const { post } = this.props
-    return <Post {...post} />
+    return (
+      <Page>
+        <Helmet
+          defaultTitle="Yobr"
+        />
+        <Header>Header</Header>
+        <Post {...post} />
+        <Footer>Footer</Footer>
+      </Page>
+    )
   }
 }
 
