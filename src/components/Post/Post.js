@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { pureComponent } from 'utils'
 import PostHeader from './PostHeader'
 import PostBody from './PostBody'
 import PostReadMore from './PostReadMore'
@@ -72,4 +73,4 @@ Post.propTypes = {
 
 export { default as PostPage } from './PostPage'
 export { default as PostListPage } from './PostListPage'
-export default Post
+export default pureComponent(Post)
