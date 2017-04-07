@@ -3,9 +3,8 @@ import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 import { bindActionCreators } from 'redux'
 import { actions } from 'ducks/posts'
-import Page, { Header, Footer } from 'components/Page'
+import Page, { Header, Footer, NotFoundPage } from 'components/Page'
 import Helmet from 'react-helmet'
-import { NotFoundPage } from 'components/Page'
 
 import Post from './Post'
 
@@ -22,7 +21,7 @@ class PostPage extends React.Component {
     return (
       <Page>
         <Helmet
-          defaultTitle="Yobr"
+          title="Yobr"
         />
         <Header>Header</Header>
         {isLoading

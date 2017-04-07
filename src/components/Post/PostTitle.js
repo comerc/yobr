@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
-import { ga } from 'app/utils'
-import Link from 'next/link'
+import { ga } from 'utils'
+import { Link } from 'react-router-dom'
 
 const PostTitle = ({ isTeaser, flow, id, title, isDraft }) => (
   <div>

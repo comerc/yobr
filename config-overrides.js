@@ -1,15 +1,15 @@
 const babelLoader = function (conf) {
-  return conf.loader === 'babel';
-};
+  return conf.loader === 'babel'
+}
 
 function rewire(config, env) {
-  const babelrc = config.module.loaders.find(babelLoader).query;
+  const babelrc = config.module.loaders.find(babelLoader).query
   babelrc.plugins = [
     'styled-jsx/babel',
     ['module-resolver', { 'root': ['src'] }],
-  ].concat(babelrc.plugins || []);
+  ].concat(babelrc.plugins || [])
 
-  return config;
+  return config
 }
 
-module.exports = rewire;
+module.exports = rewire

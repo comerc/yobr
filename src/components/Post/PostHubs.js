@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import cx from 'classnames'
-import { ga } from 'app/utils'
-import Link from 'next/link'
+import { ga } from 'utils'
+import { Link } from 'react-router-dom'
 
 const onClick = (hub) => (event) => {
   event.preventDefault()

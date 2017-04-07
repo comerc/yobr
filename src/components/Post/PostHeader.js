@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { formatDateTime } from 'app/utils'
+import { formatDateTime } from 'utils'
 import PostTitle from './PostTitle'
 import PostHubs from './PostHubs'
 

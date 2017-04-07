@@ -19,7 +19,7 @@ class PostListPage extends React.Component {
     return (
       <Page>
         <Helmet
-          defaultTitle="Yobr"
+          title="Yobr"
         />
         <Header>Header
           {/* <div className="flows">

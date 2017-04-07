@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "body-parser": "^1.17.1",
+    "classnames": "^2.2.5",
     "isomorphic-fetch": "^2.2.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",

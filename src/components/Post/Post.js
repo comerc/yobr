@@ -1,32 +1,30 @@
 import React, { PropTypes } from 'react'
-// import { connect } from 'react-redux'
-// import { createSelector } from 'reselect'
-// import PostHeader from './PostHeader'
-// import PostBody from './PostBody'
-// import PostReadMore from './PostReadMore'
-// import PostTags from './PostTags'
-// import PostInfoPanel from './PostInfoPanel'
-//
-// const Post = ({ id, published, flow, hubs, title, isDraft,
-//   author, company, tags, content, viewsCount, favoritesCount, isTeaser }) => (
-//   <div>
-//     <PostHeader isTeaser {...{ id, published, flow, hubs, title, isDraft }} />
-//     <PostBody isTeaser {...{ content }}>
-//       {isTeaser
-//         ?
-//         <PostReadMore {...{ id }} />
-//         :
-//         <PostTags {...{ tags }} />
-//       }
-//     </PostBody>
-//     <div className="footer">
-//       <PostInfoPanel isTeaser {...{ id, author, viewsCount, favoritesCount }} />
-//     </div>
-//     <br/>
-//   </div>
-// )
+import PostHeader from './PostHeader'
+import PostBody from './PostBody'
+import PostReadMore from './PostReadMore'
+import PostTags from './PostTags'
+import PostInfoPanel from './PostInfoPanel'
 
-const Post = ({ id, title }) => (<div>{id} - {title}</div>)
+const Post = ({ id, published, flow, hubs, title, isDraft,
+  author, company, tags, content, viewsCount, favoritesCount, isTeaser }) => (
+  <div>
+    <PostHeader isTeaser {...{ id, published, flow, hubs, title, isDraft }} />
+    <PostBody isTeaser {...{ content }}>
+      {isTeaser
+        ?
+        <PostReadMore {...{ id }} />
+        :
+        <PostTags {...{ tags }} />
+      }
+    </PostBody>
+    <div className="footer">
+      <PostInfoPanel isTeaser {...{ id, author, viewsCount, favoritesCount }} />
+    </div>
+    <br/>
+  </div>
+)
+
+// const Post = ({ id, title }) => (<div>{id} - {title}</div>)
 
 Post.propTypes = {
   id: PropTypes.number,
@@ -65,7 +63,7 @@ Post.propTypes = {
     })),
     rating: PropTypes.number,
   }),
-  tags: PropTypes.arrayOf(PropTypes.string),
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   content: PropTypes.string,
   viewsCount: PropTypes.number,
   favoritesCount: PropTypes.number,
