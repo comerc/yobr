@@ -18,7 +18,7 @@ export const pureComponent = (fn) => {
 // для обработчиков вложенных компонентов, но не для обработчиков PureComponent
 
 export const handleCheck = (key, input) => (event, isInputChecked) => {
-  input({ key, value: !isInputChecked })
+  input({ key, value: isInputChecked })
 }
 
 export const handleChange = (key, input, isValidate) => (event, newValue) => {
@@ -29,9 +29,9 @@ export const handleSelectFieldChange = (key, input, options, isValidate) => (eve
   input({ key, value: options[index], isValidate })
 }
 
-export const handleSubmit = (isLoading, save) => (event) => {
+export const handleSubmit = (isSubmitting, save) => (event) => {
   event.preventDefault()
-  if (!isLoading) {
+  if (!isSubmitting) {
     save()
   }
 }

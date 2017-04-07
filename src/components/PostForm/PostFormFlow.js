@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
-import { handleSelectFieldChange, pureComponent } from 'app/utils'
+import { handleSelectFieldChange, pureComponent } from 'utils'
 
 const PostFormFlow = ({ flowId, sourceFlows, input, error }) => (
   <SelectField

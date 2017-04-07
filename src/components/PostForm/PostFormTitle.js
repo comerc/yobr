@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import TextField from 'material-ui/TextField'
-import { handleChange, pureComponent } from 'app/utils'
-import { POST_FORM_TITLE_MAX } from 'app/consts'
+import { handleChange, pureComponent } from 'utils'
+import { POST_FORM_TITLE_MAX } from 'consts'
 
 const hintStyle = { whiteSpace: 'nowrap', textOverflow: 'ellipsis' }
 

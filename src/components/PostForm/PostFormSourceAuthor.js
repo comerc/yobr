@@ -1,22 +1,18 @@
 import React, { PropTypes } from 'react'
 import TextField from 'material-ui/TextField'
-import { handleChange, pureComponent } from 'app/utils'
+import { handleChange, pureComponent } from 'utils'
 
 const PostFormSourceAuthor = ({ sourceAuthor, isTranslation, input, error }) => (
-  <div className={s.root}>
-    <div className={s.container}>
-      <TextField
-        id="PostFormSourceAuthor"
-        floatingLabelText="Автор оригинального текста"
-        hintText="Например, Tim O'Reily"
-        value={sourceAuthor}
-        errorText={error}
-        onChange={handleChange('sourceAuthor', input, !!error)}
-        fullWidth={true}
-        disabled={!isTranslation}
-      />
-    </div>
-  </div>
+  <TextField
+    id="PostFormSourceAuthor"
+    floatingLabelText="Автор оригинального текста"
+    hintText="Например, Tim O'Reily"
+    value={sourceAuthor}
+    errorText={error}
+    onChange={handleChange('sourceAuthor', input, !!error)}
+    fullWidth={true}
+    disabled={!isTranslation}
+  />
 )
 
 PostFormSourceAuthor.propTypes = {

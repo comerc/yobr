@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import Chip from 'material-ui/Chip'
-import { pureComponent } from 'app/utils'
+import { pureComponent } from 'utils'
 
 const chipStyle = {
   margin: 4

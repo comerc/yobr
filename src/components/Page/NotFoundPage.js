@@ -7,7 +7,7 @@ import logo from 'resources/logo.svg'
 const NotFoundPage = () => (
   <div className="not-found">
     <Helmet
-      defaultTitle="YOBR"
+      title="Yobr"
     />
     <div className="logo">
       <Link to="/" title="На главную страницу"><img alt="logo" src={logo} /></Link>
@@ -21,7 +21,7 @@ const NotFoundPage = () => (
       body {
         margin: 0;
         padding: 0;
-        font-family: sans-serif;
+        font-family: 'Roboto', sans-serif;
         overflow: hidden;
       }
       div#root {

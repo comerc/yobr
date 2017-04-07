@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import Checkbox from 'material-ui/Checkbox'
-import { handleCheck, pureComponent } from 'app/utils'
+import { handleCheck, pureComponent } from 'utils'
 
 const PostFormIsTutorial = ({ isTutorial, input }) => (
   <Checkbox

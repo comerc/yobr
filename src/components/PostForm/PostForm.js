@@ -2,8 +2,7 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actions } from 'ducks/postForm'
-import { handleSubmit } from 'app/utils'
-import Link from 'next/link'
+import { handleSubmit } from 'utils'
 import PostFormIsTutorial from './PostFormIsTutorial'
 import PostFormFlow from './PostFormFlow'
 import PostFormTitle from './PostFormTitle'
@@ -28,12 +27,11 @@ import PostFormSubmit from './PostFormSubmit'
 
 const PostForm = ({
   id, flow, title, content, hubs, isTranslation, sourceAuthor, sourceLink,
-  isTutorial, searchHub, sourceFlows, sourceHubs, errors, isLoading, mainError,
+  isTutorial, searchHub, sourceFlows, sourceHubs, errors, isSubmitting, mainError,
   input, save
 }) => (
   <div>
-    <h1>{!!id ? 'Редактирование публикации' : 'Хочу разместить публикацию'}</h1>
-    <form onSubmit={handleSubmit(isLoading, save)} autoComplete="off">
+    <form onSubmit={handleSubmit(isSubmitting, save)} autoComplete="off">
       <PostFormIsTutorial {...{ isTutorial, input }} />
       <PostFormFlow {...{ flowId: flow.id, sourceFlows, input, error: errors.flow }} />
       <PostFormTitle {...{ title, input, error: errors.title }} />
@@ -43,7 +41,7 @@ const PostForm = ({
       <PostFormIsTranslation {...{ isTranslation, input }} />
       <PostFormSourceAuthor {...{ sourceAuthor, isTranslation, input, error: errors.sourceAuthor }} />
       <PostFormSourceLink {...{ sourceLink, isTranslation, input, error: errors.sourceLink }} />
-      <PostFormSubmit {...{ isLoading }} />
+      <PostFormSubmit {...{ isSubmitting }} />
     </form>
     <br/>
     {!!mainError && <div>{mainError}</div>}
@@ -69,7 +67,7 @@ PostForm.propTypes = {
   sourceLink: PropTypes.string,
   isTutorial: PropTypes.bool,
   errors: PropTypes.object,
-  isLoading: PropTypes.bool,
+  isSubmitting: PropTypes.bool,
   mainError: PropTypes.string,
   sourceFlows: PropTypes.arrayOf(
     PropTypes.shape({
@@ -88,13 +86,12 @@ PostForm.propTypes = {
   save: PropTypes.func,
 }
 
-// выполняю приведение типа для undefined значений булевых props
-
 const mapStateToProps = (state) => ({
   ...state.postForm,
+  // выполняю приведение типа для undefined значений булевых props
   isTranslation: !!state.postForm.isTranslation,
   isTutorial: !!state.postForm.isTutorial,
-  isLoading: state.app.isLoading,
+  isSubmitting: state.isSubmitting,
   mainError: state.app.mainError,
   sourceFlows: state.flows,
   sourceHubs: state.hubs,
@@ -105,4 +102,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ input, save }, dispatch)
 }
 
+export { default as PostFormAddPage } from './PostFormAddPage'
+export { default as PostFormEditPage } from './PostFormEditPage'
+export { PostForm } // тупой компонент для тестирования
 export default connect(mapStateToProps, mapDispatchToProps)(PostForm)

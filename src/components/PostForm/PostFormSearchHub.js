@@ -1,11 +1,10 @@
 import React, { PropTypes } from 'react'
 import AutoComplete from 'material-ui/AutoComplete'
-import { pureComponent } from 'app/utils'
-import { POST_FORM_HUBS_MAX } from 'app/consts'
+import { pureComponent } from 'utils'
+import { POST_FORM_HUBS_MAX } from 'consts'
 
 const onNewRequest = (input, hubs, sourceHubs, isValidate) => (chosenRequest, index) => {
-  if (index === -1) {
-  } else {
+  if (index > -1) {
     const hub = sourceHubs[index]
     if (!hubs.find(element => element.id === hub.id)) {
       hubs = hubs.slice()

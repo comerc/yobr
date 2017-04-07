@@ -5,13 +5,14 @@ import { bindActionCreators } from 'redux'
 import { actions } from 'ducks/posts'
 import Page, { Header, Footer, NotFoundPage } from 'components/Page'
 import Helmet from 'react-helmet'
-
 import Post from './Post'
 
 class PostPage extends React.Component {
   componentDidMount() {
-    const { read, id } = this.props
-    read({ id })
+    const { post, readPost, id } = this.props
+    if (!post) {
+      readPost(id)
+    }
   }
   render() {
     const { isLoading, post } = this.props
@@ -40,7 +41,7 @@ PostPage.propTypes = {
   isLoading: PropTypes.bool,
   id: PropTypes.number,
   post: PropTypes.object,
-  read: PropTypes.func,
+  readPost: PropTypes.func,
 }
 
 const getId = (state, props) =>
@@ -63,8 +64,8 @@ const mapStateToProps = (state, props) => ({
 })
 
 const mapDispatchToProps = (dispatch) => {
-  const { read } = actions
-  return bindActionCreators({ read }, dispatch)
+  const { readPost } = actions
+  return bindActionCreators({ readPost }, dispatch)
 }
 
 export { PostPage } // тупой компонент для тестирования

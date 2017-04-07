@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import TextField from 'material-ui/TextField'
-import { handleChange, pureComponent } from 'app/utils'
+import { handleChange, pureComponent } from 'utils'
 
 const hintStyle = { whiteSpace: 'nowrap', textOverflow: 'ellipsis' }
 
