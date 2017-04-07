@@ -26,8 +26,10 @@ class PostPage extends React.Component {
         />
         <Header>Header</Header>
         {isLoading
-          ? <div>Загрузка...</div>
-          : <Post {...post} />
+          ?
+            <div>Загрузка...</div>
+          :
+            <Post {...post} />
         }
         <Footer>Footer</Footer>
       </Page>

@@ -15,7 +15,7 @@ class PostListPage extends React.Component {
     read({ filterType, filteredId })
   }
   render() {
-    const { posts } = this.props
+    const { isLoading, posts } = this.props
     return (
       <Page>
         <Helmet
@@ -33,9 +33,14 @@ class PostListPage extends React.Component {
           </div> */}
         </Header>
         {/* <PostAdd/> */}
-        <div className="main">
-          {posts.map(post => <Post key={post.id} {...post} isTeaser />)}
-        </div>
+        {isLoading
+          ?
+            <div>Загрузка...</div>
+          :
+            <div className="main">
+              {posts.map(post => <Post key={post.id} {...post} isTeaser />)}
+            </div>
+        }
         <Footer>Footer</Footer>
       </Page>
     )
@@ -43,6 +48,7 @@ class PostListPage extends React.Component {
 }
 
 PostListPage.propTypes = {
+  isLoading: PropTypes.bool,
   filterType: PropTypes.string,
   filterId: PropTypes.string,
   posts: PropTypes.arrayOf(PropTypes.object),
@@ -77,6 +83,7 @@ const filteredPosts = createSelector(
 )
 
 const mapStateToProps = (state, props) => ({
+  isLoading: state.app.isLoading,
   filterType: getFilterType(state, props),
   filterId: getFilterId(state, props),
   posts: filteredPosts(state, props),

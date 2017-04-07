@@ -7,9 +7,9 @@ const NS = '@@posts/'
 const set = createAction(`${NS}SET`)
 
 const read = () => (dispatch) => {
-  dispatch(appActions.setLoading(true))
   let isTimeout = false
   let isFetch = false
+  dispatch(appActions.setLoading(true))
   setTimeout(() => {
     isTimeout = true
     if (isFetch) {
