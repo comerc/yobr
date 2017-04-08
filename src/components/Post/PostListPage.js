@@ -16,11 +16,18 @@ class PostListPage extends React.Component {
       read({ filterType, filteredId })
     )
   }
+  renderPostList = () => {
+    const { posts, currentUserId } = this.props
+    return posts.map(post => {
+      post.isEdit = post.author.id === currentUserId
+      return <Post key={post.id} {...post} isTeaser />
+    })
+  }
   render() {
     if (!this._isMounted) {
       return null
     }
-    const { isLoading, posts } = this.props
+    const { isLoading } = this.props
     return (
       <Page>
         <Helmet
@@ -44,7 +51,7 @@ class PostListPage extends React.Component {
             <div>Загрузка...</div>
           :
             <div className="main">
-              {posts.map(post => <Post key={post.id} {...post} isTeaser />)}
+              {this.renderPostList()}
             </div>
         }
         <Footer>Footer</Footer>
@@ -62,6 +69,7 @@ PostListPage.propTypes = {
     id: PropTypes.string,
     name: PropTypes.string,
   })),
+  currentUserId: PropTypes.number,
   read: PropTypes.func,
 }
 
@@ -96,6 +104,7 @@ const mapStateToProps = (state, props) => ({
   filterId: getFilterId(state, props),
   posts: filteredPosts(state, props),
   flows: state.flows,
+  currentUserId: state.currentUser.id,
 })
 
 const mapDispatchToProps = (dispatch) => {

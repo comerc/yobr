@@ -47,25 +47,7 @@ const read = id => (dispatch, getState) => {
     })
 }
 
-const initialState = {
-  // id: null,
-  // flow: {
-  //   id: null,
-  //   name: ''
-  // },
-  // title: '',
-  // content: '',
-  // hubs: [],
-  // isTranslation: false,
-  // sourceAuthor: '',
-  // sourceLink: '',
-  // isTutorial: false,
-  // isDraft: false,
-  // published: '',
-  // author: null,
-  // viewsCount: 0,
-  // favoritesCount: 0,
-}
+const initialState = {}
 
 const reducer = createReducer({
   [reset]: () => ({ ...initialState }),

@@ -47,10 +47,13 @@ PostViewPage.propTypes = {
   read: PropTypes.func,
 }
 
+const isEdit = (state) =>
+  state.postView.author && state.postView.author.id === state.currentUser.id
+
 const mapStateToProps = (state, props) => ({
   isLoading: state.app.isLoading,
   id: parseInt(props.match.params.id, 10),
-  post: state.postView,
+  post: { ...state.postView, isEdit: isEdit(state) },
 })
 
 const mapDispatchToProps = (dispatch) => {

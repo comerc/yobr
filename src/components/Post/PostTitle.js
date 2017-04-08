@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { ga } from 'utils'
 import { Link } from 'react-router-dom'
 
-const PostTitle = ({ isTeaser, flow, id, title, isDraft }) => (
+const PostTitle = ({ isTeaser, flow, id, title, isDraft, isEdit }) => (
   <div>
     <h1>
       {isTeaser ?
@@ -15,7 +15,7 @@ const PostTitle = ({ isTeaser, flow, id, title, isDraft }) => (
         {title}
       }
       {isDraft && <sup>&nbsp;*&nbsp;черновик</sup>}
-      <sup>&nbsp;<Link className="link" to={`/post/edit/${id}/`}>edit</Link></sup>
+      {isEdit && <sup>&nbsp;<Link className="link" to={`/post/edit/${id}/`}>edit</Link></sup>}
     </h1>
   </div>
 )
@@ -29,6 +29,7 @@ PostTitle.propTypes = {
   id: PropTypes.number,
   title: PropTypes.string,
   isDraft: PropTypes.bool,
+  isEdit: PropTypes.bool,
 }
 
 export default PostTitle

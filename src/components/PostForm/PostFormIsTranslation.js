@@ -5,7 +5,6 @@ import { pureComponent } from 'utils'
 const onToggle = (input) => (event, isInputChecked) => {
   input({ key: 'isTranslation', value: isInputChecked })
   if (!isInputChecked) {
-    console.info('isInputChecked')
     input({ key: 'sourceAuthor', value: '', isValidate: true })
     input({ key: 'sourceLink', value: '', isValidate: true })
   }

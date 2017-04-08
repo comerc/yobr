@@ -6,10 +6,10 @@ import PostReadMore from './PostReadMore'
 import PostTags from './PostTags'
 import PostInfoPanel from './PostInfoPanel'
 
-const Post = ({ id, published, flow, hubs, title, isDraft,
+const Post = ({ id, published, flow, hubs, title, isDraft, isEdit,
   author, company, tags, content, viewsCount, favoritesCount, isTeaser }) => (
   <div>
-    <PostHeader isTeaser {...{ id, published, flow, hubs, title, isDraft }} />
+    <PostHeader isTeaser {...{ id, published, flow, hubs, title, isDraft, isEdit }} />
     <PostBody isTeaser {...{ content }}>
       {isTeaser
         ?
@@ -25,8 +25,6 @@ const Post = ({ id, published, flow, hubs, title, isDraft,
   </div>
 )
 
-// const Post = ({ id, title }) => (<div>{id} - {title}</div>)
-
 Post.propTypes = {
   id: PropTypes.number,
   published: PropTypes.string,
@@ -40,6 +38,7 @@ Post.propTypes = {
   })).isRequired,
   title: PropTypes.string,
   isDraft: PropTypes.bool,
+  isEdit: PropTypes.bool,
   author: PropTypes.shape({
     id: PropTypes.number,
     nick: PropTypes.string,
