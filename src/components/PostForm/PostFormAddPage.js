@@ -8,10 +8,16 @@ import PostForm from './PostForm'
 
 class PostFormAddPage extends React.Component {
   componentDidMount() {
+    this._isMounted = true
     const { reset } = this.props
-    reset()
+    setTimeout(() =>
+      reset()
+    )
   }
   render() {
+    if (!this._isMounted) {
+      return null
+    }
     return (
       <Page>
         <Helmet

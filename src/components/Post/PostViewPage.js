@@ -8,10 +8,16 @@ import Post from './Post'
 
 class PostViewPage extends React.Component {
   componentDidMount() {
+    this._isMounted = true
     const { read, id } = this.props
-    read(id)
+    setTimeout(() =>
+      read(id)
+    )
   }
   render() {
+    if (!this._isMounted) {
+      return null
+    }
     const { isLoading, post } = this.props
     if (!isLoading && !post.id) {
       return <NotFoundPage />

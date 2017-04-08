@@ -10,10 +10,16 @@ import Post from './Post'
 
 class PostListPage extends React.Component {
   componentDidMount() {
+    this._isMounted = true
     const { read, filterType, filteredId } = this.props
-    read({ filterType, filteredId })
+    setTimeout(() =>
+      read({ filterType, filteredId })
+    )
   }
   render() {
+    if (!this._isMounted) {
+      return null
+    }
     const { isLoading, posts } = this.props
     return (
       <Page>

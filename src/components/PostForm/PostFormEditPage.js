@@ -8,10 +8,16 @@ import PostForm from './PostForm'
 
 class PostFormEditPage extends React.Component {
   componentDidMount() {
+    this._isMounted = true
     const { read, id } = this.props
-    read(id)
+    setTimeout(() =>
+      read(id)
+    )
   }
   render() {
+    if (!this._isMounted) {
+      return null
+    }
     const { isLoading, isPost } = this.props
     if (!isLoading && !isPost) {
       return <NotFoundPage />
