@@ -13,22 +13,15 @@ class PostListPage extends React.Component {
   componentDidMount() {
     this._isMounted = true
     const { read, filterType, filteredId } = this.props
-    setTimeout(() =>
+    setImmediate(() =>
       read({ filterType, filteredId })
     )
-  }
-  renderPostList = () => {
-    const { posts, currentUserId } = this.props
-    return posts.map(post => {
-      post.isEdit = post.author.id === currentUserId
-      return <Post key={post.id} {...post} isTeaser />
-    })
   }
   render() {
     if (!this._isMounted) {
       return null
     }
-    const { isLoading } = this.props
+    const { isLoading, posts, currentUserId } = this.props
     return (
       <Page>
         <Helmet
@@ -52,7 +45,10 @@ class PostListPage extends React.Component {
             <div>Загрузка...</div>
           :
             <div className="main">
-              {this.renderPostList()}
+              {posts.map(post => {
+                post.isEdit = post.author.id === currentUserId
+                return <Post key={post.id} {...post} isTeaser />
+              })}
             </div>
         }
         <Footer>Footer</Footer>

@@ -11,7 +11,7 @@ class PostViewPage extends React.Component {
   componentDidMount() {
     this._isMounted = true
     const { read, id } = this.props
-    setTimeout(() =>
+    setImmediate(() =>
       read(id)
     )
   }

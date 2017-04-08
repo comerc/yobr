@@ -11,7 +11,7 @@ class PostFormAddPage extends React.Component {
   componentDidMount() {
     this._isMounted = true
     const { reset } = this.props
-    setTimeout(() =>
+    setImmediate(() =>
       reset()
     )
   }
