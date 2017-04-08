@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import AutoComplete from 'material-ui/AutoComplete'
 import { pureComponent } from 'utils'
 import { POST_FORM_HUBS_MAX } from 'consts'
