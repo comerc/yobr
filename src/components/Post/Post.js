@@ -71,6 +71,6 @@ Post.propTypes = {
   isTeaser: PropTypes.bool,
 }
 
-export { default as PostPage } from './PostPage'
+export { default as PostViewPage } from './PostViewPage'
 export { default as PostListPage } from './PostListPage'
 export default pureComponent(Post)

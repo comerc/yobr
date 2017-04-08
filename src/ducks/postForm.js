@@ -38,14 +38,14 @@ const validators = {
 }
 
 const read = id => (dispatch, getState) => {
-  const clearPost = ({ published, author, viewsCount, favoritesCount, ...result }) => result
+  const clearPostForm = ({ published, author, viewsCount, favoritesCount, ...result }) => result
   dispatch(appActions.setLoading(true))
   dispatch(reset())
   const state = getState()
   const posts = state.posts
   const post = posts.find(element => element.id === id)
   if (post) {
-    dispatch(set(clearPost(post)))
+    dispatch(set(clearPostForm(post)))
     dispatch(appActions.setLoading(false))
     return
   }
@@ -63,7 +63,7 @@ const read = id => (dispatch, getState) => {
     })
     .then(post => {
       dispatch(postsActions.setPost(post))
-      dispatch(set(clearPost(post)))
+      dispatch(set(clearPostForm(post)))
       isFetch = true
       if (isTimeout) {
         dispatch(appActions.setLoading(false))
@@ -149,7 +149,7 @@ const initialState = {
   sourceLink: '',
   isTutorial: false,
   isDraft: false,
-
+  // meta data
   searchHub: '',
   errors: {},
   isSubmitting: false,
