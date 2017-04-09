@@ -31,3 +31,7 @@ import MyComponent from 'components/MyComponent'
     "../.."
 }
 ```
+
+### Статьи
+
+[Организация компонентов в React проекте](https://habrahabr.ru/post/326018/)
