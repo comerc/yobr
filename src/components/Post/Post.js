@@ -6,6 +6,8 @@ import PostBody from './PostBody'
 import PostReadMore from './PostReadMore'
 import PostTags from './PostTags'
 import PostInfoPanel from './PostInfoPanel'
+import PostViewPage from './PostViewPage'
+import PostListPage from './PostListPage'
 
 const Post = ({ id, published, flow, hubs, title, isDraft, isEdit,
   author, company, tags, content, viewsCount, favoritesCount, isTeaser }) => (
@@ -71,6 +73,5 @@ Post.propTypes = {
   isTeaser: PropTypes.bool,
 }
 
-export { default as PostViewPage } from './PostViewPage'
-export { default as PostListPage } from './PostListPage'
+export { PostViewPage, PostListPage }
 export default pureComponent(Post)

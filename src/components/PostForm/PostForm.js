@@ -14,6 +14,8 @@ import PostFormIsTranslation from './PostFormIsTranslation'
 import PostFormSourceAuthor from './PostFormSourceAuthor'
 import PostFormSourceLink from './PostFormSourceLink'
 import PostFormSubmit from './PostFormSubmit'
+import PostFormAddPage from './PostFormAddPage'
+import PostFormEditPage from './PostFormEditPage'
 
 // Q: можно ли объявить компонент чистым, если в props - router?
 // A: да, PureComponent применяет неглубокое сравнение
@@ -103,7 +105,6 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ input, save }, dispatch)
 }
 
-export { default as PostFormAddPage } from './PostFormAddPage'
-export { default as PostFormEditPage } from './PostFormEditPage'
+export { PostFormAddPage, PostFormEditPage }
 export { PostForm } // тупой компонент для тестирования
 export default connect(mapStateToProps, mapDispatchToProps)(PostForm)
