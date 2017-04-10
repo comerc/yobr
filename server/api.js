@@ -28,7 +28,7 @@ const currentUser = {
 }
 
 const api = (server) => {
-  server.get('/api/posts/', (req, res) => {
+  server.get('/posts/', (req, res) => {
     pify(fs.readFile)(fileName)
       .then(posts => {
         res.set('Content-Type', 'application/json; charset=utf-8')
@@ -39,7 +39,7 @@ const api = (server) => {
         res.sendStatus(HTTP_ISE)
       })
   })
-  server.get('/api/posts/reset/', (req, res) => {
+  server.get('/posts/reset/', (req, res) => {
     const posts = require('./data/posts')
     pify(fs.writeFile)(fileName, JSON.stringify(posts), 'utf-8')
       .then(() => res.sendStatus(HTTP_CREATED))
@@ -48,7 +48,7 @@ const api = (server) => {
         res.sendStatus(HTTP_ISE)
       })
   })
-  server.get('/api/post/:id(\\d+)', (req, res) => {
+  server.get('/post/:id(\\d+)', (req, res) => {
     const id = parseInt(req.params.id, 10)
     pify(fs.readFile)(fileName)
       .then(JSON.parse)
@@ -65,7 +65,7 @@ const api = (server) => {
         res.sendStatus(HTTP_ISE)
       })
   })
-  server.post('/api/post/', jsonParser, (req, res) => {
+  server.post('/post/', jsonParser, (req, res) => {
     let post = req.body
     if (isEmpty(post)) {
       return res.sendStatus(HTTP_BAD_REQUEST)
