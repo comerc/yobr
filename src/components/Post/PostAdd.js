@@ -2,7 +2,7 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import ContentAdd from 'material-ui/svg-icons/content/add'
-import { pureComponent } from 'app/utils'
+import { pureComponent } from 'utils'
 
 const PostAdd = () => (
   <div>
@@ -12,8 +12,8 @@ const PostAdd = () => (
   </div>
 )
 
-PostAdd.propTypes = {
-
-}
+// PostAdd.propTypes = {
+//
+// }
 
 export default pureComponent(PostAdd)

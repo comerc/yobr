@@ -7,7 +7,7 @@ import { actions } from 'ducks/posts'
 import Page, { Header, Footer } from 'components/Page'
 import Helmet from 'react-helmet'
 import Post from './Post'
-// import PostAdd from './PostAdd'
+import PostAdd from './PostAdd'
 
 class PostListPage extends React.Component {
   componentDidMount() {
@@ -39,12 +39,12 @@ class PostListPage extends React.Component {
           </div> */}
           {/* <div class="selected-hub"></div> */}
         </Header>
-        {/* <PostAdd/> */}
         {isLoading
           ?
             <div>Загрузка...</div>
           :
             <div className="main">
+              <PostAdd/>
               {posts.map(post => {
                 post.isEdit = post.author.id === currentUserId
                 return <Post key={post.id} {...post} isTeaser />

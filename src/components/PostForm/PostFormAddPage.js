@@ -10,9 +10,9 @@ import PostForm from './PostForm'
 class PostFormAddPage extends React.Component {
   componentDidMount() {
     this._isMounted = true
-    const { reset } = this.props
+    const { read } = this.props
     setImmediate(() =>
-      reset()
+      read()
     )
   }
   render() {
@@ -33,15 +33,17 @@ class PostFormAddPage extends React.Component {
 }
 
 PostFormAddPage.propTypes = {
-  reset: PropTypes.func,
+  isLoading: PropTypes.bool,
+  read: PropTypes.func,
 }
 
 const mapStateToProps = (state, props) => ({
+  isLoading: state.app.isLoading
 })
 
 const mapDispatchToProps = (dispatch) => {
-  const { reset } = actions
-  return bindActionCreators({ reset }, dispatch)
+  const { read } = actions
+  return bindActionCreators({ read }, dispatch)
 }
 
 export { PostFormAddPage } // тупой компонент для тестирования
