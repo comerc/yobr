@@ -4,6 +4,7 @@ import { POST_FORM_TITLE_MAX, POST_FORM_HUBS_MAX } from 'consts'
 import isEmpty from 'lodash/isEmpty'
 import { actions as appActions } from './app'
 import { actions as postsActions } from './posts'
+import axios from 'axios'
 
 const NS = '@@post-form/'
 
@@ -41,6 +42,10 @@ const read = id => (dispatch, getState) => {
   const clearPostForm = ({ published, author, viewsCount, favoritesCount, ...result }) => result
   dispatch(appActions.setLoading(true))
   dispatch(reset())
+  if (!id) {
+    dispatch(appActions.setLoading(false))
+    return
+  }
   const state = getState()
   const posts = state.posts
   const post = posts.find(element => element.id === id)
@@ -57,9 +62,9 @@ const read = id => (dispatch, getState) => {
       dispatch(appActions.setLoading(false))
     }
   }, 500) // демонстрировать isLoading не менее 500 мс
-  fetch(`http://localhost:9000/api/post/${id}`)
+  axios(`/post/${id}`)
     .then(response => {
-      return response.json()
+      return response.data
     })
     .then(post => {
       dispatch(postsActions.setPost(post))
@@ -79,6 +84,7 @@ const read = id => (dispatch, getState) => {
 }
 
 const save = () => (dispatch, getState) => {
+  const clearPost = ({ searchHub, errors, isSubmitting, ...result }) => result
   const state = getState()
   const errors = {}
   Object.keys(validators).forEach(key => {
@@ -97,16 +103,9 @@ const save = () => (dispatch, getState) => {
     dispatch(appActions.setMainError())
   }
   dispatch(setSubmitting(true))
-  const clearPost = ({ searchHub, errors, isSubmitting, ...result }) => result
-  fetch('http://localhost:9000/api/post/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(clearPost(state.postForm))
-  })
+  axios.post('/post/', clearPost(state.postForm))
     .then(response => {
-      return response.json()
+      return response.data
     })
     .then(post => {
       dispatch(postsActions.setPost(post))
@@ -167,5 +166,5 @@ const reducer = createReducer({
     ({ ...state, isSubmitting }),
 }, initialState)
 
-export const actions = { reset, read, save, input }
+export const actions = { read, save, input }
 export default reducer

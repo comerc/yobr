@@ -1,6 +1,6 @@
 import { createAction, createReducer } from 'redux-act'
-import 'isomorphic-fetch'
 import { actions as appActions } from './app'
+import axios from 'axios'
 
 const NS = '@@posts/'
 
@@ -17,9 +17,9 @@ const read = () => (dispatch) => {
       dispatch(appActions.setLoading(false))
     }
   }, 500) // демонстрировать isLoading не менее 500 мс
-  fetch('http://localhost:9000/api/posts/')
+  axios('/posts/')
     .then(response => {
-      return response.json()
+      return response.data
     })
     .then(posts => {
       dispatch(set(posts))

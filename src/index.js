@@ -10,6 +10,9 @@ import logger from 'redux-logger'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import FastClick from 'fastclick'
 import injectTapEventPlugin from 'react-tap-event-plugin'
+import 'es6-promise/auto'
+import 'setimmediate'
+import axios from 'axios'
 
 import reducer from 'ducks'
 import routes from 'routes'
@@ -18,6 +21,8 @@ import { actions as appActions } from 'ducks/app'
 const history = createHistory()
 const router = routerMiddleware(history)
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(router, thunk, logger)))
+
+axios.defaults.baseURL = 'http://localhost:9000'
 
 // Make taps on links and buttons work fast on mobiles
 FastClick.attach(document.body)

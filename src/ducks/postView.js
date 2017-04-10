@@ -1,6 +1,7 @@
 import { createAction, createReducer } from 'redux-act'
 import { actions as appActions } from './app'
 import { actions as postsActions } from './posts'
+import axios from 'axios'
 
 const NS = '@@post-view/'
 
@@ -26,9 +27,9 @@ const read = id => (dispatch, getState) => {
       dispatch(appActions.setLoading(false))
     }
   }, 500) // демонстрировать isLoading не менее 500 мс
-  fetch(`http://localhost:9000/api/post/${id}`)
+  axios(`/post/${id}`)
     .then(response => {
-      return response.json()
+      return response.data
     })
     .then(post => {
       dispatch(postsActions.setPost(post))
