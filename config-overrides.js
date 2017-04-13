@@ -7,6 +7,7 @@ function rewire(config, env) {
   babelrc.plugins = [
     'styled-jsx/babel',
     ['module-resolver', { 'root': ['src'] }],
+    'tcomb',
   ].concat(babelrc.plugins || [])
 
   return config
