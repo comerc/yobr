@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actions } from 'ducks/postView'
-import Page, { Header, Footer, NotFoundPage } from 'components/Page'
+import Page, { Header, Footer, NotFound } from 'components/Page'
 import Helmet from 'react-helmet'
 import Post from './Post'
 
@@ -21,7 +21,7 @@ class PostViewPage extends React.Component {
     }
     const { isLoading, post } = this.props
     if (!isLoading && !post.id) {
-      return <NotFoundPage />
+      return <NotFound />
     }
     return (
       <Page>
