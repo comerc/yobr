@@ -10,6 +10,9 @@ function rewire(config, env) {
     'tcomb',
   ].concat(babelrc.plugins || [])
 
+  delete config.eslint.configFile
+  config.eslint.useEslintrc = true
+
   return config
 }
 
