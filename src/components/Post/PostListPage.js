@@ -1,5 +1,5 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { createSelector } from 'reselect'
@@ -8,13 +8,16 @@ import Page, { Header, Footer } from 'components/Page'
 import Helmet from 'react-helmet'
 import Post from './Post'
 import PostAdd from './PostAdd'
+import type { Props as PostProps } from './Post.Props'
 
 class PostListPage extends React.Component {
+  props: Props
+  _isMounted: boolean
   componentDidMount() {
     this._isMounted = true
-    const { read, filterType, filteredId } = this.props
+    const { read, filterType, filterId } = this.props
     setImmediate(() =>
-      read({ filterType, filteredId })
+      read({ filterType, filterId })
     )
   }
   render() {
@@ -47,7 +50,7 @@ class PostListPage extends React.Component {
               <PostAdd/>
               {posts.map(post => {
                 post.isEdit = post.author.id === currentUserId
-                return <Post key={post.id} {...post} isTeaser />
+                return <Post key={post.id} {...post} isTeaser={true} />
               })}
             </div>
         }
@@ -57,17 +60,30 @@ class PostListPage extends React.Component {
   }
 }
 
-PostListPage.propTypes = {
-  isLoading: PropTypes.bool,
-  filterType: PropTypes.string,
-  filterId: PropTypes.string,
-  posts: PropTypes.arrayOf(PropTypes.object),
-  flows: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string,
-  })),
-  currentUserId: PropTypes.number,
-  read: PropTypes.func,
+// PostListPage.propTypes = {
+//   isLoading: PropTypes.bool,
+//   filterType: PropTypes.string,
+//   filterId: PropTypes.string,
+//   posts: PropTypes.arrayOf(PropTypes.object),
+//   flows: PropTypes.arrayOf(PropTypes.shape({
+//     id: PropTypes.string,
+//     name: PropTypes.string,
+//   })),
+//   currentUserId: PropTypes.number,
+//   read: PropTypes.func,
+// }
+
+type Props = {
+  isLoading: boolean,
+  filterType: string,
+  filterId: string,
+  posts: Array<PostProps>,
+  flows: Array<{
+    id: string,
+    name: string,
+  }>,
+  currentUserId: number,
+  read: Function,
 }
 
 const getFilterType = (state, props) =>

@@ -1,13 +1,16 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actions } from 'ducks/postView'
 import Page, { Header, Footer, NotFound } from 'components/Page'
 import Helmet from 'react-helmet'
 import Post from './Post'
+import type { Props as PostProps } from './Post.Props'
 
 class PostViewPage extends React.Component {
+  props: Props
+  _isMounted: boolean
   componentDidMount() {
     this._isMounted = true
     const { read, id } = this.props
@@ -41,11 +44,18 @@ class PostViewPage extends React.Component {
   }
 }
 
-PostViewPage.propTypes = {
-  isLoading: PropTypes.bool,
-  id: PropTypes.number,
-  post: PropTypes.object,
-  read: PropTypes.func,
+// PostViewPage.propTypes = {
+//   isLoading: PropTypes.bool,
+//   id: PropTypes.number,
+//   post: PropTypes.object,
+//   read: PropTypes.func,
+// }
+
+type Props = {
+  isLoading: boolean,
+  id: number,
+  post: PostProps,
+  read: Function,
 }
 
 const isEdit = (state) =>

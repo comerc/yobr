@@ -1,16 +1,17 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import { pureComponent } from 'utils'
 import PostHeader from './PostHeader'
 import PostBody from './PostBody'
 import PostReadMore from './PostReadMore'
 import PostTags from './PostTags'
 import PostInfoPanel from './PostInfoPanel'
+import type { Props } from './Post.Props'
 import PostViewPage from './PostViewPage'
 import PostListPage from './PostListPage'
 
 const Post = ({ id, published, flow, hubs, title, isDraft, isEdit,
-  author, company, tags, content, viewsCount, favoritesCount, isTeaser }) => (
+  author, company, tags, content, viewsCount, favoritesCount, isTeaser }: Props) => (
   <div>
     <PostHeader isTeaser {...{ id, published, flow, hubs, title, isDraft, isEdit }} />
     <PostBody isTeaser {...{ content }}>
@@ -28,50 +29,50 @@ const Post = ({ id, published, flow, hubs, title, isDraft, isEdit,
   </div>
 )
 
-Post.propTypes = {
-  id: PropTypes.number,
-  published: PropTypes.string,
-  flow: PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string,
-  }),
-  hubs: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string,
-  })).isRequired,
-  title: PropTypes.string,
-  isDraft: PropTypes.bool,
-  isEdit: PropTypes.bool,
-  author: PropTypes.shape({
-    id: PropTypes.number,
-    nick: PropTypes.string,
-    name: PropTypes.string,
-    specialization: PropTypes.string,
-    contacts: PropTypes.arrayOf(PropTypes.shape({
-      type: PropTypes.string,
-      url: PropTypes.string,
-    })),
-    votingCounter: PropTypes.number,
-    karma: PropTypes.number,
-    rating: PropTypes.number,
-  }),
-  company: PropTypes.shape({
-    id: PropTypes.number,
-    avatar: PropTypes.string,
-    name: PropTypes.string,
-    specialization: PropTypes.string,
-    contacts: PropTypes.arrayOf(PropTypes.shape({
-      type: PropTypes.string,
-      url: PropTypes.string,
-    })),
-    rating: PropTypes.number,
-  }),
-  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-  content: PropTypes.string,
-  viewsCount: PropTypes.number,
-  favoritesCount: PropTypes.number,
-  isTeaser: PropTypes.bool,
-}
+// Post.propTypes = {
+//   id: PropTypes.number,
+//   published: PropTypes.string,
+//   flow: PropTypes.shape({
+//     id: PropTypes.string,
+//     name: PropTypes.string,
+//   }),
+//   hubs: PropTypes.arrayOf(PropTypes.shape({
+//     id: PropTypes.string,
+//     name: PropTypes.string,
+//   })).isRequired,
+//   title: PropTypes.string,
+//   isDraft: PropTypes.bool,
+//   isEdit: PropTypes.bool,
+//   author: PropTypes.shape({
+//     id: PropTypes.number,
+//     nick: PropTypes.string,
+//     name: PropTypes.string,
+//     specialization: PropTypes.string,
+//     contacts: PropTypes.arrayOf(PropTypes.shape({
+//       type: PropTypes.string,
+//       url: PropTypes.string,
+//     })),
+//     votingCounter: PropTypes.number,
+//     karma: PropTypes.number,
+//     rating: PropTypes.number,
+//   }),
+//   company: PropTypes.shape({
+//     id: PropTypes.number,
+//     avatar: PropTypes.string,
+//     name: PropTypes.string,
+//     specialization: PropTypes.string,
+//     contacts: PropTypes.arrayOf(PropTypes.shape({
+//       type: PropTypes.string,
+//       url: PropTypes.string,
+//     })),
+//     rating: PropTypes.number,
+//   }),
+//   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+//   content: PropTypes.string,
+//   viewsCount: PropTypes.number,
+//   favoritesCount: PropTypes.number,
+//   isTeaser: PropTypes.bool,
+// }
 
 export { PostViewPage, PostListPage }
 export default pureComponent(Post)
