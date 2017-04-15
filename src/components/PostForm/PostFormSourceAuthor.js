@@ -1,9 +1,9 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import TextField from 'material-ui/TextField'
 import { handleChange, pureComponent } from 'utils'
 
-const PostFormSourceAuthor = ({ sourceAuthor, isTranslation, input, error }) => (
+const PostFormSourceAuthor = ({ sourceAuthor, isTranslation, input, error }: Props) => (
   <TextField
     id="PostFormSourceAuthor"
     floatingLabelText="Автор оригинального текста"
@@ -16,11 +16,18 @@ const PostFormSourceAuthor = ({ sourceAuthor, isTranslation, input, error }) => 
   />
 )
 
-PostFormSourceAuthor.propTypes = {
-  sourceAuthor: PropTypes.string,
-  isTranslation: PropTypes.bool,
-  input: PropTypes.func,
-  error: PropTypes.string,
+// PostFormSourceAuthor.propTypes = {
+//   sourceAuthor: PropTypes.string,
+//   isTranslation: PropTypes.bool,
+//   input: PropTypes.func,
+//   error: PropTypes.string,
+// }
+
+type Props = {
+  sourceAuthor: string,
+  isTranslation: boolean,
+  input: Function,
+  error?: string,
 }
 
 export default pureComponent(PostFormSourceAuthor)

@@ -1,5 +1,5 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import AutoComplete from 'material-ui/AutoComplete'
 import { pureComponent } from 'utils'
 import { POST_FORM_HUBS_MAX } from 'consts'
@@ -25,7 +25,7 @@ const dataSourceConfig = {
   text: 'name',
 }
 
-const PostFormSearchHub = ({ searchHub, sourceHubs, hubs, input, error }) => (
+const PostFormSearchHub = ({ searchHub, sourceHubs, hubs, input, error }: Props) => (
   <AutoComplete
     id="PostFormHubs"
     floatingLabelText="Хабы"
@@ -43,16 +43,36 @@ const PostFormSearchHub = ({ searchHub, sourceHubs, hubs, input, error }) => (
   />
 )
 
-PostFormSearchHub.propTypes = {
-  searchHub: PropTypes.string,
-  sourceHubs: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-    })
-  ),
-  input: PropTypes.func,
-  error: PropTypes.string,
+// PostFormSearchHub.propTypes = {
+//   searchHub: PropTypes.string,
+//   sourceHubs: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.string,
+//       name: PropTypes.string,
+//     })
+//   ),
+//   hubs: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.string,
+//       name: PropTypes.string,
+//     })
+//   ),
+//   input: PropTypes.func,
+//   error: PropTypes.string,
+// }
+
+type Props = {
+  searchHub: string,
+  sourceHubs: Array<{
+    id: string,
+    name: string,
+  }>,
+  hubs: Array<{
+    id: string,
+    name: string,
+  }>,
+  input: Function,
+  error?: string,
 }
 
 export default pureComponent(PostFormSearchHub)

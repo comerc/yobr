@@ -49,7 +49,7 @@ class PostListPage extends React.Component {
             <div className="main">
               <PostAdd/>
               {posts.map(post => {
-                post.isEdit = post.author.id === currentUserId
+                post.isMy = post.author.id === currentUserId
                 return <Post key={post.id} {...post} isTeaser={true} />
               })}
             </div>

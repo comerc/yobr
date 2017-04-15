@@ -1,19 +1,17 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import TextField from 'material-ui/TextField'
 import { handleChange, pureComponent } from 'utils'
 import { POST_FORM_TITLE_MAX } from 'consts'
 
-const hintStyle = { whiteSpace: 'nowrap', textOverflow: 'ellipsis' }
-
-const PostFormTitle = ({ title, input, error }) => (
+const PostFormTitle = ({ title, input, error }: Props) => (
   <TextField
     floatingLabelText={
       title.length === 0
-      ?
-      'Заголовок'
-      :
-      `Заголовок (ещё ${POST_FORM_TITLE_MAX - title.length})`
+        ?
+          'Заголовок'
+        :
+          `Заголовок (ещё ${POST_FORM_TITLE_MAX - title.length})`
     }
     id="PostFormTitle"
     hintText="Заголовок должен быть наполнен смыслом"
@@ -22,14 +20,20 @@ const PostFormTitle = ({ title, input, error }) => (
     errorText={error}
     onChange={handleChange('title', input, !!error)}
     maxLength={POST_FORM_TITLE_MAX}
-    hintStyle={hintStyle}
+    hintStyle={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
   />
 )
 
-PostFormTitle.propTypes = {
-  title: PropTypes.string,
-  input: PropTypes.func,
-  error: PropTypes.string,
+// PostFormTitle.propTypes = {
+//   title: PropTypes.string,
+//   input: PropTypes.func,
+//   error: PropTypes.string,
+// }
+
+type Props = {
+  title: string,
+  input: Function,
+  error?: string,
 }
 
 export default pureComponent(PostFormTitle)

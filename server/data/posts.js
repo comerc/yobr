@@ -23,7 +23,6 @@ module.exports = [
     title: 'Как Clojure помогает ускорить написание Selenium-тестов',
     content: 'Привет, читатель! Если доводилось писать Selenuim-тесты чуть сложнее чем на пару полей ввода и одну кнопку, то эта статья может пригодиться.',
     isDraft: true,
-    isTutorial: true,
     isTranslation: true,
     sourceAuthor: "Tim O'Reily",
     sourceLink: "http://habr.ru",
@@ -34,9 +33,11 @@ module.exports = [
     viewsCount: 3200,
     favoritesCount: 47,
     author: {
+      id: 1142934,
       avatar: 'https://habrastorage.org/getpro/habr/avatars/11d/cd5/156/11dcd5156965ea37622a22ddadcc12eb.jpg',
       nick: 'Talik0507',
       name: 'Talik',
+      specialization: 'Пользователь',
       votingCounter: 5,
       karma: 5.0,
       rating: 12.0
@@ -65,9 +66,14 @@ module.exports = [
     viewsCount: 10400,
     favoritesCount: 61,
     author: {
+      id: 42128,
       avatar: 'https://hsto.org/getpro/habr/avatars/f89/cd2/7e9/f89cd27e95dc7b8c1e3db4d56c77309b.png',
       nick: 'Halt',
       name: 'Дмитрий Каши́цын',
+      specialization: 'Пользователь',
+      votingCounter: 396,
+      karma: 249.5,
+      rating: 0.7
     },
     flow: { id: 'develop', name: 'Разработка' },
     hubs: [{ id: 'webdev', name: 'Разработка веб-сайтов' }],
@@ -81,9 +87,14 @@ module.exports = [
     viewsCount: 12300,
     favoritesCount: 163,
     author: {
+      id: 546552,
       avatar: 'https://habrastorage.org/getpro/habr/avatars/45f/298/67b/45f29867be422cdd754bd2c1a413028a.png',
       nick: 'TM_content',
       name: 'Контент-студия',
+      specialization: 'Пользователь',
+      votingCounter: 56,
+      karma: 36.0,
+      rating: 0.0
     },
     flow: { id: 'develop', name: 'Разработка' },
     hubs: [{ id: 'webdev', name: 'Разработка веб-сайтов' }],
@@ -97,6 +108,7 @@ module.exports = [
     viewsCount: 11700,
     favoritesCount: 168,
     author: {
+      id: 766345,
       avatar: 'https://habrastorage.org/getpro/habr/avatars/10c/966/59f/10c96659ff7013592cdf926e17e2195f.jpg',
       nick: 'conspiratus',
       name: 'Константин',
@@ -117,7 +129,10 @@ module.exports = [
     viewsCount: 3100,
     favoritesCount: 24,
     author: {
+      id: 1045640,
       nick: 'GoTech-vc',
+      name: 'GoTech-vc',
+      specialization: 'Пользователь',
       votingCounter: 7,
       karma: 1.0,
       rating: 10.9

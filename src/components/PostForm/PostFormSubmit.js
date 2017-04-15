@@ -1,9 +1,9 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import RaisedButton from 'material-ui/RaisedButton'
 import { pureComponent } from 'utils'
 
-const PostFormSubmit = ({ isSubmitting }) => (
+const PostFormSubmit = ({ isSubmitting }: Props) => (
   <RaisedButton
     label="Отправить"
     primary={true}
@@ -26,8 +26,12 @@ const PostFormSubmit = ({ isSubmitting }) => (
   </RaisedButton>
 )
 
-PostFormSubmit.propTypes = {
-  isSubmitting: PropTypes.bool,
+// PostFormSubmit.propTypes = {
+//   isSubmitting: PropTypes.bool,
+// }
+
+type Props = {
+  isSubmitting: boolean,
 }
 
 export default pureComponent(PostFormSubmit)

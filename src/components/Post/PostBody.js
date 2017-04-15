@@ -1,8 +1,8 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const PostBody = ({ isTeaser, content, children }) => (
+const PostBody = ({ isTeaser, content, children }: Props) => (
   <div className={cx({ 'crop': isTeaser })}>
     <div
       className={cx("content", "htmlFormat")}
@@ -11,10 +11,16 @@ const PostBody = ({ isTeaser, content, children }) => (
   </div>
 )
 
-PostBody.propTypes = {
-  isTeaser: PropTypes.bool,
-  content: PropTypes.string,
-  children: PropTypes.element,
+// PostBody.propTypes = {
+//   isTeaser: PropTypes.bool,
+//   content: PropTypes.string,
+//   children: PropTypes.element,
+// }
+
+type Props = {
+  isTeaser: boolean,
+  content: string,
+  children?: typeof React.Element,
 }
 
 export default PostBody

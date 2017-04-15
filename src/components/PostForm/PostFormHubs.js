@@ -1,5 +1,5 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import Chip from 'material-ui/Chip'
 import { pureComponent } from 'utils'
 
@@ -14,7 +14,7 @@ const onRequestDelete = (input, hubs, index, isValidate) => (event) => {
   input({ key: 'searchHub', isValidate })
 }
 
-const PostFormHubs = ({ hubs, input, error }) => (
+const PostFormHubs = ({ hubs, input, error }: Props) => (
   <div>
       {hubs.map((hub, index) => (
         <Chip
@@ -28,15 +28,24 @@ const PostFormHubs = ({ hubs, input, error }) => (
   </div>
 )
 
-PostFormHubs.propTypes = {
-  hubs: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-    })
-  ),
-  input: PropTypes.func,
-  error: PropTypes.string,
+// PostFormHubs.propTypes = {
+//   hubs: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.string,
+//       name: PropTypes.string,
+//     })
+//   ),
+//   input: PropTypes.func,
+//   error: PropTypes.string,
+// }
+
+type Props = {
+  hubs: Array<{
+    id: string,
+    name: string,
+  }>,
+  input: Function,
+  error?: string,
 }
 
 export default pureComponent(PostFormHubs)

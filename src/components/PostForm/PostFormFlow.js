@@ -1,10 +1,10 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
 import { handleSelectFieldChange, pureComponent } from 'utils'
 
-const PostFormFlow = ({ flowId, sourceFlows, input, error }) => (
+const PostFormFlow = ({ flowId, sourceFlows, input, error }: Props) => (
   <SelectField
     id="PostFormFlow"
     floatingLabelText="Поток"
@@ -19,13 +19,23 @@ const PostFormFlow = ({ flowId, sourceFlows, input, error }) => (
   </SelectField>
 )
 
-PostFormFlow.propTypes = {
-  flowId: PropTypes.string,
-  sourceFlows: PropTypes.arrayOf(PropTypes.shape({
+// PostFormFlow.propTypes = {
+//   flowId: PropTypes.string,
+//   sourceFlows: PropTypes.arrayOf(PropTypes.shape({
+//
+//   })),
+//   input: PropTypes.func,
+//   error: PropTypes.string,
+// }
 
-  })),
-  input: PropTypes.func,
-  error: PropTypes.string,
+type Props = {
+  flowId: string,
+  sourceFlows: Array<{
+    id: string,
+    name: string,
+  }>,
+  input: Function,
+  error?: string,
 }
 
 export default pureComponent(PostFormFlow)

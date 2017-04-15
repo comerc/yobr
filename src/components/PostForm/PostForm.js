@@ -19,9 +19,9 @@ import PostFormEditPage from './PostFormEditPage'
 
 // Q: можно ли объявить компонент чистым, если в props - router?
 // A: да, PureComponent применяет неглубокое сравнение
-
+//
 // применение defaultValue нарушает работу Redux DevTools TimeTravel
-
+//
 // применение value без onChange={doChange} ругается (но не Material-UI):
 // Warning: Failed form propType: You provided a `value` prop to a form field
 // without an `onChange` handler. This will render a read-only field.
@@ -90,9 +90,9 @@ const PostForm = ({
 // }
 
 type Props = {
-  id: number,
+  id?: number,
   flow: {
-    id: string,
+    id?: string,
     name: string,
   },
   title: string,
@@ -123,10 +123,6 @@ type Props = {
 
 const mapStateToProps = (state) => ({
   ...state.postForm,
-  // выполняю приведение типа для undefined значений булевых props
-  isTranslation: !!state.postForm.isTranslation,
-  isTutorial: !!state.postForm.isTutorial,
-  isSubmitting: !!state.isSubmitting,
   mainError: state.app.mainError,
   sourceFlows: state.flows,
   sourceHubs: state.hubs,

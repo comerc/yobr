@@ -1,11 +1,11 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import TextField from 'material-ui/TextField'
 import { handleChange, pureComponent } from 'utils'
 
 const hintStyle = { whiteSpace: 'nowrap', textOverflow: 'ellipsis' }
 
-const PostFormContent = ({ content, input, error }) => (
+const PostFormContent = ({ content, input, error }: Props) => (
   <TextField
     id="PostFormContent"
     floatingLabelText="Текст"
@@ -19,10 +19,16 @@ const PostFormContent = ({ content, input, error }) => (
   />
 )
 
-PostFormContent.propTypes = {
-  content: PropTypes.string,
-  input: PropTypes.func,
-  error: PropTypes.string,
+// PostFormContent.propTypes = {
+//   content: PropTypes.string,
+//   input: PropTypes.func,
+//   error: PropTypes.string,
+// }
+
+type Props = {
+  content: string,
+  input: Function,
+  error?: string,
 }
 
 export default pureComponent(PostFormContent)

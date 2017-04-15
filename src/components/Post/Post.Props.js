@@ -10,16 +10,17 @@ export type Props = {
   hubs: Array<{
     id: string,
     name: string,
+    isSubscribed?: boolean,
   }>,
   title: string,
-  isDraft: boolean,
-  isEdit: boolean,
+  isDraft?: boolean,
+  isMy: boolean,
   author: {
     id: number,
     nick: string,
     name: string,
     specialization: string,
-    contacts: Array<{
+    contacts?: Array<{
       type: string,
       url: string,
     }>,
@@ -32,7 +33,7 @@ export type Props = {
     avatar: string,
     name: string,
     specialization: string,
-    contacts: Array<{
+    contacts?: Array<{
       type: string,
       url: string,
     }>,

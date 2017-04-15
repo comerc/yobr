@@ -1,5 +1,5 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import Toggle from 'material-ui/Toggle'
 import { pureComponent } from 'utils'
 
@@ -11,7 +11,7 @@ const onToggle = (input) => (event, isInputChecked) => {
   }
 }
 
-const PostFormIsTranslation = ({ isTranslation, input }) => (
+const PostFormIsTranslation = ({ isTranslation, input }: Props) => (
   <Toggle
     id="PostFormIsTranslation"
     label="Перевод"
@@ -21,9 +21,14 @@ const PostFormIsTranslation = ({ isTranslation, input }) => (
   />
 )
 
-PostFormIsTranslation.propTypes = {
-  isTranslation: PropTypes.bool,
-  input: PropTypes.func,
+// PostFormIsTranslation.propTypes = {
+//   isTranslation: PropTypes.bool,
+//   input: PropTypes.func,
+// }
+
+type Props = {
+  isTranslation: boolean,
+  input: Function,
 }
 
 export default pureComponent(PostFormIsTranslation)

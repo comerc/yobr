@@ -43,14 +43,13 @@ export const ga = (eventCategory, eventAction, eventLabel) => () => {
 }
 
 export const plural = (value, form1, form2, form3) => {
+  // formatjs.io
   return value
 }
 
-export const urlencode = (s) => {
-  return s
-}
-
 export const formatDateTime = (dateTime) => {
+  // formatjs.io
+  // Intl.DateTimeFormat
   return dateTime + ''
 }
 

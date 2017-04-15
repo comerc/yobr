@@ -1,10 +1,10 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { ga } from 'utils'
 import { Link } from 'react-router-dom'
 
-const PostHubs = ({ hubs }) => (
+const PostHubs = ({ hubs }: Props) => (
   <ul>
     {hubs.map(hub =>
       <li key={hub.id}>
@@ -20,11 +20,19 @@ const PostHubs = ({ hubs }) => (
   </ul>
 )
 
-PostHubs.propTypes = {
-  hubs: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string,
-  })).isRequired,
+// PostHubs.propTypes = {
+//   hubs: PropTypes.arrayOf(PropTypes.shape({
+//     id: PropTypes.string,
+//     name: PropTypes.string,
+//   })).isRequired,
+// }
+
+type Props = {
+  hubs: Array<{
+    id: string,
+    name: string,
+    isSubscribed?: boolean,
+  }>,
 }
 
 export default PostHubs

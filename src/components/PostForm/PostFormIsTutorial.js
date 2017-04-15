@@ -1,9 +1,9 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import Checkbox from 'material-ui/Checkbox'
 import { handleCheck, pureComponent } from 'utils'
 
-const PostFormIsTutorial = ({ isTutorial, input }) => (
+const PostFormIsTutorial = ({ isTutorial, input }: Props) => (
   <Checkbox
     id="PostFormIsTutorial"
     label="Tutorial"
@@ -12,9 +12,14 @@ const PostFormIsTutorial = ({ isTutorial, input }) => (
   />
 )
 
-PostFormIsTutorial.propTypes = {
-  isTutorial: PropTypes.bool,
-  input: PropTypes.func,
+// PostFormIsTutorial.propTypes = {
+//   isTutorial: PropTypes.bool,
+//   input: PropTypes.func,
+// }
+
+type Props = {
+  isTutorial: boolean,
+  input: Function,
 }
 
 export default pureComponent(PostFormIsTutorial)

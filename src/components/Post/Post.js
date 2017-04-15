@@ -10,16 +10,16 @@ import type { Props } from './Post.Props'
 import PostViewPage from './PostViewPage'
 import PostListPage from './PostListPage'
 
-const Post = ({ id, published, flow, hubs, title, isDraft, isEdit,
+const Post = ({ id, published, flow, hubs, title, isDraft, isMy,
   author, company, tags, content, viewsCount, favoritesCount, isTeaser }: Props) => (
   <div>
-    <PostHeader isTeaser {...{ id, published, flow, hubs, title, isDraft, isEdit }} />
+    <PostHeader isTeaser {...{ id, published, flow, hubs, title, isDraft, isMy }} />
     <PostBody isTeaser {...{ content }}>
       {isTeaser
         ?
-        <PostReadMore {...{ id }} />
+          <PostReadMore {...{ id }} />
         :
-        <PostTags {...{ tags }} />
+          <PostTags {...{ tags }} />
       }
     </PostBody>
     <div className="footer">
@@ -42,7 +42,7 @@ const Post = ({ id, published, flow, hubs, title, isDraft, isEdit,
 //   })).isRequired,
 //   title: PropTypes.string,
 //   isDraft: PropTypes.bool,
-//   isEdit: PropTypes.bool,
+//   isMy: PropTypes.bool,
 //   author: PropTypes.shape({
 //     id: PropTypes.number,
 //     nick: PropTypes.string,
