@@ -1,5 +1,6 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actions } from 'ducks/postForm'
@@ -8,6 +9,8 @@ import Helmet from 'react-helmet'
 import PostForm from './PostForm'
 
 class PostFormAddPage extends React.Component {
+  props: Props
+  _isMounted: boolean
   componentDidMount() {
     this._isMounted = true
     const { read } = this.props
@@ -32,9 +35,14 @@ class PostFormAddPage extends React.Component {
   }
 }
 
-PostFormAddPage.propTypes = {
-  isLoading: PropTypes.bool,
-  read: PropTypes.func,
+// PostFormAddPage.propTypes = {
+//   isLoading: PropTypes.bool,
+//   read: PropTypes.func,
+// }
+
+type Props = {
+  isLoading: boolean,
+  read: Function,
 }
 
 const mapStateToProps = (state, props) => ({

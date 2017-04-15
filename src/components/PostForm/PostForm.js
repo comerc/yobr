@@ -1,5 +1,5 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actions } from 'ducks/postForm'
@@ -32,7 +32,7 @@ const PostForm = ({
   id, flow, title, content, hubs, isTranslation, sourceAuthor, sourceLink,
   isTutorial, searchHub, sourceFlows, sourceHubs, errors, isSubmitting, mainError,
   input, save
-}) => (
+}: Props) => (
   <div>
     <form onSubmit={handleSubmit(isSubmitting, save)} autoComplete="off">
       <PostFormIsTutorial {...{ isTutorial, input }} />
@@ -51,42 +51,74 @@ const PostForm = ({
   </div>
 )
 
-PostForm.propTypes = {
-  id: PropTypes.number,
-  flow: PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string,
-  }),
-  title: PropTypes.string,
-  content: PropTypes.string,
-  hubs: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-    })
-  ),
-  isTranslation: PropTypes.bool,
-  sourceAuthor: PropTypes.string,
-  sourceLink: PropTypes.string,
-  isTutorial: PropTypes.bool,
-  errors: PropTypes.object,
-  isSubmitting: PropTypes.bool,
-  mainError: PropTypes.string,
-  sourceFlows: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-    })
-  ),
-  searchHub: PropTypes.string,
-  sourceHubs: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-    })
-  ),
-  input: PropTypes.func,
-  save: PropTypes.func,
+// PostForm.propTypes = {
+//   id: PropTypes.number,
+//   flow: PropTypes.shape({
+//     id: PropTypes.string,
+//     name: PropTypes.string,
+//   }),
+//   title: PropTypes.string,
+//   content: PropTypes.string,
+//   hubs: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.string,
+//       name: PropTypes.string,
+//     })
+//   ),
+//   isTranslation: PropTypes.bool,
+//   sourceAuthor: PropTypes.string,
+//   sourceLink: PropTypes.string,
+//   isTutorial: PropTypes.bool,
+//   errors: PropTypes.object,
+//   isSubmitting: PropTypes.bool,
+//   mainError: PropTypes.string,
+//   sourceFlows: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.string,
+//       name: PropTypes.string,
+//     })
+//   ),
+//   searchHub: PropTypes.string,
+//   sourceHubs: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.string,
+//       name: PropTypes.string,
+//     })
+//   ),
+//   input: PropTypes.func,
+//   save: PropTypes.func,
+// }
+
+type Props = {
+  id: number,
+  flow: {
+    id: string,
+    name: string,
+  },
+  title: string,
+  content: string,
+  hubs: Array<{
+    id: string,
+    name: string,
+  }>,
+  isTranslation: boolean,
+  sourceAuthor: string,
+  sourceLink: string,
+  isTutorial: boolean,
+  errors: { [string]: string },
+  isSubmitting: boolean,
+  mainError: string,
+  sourceFlows: Array<{
+    id: string,
+    name: string,
+  }>,
+  searchHub: string,
+  sourceHubs: Array<{
+    id: string,
+    name: string,
+  }>,
+  input: Function,
+  save: Function,
 }
 
 const mapStateToProps = (state) => ({
@@ -94,7 +126,7 @@ const mapStateToProps = (state) => ({
   // выполняю приведение типа для undefined значений булевых props
   isTranslation: !!state.postForm.isTranslation,
   isTutorial: !!state.postForm.isTutorial,
-  isSubmitting: state.isSubmitting,
+  isSubmitting: !!state.isSubmitting,
   mainError: state.app.mainError,
   sourceFlows: state.flows,
   sourceHubs: state.hubs,
