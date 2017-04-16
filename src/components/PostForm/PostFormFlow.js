@@ -29,7 +29,7 @@ const PostFormFlow = ({ flowId, sourceFlows, input, error }: Props) => (
 // }
 
 type Props = {
-  flowId: string,
+  flowId?: string,
   sourceFlows: Array<{
     id: string,
     name: string,
