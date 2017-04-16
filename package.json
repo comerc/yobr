@@ -6,9 +6,12 @@
   "devDependencies": {
     "babel-plugin-module-resolver": "^2.7.0",
     "babel-plugin-tcomb": "^0.3.25",
+    "enzyme": "^2.8.2",
+    "jest-enzyme": "2.x",
     "react-addons-perf": "^15.4.2",
     "react-app-rewired": "^0.6.5",
     "react-scripts": "0.9.5",
+    "react-test-renderer": "^15.5.4",
     "redux-devtools-extension": "^2.13.0",
     "redux-logger": "^3.0.1",
     "styled-jsx": "^0.5.7",

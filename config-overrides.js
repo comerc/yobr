@@ -6,7 +6,8 @@ function rewire(config, env) {
   const babelrc = config.module.loaders.find(babelLoader).query
   babelrc.plugins = [
     'styled-jsx/babel',
-    ['module-resolver', { 'root': ['src'] }],
+    // не работает jest, заменил на NODE_PATH=src/ в .env
+    // ['module-resolver', { 'root': ['src'] }],
     'tcomb',
   ].concat(babelrc.plugins || [])
 
