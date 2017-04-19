@@ -6,7 +6,6 @@ import thunk from 'redux-thunk'
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import createHistory from 'history/createBrowserHistory'
-import logger from 'redux-logger'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import FastClick from 'fastclick'
 import injectTapEventPlugin from 'react-tap-event-plugin'
@@ -20,7 +19,12 @@ import { actions as appActions } from 'ducks/app'
 
 const history = createHistory()
 const router = routerMiddleware(history)
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(router, thunk, logger)))
+const middlewares = [router, thunk]
+if (false && process.env.NODE_ENV === 'development') {
+  const { logger } = require('redux-logger')
+  middlewares.push(logger)
+}
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(...middlewares)))
 
 axios.defaults.baseURL = 'http://localhost:9000'
 
