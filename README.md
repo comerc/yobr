@@ -38,5 +38,5 @@ import MyComponent from 'components/MyComponent'
 - [Функциональные компоненты](https://habrahabr.ru/post/326610/)
 - [Flow + tcomb = типизированный JavaScript](https://habrahabr.ru/post/326538/)
 - [Организация компонентов в React проекте](https://habrahabr.ru/post/326018/)
-- [Блог а-ля Хабр, выбор технологий](https://habrahabr.ru/post/325088/)
+- [Блог а-ля Хабр, выбор платформы](https://habrahabr.ru/post/325088/)
 - [React Native — одного JS мало](https://habrahabr.ru/post/323214/)
