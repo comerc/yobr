@@ -4,6 +4,7 @@
   "license": "MIT",
   "homepage": "https://yobr.ru",
   "devDependencies": {
+    "babel-plugin-flow-react-proptypes": "^1.2.0",
     "babel-plugin-module-resolver": "^2.7.0",
     "babel-plugin-tcomb": "^0.3.25",
     "enzyme": "^2.8.2",
@@ -29,6 +30,7 @@
     "lodash": "^4.17.4",
     "material-ui": "^0.17.4",
     "pify": "^2.3.0",
+    "prop-types": "^15.5.8",
     "react": "^15.5.0",
     "react-dom": "^15.5.0",
     "react-helmet": "^5.0.3",

@@ -28,6 +28,38 @@ import PostFormEditPage from './PostFormEditPage'
 // If the field should be mutable use `defaultValue`. Otherwise, set either
 // `onChange` or `readOnly`.
 
+type Props = {
+  id?: number,
+  flow: {
+    id?: string,
+    name: string,
+  },
+  title: string,
+  content: string,
+  hubs: Array<{
+    id: string,
+    name: string,
+  }>,
+  isTranslation: boolean,
+  sourceAuthor: string,
+  sourceLink: string,
+  isTutorial: boolean,
+  errors: { [string]: string },
+  isSubmitting: boolean,
+  mainError: string,
+  sourceFlows: Array<{
+    id: string,
+    name: string,
+  }>,
+  searchHub: string,
+  sourceHubs: Array<{
+    id: string,
+    name: string,
+  }>,
+  input: Function,
+  save: Function,
+}
+
 const PostForm = ({
   id, flow, title, content, hubs, isTranslation, sourceAuthor, sourceLink,
   isTutorial, searchHub, sourceFlows, sourceHubs, errors, isSubmitting, mainError,
@@ -88,38 +120,6 @@ const PostForm = ({
 //   input: PropTypes.func,
 //   save: PropTypes.func,
 // }
-
-type Props = {
-  id?: number,
-  flow: {
-    id?: string,
-    name: string,
-  },
-  title: string,
-  content: string,
-  hubs: Array<{
-    id: string,
-    name: string,
-  }>,
-  isTranslation: boolean,
-  sourceAuthor: string,
-  sourceLink: string,
-  isTutorial: boolean,
-  errors: { [string]: string },
-  isSubmitting: boolean,
-  mainError: string,
-  sourceFlows: Array<{
-    id: string,
-    name: string,
-  }>,
-  searchHub: string,
-  sourceHubs: Array<{
-    id: string,
-    name: string,
-  }>,
-  input: Function,
-  save: Function,
-}
 
 const mapStateToProps = (state) => ({
   ...state.postForm,

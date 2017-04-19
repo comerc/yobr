@@ -7,6 +7,11 @@ import Page, { Header, Footer } from 'components/Page'
 import Helmet from 'react-helmet'
 import PostForm from './PostForm'
 
+type Props = {
+  isLoading: boolean,
+  read: Function,
+}
+
 class PostFormAddPage extends React.Component {
   props: Props
   _isMounted: boolean
@@ -38,11 +43,6 @@ class PostFormAddPage extends React.Component {
 //   isLoading: PropTypes.bool,
 //   read: PropTypes.func,
 // }
-
-type Props = {
-  isLoading: boolean,
-  read: Function,
-}
 
 const mapStateToProps = (state, props) => ({
   isLoading: state.app.isLoading
