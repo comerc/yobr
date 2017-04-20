@@ -37,7 +37,7 @@ class PostFormEditPage extends React.Component {
         <Helmet
           title="Yobr"
         />
-        <Header><h1>Редактирование публикации</h1></Header>
+        <Header>Header</Header>
         {isLoading
           ?
             <div>Загрузка...</div>

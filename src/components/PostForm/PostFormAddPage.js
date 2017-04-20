@@ -31,7 +31,7 @@ class PostFormAddPage extends React.Component {
         <Helmet
           title="Yobr"
         />
-        <Header><h1>Хочу разместить публикацию</h1></Header>
+        <Header>Header</Header>
         <PostForm />
         <Footer>Footer</Footer>
       </Page>
