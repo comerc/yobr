@@ -29,7 +29,7 @@ import PostFormEditPage from './PostFormEditPage'
 // `onChange` or `readOnly`.
 
 type Props = {
-  id: number,
+  id?: number,
   flow: {
     id?: string,
     name: string,
@@ -66,6 +66,7 @@ const PostForm = ({
   input, save
 }: Props) => (
   <div>
+    <h2>{!!id ? 'Редактирование публикации' : 'Хочу разместить публикацию'}</h2>
     <form onSubmit={handleSubmit(isSubmitting, save)} autoComplete="off">
       <PostFormIsTutorial {...{ isTutorial, input }} />
       <PostFormFlow {...{ flowId: flow.id, sourceFlows, input, error: errors.flow }} />
@@ -80,6 +81,18 @@ const PostForm = ({
     </form>
     <br/>
     {!!mainError && <div>{mainError}</div>}
+    <style jsx>{`
+      h2 {
+        font-weight: normal;
+        font-family: 'Roboto', sans-serif;
+        padding-bottom: .3em;
+        margin-top: 0;
+        margin-bottom: 16px;
+        font-size: 1.5em;
+        line-height: 1.334;
+        border-bottom: 1px solid #eee;
+      }
+    `}</style>
   </div>
 )
 
