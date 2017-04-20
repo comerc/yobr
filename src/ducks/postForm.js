@@ -124,9 +124,11 @@ const input = ({ key, value, isValidate = false }) => (dispatch, getState) => {
     if (!!validate) {
       const state = getState()
       const oldError = state.postForm.errors[key]
-      const newError = validate(value, state)
-      if (oldError != newError) { // проверка с приведением типа
-        dispatch(setError({ key, error: newError ? newError : '' }))
+      const error = validate(value, state)
+      if (!oldError && !error) { // приведение типа к false
+        // ничего не надо делать
+      } else if (oldError !== error) {
+        dispatch(setError({ key, error }))
       }
     }
   }
