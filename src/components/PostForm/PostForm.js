@@ -29,7 +29,7 @@ import PostFormEditPage from './PostFormEditPage'
 // `onChange` or `readOnly`.
 
 type Props = {
-  id?: number,
+  id: number,
   flow: {
     id?: string,
     name: string,
