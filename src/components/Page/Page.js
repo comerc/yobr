@@ -1,5 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import Header from './Header'
+import Footer from './Footer'
+import NotFound from './NotFound'
 
 const Page = ({ children }) => (
   <div>
@@ -12,7 +14,8 @@ const Page = ({ children }) => (
         overflow: hidden;
       }
       div#root {
-        padding: 0 56px;
+        margin: 48px 0;
+        padding: 0 72px;
         display: flex;
         height: 100vh;
         overflow: auto;
@@ -24,11 +27,9 @@ const Page = ({ children }) => (
   </div>
 )
 
-Page.propTypes = {
-  children: PropTypes.any.isRequired,
-}
+// Page.propTypes = {
+//   children: PropTypes.any.isRequired,
+// }
 
-export { default as Header } from './Header'
-export { default as Footer } from './Footer'
-export { default as NotFound } from './NotFound'
+export { Header, Footer, NotFound }
 export default Page
