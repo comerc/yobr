@@ -7,6 +7,7 @@ import Page from 'components/Page'
 import Helmet from 'react-helmet'
 import Post from './Post'
 import type { Props as PostProps } from './Post.Props'
+import isEmpty from 'lodash/isEmpty'
 
 const PostViewPage = ({ read, id, isNotFound, post }: Props) => (
   <Page onMounted={() => read(id)} {...{ isNotFound }}>
@@ -37,7 +38,7 @@ const isMy = (state) =>
 const mapStateToProps = (state, props) => ({
   id: parseInt(props.match.params.id, 10),
   isNotFound: !state.app.isLoading && !state.postView.id,
-  post: { ...state.postView, isMy: isMy(state) },
+  post: isEmpty(state.postView) ? {} : { ...state.postView, isMy: isMy(state) },
 })
 
 const mapDispatchToProps = (dispatch) => {
