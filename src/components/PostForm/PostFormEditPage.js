@@ -3,64 +3,34 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actions } from 'ducks/postForm'
-import Page, { Header, Footer, NotFound } from 'components/Page'
+import Page from 'components/Page'
 import Helmet from 'react-helmet'
 import PostForm from './PostForm'
 
-type Props = {
-  isLoading: boolean,
-  id: number,
-  isPost: boolean,
-  read: Function,
-}
-
-class PostFormEditPage extends React.Component {
-  props: Props
-  _isMounted: boolean
-  componentDidMount() {
-    this._isMounted = true
-    const { read, id } = this.props
-    setImmediate(() =>
-      read(id)
-    )
-  }
-  render() {
-    if (!this._isMounted) {
-      return null
-    }
-    const { isLoading, isPost } = this.props
-    if (!isLoading && !isPost) {
-      return <NotFound />
-    }
-    return (
-      <Page>
-        <Helmet
-          title="Yobr"
-        />
-        <Header>Header</Header>
-        {isLoading
-          ?
-            <div>Загрузка...</div>
-          :
-            <PostForm />
-        }
-        <Footer>Footer</Footer>
-      </Page>
-    )
-  }
-}
+const PostFormEditPage = ({ read, id, isNotFound }: Props) => (
+  <Page onMounted={() => read(id)} {...{ isNotFound }}>
+    <Helmet
+      title="YOBR"
+    />
+    <PostForm />
+  </Page>
+)
 
 // PostFormEditPage.propTypes = {
-//   isLoading: PropTypes.bool,
-//   id: PropTypes.number,
-//   isPost: PropTypes.bool,
 //   read: PropTypes.func,
+//   id: PropTypes.number,
+//   isNotFound: PropTypes.bool,
 // }
 
+type Props = {
+  read: Function,
+  id: number,
+  isNotFound: boolean,
+}
+
 const mapStateToProps = (state, props) => ({
-  isLoading: state.app.isLoading,
   id: parseInt(props.match.params.id, 10),
-  isPost: !!state.postForm.id,
+  isNotFound: !state.app.isLoading && !state.postForm.id,
 })
 
 const mapDispatchToProps = (dispatch) => {

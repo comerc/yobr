@@ -14,7 +14,7 @@ export type Props = {
   }>,
   title: string,
   isDraft?: boolean,
-  isMy: boolean,
+  isMy?: boolean,
   author: {
     id: number,
     nick: string,
