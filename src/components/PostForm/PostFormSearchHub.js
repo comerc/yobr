@@ -20,11 +20,6 @@ const onUpdateInput = (input) => (searchText, dataSource, params) => {
   input({ key: 'searchHub', value: searchText })
 }
 
-const dataSourceConfig = {
-  value: 'id',
-  text: 'name',
-}
-
 const PostFormSearchHub = ({ searchHub, sourceHubs, hubs, input, error }: Props) => (
   <AutoComplete
     id="PostFormHubs"
@@ -32,7 +27,7 @@ const PostFormSearchHub = ({ searchHub, sourceHubs, hubs, input, error }: Props)
     hintText={`Выберите от 1 до ${POST_FORM_HUBS_MAX} хабов`}
     filter={AutoComplete.fuzzyFilter}
     dataSource={sourceHubs}
-    dataSourceConfig={dataSourceConfig}
+    dataSourceConfig={{ value: 'id', text: 'name' }}
     maxSearchResults={5}
     onNewRequest={onNewRequest(input, hubs, sourceHubs, !!error)}
     errorText={error}

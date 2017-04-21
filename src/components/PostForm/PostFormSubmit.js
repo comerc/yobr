@@ -4,14 +4,19 @@ import RaisedButton from 'material-ui/RaisedButton'
 import { pureComponent } from 'utils'
 
 const PostFormSubmit = ({ isSubmitting }: Props) => (
-  <RaisedButton
-    label="Отправить"
-    primary={true}
-    disabled={isSubmitting}
-    containerElement="label"
-  >
-    <button className="ghostButton" />
+  <div className="main">
+    <RaisedButton
+      label="Отправить"
+      primary={true}
+      disabled={isSubmitting}
+      containerElement="label"
+    >
+      <button className="ghostButton" />
+    </RaisedButton>
     <style jsx>{`
+      .main {
+        margin-top: 28px;
+      }
       .ghostButton {
         cursor: pointer;
         position: absolute;
@@ -23,7 +28,7 @@ const PostFormSubmit = ({ isSubmitting }: Props) => (
         opacity: 0;
       }
     `}</style>
-  </RaisedButton>
+  </div>
 )
 
 // PostFormSubmit.propTypes = {

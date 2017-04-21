@@ -3,8 +3,6 @@ import React from 'react'
 import TextField from 'material-ui/TextField'
 import { handleChange, pureComponent } from 'utils'
 
-const hintStyle = { whiteSpace: 'nowrap', textOverflow: 'ellipsis' }
-
 const PostFormContent = ({ content, input, error }: Props) => (
   <TextField
     id="PostFormContent"
@@ -15,7 +13,7 @@ const PostFormContent = ({ content, input, error }: Props) => (
     errorText={error}
     onChange={handleChange('content', input, !!error)}
     multiLine={true}
-    hintStyle={hintStyle}
+    hintStyle={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
   />
 )
 

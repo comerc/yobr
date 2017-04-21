@@ -3,10 +3,6 @@ import React from 'react'
 import Chip from 'material-ui/Chip'
 import { pureComponent } from 'utils'
 
-const chipStyle = {
-  margin: 4
-}
-
 const onRequestDelete = (input, hubs, index, isValidate) => (event) => {
   hubs = hubs.slice()
   hubs.splice(index, 1)
@@ -15,16 +11,22 @@ const onRequestDelete = (input, hubs, index, isValidate) => (event) => {
 }
 
 const PostFormHubs = ({ hubs, input, error }: Props) => (
-  <div>
+  <div className="main">
       {hubs.map((hub, index) => (
         <Chip
           key={hub.id}
           onRequestDelete={onRequestDelete(input, hubs, index, !!error)}
-          style={chipStyle}
+          style={{ margin: 4 }}
         >
           {hub.name}
         </Chip>
       ))}
+    <style jsx>{`
+      .main {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    `}</style>
   </div>
 )
 

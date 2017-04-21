@@ -3,8 +3,6 @@ import React from 'react'
 import TextField from 'material-ui/TextField'
 import { handleChange, pureComponent } from 'utils'
 
-const hintStyle = { whiteSpace: 'nowrap', textOverflow: 'ellipsis' }
-
 const PostFormSourceLink = ({ sourceLink, isTranslation, input, error }: Props) => (
   <TextField
     id="PostFormSourceLink"
@@ -14,7 +12,7 @@ const PostFormSourceLink = ({ sourceLink, isTranslation, input, error }: Props) 
     errorText={error}
     onChange={handleChange('sourceLink', input, !!error)}
     fullWidth={true}
-    hintStyle={hintStyle}
+    hintStyle={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
     disabled={!isTranslation}
   />
 )

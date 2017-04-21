@@ -12,13 +12,20 @@ const onToggle = (input) => (event, isInputChecked) => {
 }
 
 const PostFormIsTranslation = ({ isTranslation, input }: Props) => (
-  <Toggle
-    id="PostFormIsTranslation"
-    label="Перевод"
-    labelPosition="right"
-    toggled={isTranslation}
-    onToggle={onToggle(input)}
-  />
+  <div className="main">
+    <Toggle
+      id="PostFormIsTranslation"
+      label="Перевод"
+      labelPosition="right"
+      toggled={isTranslation}
+      onToggle={onToggle(input)}
+    />
+    <style jsx>{`
+      .main {
+        margin-top: 28px;
+      }
+    `}</style>
+  </div>
 )
 
 // PostFormIsTranslation.propTypes = {

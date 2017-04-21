@@ -81,18 +81,6 @@ const PostForm = ({
     </form>
     <br/>
     {!!mainError && <div>{mainError}</div>}
-    <style jsx>{`
-      h2 {
-        font-weight: normal;
-        font-family: 'Roboto', sans-serif;
-        padding-bottom: .3em;
-        margin-top: 0;
-        margin-bottom: 16px;
-        font-size: 1.5em;
-        line-height: 1.334;
-        border-bottom: 1px solid #eee;
-      }
-    `}</style>
   </div>
 )
 
