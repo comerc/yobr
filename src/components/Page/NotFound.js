@@ -18,6 +18,9 @@ const NotFound = () => (
       <Link to="/"><span className="back-text">Вернуться на главную</span></Link>
     </div>
     <style jsx global>{`
+      html, body {
+        height: 100%;
+      }
       body {
         margin: 0;
         padding: 0;
@@ -27,7 +30,7 @@ const NotFound = () => (
       div#root {
         padding: 0 56px;
         display: flex;
-        height: 100vh;
+        min-height: 100%;
         overflow: auto;
       }
       a {

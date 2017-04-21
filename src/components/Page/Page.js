@@ -25,7 +25,7 @@ class Page extends React.Component {
       return <NotFound />
     }
     return (
-      <div className={'main'}>
+      <div className="main">
         <Header />
         <div className="children">
           {isLoading
@@ -37,6 +37,9 @@ class Page extends React.Component {
         </div>
         <Footer />
         <style jsx global>{`
+          html, body, #root {
+            height: 100%;
+          }
           body {
             margin: 0;
             padding: 0;
@@ -65,10 +68,10 @@ class Page extends React.Component {
           .main {
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            min-height: 100%;
           }
           .children {
-            flex: 1 0 auto;
+            flex: 1;
           }
         `}</style>
       </div>
