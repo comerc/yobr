@@ -1,19 +1,20 @@
 import React from 'react'
 import AppBar from 'material-ui/AppBar'
-// import { connect } from 'react-redux'
-// import { bindActionCreators } from 'redux'
-import { withState } from 'utils'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import IconButton from 'material-ui/IconButton'
 import IconMenu from 'material-ui/IconMenu'
 import MenuItem from 'material-ui/MenuItem'
 import FlatButton from 'material-ui/FlatButton'
 import Toggle from 'material-ui/Toggle'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
-// import NavigationClose from 'material-ui/svg-icons/navigation/close'
+import LoginDialog from './LoginDialog'
+import { actions } from 'ducks/app'
 
 const Login = (props) => (
   <FlatButton {...props} label="Login" />
 )
+
 
 Login.muiName = 'FlatButton'
 
@@ -34,15 +35,19 @@ const Logged = (props) => (
 
 Logged.muiName = 'IconMenu'
 
-const Header = withState(({ state, setState }) => {
-  const handleChange = (event, logged) => {
-    setState({ logged })
+const Header = ({ isLogged, setLogged, setLoginDialog }) => {
+  const handleChange = (event, isInputChecked) => {
+    setLogged(isInputChecked)
+  }
+  const openLoginDialog = () => {
+    setLoginDialog(true)
   }
   return (
     <div className="main">
+      <LoginDialog />
       <Toggle
         label="Logged"
-        defaultToggled={true}
+        toggled={isLogged}
         onToggle={handleChange}
         labelPosition="right"
         style={{ margin: 20 }}
@@ -50,24 +55,24 @@ const Header = withState(({ state, setState }) => {
       <AppBar
         title="YOBR"
         showMenuIconButton={false}
-        iconElementRight={state.logged ? <Logged /> : <Login />}
+        iconElementRight={isLogged ? <Logged /> : <Login onTouchTap={openLoginDialog} />}
       />
       <style jsx>{`
-      .main {
-      }
-    `}</style>
+        .main {
+        }
+      `}</style>
     </div>
   )
-}, { logged: true })
+}
 
-// const mapStateToProps = (state, props) => ({
-//   // logged: state.currentUser.id,
-// })
+const mapStateToProps = (state, props) => ({
+  isLogged: state.app.isLogged,
+})
 
-// const mapDispatchToProps = (dispatch) => {
-//   // return bindActionCreators({}, dispatch)
-// }
+const mapDispatchToProps = (dispatch) => {
+  const { setLogged, setLoginDialog } = actions
+  return bindActionCreators({ setLogged, setLoginDialog }, dispatch)
+}
 
 export { Header } // тупой компонент для тестирования
-// export default connect(mapStateToProps, mapDispatchToProps)(Header)
-export default Header
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

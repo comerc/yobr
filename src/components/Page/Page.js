@@ -1,8 +1,8 @@
 // @flow
 import React from 'react'
 import { connect } from 'react-redux'
-import Header from './Header'
-import Footer from './Footer'
+import PageHeader from './PageHeader'
+import PageFooter from './PageFooter'
 import NotFound from './NotFound'
 
 class Page extends React.Component {
@@ -21,10 +21,9 @@ class Page extends React.Component {
     if (isNotFound) {
       return <NotFound />
     }
-    console.log('render', isLoading)
     return (
       <div className="main">
-        <Header />
+        <PageHeader />
         <div className="children">
           {!this._isMounted || isLoading
             ?
@@ -33,7 +32,7 @@ class Page extends React.Component {
             children
           }
         </div>
-        <Footer />
+        <PageFooter />
         <style jsx global>{`
           html, body, #root {
             height: 100%;
