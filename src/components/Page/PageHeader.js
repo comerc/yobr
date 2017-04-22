@@ -15,7 +15,6 @@ const Login = (props) => (
   <FlatButton {...props} label="Login" />
 )
 
-
 Login.muiName = 'FlatButton'
 
 const Logged = (props) => (

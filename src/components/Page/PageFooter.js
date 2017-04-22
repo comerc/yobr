@@ -12,19 +12,19 @@ const Footer = () => (
     </div>
     <div className="bullet">
       <i className="fa fa-bug" aria-hidden="true"/>
-      &nbsp;Bugs&nbsp;
+      &nbsp;Баги&nbsp;
     </div>
     <div className="bullet">
       <i className="fa fa-lightbulb-o" aria-hidden="true"/>
-      &nbsp;Ideas&nbsp;
+      &nbsp;Идеи&nbsp;
     </div>
     <div className="bullet">
       <i className="fa fa-envelope" aria-hidden="true"/>
-      &nbsp;Contacts&nbsp;
+      &nbsp;Связь&nbsp;
     </div>
     <div className="bullet">
       <i className="fa fa-life-ring" aria-hidden="true"/>
-      &nbsp;Help&nbsp;
+      &nbsp;Помощь&nbsp;
     </div>
     <style jsx>{`
       .copyright {
@@ -38,7 +38,7 @@ const Footer = () => (
       .bullet:before {
         content: "•";
         opacity: 0.5;
-        margin-right: 3px;
+        margin-right: 4px;
       }
       .bullet {
         display: inline-block;

@@ -18,7 +18,7 @@ class Page extends React.Component {
 
   render() {
     const { isNotFound, isLoading, children } = this.props
-    if (isNotFound) {
+    if (this._isMounted && isNotFound) {
       return <NotFound />
     }
     return (
