@@ -17,22 +17,20 @@ class Page extends React.Component {
   }
 
   render() {
-    if (!this._isMounted) {
-      return null
-    }
     const { isNotFound, isLoading, children } = this.props
     if (isNotFound) {
       return <NotFound />
     }
+    console.log('render', isLoading)
     return (
       <div className="main">
         <Header />
         <div className="children">
-          {isLoading
+          {!this._isMounted || isLoading
             ?
-              <div>Загрузка...</div>
+            <div>Загрузка...</div>
             :
-              children
+            children
           }
         </div>
         <Footer />
