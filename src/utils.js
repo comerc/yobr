@@ -14,6 +14,19 @@ export const pureComponent = (fn) => {
   return Wrapper
 }
 
+export const withState = (fn, defaultState = {}) => {
+  class Wrapper extends React.Component {
+    render() {
+      return fn({
+        state: this.state || defaultState,
+        setState: this.setState.bind(this)
+      })
+    }
+  }
+  Wrapper.displayName = `withState(${fn.name})`
+  return Wrapper
+}
+
 // функции handle* возвращают новые функции - следует применять в PureComponent
 // для обработчиков вложенных компонентов, но не для обработчиков PureComponent
 

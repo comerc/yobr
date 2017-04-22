@@ -25,7 +25,7 @@ const PostListPage = ({ read, filterType, filterId, flows, posts, currentUserId 
      </ul>
      </div> */}
     {/* <div class="selected-hub"></div> */}
-    <div className="main">
+    <div className="posts">
       <PostAdd/>
       {posts.map(post => {
         post.isMy = post.author.id === currentUserId
