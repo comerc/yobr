@@ -7,7 +7,7 @@ import logo from 'resources/logo.svg'
 const NotFound = () => (
   <div className="not-found">
     <Helmet
-      title="Yobr"
+      title="YOBR"
     />
     <div className="logo">
       <Link to="/" title="На главную страницу"><img alt="logo" src={logo} /></Link>
@@ -45,6 +45,9 @@ const NotFound = () => (
       .logo img {
         width: 100px;
         height: 100px;
+      }
+      h1 {
+        font-weight: normal;
       }
       .back-button {
         border: 2px solid gray;

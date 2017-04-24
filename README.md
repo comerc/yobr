@@ -35,6 +35,7 @@ import MyComponent from 'components/MyComponent'
 
 ### Статьи
 
+- [Способы отладки JS на клиенте](https://habrahabr.ru/post/327190/)
 - [Функциональные компоненты](https://habrahabr.ru/post/326610/)
 - [Flow + tcomb = типизированный JavaScript](https://habrahabr.ru/post/326538/)
 - [Организация компонентов в React проекте](https://habrahabr.ru/post/326018/)

@@ -2,11 +2,23 @@ import { createAction, createReducer } from 'redux-act'
 
 const NS = '@@app/'
 
-export const actions = {
-  setLoading: createAction(`${NS}SET_LOADING`),
-  setMainError: createAction(`${NS}SET_MAIN_ERROR`),
-  setLoginDialog: createAction(`${NS}SET_LOGIN_DIALOG`),
-  setLogged: createAction(`${NS}SET_LOGGED`),
+const setLoading = createAction(`${NS}SET_LOADING`)
+const setMainError = createAction(`${NS}SET_MAIN_ERROR`)
+const setLoginDialog = createAction(`${NS}SET_LOGIN_DIALOG`)
+const setLogged = createAction(`${NS}SET_LOGGED`)
+
+const login = () => (dispatch, getState) => {
+  const state = getState()
+  if (!state.app.isLogged) {
+    dispatch(setLogged(true))
+  }
+}
+
+const logout = () => (dispatch, getState) => {
+  const state = getState()
+  if (state.app.isLogged) {
+    dispatch(setLogged(false))
+  }
 }
 
 const initialState = {
@@ -17,14 +29,15 @@ const initialState = {
 }
 
 const reducer = createReducer({
-  [actions.setLoading]: (state, isLoading) =>
+  [setLoading]: (state, isLoading) =>
     ({ ...state, isLoading }),
-  [actions.setMainError]: (state, mainError = '') =>
+  [setMainError]: (state, mainError = '') =>
     ({ ...state, mainError }),
-  [actions.setLoginDialog]: (state, isLoginDialog) =>
+  [setLoginDialog]: (state, isLoginDialog) =>
     ({ ...state, isLoginDialog }),
-  [actions.setLogged]: (state, isLogged) =>
+  [setLogged]: (state, isLogged) =>
     ({ ...state, isLogged }),
 }, initialState)
 
+export const actions = { setLoading, setMainError, setLoginDialog, login, logout }
 export default reducer

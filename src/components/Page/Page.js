@@ -1,6 +1,7 @@
 // @flow
 import React from 'react'
 import { connect } from 'react-redux'
+import PageLoginDialog from './PageLoginDialog'
 import PageHeader from './PageHeader'
 import PageFooter from './PageFooter'
 import NotFound from './NotFound'
@@ -23,6 +24,7 @@ class Page extends React.Component {
     }
     return (
       <div className="main">
+        <PageLoginDialog />
         <PageHeader />
         <div className="children">
           {!this._isMounted || isLoading
@@ -80,6 +82,7 @@ class Page extends React.Component {
 //   children: PropTypes.any.isRequired,
 //   isLoading: PropTypes.bool.isRequired,
 //   onMounted: PropTypes.func.isRequired,
+//   isNotFound: PropTypes.bool,
 // }
 
 const mapStateToProps = (state, props) => ({
