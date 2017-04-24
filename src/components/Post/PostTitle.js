@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const PostTitle = ({ isTeaser, flow, id, title, isDraft, isMy }: Props) => (
   <div>
-    <h1>
+    <h2>
       {isTeaser ?
         <span>
           <Link className="flow" to={`/flow/${flow.id}/`} onClick={ga('flow', 'feed page', flow.name)}>{flow.name}</Link>
@@ -13,11 +13,18 @@ const PostTitle = ({ isTeaser, flow, id, title, isDraft, isMy }: Props) => (
           <Link className="link" to={`/post/${id}/`}>{title}</Link>
         </span>
       :
-        {title}
+        title
       }
       {isDraft && <sup>&nbsp;*&nbsp;черновик</sup>}
       {isMy && <sup>&nbsp;<Link className="link" to={`/post/edit/${id}/`}>edit</Link></sup>}
-    </h1>
+    </h2>
+    <style jsx>{`
+      h2 {
+        font-weight: normal;
+        font-size: 1.5em;
+        line-height: 1.334;
+      }
+    `}</style>
   </div>
 )
 
@@ -34,7 +41,7 @@ const PostTitle = ({ isTeaser, flow, id, title, isDraft, isMy }: Props) => (
 // }
 
 type Props = {
-  isTeaser: boolean,
+  isTeaser?: boolean,
   id: number,
   flow: {
     id: string,
@@ -42,7 +49,7 @@ type Props = {
   },
   title: string,
   isDraft?: boolean,
-  isMy: boolean,
+  isMy?: boolean,
 }
 
 export default PostTitle
