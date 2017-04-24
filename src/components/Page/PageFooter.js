@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Footer = () => (
-  <div>
+  <div className="root">
     <div className="copyright">
       <i className="fa fa-code" aria-hidden="true"/>
       &nbsp;with&nbsp;
@@ -27,6 +27,9 @@ const Footer = () => (
       &nbsp;Помощь&nbsp;
     </div>
     <style jsx>{`
+      .root {
+        margin: 8px auto;
+      }
       .copyright {
         display: inline-block;
         white-space: nowrap;
