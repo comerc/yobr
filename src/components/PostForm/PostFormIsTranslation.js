@@ -12,7 +12,7 @@ const onToggle = (input) => (event, isInputChecked) => {
 }
 
 const PostFormIsTranslation = ({ isTranslation, input }: Props) => (
-  <div className="main">
+  <div className="root">
     <Toggle
       id="PostFormIsTranslation"
       label="Перевод"
@@ -21,7 +21,7 @@ const PostFormIsTranslation = ({ isTranslation, input }: Props) => (
       onToggle={onToggle(input)}
     />
     <style jsx>{`
-      .main {
+      .root {
         margin-top: 28px;
       }
     `}</style>

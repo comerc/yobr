@@ -11,7 +11,7 @@ const onRequestDelete = (input, hubs, index, isValidate) => (event) => {
 }
 
 const PostFormHubs = ({ hubs, input, error }: Props) => (
-  <div className="main">
+  <div className="root">
       {hubs.map((hub, index) => (
         <Chip
           key={hub.id}
@@ -22,7 +22,7 @@ const PostFormHubs = ({ hubs, input, error }: Props) => (
         </Chip>
       ))}
     <style jsx>{`
-      .main {
+      .root {
         display: flex;
         flex-wrap: wrap;
       }
