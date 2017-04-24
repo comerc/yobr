@@ -1,6 +1,7 @@
 // @flow
 import React from 'react'
 import { connect } from 'react-redux'
+import { Scrollbars } from 'react-custom-scrollbars'
 import PageLoginDialog from './PageLoginDialog'
 import PageHeader from './PageHeader'
 import PageFooter from './PageFooter'
@@ -23,18 +24,20 @@ class Page extends React.Component {
       return <NotFound />
     }
     return (
-      <div className="main">
-        <PageLoginDialog />
-        <PageHeader />
-        <div className="children">
-          {!this._isMounted || isLoading
-            ?
-            <div>Загрузка...</div>
-            :
-            children
-          }
+      <Scrollbars className="scrollbars">
+        <div className="main">
+          <PageLoginDialog />
+          <PageHeader />
+          <div className="children">
+            {!this._isMounted || isLoading
+              ?
+              <div>Загрузка...</div>
+              :
+              children
+            }
+          </div>
+          <PageFooter />
         </div>
-        <PageFooter />
         <style jsx global>{`
           html, body, #root {
             height: 100%;
@@ -43,24 +46,12 @@ class Page extends React.Component {
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
-            overflow: hidden;
-          }
-          #root {
-            // margin: 48px 0;
-            // padding: 0 72px;
-            overflow: auto;
           }
           a {
             text-decoration: none;
           }
-          h2 {
-            font-weight: normal;
-            padding-bottom: .3em;
-            margin-top: 0;
-            margin-bottom: 16px;
-            font-size: 1.5em;
-            line-height: 1.334;
-            border-bottom: 1px solid #eee;
+          .scrollbars > div:not(:first-child) {
+            z-index: 1200;
           }
         `}</style>
         <style jsx>{`
@@ -71,9 +62,10 @@ class Page extends React.Component {
           }
           .children {
             flex: 1;
+            margin: 40px 24px 0;
           }
         `}</style>
-      </div>
+      </Scrollbars>
     )
   }
 }
