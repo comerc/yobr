@@ -33,7 +33,7 @@ type Props = {
 }
 
 const isMy = (state) =>
-  state.postView.author && state.postView.author.id === state.currentUser.id
+  state.postView.author.id === state.currentUser.id
 
 const mapStateToProps = (state, props) => ({
   id: parseInt(props.match.params.id, 10),

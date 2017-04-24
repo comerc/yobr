@@ -10,11 +10,11 @@ import type { Props } from './Post.Props'
 import PostViewPage from './PostViewPage'
 import PostListPage from './PostListPage'
 
-const Post = ({ id, published, flow, hubs, title, isDraft, isMy,
-  author, company, tags, content, viewsCount, favoritesCount, isTeaser }: Props) => (
+const Post = ({ isTeaser, id, published, flow, hubs, title, isDraft, isMy,
+  author, company, tags, content, viewsCount, favoritesCount }: Props) => (
   <div>
-    <PostHeader isTeaser {...{ id, published, flow, hubs, title, isDraft, isMy }} />
-    <PostBody isTeaser {...{ content }}>
+    <PostHeader {...{ isTeaser, id, published, flow, hubs, title, isDraft, isMy }} />
+    <PostBody {...{ isTeaser, content }}>
       {isTeaser
         ?
           <PostReadMore {...{ id }} />
@@ -23,13 +23,14 @@ const Post = ({ id, published, flow, hubs, title, isDraft, isMy,
       }
     </PostBody>
     <div className="footer">
-      <PostInfoPanel isTeaser {...{ id, author, viewsCount, favoritesCount }} />
+      <PostInfoPanel {...{ isTeaser, id, author, viewsCount, favoritesCount }} />
     </div>
     <br/>
   </div>
 )
 
 // Post.propTypes = {
+//   isTeaser: PropTypes.bool,
 //   id: PropTypes.number,
 //   published: PropTypes.string,
 //   flow: PropTypes.shape({
@@ -71,7 +72,6 @@ const Post = ({ id, published, flow, hubs, title, isDraft, isMy,
 //   content: PropTypes.string,
 //   viewsCount: PropTypes.number,
 //   favoritesCount: PropTypes.number,
-//   isTeaser: PropTypes.bool,
 // }
 
 export { PostViewPage, PostListPage }

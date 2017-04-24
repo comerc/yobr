@@ -30,7 +30,7 @@ const PostHeader = ({ isTeaser, published, flow, id, title, hubs, isDraft, isMy 
 // }
 
 type Props = {
-  isTeaser: boolean,
+  isTeaser?: boolean,
   id: number,
   published: string,
   flow: {
@@ -44,7 +44,7 @@ type Props = {
   }>,
   title: string,
   isDraft?: boolean,
-  isMy: boolean,
+  isMy?: boolean,
 }
 
 export default PostHeader

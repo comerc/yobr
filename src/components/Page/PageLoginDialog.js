@@ -38,7 +38,7 @@ const PageLoginDialog = ({ isLoginDialog, setLoginDialog, login }) => {
         open={isLoginDialog}
         onRequestClose={closeLoginDialog}
       >
-        Просто нажмите [ВОЙТИ].
+        Пока просто нажмите [ВОЙТИ].
       </Dialog>
     </div>
   )

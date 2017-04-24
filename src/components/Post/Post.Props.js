@@ -1,6 +1,7 @@
 // @flow
 
 export type Props = {
+  isTeaser?: boolean,
   id: number,
   published: string,
   flow: {
@@ -43,5 +44,4 @@ export type Props = {
   content: string,
   viewsCount: number,
   favoritesCount: number,
-  isTeaser?: boolean,
 }

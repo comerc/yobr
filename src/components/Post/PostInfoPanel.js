@@ -30,7 +30,7 @@ const PostInfoPanel = ({ isTeaser, id, author, viewsCount, favoritesCount }: Pro
 // }
 
 type Props = {
-  isTeaser: boolean,
+  isTeaser?: boolean,
   id: number,
   author: {
     id: number,

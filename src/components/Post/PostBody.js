@@ -18,7 +18,7 @@ const PostBody = ({ isTeaser, content, children }: Props) => (
 // }
 
 type Props = {
-  isTeaser: boolean,
+  isTeaser?: boolean,
   content: string,
   children?: typeof React.Element,
 }
