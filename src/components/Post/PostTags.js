@@ -12,6 +12,22 @@ const PostTags = ({ tags }: Props) => (
         >{tag}</Link>
       </li>
     )}
+    <style jsx>{`
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        white-space: nowrap;
+        display: inline;
+      }
+      li:after {
+        content: ', '
+      }
+      li:last-child:after {
+        content: ''
+      }
+    `}</style>
   </ul>
 )
 
