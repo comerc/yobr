@@ -30,7 +30,7 @@ type Props = {
 
 const mapStateToProps = (state, props) => ({
   id: parseInt(props.match.params.id, 10),
-  isNotFound: !state.app.isLoading && !state.postForm.id,
+  isNotFound: !state.postForm.id,
 })
 
 const mapDispatchToProps = (dispatch) => {

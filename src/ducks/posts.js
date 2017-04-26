@@ -16,12 +16,10 @@ const read = () => (dispatch) => {
     if (isFetch) {
       dispatch(appActions.setLoading(false))
     }
-  }, 500) // демонстрировать isLoading не менее 500 мс
+  }, 500) // демонстрировать state.app.isLoading не менее 500 мс
   axios('/posts/')
     .then(response => {
-      return response.data
-    })
-    .then(posts => {
+      const posts = response.data
       dispatch(set(posts))
       isFetch = true
       if (isTimeout) {

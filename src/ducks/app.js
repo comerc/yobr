@@ -25,7 +25,7 @@ const initialState = {
   isLoading: false,
   mainError: '',
   isLoginDialog: false,
-  isLogged: false,
+  isLogged: true,
 }
 
 const reducer = createReducer({

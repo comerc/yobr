@@ -24,14 +24,10 @@ type Props = {
   read: Function,
 }
 
-const mapStateToProps = (state, props) => ({
-
-})
-
 const mapDispatchToProps = (dispatch) => {
   const { read } = actions
   return bindActionCreators({ read }, dispatch)
 }
 
 export { PostFormAddPage } // тупой компонент для тестирования
-export default connect(mapStateToProps, mapDispatchToProps)(PostFormAddPage)
+export default connect(null, mapDispatchToProps)(PostFormAddPage)

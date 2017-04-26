@@ -8,32 +8,32 @@ import PageFooter from './PageFooter'
 import NotFound from './NotFound'
 
 class Page extends React.Component {
-  _isMounted: boolean
+  _isMounted = false
 
   componentDidMount() {
     this._isMounted = true
     const { onMounted } = this.props
-    setImmediate(() =>
+    if (onMounted !== void 0) {
       onMounted()
-    )
+    }
   }
 
   render() {
     const { isNotFound, isLoading, children } = this.props
-    if (this._isMounted && isNotFound) {
+    if (this._isMounted && !isLoading && isNotFound) {
       return <NotFound />
     }
     return (
-      <Scrollbars className="scrollbars">
+      <Scrollbars className="scrollbars" autoHide={true}>
         <div className="main">
           <PageLoginDialog />
           <PageHeader />
           <div className="children">
             {!this._isMounted || isLoading
               ?
-              <div>Загрузка...</div>
+                <div>Загрузка...</div>
               :
-              children
+                children
             }
           </div>
           <PageFooter />

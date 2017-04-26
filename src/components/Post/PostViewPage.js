@@ -1,7 +1,6 @@
 // @flow
 import React from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import { actions } from 'ducks/postView'
 import Page from 'components/Page'
 import Helmet from 'react-helmet'
@@ -9,8 +8,8 @@ import Post from './Post'
 import type { Props as PostProps } from './Post.Props'
 import isEmpty from 'lodash/isEmpty'
 
-const PostViewPage = ({ read, id, isNotFound, post }: Props) => (
-  <Page onMounted={() => read(id)} {...{ isNotFound }}>
+const PostViewPage = ({ post, ...props }: Props) => (
+  <Page {...props}>
     <Helmet
       title="YOBR"
     />
@@ -26,8 +25,7 @@ const PostViewPage = ({ read, id, isNotFound, post }: Props) => (
 // }
 
 type Props = {
-  read: Function,
-  id: number,
+  onMounted: Function,
   isNotFound: boolean,
   post: PostProps | {},
 }
@@ -36,15 +34,16 @@ const isMy = (state) =>
   state.postView.author.id === state.currentUser.id
 
 const mapStateToProps = (state, props) => ({
-  id: parseInt(props.match.params.id, 10),
-  isNotFound: !state.app.isLoading && !state.postView.id,
-  post: isEmpty(state.postView) ? {} : { ...state.postView, isMy: isMy(state) },
+  isNotFound: isEmpty(state.postView),
+  post: isEmpty(state.postView) ? state.postView : { ...state.postView, isMy: isMy(state) },
 })
 
-const mapDispatchToProps = (dispatch) => {
-  const { read } = actions
-  return bindActionCreators({ read }, dispatch)
-}
+const mapDispatchToProps = (dispatch, props) => ({
+  onMounted: () => {
+    const id = parseInt(props.match.params.id, 10)
+    dispatch(actions.read(id))
+  },
+})
 
 export { PostViewPage } // тупой компонент для тестирования
 export default connect(mapStateToProps, mapDispatchToProps)(PostViewPage)

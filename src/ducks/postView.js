@@ -26,12 +26,10 @@ const read = id => (dispatch, getState) => {
     if (isFetch) {
       dispatch(appActions.setLoading(false))
     }
-  }, 500) // демонстрировать isLoading не менее 500 мс
+  }, 500) // демонстрировать state.app.isLoading не менее 500 мс
   axios(`/post/${id}`)
     .then(response => {
-      return response.data
-    })
-    .then(post => {
+      const post = response.data
       dispatch(postsActions.setPost(post))
       dispatch(set(post))
       isFetch = true
