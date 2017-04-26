@@ -35,9 +35,10 @@ import MyComponent from 'components/MyComponent'
 
 ### Статьи
 
+- [Загрузка данных из REST API](https://habrahabr.ru/post/327422/)
 - [Способы отладки JS на клиенте](https://habrahabr.ru/post/327190/)
 - [Функциональные компоненты](https://habrahabr.ru/post/326610/)
-- [Flow + tcomb = типизированный JavaScript](https://habrahabr.ru/post/326538/)
-- [Организация компонентов в React проекте](https://habrahabr.ru/post/326018/)
+- [Flow + tcomb = типизированный JS](https://habrahabr.ru/post/326538/)
+- [Организация компонентов в проекте](https://habrahabr.ru/post/326018/)
 - [Блог а-ля Хабр, выбор платформы](https://habrahabr.ru/post/325088/)
 - [React Native — одного JS мало](https://habrahabr.ru/post/323214/)
