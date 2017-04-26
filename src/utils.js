@@ -75,3 +75,8 @@ export const sleep = (ms, reason = null) => new Promise((resolve, reject) =>
     resolve()
   }, ms)
 )
+
+export const msgBoxYesNo = (s) => new Promise((yes, no) =>
+  confirm(s) ? yes() : no()
+)
+
