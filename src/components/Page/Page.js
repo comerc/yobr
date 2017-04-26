@@ -1,7 +1,6 @@
 // @flow
 import React from 'react'
 import { connect } from 'react-redux'
-import { Scrollbars } from 'react-custom-scrollbars'
 import PageLoginDialog from './PageLoginDialog'
 import PageHeader from './PageHeader'
 import PageFooter from './PageFooter'
