@@ -8,6 +8,12 @@ import PageFooter from './PageFooter'
 import NotFound from './NotFound'
 
 class Page extends React.Component {
+  props: {
+    onMounted?: Function,
+    isNotFound?: boolean,
+    isLoading?: boolean,
+    children?: typeof React.Element,
+  }
   _isMounted = false
 
   componentDidMount() {
@@ -29,11 +35,11 @@ class Page extends React.Component {
           <PageLoginDialog />
           <PageHeader />
           <div className="children">
-            {!this._isMounted || isLoading
+            {this._isMounted && !isLoading
               ?
-                <div>Загрузка...</div>
-              :
                 children
+              :
+                <div>Загрузка...</div>
             }
           </div>
           <PageFooter />
