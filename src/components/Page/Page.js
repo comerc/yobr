@@ -30,21 +30,37 @@ class Page extends React.Component {
       return <NotFound />
     }
     return (
-      <Scrollbars className="scrollbars" autoHide={true}>
+      <div className="root">
+        <PageLoginDialog />
+        <PageHeader />
         <div className="main">
-          <PageLoginDialog />
-          <PageHeader />
-          <div className="children">
-            {this._isMounted && !isLoading
-              ?
-                children
-              :
-                <div>Загрузка...</div>
-            }
-          </div>
-          <PageFooter />
+          {this._isMounted && !isLoading
+            ?
+              children
+            :
+              <div>Загрузка...</div>
+          }
         </div>
+        <PageFooter />
         <style jsx global>{`
+          .u-fancy-scrollbar{-webkit-overflow-scrolling:touch;-webkit-transform:translate3d(0,0,0)}
+          .u-fancy-scrollbar::-webkit-scrollbar{height:8px;width:8px}
+          .u-fancy-scrollbar::-webkit-scrollbar-button:end:increment,
+          .u-fancy-scrollbar::-webkit-scrollbar-button:start:decrement{background:0 0;display:none}
+          .u-fancy-scrollbar::-webkit-scrollbar-track-piece{background:#D6DADC}
+          /*.u-fancy-scrollbar::-webkit-scrollbar-track-piece:vertical:start{border-radius:0px 0px 0 0}*/
+          /*.u-fancy-scrollbar::-webkit-scrollbar-track-piece:vertical:end{border-radius:0 0 0px 0px}*/
+          /*.u-fancy-scrollbar::-webkit-scrollbar-track-piece:horizontal:start{border-radius:0px 0 0 0px}*/
+          /*.u-fancy-scrollbar::-webkit-scrollbar-track-piece:horizontal:end{border-radius:0 0px 0px 0}*/
+          .u-fancy-scrollbar::-webkit-scrollbar-thumb:horizontal,
+          .u-fancy-scrollbar::-webkit-scrollbar-thumb:vertical{background:#C4C9CC;display:block;height:50px}
+          /*.u-fancy-scrollbar::-webkit-scrollbar-thumb:vertical{box-shadow:inset 8px 0 #D6DADC}*/
+          /*.u-fancy-scrollbar::-webkit-scrollbar-thumb:horizontal{box-shadow:inset 0 8px #D6DADC}*/
+          /*.u-fancy-scrollbar::-webkit-scrollbar-thumb:horizontal:hover,*/
+          /*.u-fancy-scrollbar::-webkit-scrollbar-thumb:vertical:hover{box-shadow:none}*/
+          html {
+            /*overflow: scroll;*/
+          }
           html, body, #root {
             height: 100%;
           }
@@ -56,22 +72,19 @@ class Page extends React.Component {
           a {
             text-decoration: none;
           }
-          .scrollbars > div:not(:first-child) {
-            z-index: 1200;
-          }
         `}</style>
         <style jsx>{`
-          .main {
+          .root {
             display: flex;
             flex-direction: column;
             min-height: 100%;
           }
-          .children {
+          .main {
             flex: 1;
             margin: 40px 24px 0;
           }
         `}</style>
-      </Scrollbars>
+      </div>
     )
   }
 }
