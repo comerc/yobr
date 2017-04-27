@@ -25,9 +25,9 @@ const PostViewPage = ({ post, ...props }: Props) => (
 // }
 
 type Props = {
+  post: PostProps | {},
   onMounted: Function,
   isNotFound: boolean,
-  post: PostProps | {},
 }
 
 const isMy = (state) =>

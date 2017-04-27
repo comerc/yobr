@@ -1,14 +1,13 @@
 // @flow
 import React from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import { actions } from 'ducks/postForm'
 import Page from 'components/Page'
 import Helmet from 'react-helmet'
 import PostForm from './PostForm'
 
-const PostFormAddPage = ({ read }: Props) => (
-  <Page onMounted={() => read()}>
+const PostFormAddPage = (props: Props) => (
+  <Page {...props}>
     <Helmet
       title="YOBR"
     />
@@ -17,17 +16,18 @@ const PostFormAddPage = ({ read }: Props) => (
 )
 
 // PostFormAddPage.propTypes = {
-//   read: PropTypes.func,
+//   onMounted: PropTypes.func,
 // }
 
 type Props = {
-  read: Function,
+  onMounted: Function,
 }
 
-const mapDispatchToProps = (dispatch) => {
-  const { read } = actions
-  return bindActionCreators({ read }, dispatch)
-}
+const mapDispatchToProps = (dispatch, props) => ({
+  onMounted: () => {
+    dispatch(actions.read())
+  },
+})
 
 export { PostFormAddPage } // тупой компонент для тестирования
 export default connect(null, mapDispatchToProps)(PostFormAddPage)

@@ -1,7 +1,6 @@
 // @flow
 import React from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import { createSelector } from 'reselect'
 import { actions } from 'ducks/posts'
 import Page from 'components/Page'
@@ -10,8 +9,8 @@ import Post from './Post'
 import PostAdd from './PostAdd'
 import type { Props as PostProps } from './Post.Props'
 
-const PostListPage = ({ read, filterType, filterId, flows, posts, currentUserId }: Props) => (
-  <Page onMounted={() => read({ filterType, filterId })}>
+const PostListPage = ({ flows, posts, currentUserId, ...props }: Props) => (
+  <Page {...props}>
     <Helmet
       title="YOBR"
     />
@@ -35,27 +34,23 @@ const PostListPage = ({ read, filterType, filterId, flows, posts, currentUserId 
 )
 
 // PostListPage.propTypes = {
-//   read: PropTypes.func,
-//   filterType: PropTypes.string,
-//   filterId: PropTypes.string,
 //   flows: PropTypes.arrayOf(PropTypes.shape({
 //     id: PropTypes.string,
 //     name: PropTypes.string,
 //   })),
 //   posts: PropTypes.arrayOf(PropTypes.object),
 //   currentUserId: PropTypes.number,
+//   onMounted: PropTypes.func,
 // }
 
 type Props = {
-  read: Function,
-  filterType: string,
-  filterId: string,
   flows: Array<{
     id: string,
     name: string,
   }>,
   posts: Array<PostProps>,
   currentUserId: number,
+  onMounted: Function,
 }
 
 const getFilterType = (state, props) =>
@@ -84,17 +79,18 @@ const filteredPosts = createSelector(
 )
 
 const mapStateToProps = (state, props) => ({
-  filterType: getFilterType(state, props),
-  filterId: getFilterId(state, props),
   flows: state.flows,
   posts: filteredPosts(state, props),
   currentUserId: state.currentUser.id,
 })
 
-const mapDispatchToProps = (dispatch) => {
-  const { read } = actions
-  return bindActionCreators({ read }, dispatch)
-}
+const mapDispatchToProps = (dispatch, props) => ({
+  onMounted: () => {
+    const filterType = props.match.params.filterType || ''
+    const filterId = props.match.params.filterId || ''
+    dispatch(actions.read({ filterType, filterId }))
+  },
+})
 
 export { PostListPage } // тупой компонент для тестирования
 export default connect(mapStateToProps, mapDispatchToProps)(PostListPage)
