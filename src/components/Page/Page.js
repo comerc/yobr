@@ -53,7 +53,7 @@ class Page extends React.Component {
           /*.u-fancy-scrollbar::-webkit-scrollbar-thumb:horizontal:hover,*/
           /*.u-fancy-scrollbar::-webkit-scrollbar-thumb:vertical:hover{box-shadow:none}*/
           html {
-            /*overflow: scroll;*/
+            overflow: scroll;
           }
           html, body, #root {
             height: 100%;
