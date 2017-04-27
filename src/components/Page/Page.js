@@ -37,7 +37,10 @@ class Page extends React.Component {
         </div>
         <PageFooter />
         <style jsx global>{`
-          .u-fancy-scrollbar{-webkit-overflow-scrolling:touch;-webkit-transform:translate3d(0,0,0)}
+          .u-fancy-scrollbar{-webkit-overflow-scrolling:touch}
+          /* BUGFIX если включить, то перестает работать position: fixed */
+          /* BUGFIX если включить, то неправильно позиционируется AutoComplete popup */
+          /*.u-fancy-scrollbar{-webkit-transform:translate3d(0,0,0)}*/
           .u-fancy-scrollbar::-webkit-scrollbar{height:8px;width:8px}
           .u-fancy-scrollbar::-webkit-scrollbar-button:end:increment,
           .u-fancy-scrollbar::-webkit-scrollbar-button:start:decrement{background:0 0;display:none}
