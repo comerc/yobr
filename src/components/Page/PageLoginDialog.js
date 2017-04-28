@@ -30,17 +30,16 @@ const PageLoginDialog = ({ isLoginDialog, setLoginDialog, login }) => {
   ]
 
   return (
-    <div>
-      <Dialog
-        title="Представьтесь, пожалуйста"
-        actions={actions}
-        modal={false}
-        open={isLoginDialog}
-        onRequestClose={closeLoginDialog}
-      >
-        Пока просто нажмите [ВОЙТИ].
-      </Dialog>
-    </div>
+    <Dialog
+      title="Представьтесь, пожалуйста"
+      actions={actions}
+      modal={false}
+      open={isLoginDialog}
+      onRequestClose={closeLoginDialog}
+    >
+      {/*<input type="email"/>*/}
+      Пока просто нажмите [ВОЙТИ].
+    </Dialog>
   )
 }
 
