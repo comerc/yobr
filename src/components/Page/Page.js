@@ -96,7 +96,7 @@ class Page extends React.Component {
 type Props = {
   onMounted?: Function,
   isNotFound?: boolean,
-  isLoading?: boolean,
+  isLoading: boolean,
   children?: typeof React.Element,
 }
 
