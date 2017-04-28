@@ -8,8 +8,8 @@ function rewire(config, env) {
     // не работает jest, заменил на NODE_PATH=src/ в .env
     // ['module-resolver', { 'root': ['src'] }],
     'styled-jsx-postcss/babel',
-    // 'flow-react-proptypes',
-    'tcomb',
+    'flow-react-proptypes',
+    // 'tcomb',
   ].concat(babelrc.plugins || [])
 
   delete config.eslint.configFile
