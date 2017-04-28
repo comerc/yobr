@@ -6,6 +6,13 @@ import PageHeader from './PageHeader'
 import PageFooter from './PageFooter'
 import NotFound from './NotFound'
 
+type Props = {
+  onMounted?: Function,
+  isNotFound?: boolean,
+  isLoading: boolean,
+  children?: typeof React.Element,
+}
+
 class Page extends React.Component {
   props: Props
   _isMounted = false
@@ -92,13 +99,6 @@ class Page extends React.Component {
 //   onMounted: PropTypes.func.isRequired,
 //   isNotFound: PropTypes.bool,
 // }
-
-type Props = {
-  onMounted?: Function,
-  isNotFound?: boolean,
-  isLoading: boolean,
-  children?: typeof React.Element,
-}
 
 const mapStateToProps = (state, props) => ({
   isLoading: state.app.isLoading
