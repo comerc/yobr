@@ -1,4 +1,4 @@
-module.exports = () => ({
+module.exports = (context) => ({
   plugins: {
     'postcss-discard-comments': { removeAll: true },
     'postcss-inline-comment': {},

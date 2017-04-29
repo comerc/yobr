@@ -1,4 +1,5 @@
 import { createAction, createReducer } from 'redux-act'
+import axios from 'axios'
 
 const NS = '@@app/'
 
@@ -19,6 +20,32 @@ const logout = () => (dispatch, getState) => {
   if (state.app.isLogged) {
     dispatch(setLogged(false))
   }
+}
+
+export const load = (dispatch, config, cb) => {
+  let isTimeout = false
+  let isFetch = false
+  setTimeout(() => {
+    isTimeout = true
+    if (!isFetch) {
+      dispatch(setLoading(false))
+    }
+  }, 500) // демонстрировать state.app.isLoading не менее 500 мс
+  axios(config)
+    .then(response => {
+      cb(response.data)
+      isFetch = true
+      if (!isTimeout) {
+        dispatch(setLoading(false))
+      }
+    })
+    .catch(error => {
+      isFetch = true
+      if (!isTimeout) {
+        dispatch(setLoading(false))
+      }
+      dispatch(setMainError(error.toString()))
+    })
 }
 
 const initialState = {

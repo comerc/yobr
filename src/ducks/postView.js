@@ -1,7 +1,6 @@
 import { createAction, createReducer } from 'redux-act'
-import { actions as appActions } from './app'
+import { load, actions as appActions } from './app'
 import { actions as postsActions } from './posts'
-import axios from 'axios'
 
 const NS = '@@post-view/'
 
@@ -19,31 +18,12 @@ const read = id => (dispatch, getState) => {
     dispatch(appActions.setLoading(false))
     return
   }
-  let isTimeout = false
-  let isFetch = false
-  setTimeout(() => {
-    isTimeout = true
-    if (isFetch) {
-      dispatch(appActions.setLoading(false))
+  load(dispatch, `/post/${id}`,
+    data => {
+      dispatch(postsActions.setPost(data))
+      dispatch(set(data))
     }
-  }, 500) // демонстрировать state.app.isLoading не менее 500 мс
-  axios(`/post/${id}`)
-    .then(response => {
-      const post = response.data
-      dispatch(postsActions.setPost(post))
-      dispatch(set(post))
-      isFetch = true
-      if (isTimeout) {
-        dispatch(appActions.setLoading(false))
-      }
-    })
-    .catch(error => {
-      isFetch = true
-      if (isTimeout) {
-        dispatch(appActions.setLoading(false))
-      }
-      dispatch(appActions.setMainError(error.toString()))
-    })
+  )
 }
 
 const initialState = {}

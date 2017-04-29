@@ -2,7 +2,7 @@ import { createAction, createReducer } from 'redux-act'
 import { push } from 'react-router-redux'
 import { POST_FORM_TITLE_MAX, POST_FORM_HUBS_MAX } from 'consts'
 import isEmpty from 'lodash/isEmpty'
-import { actions as appActions } from './app'
+import { load, actions as appActions } from './app'
 import { actions as postsActions } from './posts'
 import axios from 'axios'
 
@@ -54,31 +54,12 @@ const read = id => (dispatch, getState) => {
     dispatch(appActions.setLoading(false))
     return
   }
-  let isTimeout = false
-  let isFetch = false
-  setTimeout(() => {
-    isTimeout = true
-    if (isFetch) {
-      dispatch(appActions.setLoading(false))
+  load(dispatch, `/post/${id}`,
+    data => {
+      dispatch(postsActions.setPost(data))
+      dispatch(set(clearPostForm(data)))
     }
-  }, 500) // демонстрировать state.app.isLoading не менее 500 мс
-  axios(`/post/${id}`)
-    .then(response => {
-      const post = response.data
-      dispatch(postsActions.setPost(post))
-      dispatch(set(clearPostForm(post)))
-      isFetch = true
-      if (isTimeout) {
-        dispatch(appActions.setLoading(false))
-      }
-    })
-    .catch(error => {
-      isFetch = true
-      if (isTimeout) {
-        dispatch(appActions.setLoading(false))
-      }
-      dispatch(appActions.setMainError(error.toString()))
-    })
+  )
 }
 
 const save = () => (dispatch, getState) => {
@@ -105,8 +86,8 @@ const save = () => (dispatch, getState) => {
     .then(response => {
       const post = response.data
       dispatch(postsActions.setPost(post))
-      dispatch(setSubmitting(false))
       dispatch(push(`/post/${post.id}/`))
+      dispatch(setSubmitting(false))
     })
     .catch(error => {
       dispatch(setSubmitting(false))

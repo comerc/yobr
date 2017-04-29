@@ -1,6 +1,5 @@
 import { createAction, createReducer } from 'redux-act'
-import { actions as appActions } from './app'
-import axios from 'axios'
+import { load, actions as appActions } from './app'
 
 const NS = '@@posts/'
 
@@ -9,30 +8,11 @@ const setPost = createAction(`${NS}SET_POST`)
 
 const read = () => (dispatch) => {
   dispatch(appActions.setLoading(true))
-  let isTimeout = false
-  let isFetch = false
-  setTimeout(() => {
-    isTimeout = true
-    if (isFetch) {
-      dispatch(appActions.setLoading(false))
+  load(dispatch, '/posts/',
+    data => {
+      dispatch(set(data))
     }
-  }, 500) // демонстрировать state.app.isLoading не менее 500 мс
-  axios('/posts/')
-    .then(response => {
-      const posts = response.data
-      dispatch(set(posts))
-      isFetch = true
-      if (isTimeout) {
-        dispatch(appActions.setLoading(false))
-      }
-    })
-    .catch(error => {
-      isFetch = true
-      if (isTimeout) {
-        dispatch(appActions.setLoading(false))
-      }
-      dispatch(appActions.setMainError(error.toString()))
-    })
+  )
 }
 
 const initialState = []
