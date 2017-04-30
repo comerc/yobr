@@ -8,6 +8,7 @@
     "babel-plugin-tcomb": "^0.3.25",
     "enzyme": "^2.8.2",
     "jest-enzyme": "2.x",
+    "moxios": "^0.4.0",
     "postcss-cssnext": "^2.10.0",
     "postcss-discard-comments": "^2.0.4",
     "postcss-inline-comment": "^3.0.0",
