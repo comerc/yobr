@@ -28,6 +28,7 @@
     "body-parser": "^1.17.1",
     "classnames": "^2.2.5",
     "es6-promise": "^4.1.0",
+    "fast-memoize": "^2.2.7",
     "fastclick": "^1.0.6",
     "lodash": "^4.17.4",
     "material-ui": "^0.17.4",
