@@ -3198,7 +3198,7 @@ jest-environment-node@^18.1.0:
     jest-mock "^18.0.0"
     jest-util "^18.1.0"
 
-jest-enzyme@2.x:
+jest-enzyme@2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/jest-enzyme/-/jest-enzyme-2.1.2.tgz#707187aabef9fbb7d018c1a2853ee9d8674ba629"
   dependencies:
