@@ -3,16 +3,22 @@ import React from 'react'
 import TextField from 'material-ui/TextField'
 import { handleChange, pureComponent } from 'utils'
 
+type Props = {
+  content: string,
+  input: Function,
+  error?: string,
+}
+
 const PostFormContent = ({ content, input, error }: Props) => (
   <TextField
-    id="PostFormContent"
-    floatingLabelText="Текст"
-    hintText="Для переноса строк в тексте нажмите [ENTER]"
+    id='PostFormContent'
+    floatingLabelText='Текст'
+    hintText='Для переноса строк в тексте нажмите [ENTER]'
     value={content}
-    fullWidth={true}
+    fullWidth
     errorText={error}
     onChange={handleChange('content', input, !!error)}
-    multiLine={true}
+    multiLine
     hintStyle={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
   />
 )
@@ -22,11 +28,5 @@ const PostFormContent = ({ content, input, error }: Props) => (
 //   input: PropTypes.func,
 //   error: PropTypes.string,
 // }
-
-type Props = {
-  content: string,
-  input: Function,
-  error?: string,
-}
 
 export default pureComponent(PostFormContent)

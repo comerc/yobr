@@ -6,10 +6,15 @@ import Page from 'components/Page'
 import Helmet from 'react-helmet'
 import PostForm from './PostForm'
 
+type Props = {
+  onMounted: Function,
+  isNotFound: boolean,
+}
+
 const PostFormEditPage = (props: Props) => (
   <Page {...props}>
     <Helmet
-      title="YOBR"
+      title='YOBR'
     />
     <PostForm />
   </Page>
@@ -20,20 +25,15 @@ const PostFormEditPage = (props: Props) => (
 //   isNotFound: PropTypes.bool,
 // }
 
-type Props = {
-  onMounted: Function,
-  isNotFound: boolean,
-}
-
 const mapStateToProps = (state, props) => ({
-  isNotFound: !state.postForm.id,
+  isNotFound: !state.postForm.id
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
   onMounted: () => {
     const id = parseInt(props.match.params.id, 10)
     dispatch(actions.read(id))
-  },
+  }
 })
 
 export { PostFormEditPage } // тупой компонент для тестирования

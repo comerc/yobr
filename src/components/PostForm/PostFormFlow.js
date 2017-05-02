@@ -4,11 +4,21 @@ import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
 import { handleSelectFieldChange, pureComponent } from 'utils'
 
+type Props = {
+  flowId?: string,
+  sourceFlows: Array<{
+    id: string,
+    name: string,
+  }>,
+  input: Function,
+  error?: string,
+}
+
 const PostFormFlow = ({ flowId, sourceFlows, input, error }: Props) => (
   <SelectField
-    id="PostFormFlow"
-    floatingLabelText="Поток"
-    hintText="Выберите поток"
+    id='PostFormFlow'
+    floatingLabelText='Поток'
+    hintText='Выберите поток'
     value={flowId}
     errorText={error}
     onChange={handleSelectFieldChange('flow', input, sourceFlows, !!error)}
@@ -27,15 +37,5 @@ const PostFormFlow = ({ flowId, sourceFlows, input, error }: Props) => (
 //   input: PropTypes.func,
 //   error: PropTypes.string,
 // }
-
-type Props = {
-  flowId?: string,
-  sourceFlows: Array<{
-    id: string,
-    name: string,
-  }>,
-  input: Function,
-  error?: string,
-}
 
 export default pureComponent(PostFormFlow)

@@ -4,6 +4,20 @@ import AutoComplete from 'material-ui/AutoComplete'
 import { pureComponent } from 'utils'
 import { POST_FORM_HUBS_MAX } from 'consts'
 
+type Props = {
+  searchHub: string,
+  sourceHubs: Array<{
+    id: string,
+    name: string,
+  }>,
+  hubs: Array<{
+    id: string,
+    name: string,
+  }>,
+  input: Function,
+  error?: string,
+}
+
 const onNewRequest = (input, hubs, sourceHubs, isValidate) => (chosenRequest, index) => {
   if (index > -1) {
     const hub = sourceHubs[index]
@@ -22,8 +36,8 @@ const onUpdateInput = (input) => (searchText, dataSource, params) => {
 
 const PostFormSearchHub = ({ searchHub, sourceHubs, hubs, input, error }: Props) => (
   <AutoComplete
-    id="PostFormHubs"
-    floatingLabelText="Хабы"
+    id='PostFormHubs'
+    floatingLabelText='Хабы'
     hintText={`Выберите от 1 до ${POST_FORM_HUBS_MAX} хабов`}
     filter={AutoComplete.fuzzyFilter}
     dataSource={sourceHubs}
@@ -32,8 +46,8 @@ const PostFormSearchHub = ({ searchHub, sourceHubs, hubs, input, error }: Props)
     onNewRequest={onNewRequest(input, hubs, sourceHubs, !!error)}
     errorText={error}
     searchText={searchHub}
-    fullWidth={true}
-    openOnFocus={true}
+    fullWidth
+    openOnFocus
     onUpdateInput={onUpdateInput(input)}
   />
 )
@@ -55,19 +69,5 @@ const PostFormSearchHub = ({ searchHub, sourceHubs, hubs, input, error }: Props)
 //   input: PropTypes.func,
 //   error: PropTypes.string,
 // }
-
-type Props = {
-  searchHub: string,
-  sourceHubs: Array<{
-    id: string,
-    name: string,
-  }>,
-  hubs: Array<{
-    id: string,
-    name: string,
-  }>,
-  input: Function,
-  error?: string,
-}
 
 export default pureComponent(PostFormSearchHub)

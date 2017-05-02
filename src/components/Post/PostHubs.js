@@ -4,6 +4,14 @@ import cx from 'classnames'
 import { ga } from 'utils'
 import { Link } from 'react-router-dom'
 
+type Props = {
+  hubs: Array<{
+    id: string,
+    name: string,
+    isSubscribed?: boolean,
+  }>,
+}
+
 const PostHubs = ({ hubs }: Props) => (
   <ul>
     {hubs.map(hub =>
@@ -14,7 +22,7 @@ const PostHubs = ({ hubs }: Props) => (
           onClick={ga('hub', 'feed page', hub.name)}
           className={cx({ 'subscribed': hub.isSubscribed })}
         >{hub.name}</Link>
-        {hub.isProfiled && <span className="profiled" title="Профильный хаб">*</span>}
+        {hub.isProfiled && <span className='profiled' title='Профильный хаб'>*</span>}
       </li>
     )}
     <style jsx>{`
@@ -42,13 +50,5 @@ const PostHubs = ({ hubs }: Props) => (
 //     name: PropTypes.string,
 //   })).isRequired,
 // }
-
-type Props = {
-  hubs: Array<{
-    id: string,
-    name: string,
-    isSubscribed?: boolean,
-  }>,
-}
 
 export default PostHubs

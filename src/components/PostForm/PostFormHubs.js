@@ -3,6 +3,15 @@ import React from 'react'
 import Chip from 'material-ui/Chip'
 import { pureComponent } from 'utils'
 
+type Props = {
+  hubs: Array<{
+    id: string,
+    name: string,
+  }>,
+  input: Function,
+  error?: string,
+}
+
 const onRequestDelete = (input, hubs, index, isValidate) => (event) => {
   hubs = hubs.slice()
   hubs.splice(index, 1)
@@ -11,16 +20,16 @@ const onRequestDelete = (input, hubs, index, isValidate) => (event) => {
 }
 
 const PostFormHubs = ({ hubs, input, error }: Props) => (
-  <div className="root">
-      {hubs.map((hub, index) => (
-        <Chip
-          key={hub.id}
-          onRequestDelete={onRequestDelete(input, hubs, index, !!error)}
-          style={{ margin: 4 }}
-        >
-          {hub.name}
-        </Chip>
-      ))}
+  <div className='root'>
+    {hubs.map((hub, index) => (
+      <Chip
+        key={hub.id}
+        onRequestDelete={onRequestDelete(input, hubs, index, !!error)}
+        style={{ margin: 4 }}
+      >
+        {hub.name}
+      </Chip>
+    ))}
     <style jsx>{`
       .root {
         display: flex;
@@ -40,14 +49,5 @@ const PostFormHubs = ({ hubs, input, error }: Props) => (
 //   input: PropTypes.func,
 //   error: PropTypes.string,
 // }
-
-type Props = {
-  hubs: Array<{
-    id: string,
-    name: string,
-  }>,
-  input: Function,
-  error?: string,
-}
 
 export default pureComponent(PostFormHubs)

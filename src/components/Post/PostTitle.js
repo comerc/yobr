@@ -3,20 +3,32 @@ import React from 'react'
 import { ga } from 'utils'
 import { Link } from 'react-router-dom'
 
+type Props = {
+  isTeaser?: boolean,
+  id: number,
+  flow: {
+    id: string,
+    name: string,
+  },
+  title: string,
+  isDraft?: boolean,
+  isMy?: boolean,
+}
+
 const PostTitle = ({ isTeaser, flow, id, title, isDraft, isMy }: Props) => (
   <div>
     <h2>
-      {isTeaser ?
+      {isTeaser &&
         <span>
-          <Link className="flow" to={`/flow/${flow.id}/`} onClick={ga('flow', 'feed page', flow.name)}>{flow.name}</Link>
-          <span className="arrow"> → </span>
-          <Link className="link" to={`/post/${id}/`}>{title}</Link>
+          <Link className='flow' to={`/flow/${flow.id}/`} onClick={ga('flow', 'feed page', flow.name)}>{flow.name}</Link>
+          <span className='arrow'> → </span>
+          <Link className='link' to={`/post/${id}/`}>{title}</Link>
         </span>
-      :
-        title
+        ? null
+        : title
       }
       {isDraft && <sup>&nbsp;*&nbsp;черновик</sup>}
-      {isMy && <sup>&nbsp;<Link className="link" to={`/post/edit/${id}/`}>edit</Link></sup>}
+      {isMy && <sup>&nbsp;<Link className='link' to={`/post/edit/${id}/`}>edit</Link></sup>}
     </h2>
     <style jsx>{`
       h2 {
@@ -39,17 +51,5 @@ const PostTitle = ({ isTeaser, flow, id, title, isDraft, isMy }: Props) => (
 //   isDraft: PropTypes.bool,
 //   isMy: PropTypes.bool,
 // }
-
-type Props = {
-  isTeaser?: boolean,
-  id: number,
-  flow: {
-    id: string,
-    name: string,
-  },
-  title: string,
-  isDraft?: boolean,
-  isMy?: boolean,
-}
 
 export default PostTitle

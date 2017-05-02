@@ -66,8 +66,8 @@ const PostForm = ({
   input, save
 }: Props) => (
   <div>
-    <h2>{!!id ? 'Редактирование публикации' : 'Хочу разместить публикацию'}</h2>
-    <form onSubmit={handleSubmit(isSubmitting, save)} autoComplete="off">
+    <h2>{id ? 'Редактирование публикации' : 'Хочу разместить публикацию'}</h2>
+    <form onSubmit={handleSubmit(isSubmitting, save)} autoComplete='off'>
       <PostFormIsTutorial {...{ isTutorial, input }} />
       <PostFormFlow {...{ flowId: flow.id, sourceFlows, input, error: errors.flow }} />
       <PostFormTitle {...{ title, input, error: errors.title }} />
@@ -79,7 +79,7 @@ const PostForm = ({
       <PostFormSourceLink {...{ sourceLink, isTranslation, input, error: errors.sourceLink }} />
       <PostFormSubmit {...{ isSubmitting }} />
     </form>
-    <br/>
+    <br />
     {!!mainError && <div>{mainError}</div>}
     <style jsx>{`
       h2 {
@@ -137,7 +137,7 @@ const mapStateToProps = (state) => ({
   ...state.postForm,
   mainError: state.app.mainError,
   sourceFlows: state.flows,
-  sourceHubs: state.hubs,
+  sourceHubs: state.hubs
 })
 
 const mapDispatchToProps = (dispatch) => {

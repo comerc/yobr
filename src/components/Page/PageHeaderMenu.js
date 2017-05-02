@@ -12,7 +12,7 @@ const PageHeaderMenu = ({ logout, ...props }) => {
     const cases = {
       'profile': () => {},
       'settings': () => {},
-      'logout': () => logout(),
+      'logout': () => logout()
     }
     cases[child.props.id]()
   }
@@ -26,9 +26,9 @@ const PageHeaderMenu = ({ logout, ...props }) => {
       anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
       onItemTouchTap={handleItemTouchTap}
     >
-      <MenuItem primaryText="Профиль" id="profile" />
-      <MenuItem primaryText="Настройки" id="settings" />
-      <MenuItem primaryText="Выйти" id="logout" />
+      <MenuItem primaryText='Профиль' id='profile' />
+      <MenuItem primaryText='Настройки' id='settings' />
+      <MenuItem primaryText='Выйти' id='logout' />
     </IconMenu>
   )
 }

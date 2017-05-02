@@ -17,7 +17,7 @@ class Page extends React.Component {
   props: Props
   _isMounted = false
 
-  componentDidMount() {
+  componentDidMount () {
     this._isMounted = true
     const { onMounted } = this.props
     if (onMounted !== void 0) {
@@ -25,21 +25,19 @@ class Page extends React.Component {
     }
   }
 
-  render() {
+  render () {
     const { isNotFound, isLoading, children } = this.props
     if (this._isMounted && !isLoading && isNotFound) {
       return <NotFound />
     }
     return (
-      <div className="root">
+      <div className='root'>
         <PageLoginDialog />
         <PageHeader />
-        <div className="main">
+        <div className='main'>
           {this._isMounted && !isLoading
-            ?
-              children
-            :
-              <div>Загрузка...</div>
+            ? children
+            : <div>Загрузка...</div>
           }
         </div>
         <PageFooter />

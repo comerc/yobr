@@ -12,21 +12,19 @@ import PostListPage from './PostListPage'
 
 const Post = ({ isTeaser, id, published, flow, hubs, title, isDraft, isMy,
   author, company, tags, content, viewsCount, favoritesCount }: Props) => (
-  <div>
-    <PostHeader {...{ isTeaser, id, published, flow, hubs, title, isDraft, isMy }} />
-    <PostBody {...{ isTeaser, content }}>
-      {isTeaser
-        ?
-          <PostReadMore {...{ id }} />
-        :
-          <PostTags {...{ tags }} />
-      }
-    </PostBody>
-    <div className="footer">
-      <PostInfoPanel {...{ isTeaser, id, author, viewsCount, favoritesCount }} />
+    <div>
+      <PostHeader {...{ isTeaser, id, published, flow, hubs, title, isDraft, isMy }} />
+      <PostBody {...{ isTeaser, content }}>
+        {isTeaser
+          ? <PostReadMore {...{ id }} />
+          : <PostTags {...{ tags }} />
+        }
+      </PostBody>
+      <div className='footer'>
+        <PostInfoPanel {...{ isTeaser, id, author, viewsCount, favoritesCount }} />
+      </div>
+      <br />
     </div>
-    <br/>
-  </div>
 )
 
 // Post.propTypes = {

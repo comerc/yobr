@@ -33,6 +33,10 @@ import MyComponent from 'components/MyComponent'
 }
 ```
 
+### Форматирование кода
+
+Используется [Standard](https://github.com/feross/standard) с плагином для Flow.
+
 ### Статьи
 
 - [Загрузка данных из REST API](https://habrahabr.ru/post/327422/)

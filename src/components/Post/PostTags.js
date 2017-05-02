@@ -2,13 +2,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+type Props = {
+  tags: Array<string>,
+}
+
 const PostTags = ({ tags }: Props) => (
   <ul>
     {tags.map(tag =>
       <li key={tag}>
         <Link
           to={`/search/?q=%5B${encodeURIComponent(tag)}%5D&target_type=posts`}
-          rel="tag"
+          rel='tag'
         >{tag}</Link>
       </li>
     )}
@@ -34,9 +38,5 @@ const PostTags = ({ tags }: Props) => (
 // PostTags.propTypes = {
 //   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
 // }
-
-type Props = {
-  tags: Array<string>,
-}
 
 export default PostTags

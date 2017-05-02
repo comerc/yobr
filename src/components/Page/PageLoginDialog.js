@@ -5,7 +5,13 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actions } from 'ducks/app'
 
-const PageLoginDialog = ({ isLoginDialog, setLoginDialog, login }) => {
+type Props = {
+  isLoginDialog: boolean,
+  setLoginDialog: Function,
+  login: Function
+}
+
+const PageLoginDialog = ({ isLoginDialog, setLoginDialog, login }: Props) => {
   const closeLoginDialog = () => {
     setLoginDialog(false)
   }
@@ -17,34 +23,34 @@ const PageLoginDialog = ({ isLoginDialog, setLoginDialog, login }) => {
 
   const actions = [
     <FlatButton
-      label="Отмена"
-      primary={true}
+      label='Отмена'
+      primary
       onTouchTap={closeLoginDialog}
     />,
     <FlatButton
-      label="Войти"
-      primary={true}
-      keyboardFocused={true}
+      label='Войти'
+      primary
+      keyboardFocused
       onTouchTap={handleLogin}
-    />,
+    />
   ]
 
   return (
     <Dialog
-      title="Представьтесь, пожалуйста"
+      title='Представьтесь, пожалуйста'
       actions={actions}
       modal={false}
       open={isLoginDialog}
       onRequestClose={closeLoginDialog}
     >
-      {/*<input type="email"/>*/}
+      <input type='email' />
       Пока просто нажмите [ВОЙТИ].
     </Dialog>
   )
 }
 
 const mapStateToProps = (state, props) => ({
-  isLoginDialog: state.app.isLoginDialog,
+  isLoginDialog: state.app.isLoginDialog
 })
 
 const mapDispatchToProps = (dispatch) => {

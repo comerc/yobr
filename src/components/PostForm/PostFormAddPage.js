@@ -6,10 +6,14 @@ import Page from 'components/Page'
 import Helmet from 'react-helmet'
 import PostForm from './PostForm'
 
+type Props = {
+  onMounted: Function,
+}
+
 const PostFormAddPage = (props: Props) => (
   <Page {...props}>
     <Helmet
-      title="YOBR"
+      title='YOBR'
     />
     <PostForm />
   </Page>
@@ -19,14 +23,10 @@ const PostFormAddPage = (props: Props) => (
 //   onMounted: PropTypes.func,
 // }
 
-type Props = {
-  onMounted: Function,
-}
-
 const mapDispatchToProps = (dispatch, props) => ({
   onMounted: () => {
     dispatch(actions.read())
-  },
+  }
 })
 
 export { PostFormAddPage } // тупой компонент для тестирования

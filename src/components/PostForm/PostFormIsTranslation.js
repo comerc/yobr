@@ -11,12 +11,17 @@ const onToggle = (input) => (event, isInputChecked) => {
   }
 }
 
+type Props = {
+  isTranslation: boolean,
+  input: Function,
+}
+
 const PostFormIsTranslation = ({ isTranslation, input }: Props) => (
-  <div className="root">
+  <div className='root'>
     <Toggle
-      id="PostFormIsTranslation"
-      label="Перевод"
-      labelPosition="right"
+      id='PostFormIsTranslation'
+      label='Перевод'
+      labelPosition='right'
       toggled={isTranslation}
       onToggle={onToggle(input)}
     />
@@ -32,10 +37,5 @@ const PostFormIsTranslation = ({ isTranslation, input }: Props) => (
 //   isTranslation: PropTypes.bool,
 //   input: PropTypes.func,
 // }
-
-type Props = {
-  isTranslation: boolean,
-  input: Function,
-}
 
 export default pureComponent(PostFormIsTranslation)

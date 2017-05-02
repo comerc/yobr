@@ -4,9 +4,27 @@ import { formatDateTime } from 'utils'
 import PostTitle from './PostTitle'
 import PostHubs from './PostHubs'
 
+type Props = {
+  isTeaser?: boolean,
+  id: number,
+  published: string,
+  flow: {
+    id: string,
+    name: string,
+  },
+  hubs: Array<{
+    id: string,
+    name: string,
+    isSubscribed?: boolean,
+  }>,
+  title: string,
+  isDraft?: boolean,
+  isMy?: boolean,
+}
+
 const PostHeader = ({ isTeaser, published, flow, id, title, hubs, isDraft, isMy }: Props) => (
   <div>
-    <span className="published">{formatDateTime(published)}</span>
+    <span className='published'>{formatDateTime(published)}</span>
     <PostTitle {...{ isTeaser, flow, id, title, isDraft, isMy }} />
     <PostHubs {...{ hubs }} />
   </div>
@@ -28,23 +46,5 @@ const PostHeader = ({ isTeaser, published, flow, id, title, hubs, isDraft, isMy 
 //   isDraft: PropTypes.bool,
 //   isMy: PropTypes.bool,
 // }
-
-type Props = {
-  isTeaser?: boolean,
-  id: number,
-  published: string,
-  flow: {
-    id: string,
-    name: string,
-  },
-  hubs: Array<{
-    id: string,
-    name: string,
-    isSubscribed?: boolean,
-  }>,
-  title: string,
-  isDraft?: boolean,
-  isMy?: boolean,
-}
 
 export default PostHeader

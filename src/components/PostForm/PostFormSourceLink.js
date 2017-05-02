@@ -3,15 +3,22 @@ import React from 'react'
 import TextField from 'material-ui/TextField'
 import { handleChange, pureComponent } from 'utils'
 
+type Props = {
+  sourceLink: string,
+  isTranslation: boolean,
+  input: Function,
+  error?: string,
+}
+
 const PostFormSourceLink = ({ sourceLink, isTranslation, input, error }: Props) => (
   <TextField
-    id="PostFormSourceLink"
-    floatingLabelText="Ссылка на оригинал"
-    hintText="Например, http://www.oreillynet.com/pub/a/oreilly/tim/news/2005/09/30/what-is-web-20.html?page=1"
+    id='PostFormSourceLink'
+    floatingLabelText='Ссылка на оригинал'
+    hintText='Например, http://www.oreillynet.com/pub/a/oreilly/tim/news/2005/09/30/what-is-web-20.html?page=1'
     value={sourceLink}
     errorText={error}
     onChange={handleChange('sourceLink', input, !!error)}
-    fullWidth={true}
+    fullWidth
     hintStyle={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
     disabled={!isTranslation}
   />
@@ -23,12 +30,5 @@ const PostFormSourceLink = ({ sourceLink, isTranslation, input, error }: Props) 
 //   input: PropTypes.func,
 //   error: PropTypes.string,
 // }
-
-type Props = {
-  sourceLink: string,
-  isTranslation: boolean,
-  input: Function,
-  error?: string,
-}
 
 export default pureComponent(PostFormSourceLink)

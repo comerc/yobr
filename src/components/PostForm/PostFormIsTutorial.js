@@ -3,10 +3,15 @@ import React from 'react'
 import Checkbox from 'material-ui/Checkbox'
 import { handleCheck, pureComponent } from 'utils'
 
+type Props = {
+  isTutorial: boolean,
+  input: Function,
+}
+
 const PostFormIsTutorial = ({ isTutorial, input }: Props) => (
   <Checkbox
-    id="PostFormIsTutorial"
-    label="Tutorial"
+    id='PostFormIsTutorial'
+    label='Tutorial'
     checked={isTutorial}
     onCheck={handleCheck('isTutorial', input)}
   />
@@ -16,10 +21,5 @@ const PostFormIsTutorial = ({ isTutorial, input }: Props) => (
 //   isTutorial: PropTypes.bool,
 //   input: PropTypes.func,
 // }
-
-type Props = {
-  isTutorial: boolean,
-  input: Function,
-}
 
 export default pureComponent(PostFormIsTutorial)

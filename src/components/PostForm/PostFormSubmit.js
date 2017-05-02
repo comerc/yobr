@@ -3,15 +3,19 @@ import React from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
 import { pureComponent } from 'utils'
 
+type Props = {
+  isSubmitting: boolean,
+}
+
 const PostFormSubmit = ({ isSubmitting }: Props) => (
-  <div className="root">
+  <div className='root'>
     <RaisedButton
-      label="Отправить"
-      primary={true}
+      label='Отправить'
+      primary
       disabled={isSubmitting}
-      containerElement="label"
+      containerElement='label'
     >
-      <button className="ghostButton" />
+      <button className='ghostButton' />
     </RaisedButton>
     <style jsx>{`
       .root {
@@ -34,9 +38,5 @@ const PostFormSubmit = ({ isSubmitting }: Props) => (
 // PostFormSubmit.propTypes = {
 //   isSubmitting: PropTypes.bool,
 // }
-
-type Props = {
-  isSubmitting: boolean,
-}
 
 export default pureComponent(PostFormSubmit)

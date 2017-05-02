@@ -2,6 +2,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+type Props = {
+  id: number,
+}
+
 const PostReadMore = ({ id }: Props) => (
   <Link to={`/post/${id}/#more`}>Читать дальше →</Link>
 )
@@ -9,9 +13,5 @@ const PostReadMore = ({ id }: Props) => (
 // PostReadMore.propTypes = {
 //   id: PropTypes.number,
 // }
-
-type Props = {
-  id: number,
-}
 
 export default PostReadMore

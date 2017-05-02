@@ -1,6 +1,26 @@
 // @flow
 import React from 'react'
 
+type Props = {
+  isTeaser?: boolean,
+  id: number,
+  author: {
+    id: number,
+    nick: string,
+    name: string,
+    specialization: string,
+    contacts?: Array<{
+      type: string,
+      url: string,
+    }>,
+    votingCounter: number,
+    karma: number,
+    rating: number,
+  },
+  viewsCount: number,
+  favoritesCount: number,
+}
+
 const PostInfoPanel = ({ isTeaser, id, author, viewsCount, favoritesCount }: Props) => (
   <div>
     <div>id: {id}</div>
@@ -29,23 +49,4 @@ const PostInfoPanel = ({ isTeaser, id, author, viewsCount, favoritesCount }: Pro
 //   favoritesCount: PropTypes.number,
 // }
 
-type Props = {
-  isTeaser?: boolean,
-  id: number,
-  author: {
-    id: number,
-    nick: string,
-    name: string,
-    specialization: string,
-    contacts?: Array<{
-      type: string,
-      url: string,
-    }>,
-    votingCounter: number,
-    karma: number,
-    rating: number,
-  },
-  viewsCount: number,
-  favoritesCount: number,
-}
 export default PostInfoPanel

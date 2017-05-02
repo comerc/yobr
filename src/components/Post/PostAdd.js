@@ -5,8 +5,8 @@ import ContentAdd from 'material-ui/svg-icons/content/add'
 import { pureComponent } from 'utils'
 
 const PostAdd = () => (
-  <div className="root">
-    <FloatingActionButton mini={true} href="/post/add/">
+  <div className='root'>
+    <FloatingActionButton mini href='/post/add/'>
       <ContentAdd />
     </FloatingActionButton>
     <style jsx>{`

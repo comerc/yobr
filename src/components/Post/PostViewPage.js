@@ -8,10 +8,16 @@ import Post from './Post'
 import type { Props as PostProps } from './Post.Props'
 import isEmpty from 'lodash/isEmpty'
 
+type Props = {
+  post: PostProps | {},
+  onMounted: Function,
+  isNotFound: boolean,
+}
+
 const PostViewPage = ({ post, ...props }: Props) => (
   <Page {...props}>
     <Helmet
-      title="YOBR"
+      title='YOBR'
     />
     <Post {...post} />
   </Page>
@@ -23,12 +29,6 @@ const PostViewPage = ({ post, ...props }: Props) => (
 //   isNotFound: PropTypes.bool,
 //   post: PropTypes.object,
 // }
-
-type Props = {
-  post: PostProps | {},
-  onMounted: Function,
-  isNotFound: boolean,
-}
 
 const isMy = (state) =>
   state.postView.author.id === state.currentUser.id
@@ -42,7 +42,7 @@ const mapDispatchToProps = (dispatch, props) => ({
   onMounted: () => {
     const id = parseInt(props.match.params.id, 10)
     dispatch(actions.read(id))
-  },
+  }
 })
 
 export { PostViewPage } // тупой компонент для тестирования

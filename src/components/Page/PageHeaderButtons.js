@@ -10,7 +10,7 @@ const PageHeaderButtons = ({ setLoginDialog, ...props }) => {
   }
   return (
     <div>
-      <FlatButton {...props} onTouchTap={openLoginDialog} label="Войти" />
+      <FlatButton {...props} onTouchTap={openLoginDialog} label='Войти' />
     </div>
   )
 }
