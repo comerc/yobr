@@ -35,7 +35,20 @@ import MyComponent from 'components/MyComponent'
 
 ### Форматирование кода
 
-Используется [Standard](https://github.com/feross/standard) с плагином для Flow.
+Использую Standard, [настройка редакторов](https://github.com/feross/standard#are-there-text-editor-plugins).
+
+Если не WebStorm, то нужно установить дополнительно:
+```bash
+$ npm install eslint-plugin-flowtype babel-eslint standard --global
+```
+
+### Общие настройки VSCode
+
+Чтобы выполнить импорт настроек редактора, нужно установить [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync), потом [Shift]+[Alt]+[D] и ввести ключ: 37f6bb06dfd1b4bc93efbfbf19d60cea
+
+### Общие настройки WebStorm
+
+Выполнить 'Import Settings...' из ./webstorm.jar
 
 ### Статьи
 
