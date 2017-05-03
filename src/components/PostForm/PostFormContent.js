@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import TextField from 'material-ui/TextField'
-import { onChange, pure, hintStyle } from 'utils'
+import { onChange, pure, inputHintStyle } from 'utils'
 
 type Props = {
   content: string,
@@ -21,7 +21,7 @@ const PostFormContent = ({ content, input, error }: Props) => (
     errorText={error}
     onChange={onChange('content', input, !!error)}
     multiLine
-    hintStyle={hintStyle}
+    hintStyle={inputHintStyle}
   />
 )
 

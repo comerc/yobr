@@ -84,4 +84,4 @@ export const msgBoxYesNo = (s) => new Promise((yes, no) =>
   confirm(s) ? yes() : no()
 )
 
-export const hintStyle = { whiteSpace: 'nowrap', textOverflow: 'ellipsis' }
+export const inputHintStyle = { whiteSpace: 'nowrap', textOverflow: 'ellipsis' }
