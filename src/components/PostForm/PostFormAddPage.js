@@ -2,12 +2,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { actions } from 'ducks/postForm'
+import memoize from 'fast-memoize'
 import Page from 'components/Page'
 import Helmet from 'react-helmet'
 import PostForm from './PostForm'
 
 type Props = {
-  onMounted: Function,
+  onMounted?: Function,
 }
 
 const PostFormAddPage = (props: Props) => (
@@ -23,10 +24,12 @@ const PostFormAddPage = (props: Props) => (
 //   onMounted: PropTypes.func,
 // }
 
+const onMounted = memoize((dispatch) => () => {
+  dispatch(actions.read())
+})
+
 const mapDispatchToProps = (dispatch, props) => ({
-  onMounted: () => {
-    dispatch(actions.read())
-  }
+  onMounted: onMounted(dispatch)
 })
 
 export { PostFormAddPage } // тупой компонент для тестирования

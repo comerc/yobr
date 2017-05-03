@@ -1,8 +1,9 @@
 // @flow
 import React from 'react'
 import { connect } from 'react-redux'
-import { createSelector } from 'reselect'
 import { actions } from 'ducks/posts'
+import { createSelector } from 'reselect'
+import memoize from 'fast-memoize'
 import Page from 'components/Page'
 import Helmet from 'react-helmet'
 import Post from './Post'
@@ -16,7 +17,7 @@ type Props = {
   }>,
   posts: Array<PostProps>,
   currentUserId: number,
-  onMounted: Function,
+  onMounted?: Function,
 }
 
 const PostListPage = ({ flows, posts, currentUserId, ...props }: Props) => (
@@ -84,12 +85,12 @@ const mapStateToProps = (state, props) => ({
   currentUserId: state.currentUser.id
 })
 
+const onMounted = memoize((dispatch, filterType, filterId) => () => {
+  dispatch(actions.read({ filterType, filterId }))
+})
+
 const mapDispatchToProps = (dispatch, props) => ({
-  onMounted: () => {
-    const filterType = props.match.params.filterType || ''
-    const filterId = props.match.params.filterId || ''
-    dispatch(actions.read({ filterType, filterId }))
-  }
+  onMounted: onMounted(dispatch, getFilterType(null, props), getFilterId(null, props))
 })
 
 export { PostListPage } // тупой компонент для тестирования

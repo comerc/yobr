@@ -2,6 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { actions } from 'ducks/postView'
+import memoize from 'fast-memoize'
 import Page from 'components/Page'
 import Helmet from 'react-helmet'
 import Post from './Post'
@@ -10,7 +11,7 @@ import isEmpty from 'lodash/isEmpty'
 
 type Props = {
   post: PostProps | {},
-  onMounted: Function,
+  onMounted?: Function,
   isNotFound: boolean,
 }
 
@@ -38,11 +39,12 @@ const mapStateToProps = (state, props) => ({
   post: isEmpty(state.postView) ? state.postView : { ...state.postView, isMy: isMy(state) },
 })
 
+const onMounted = memoize((dispatch, id) => () => {
+  dispatch(actions.read(id))
+})
+
 const mapDispatchToProps = (dispatch, props) => ({
-  onMounted: () => {
-    const id = parseInt(props.match.params.id, 10)
-    dispatch(actions.read(id))
-  }
+  onMounted: onMounted(dispatch, parseInt(props.match.params.id, 10))
 })
 
 export { PostViewPage } // тупой компонент для тестирования
