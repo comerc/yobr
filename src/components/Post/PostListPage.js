@@ -49,7 +49,7 @@ const PostListPage = ({ flows, posts, currentUserId, ...props }: Props) => (
 //     id: PropTypes.string,
 //     name: PropType s.string,
 //   })),
- //   posts: PropTypes.arrayOf(PropTypes.object),
+//   posts: PropTypes.arrayOf(PropTypes.object),
 //   currentUserId: PropTypes.number,
 //   onMounted: PropTypes.func,
 // }

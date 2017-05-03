@@ -25,8 +25,7 @@ const PostViewPage = ({ post, ...props }: Props) => (
 )
 
 // PostViewPage.propTypes = {
-//   read: PropTypes.func,
-//   id: PropTypes.number,
+//   onMounted: PropTypes.func,
 //   isNotFound: PropTypes.bool,
 //   post: PropTypes.object,
 // }
