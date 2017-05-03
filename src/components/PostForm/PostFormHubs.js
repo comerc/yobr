@@ -2,6 +2,7 @@
 import React from 'react'
 import Chip from 'material-ui/Chip'
 import { pureComponent } from 'utils'
+import memoize from 'fast-memoize'
 
 type Props = {
   hubs: Array<{
@@ -12,12 +13,14 @@ type Props = {
   error?: string,
 }
 
-const onRequestDelete = (input, hubs, index, isValidate) => (event) => {
+const onRequestDelete = memoize((input, hubs, index, isValidate) => () => {
   hubs = hubs.slice()
   hubs.splice(index, 1)
   input({ key: 'hubs', value: hubs })
   input({ key: 'searchHub', isValidate })
-}
+})
+
+const chipStyle = { margin: 4 }
 
 const PostFormHubs = ({ hubs, input, error }: Props) => (
   <div className='root'>
@@ -25,7 +28,7 @@ const PostFormHubs = ({ hubs, input, error }: Props) => (
       <Chip
         key={hub.id}
         onRequestDelete={onRequestDelete(input, hubs, index, !!error)}
-        style={{ margin: 4 }}
+        style={chipStyle}
       >
         {hub.name}
       </Chip>

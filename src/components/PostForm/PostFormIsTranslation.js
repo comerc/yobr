@@ -2,14 +2,15 @@
 import React from 'react'
 import Toggle from 'material-ui/Toggle'
 import { pureComponent } from 'utils'
+import memoize from 'fast-memoize'
 
-const onToggle = (input) => (event, isInputChecked) => {
+const onToggle = memoize((input) => (event, isInputChecked) => {
   input({ key: 'isTranslation', value: isInputChecked })
   if (!isInputChecked) {
     input({ key: 'sourceAuthor', value: '', isValidate: true })
     input({ key: 'sourceLink', value: '', isValidate: true })
   }
-}
+})
 
 type Props = {
   isTranslation: boolean,

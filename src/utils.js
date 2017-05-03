@@ -1,5 +1,6 @@
 import React from 'react'
 import isFunction from 'lodash/isFunction'
+import memoize from 'fast-memoize'
 
 export const pureComponent = (fn) => {
   class Wrapper extends React.PureComponent {
@@ -20,40 +21,37 @@ export const withState = (fn, defaultState = {}) => {
       return fn({
         state: this.state || defaultState,
         setState: this.setState.bind(this)
-      })
+      }, this.context)
     }
   }
   Wrapper.displayName = `withState(${fn.name})`
   return Wrapper
 }
 
-// функции handle* возвращают новые функции - следует применять в PureComponent
-// для обработчиков вложенных компонентов, но не для обработчиков PureComponent
-
-export const handleCheck = (key, input) => (event, isInputChecked) => {
+export const onCheck = memoize((key, input) => (event, isInputChecked) => {
   input({ key, value: isInputChecked })
-}
+})
 
-export const handleChange = (key, input, isValidate) => (event, newValue) => {
+export const onChange = memoize((key, input, isValidate) => (event, newValue) => {
   input({ key, value: newValue, isValidate })
-}
+})
 
-export const handleSelectFieldChange = (key, input, options, isValidate) => (event, index) => {
+export const onSelectFieldChange = memoize((key, input, options, isValidate) => (event, index) => {
   input({ key, value: options[index], isValidate })
-}
+})
 
-export const handleSubmit = (isSubmitting, save) => (event) => {
+export const onSubmit = memoize((isSubmitting, save) => (event) => {
   event.preventDefault()
   if (!isSubmitting) {
     save()
   }
-}
+})
 
-export const ga = (eventCategory, eventAction, eventLabel) => () => {
+export const ga = memoize((eventCategory, eventAction, eventLabel) => () => {
   if (isFunction(window.ga)) {
     window.ga('send', 'event', eventCategory, eventAction, eventLabel)
   }
-}
+})
 
 export const plural = (value, form1, form2, form3) => {
   // formatjs.io
@@ -80,3 +78,4 @@ export const msgBoxYesNo = (s) => new Promise((yes, no) =>
   confirm(s) ? yes() : no()
 )
 
+export const hintStyle = { whiteSpace: 'nowrap', textOverflow: 'ellipsis' }

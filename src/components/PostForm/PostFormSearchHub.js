@@ -3,6 +3,7 @@ import React from 'react'
 import AutoComplete from 'material-ui/AutoComplete'
 import { pureComponent } from 'utils'
 import { POST_FORM_HUBS_MAX } from 'consts'
+import memoize from 'fast-memoize'
 
 type Props = {
   searchHub: string,
@@ -18,7 +19,7 @@ type Props = {
   error?: string,
 }
 
-const onNewRequest = (input, hubs, sourceHubs, isValidate) => (chosenRequest, index) => {
+const onNewRequest = memoize((input, hubs, sourceHubs, isValidate) => (chosenRequest, index) => {
   if (index > -1) {
     const hub = sourceHubs[index]
     if (!hubs.find(element => element.id === hub.id)) {
@@ -28,11 +29,13 @@ const onNewRequest = (input, hubs, sourceHubs, isValidate) => (chosenRequest, in
     }
     input({ key: 'searchHub', value: '', isValidate })
   }
-}
+})
 
-const onUpdateInput = (input) => (searchText, dataSource, params) => {
+const onUpdateInput = memoize((input) => (searchText, dataSource, params) => {
   input({ key: 'searchHub', value: searchText })
-}
+})
+
+const dataSourceConfig = { value: 'id', text: 'name' }
 
 const PostFormSearchHub = ({ searchHub, sourceHubs, hubs, input, error }: Props) => (
   <AutoComplete
@@ -41,7 +44,7 @@ const PostFormSearchHub = ({ searchHub, sourceHubs, hubs, input, error }: Props)
     hintText={`Выберите от 1 до ${POST_FORM_HUBS_MAX} хабов`}
     filter={AutoComplete.fuzzyFilter}
     dataSource={sourceHubs}
-    dataSourceConfig={{ value: 'id', text: 'name' }}
+    dataSourceConfig={dataSourceConfig}
     maxSearchResults={5}
     onNewRequest={onNewRequest(input, hubs, sourceHubs, !!error)}
     errorText={error}

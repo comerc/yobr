@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import TextField from 'material-ui/TextField'
-import { handleChange, pureComponent } from 'utils'
+import { onChange, pureComponent, hintstyle } from 'utils'
 
 type Props = {
   sourceLink: string,
@@ -17,9 +17,9 @@ const PostFormSourceLink = ({ sourceLink, isTranslation, input, error }: Props) 
     hintText='Например, http://www.oreillynet.com/pub/a/oreilly/tim/news/2005/09/30/what-is-web-20.html?page=1'
     value={sourceLink}
     errorText={error}
-    onChange={handleChange('sourceLink', input, !!error)}
+    onChange={onChange('sourceLink', input, !!error)}
     fullWidth
-    hintStyle={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
+    hintStyle={hintStyle}
     disabled={!isTranslation}
   />
 )

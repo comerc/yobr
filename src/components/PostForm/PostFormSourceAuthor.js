@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import TextField from 'material-ui/TextField'
-import { handleChange, pureComponent } from 'utils'
+import { onChange, pureComponent } from 'utils'
 
 type Props = {
   sourceAuthor: string,
@@ -17,7 +17,7 @@ const PostFormSourceAuthor = ({ sourceAuthor, isTranslation, input, error }: Pro
     hintText="Например, Tim O'Reily"
     value={sourceAuthor}
     errorText={error}
-    onChange={handleChange('sourceAuthor', input, !!error)}
+    onChange={onChange('sourceAuthor', input, !!error)}
     fullWidth
     disabled={!isTranslation}
   />

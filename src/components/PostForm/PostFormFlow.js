@@ -2,7 +2,7 @@
 import React from 'react'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
-import { handleSelectFieldChange, pureComponent } from 'utils'
+import { onSelectFieldChange, pureComponent } from 'utils'
 
 type Props = {
   flowId?: string,
@@ -21,7 +21,7 @@ const PostFormFlow = ({ flowId, sourceFlows, input, error }: Props) => (
     hintText='Выберите поток'
     value={flowId}
     errorText={error}
-    onChange={handleSelectFieldChange('flow', input, sourceFlows, !!error)}
+    onChange={onSelectFieldChange('flow', input, sourceFlows, !!error)}
   >
     {sourceFlows.map(({ id, name }) =>
       <MenuItem key={id} value={id} primaryText={name} />

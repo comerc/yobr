@@ -7,6 +7,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actions } from 'ducks/app'
 
+const originStyle = { horizontal: 'right', vertical: 'top' }
+
 const PageHeaderMenu = ({ logout, ...props }) => {
   const handleItemTouchTap = (event, child) => {
     const cases = {
@@ -22,8 +24,8 @@ const PageHeaderMenu = ({ logout, ...props }) => {
       iconButtonElement={
         <IconButton><MoreVertIcon /></IconButton>
       }
-      targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-      anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+      targetOrigin={originStyle}
+      anchorOrigin={originStyle}
       onItemTouchTap={handleItemTouchTap}
     >
       <MenuItem primaryText='Профиль' id='profile' />

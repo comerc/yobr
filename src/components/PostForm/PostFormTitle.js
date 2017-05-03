@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import TextField from 'material-ui/TextField'
-import { handleChange, pureComponent } from 'utils'
+import { onChange, pureComponent, hintstyle } from 'utils'
 import { POST_FORM_TITLE_MAX } from 'consts'
 
 type Props = {
@@ -22,9 +22,9 @@ const PostFormTitle = ({ title, input, error }: Props) => (
     value={title}
     fullWidth
     errorText={error}
-    onChange={handleChange('title', input, !!error)}
+    onChange={onChange('title', input, !!error)}
     maxLength={POST_FORM_TITLE_MAX}
-    hintStyle={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
+    hintStyle={hintStyle}
   />
 )
 

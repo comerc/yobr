@@ -3,7 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actions } from 'ducks/postForm'
-import { handleSubmit } from 'utils'
+import { onSubmit } from 'utils'
 import PostFormIsTutorial from './PostFormIsTutorial'
 import PostFormFlow from './PostFormFlow'
 import PostFormTitle from './PostFormTitle'
@@ -67,7 +67,7 @@ const PostForm = ({
 }: Props) => (
   <div>
     <h2>{id ? 'Редактирование публикации' : 'Хочу разместить публикацию'}</h2>
-    <form onSubmit={handleSubmit(isSubmitting, save)} autoComplete='off'>
+    <form onSubmit={onSubmit(isSubmitting, save)} autoComplete='off'>
       <PostFormIsTutorial {...{ isTutorial, input }} />
       <PostFormFlow {...{ flowId: flow.id, sourceFlows, input, error: errors.flow }} />
       <PostFormTitle {...{ title, input, error: errors.title }} />

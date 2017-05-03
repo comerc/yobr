@@ -43,7 +43,7 @@ const PageLoginDialog = ({ isLoginDialog, setLoginDialog, login }: Props) => {
       open={isLoginDialog}
       onRequestClose={closeLoginDialog}
     >
-      <input type='email' />
+      {/*<input type='email' />*/}
       Пока просто нажмите [ВОЙТИ].
     </Dialog>
   )
