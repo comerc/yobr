@@ -6,15 +6,15 @@ import PageHeader from './PageHeader'
 import PageFooter from './PageFooter'
 import NotFound from './NotFound'
 
-// type Props = {
-//   onMounted?: Function,
-//   isNotFound?: boolean,
-//   isLoading: boolean,
-//   children?: typeof React.Element,
-// }
+type Props = {
+  onMounted?: Function,
+  isNotFound?: boolean,
+  isLoading: boolean,
+  children?: typeof React.Element,
+}
 
 class Page extends React.Component {
-  // props: Props
+  props: Props
   _isMounted = false
 
   componentDidMount () {
