@@ -2,7 +2,7 @@ import React from 'react'
 import isFunction from 'lodash/isFunction'
 import memoize from 'fast-memoize'
 
-export const pureComponent = (fn) => {
+export const pure = (fn) => {
   class Wrapper extends React.PureComponent {
     render() {
       return fn(this.props, this.context)
@@ -11,7 +11,7 @@ export const pureComponent = (fn) => {
   // не надо, т.к. подписывает на контекст как и функциональный компонент,
   // так и оболочку-PureComponent; лучше назначать сразу оболочке (снаружи)
   // Wrapper.contextTypes = fn.contextTypes
-  Wrapper.displayName = `PureComponent(${fn.name})`
+  Wrapper.displayName = `pure(${fn.name})`
   return Wrapper
 }
 
@@ -19,6 +19,7 @@ export const withState = (fn, defaultState = {}) => {
   class Wrapper extends React.Component {
     render() {
       return fn({
+        ...this.props,
         state: this.state || defaultState,
         setState: this.setState.bind(this)
       }, this.context)

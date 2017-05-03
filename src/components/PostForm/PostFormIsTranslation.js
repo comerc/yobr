@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import Toggle from 'material-ui/Toggle'
-import { pureComponent } from 'utils'
+import { pure } from 'utils'
 import memoize from 'fast-memoize'
 
 const onToggle = memoize((input) => (event, isInputChecked) => {
@@ -39,4 +39,4 @@ const PostFormIsTranslation = ({ isTranslation, input }: Props) => (
 //   input: PropTypes.func,
 // }
 
-export default pureComponent(PostFormIsTranslation)
+export default pure(PostFormIsTranslation)

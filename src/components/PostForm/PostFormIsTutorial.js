@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import Checkbox from 'material-ui/Checkbox'
-import { onCheck, pureComponent } from 'utils'
+import { onCheck, pure } from 'utils'
 
 type Props = {
   isTutorial: boolean,
@@ -22,4 +22,4 @@ const PostFormIsTutorial = ({ isTutorial, input }: Props) => (
 //   input: PropTypes.func,
 // }
 
-export default pureComponent(PostFormIsTutorial)
+export default pure(PostFormIsTutorial)

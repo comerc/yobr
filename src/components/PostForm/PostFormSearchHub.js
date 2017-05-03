@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import AutoComplete from 'material-ui/AutoComplete'
-import { pureComponent } from 'utils'
+import { pure } from 'utils'
 import { POST_FORM_HUBS_MAX } from 'consts'
 import memoize from 'fast-memoize'
 
@@ -73,4 +73,4 @@ const PostFormSearchHub = ({ searchHub, sourceHubs, hubs, input, error }: Props)
 //   error: PropTypes.string,
 // }
 
-export default pureComponent(PostFormSearchHub)
+export default pure(PostFormSearchHub)

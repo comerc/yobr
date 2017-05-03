@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import TextField from 'material-ui/TextField'
-import { onChange, pureComponent, hintStyle } from 'utils'
+import { onChange, pure, hintStyle } from 'utils'
 
 type Props = {
   content: string,
@@ -31,4 +31,4 @@ const PostFormContent = ({ content, input, error }: Props) => (
 //   error: PropTypes.string,
 // }
 
-export default pureComponent(PostFormContent)
+export default pure(PostFormContent)

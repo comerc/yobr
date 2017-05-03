@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import TextField from 'material-ui/TextField'
-import { onChange, pureComponent, hintStyle } from 'utils'
+import { onChange, pure, hintStyle } from 'utils'
 import { POST_FORM_TITLE_MAX } from 'consts'
 
 type Props = {
@@ -34,4 +34,4 @@ const PostFormTitle = ({ title, input, error }: Props) => (
 //   error: PropTypes.string,
 // }
 
-export default pureComponent(PostFormTitle)
+export default pure(PostFormTitle)

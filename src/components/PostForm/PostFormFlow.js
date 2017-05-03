@@ -2,7 +2,7 @@
 import React from 'react'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
-import { onSelectFieldChange, pureComponent } from 'utils'
+import { onSelectFieldChange, pure } from 'utils'
 
 type Props = {
   flowId?: string,
@@ -38,4 +38,4 @@ const PostFormFlow = ({ flowId, sourceFlows, input, error }: Props) => (
 //   error: PropTypes.string,
 // }
 
-export default pureComponent(PostFormFlow)
+export default pure(PostFormFlow)

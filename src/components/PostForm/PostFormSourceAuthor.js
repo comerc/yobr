@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import TextField from 'material-ui/TextField'
-import { onChange, pureComponent } from 'utils'
+import { onChange, pure } from 'utils'
 
 type Props = {
   sourceAuthor: string,
@@ -30,4 +30,4 @@ const PostFormSourceAuthor = ({ sourceAuthor, isTranslation, input, error }: Pro
 //   error: PropTypes.string,
 // }
 
-export default pureComponent(PostFormSourceAuthor)
+export default pure(PostFormSourceAuthor)

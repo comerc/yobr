@@ -2,7 +2,7 @@
 import React from 'react'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import ContentAdd from 'material-ui/svg-icons/content/add'
-import { pureComponent } from 'utils'
+import { pure } from 'utils'
 
 const PostAdd = () => (
   <div className='root'>
@@ -23,4 +23,4 @@ const PostAdd = () => (
 //
 // }
 
-export default pureComponent(PostAdd)
+export default pure(PostAdd)

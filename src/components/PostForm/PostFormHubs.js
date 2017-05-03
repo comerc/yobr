@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import Chip from 'material-ui/Chip'
-import { pureComponent } from 'utils'
+import { pure } from 'utils'
 import memoize from 'fast-memoize'
 
 type Props = {
@@ -53,4 +53,4 @@ const PostFormHubs = ({ hubs, input, error }: Props) => (
 //   error: PropTypes.string,
 // }
 
-export default pureComponent(PostFormHubs)
+export default pure(PostFormHubs)

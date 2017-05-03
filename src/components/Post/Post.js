@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import { pureComponent } from 'utils'
+import { pure } from 'utils'
 import PostHeader from './PostHeader'
 import PostBody from './PostBody'
 import PostReadMore from './PostReadMore'
@@ -73,4 +73,4 @@ const Post = ({ isTeaser, id, published, flow, hubs, title, isDraft, isMy,
 // }
 
 export { PostViewPage, PostListPage }
-export default pureComponent(Post)
+export default pure(Post)

@@ -55,7 +55,7 @@
     "eject": "react-scripts eject"
   },
   "standard": {
-    "plugins": [
+    "plugin": [
       "flowtype"
     ],
     "parser": "babel-eslint"
