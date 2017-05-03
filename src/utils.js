@@ -29,6 +29,11 @@ export const withState = (fn, defaultState = {}) => {
   return Wrapper
 }
 
+export const withLog = BaseComponent => (props, context) => {
+  console.log(`Rendering ${BaseComponent.name}`)
+  return <BaseComponent {...props} context={context} />
+}
+
 export const onCheck = memoize((key, input) => (event, isInputChecked) => {
   input({ key, value: isInputChecked })
 })
