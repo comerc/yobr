@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import TextField from 'material-ui/TextField'
-import { onChange, pureComponent, hintstyle } from 'utils'
+import { onChange, pureComponent, hintStyle } from 'utils'
 
 type Props = {
   sourceLink: string,
