@@ -33,6 +33,20 @@ import MyComponent from 'components/MyComponent'
 }
 ```
 
+##### Настройка VSCode
+
+Нужно добавить jsconfig.json в корень проекта: 
+```javascript
+{
+  "compilerOptions": {
+    "target": "ES6"
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
+```
+
 ### Форматирование кода
 
 Использую Standard, [настройка редакторов](https://github.com/feross/standard#are-there-text-editor-plugins).
