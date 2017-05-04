@@ -64,7 +64,7 @@ $ npm install eslint-plugin-flowtype babel-eslint standard --global
 
 Выполнить 'Import Settings...' из ./webstorm.jar
 
-### Статьи
+### Публикации
 
 - [Быстрый старт на React Native](https://habrahabr.ru/post/327668/)
 - [Загрузка данных из REST API](https://habrahabr.ru/post/327422/)
