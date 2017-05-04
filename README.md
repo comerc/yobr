@@ -66,6 +66,7 @@ $ npm install eslint-plugin-flowtype babel-eslint standard --global
 
 ### Статьи
 
+- [Быстрый старт на React Native](https://habrahabr.ru/post/327668/)
 - [Загрузка данных из REST API](https://habrahabr.ru/post/327422/)
 - [Способы отладки JS на клиенте](https://habrahabr.ru/post/327190/)
 - [Функциональные компоненты](https://habrahabr.ru/post/326610/)
