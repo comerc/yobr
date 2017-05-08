@@ -20,7 +20,8 @@ import { actions as appActions } from 'ducks/app'
 const history = createHistory()
 const router = routerMiddleware(history)
 const middlewares = [router, thunk]
-if (false && process.env.NODE_ENV === 'development') {
+const isLogger = false
+if (isLogger && process.env.NODE_ENV === 'development') {
   const { logger } = require('redux-logger')
   middlewares.push(logger)
 }

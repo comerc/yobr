@@ -28,7 +28,7 @@ const reducer = createReducer({
       posts.push(post)
     }
     return posts
-  },
+  }
 }, initialState)
 
 export const actions = { read, setPost }

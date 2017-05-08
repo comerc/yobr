@@ -35,7 +35,7 @@ const validators = {
   },
   sourceLink: (value, state) => {
     return state.postForm.isTranslation && required(value)
-  },
+  }
 }
 
 const read = id => (dispatch, getState) => {
@@ -69,7 +69,7 @@ const save = () => (dispatch, getState) => {
   Object.keys(validators).forEach(key => {
     const validate = validators[key]
     const error = validate(state.postForm[key], state)
-    if (!!error) {
+    if (error) {
       errors[key] = error
     }
   })
@@ -98,7 +98,7 @@ const save = () => (dispatch, getState) => {
 const input = ({ key, value, isValidate = false }) => (dispatch, getState) => {
   if (isValidate) {
     const validate = validators[key]
-    if (!!validate) {
+    if (validate) {
       const state = getState()
       const oldError = state.postForm.errors[key] || ''
       const error = validate(value, state) || ''
@@ -129,7 +129,7 @@ const initialState = {
   // meta data
   searchHub: '',
   errors: {},
-  isSubmitting: false,
+  isSubmitting: false
 }
 
 const reducer = createReducer({
@@ -141,7 +141,7 @@ const reducer = createReducer({
   [setError]: (state, { key, error }) =>
     ({ ...state, errors: { ...state.errors, [key]: error } }),
   [setSubmitting]: (state, isSubmitting) =>
-    ({ ...state, isSubmitting }),
+    ({ ...state, isSubmitting })
 }, initialState)
 
 export const actions = { read, save, input }
