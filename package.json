@@ -10,7 +10,10 @@
     "plugin": [
       "flowtype"
     ],
-    "parser": "babel-eslint"
+    "parser": "babel-eslint",
+    "global": [
+      "it", "describe"
+    ]
   },
   "devDependencies": {
     "babel-plugin-flow-react-proptypes": "^2.1.3",
