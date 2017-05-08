@@ -30,7 +30,7 @@ const Post = ({ isTeaser, id, published, flow, hubs, title, isDraft, isMy,
 // Post.propTypes = {
 //   isTeaser: PropTypes.bool,
 //   id: PropTypes.number,
-//   published: PropTypes.string,
+//   published: PropTypes.number,
 //   flow: PropTypes.shape({
 //     id: PropTypes.string,
 //     name: PropTypes.string,

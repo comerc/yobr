@@ -3,7 +3,7 @@
 export type Props = {
   isTeaser?: boolean,
   id: number,
-  published: string,
+  published: number,
   flow: {
     id: string,
     name: string,

@@ -7,7 +7,7 @@ import PostHubs from './PostHubs'
 type Props = {
   isTeaser?: boolean,
   id: number,
-  published: string,
+  published: number,
   flow: {
     id: string,
     name: string,
@@ -32,7 +32,7 @@ const PostHeader = ({ isTeaser, published, flow, id, title, hubs, isDraft, isMy 
 
 // PostHeader.propTypes = {
 //   isTeaser: PropTypes.bool,
-//   published: PropTypes.string,
+//   published: PropTypes.number,
 //   flow: PropTypes.shape({
 //     id: PropTypes.string,
 //     name: PropTypes.string,

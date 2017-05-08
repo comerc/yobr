@@ -68,7 +68,7 @@ export const plural = (value: number, form1: string, form2: string, form3: strin
 export const formatDateTime = (dateTime: number) => {
   // formatjs.io
   // Intl.DateTimeFormat
-  return new Date(dateTime)
+  return Date(dateTime)
 }
 
 export const sleep = (ms: number) => new Promise((resolve, reject) =>
