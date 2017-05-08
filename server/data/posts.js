@@ -1,7 +1,7 @@
 module.exports = [
   {
     id: 308228,
-    published: '22 августа 2016 в 17:14',
+    published: 1494263902847,
     viewsCount: 9000,
     favoritesCount: 55,
     author: {
@@ -25,11 +25,11 @@ module.exports = [
     isDraft: true,
     isTranslation: true,
     sourceAuthor: "Tim O'Reily",
-    sourceLink: "http://habr.ru",
+    sourceLink: 'http://habr.ru'
   },
   {
     id: 321894,
-    published: '15 февраля в 15:19',
+    published: 1494263902847,
     viewsCount: 3200,
     favoritesCount: 47,
     author: {
@@ -62,7 +62,7 @@ module.exports = [
   },
   {
     id: 321564,
-    published: 'сегодня в 12:00',
+    published: 1494263902847,
     viewsCount: 10400,
     favoritesCount: 61,
     author: {
@@ -83,7 +83,7 @@ module.exports = [
   },
   {
     id: 321560,
-    published: '10 февраля в 20:02',
+    published: 1494263902847,
     viewsCount: 12300,
     favoritesCount: 163,
     author: {
@@ -104,7 +104,7 @@ module.exports = [
   },
   {
     id: 321606,
-    published: '10 февраля в 18:21',
+    published: 1494263902847,
     viewsCount: 11700,
     favoritesCount: 168,
     author: {
@@ -125,7 +125,7 @@ module.exports = [
   },
   {
     id: 321622,
-    published: '11 февраля в 12:18',
+    published: 1494263902847,
     viewsCount: 3100,
     favoritesCount: 24,
     author: {
@@ -152,5 +152,5 @@ module.exports = [
     tags: ['вискас'],
     title: 'Корпорации и стартапы: модели успешного сотрудничества',
     content: 'Фонд развития инноваций GoTech продолжает рассказывать о том, каким образом корпорации видят успешное сотрудничество со стартапами в российском и международном масштабе.'
-  },
+  }
 ]

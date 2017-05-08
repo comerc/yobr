@@ -1,10 +1,11 @@
+// @flow
 import React from 'react'
 import isFunction from 'lodash/isFunction'
 import memoize from 'fast-memoize'
 
-export const pure = (fn) => {
+export const pure = (fn: Function) => {
   class Wrapper extends React.PureComponent {
-    render() {
+    render () {
       return fn(this.props, this.context)
     }
   }
@@ -15,9 +16,9 @@ export const pure = (fn) => {
   return Wrapper
 }
 
-export const withState = (fn, defaultState = {}) => {
+export const withState = (fn: Function, defaultState: Object = {}) => {
   class Wrapper extends React.Component {
-    render() {
+    render () {
       return fn({
         ...this.props,
         state: this.state || defaultState,
@@ -29,7 +30,7 @@ export const withState = (fn, defaultState = {}) => {
   return Wrapper
 }
 
-export const withLog = BaseComponent => (props, context) => {
+export const withLog = (BaseComponent: typeof React.Component) => (props: Object, context: Object) => {
   console.log(`Rendering ${BaseComponent.name}`)
   return <BaseComponent {...props} context={context} />
 }
@@ -59,29 +60,23 @@ export const ga = memoize((eventCategory, eventAction, eventLabel) => () => {
   }
 })
 
-export const plural = (value, form1, form2, form3) => {
+export const plural = (value: number, form1: string, form2: string, form3: string) => {
   // formatjs.io
   return value
 }
 
-export const formatDateTime = (dateTime) => {
+export const formatDateTime = (dateTime: number) => {
   // formatjs.io
   // Intl.DateTimeFormat
-  return dateTime + ''
+  return new Date(dateTime)
 }
 
-export const sleep = (ms, reason = null) => new Promise((resolve, reject) =>
-  setTimeout(() => {
-    if (reason) {
-      reject(reason)
-      return
-    }
-    resolve()
-  }, ms)
+export const sleep = (ms: number) => new Promise((resolve, reject) =>
+  setTimeout(resolve, ms)
 )
 
-export const msgBoxYesNo = (s) => new Promise((yes, no) =>
-  confirm(s) ? yes() : no()
+export const msgBoxYesNo = (s: string) => new Promise((resolve, reject) =>
+  window.confirm(s) ? resolve() : reject(new Error('No'))
 )
 
 export const inputHintStyle = { whiteSpace: 'nowrap', textOverflow: 'ellipsis' }

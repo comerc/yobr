@@ -85,7 +85,7 @@ const api = (server) => {
           posts[index] = post = merge(posts[index], post)
         } else {
           post.id = +Math.random().toString().slice(2)
-          post.published = (new Date()).toLocaleString()
+          post.published = (new Date()).valueOf()
           post.author = currentUser
           post.viewsCount = 0
           post.favoritesCount = 0
