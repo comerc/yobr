@@ -52,7 +52,7 @@ const initialState = {
   isLoading: false,
   mainError: '',
   isLoginDialog: false,
-  isLogged: true,
+  isLogged: true
 }
 
 const reducer = createReducer({
@@ -63,7 +63,7 @@ const reducer = createReducer({
   [setLoginDialog]: (state, isLoginDialog) =>
     ({ ...state, isLoginDialog }),
   [setLogged]: (state, isLogged) =>
-    ({ ...state, isLogged }),
+    ({ ...state, isLogged })
 }, initialState)
 
 export const actions = { setLoading, setMainError, setLoginDialog, login, logout }

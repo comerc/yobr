@@ -16,5 +16,5 @@ export default combineReducers({
   posts,
   postView,
   postForm,
-  currentUser,
+  currentUser
 })

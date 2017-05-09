@@ -30,7 +30,7 @@ const initialState = {}
 
 const reducer = createReducer({
   [reset]: () => ({ ...initialState }),
-  [set]: (state, post) => ({ ...state, ...post }),
+  [set]: (state, post) => ({ ...state, ...post })
 }, initialState)
 
 export const actions = { read }

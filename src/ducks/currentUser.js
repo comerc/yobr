@@ -3,7 +3,7 @@ import { createAction, createReducer } from 'redux-act'
 const NS = '@@current-user/'
 
 export const actions = {
-  dummy: createAction(`${NS}DUMMY`),
+  dummy: createAction(`${NS}DUMMY`)
 }
 
 const initialState = {
@@ -21,7 +21,7 @@ const initialState = {
 }
 
 const reducer = createReducer({
-  [actions.dummy]: (state) => ({ ...state }),
+  [actions.dummy]: (state) => ({ ...state })
 }, initialState)
 
 export default reducer

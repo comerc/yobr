@@ -3,7 +3,7 @@
 const initialState = [
   { id: 'develop', name: 'Разработка' },
   { id: 'management', name: 'Управление' },
-  { id: 'admin', name: 'Администрирование' },
+  { id: 'admin', name: 'Администрирование' }
 ]
 
 // const normalizeOptions = (data) => {
