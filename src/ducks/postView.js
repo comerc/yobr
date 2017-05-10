@@ -1,5 +1,5 @@
 import { createAction, createReducer } from 'redux-act'
-import { load, actions as appActions } from './app'
+import { appLoad, actions as appActions } from './app'
 import { actions as postsActions } from './posts'
 
 const NS = '@@post-view/'
@@ -18,7 +18,7 @@ const read = id => (dispatch, getState) => {
     dispatch(appActions.setLoading(false))
     return
   }
-  load(dispatch, `/post/${id}`,
+  appLoad(dispatch, `/post/${id}`,
     data => {
       dispatch(postsActions.setPost(data))
       dispatch(set(data))

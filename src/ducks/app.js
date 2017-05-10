@@ -22,7 +22,7 @@ const logout = () => (dispatch, getState) => {
   }
 }
 
-export const load = (dispatch, config, cb) => {
+export const appLoad = (dispatch, config, cb) => {
   let isTimeout = false
   let isFetch = false
   setTimeout(() => {
@@ -34,17 +34,15 @@ export const load = (dispatch, config, cb) => {
   axios(config)
     .then(response => {
       cb(response.data)
-      isFetch = true
-      if (!isTimeout) {
-        dispatch(setLoading(false))
-      }
     })
     .catch(error => {
+      dispatch(setMainError(error.toString()))
+    })
+    .then(() => {
       isFetch = true
       if (!isTimeout) {
         dispatch(setLoading(false))
       }
-      dispatch(setMainError(error.toString()))
     })
 }
 

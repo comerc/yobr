@@ -2,7 +2,7 @@ import { createAction, createReducer } from 'redux-act'
 import { push } from 'react-router-redux'
 import { POST_FORM_TITLE_MAX, POST_FORM_HUBS_MAX } from 'consts'
 import isEmpty from 'lodash/isEmpty'
-import { load, actions as appActions } from './app'
+import { appLoad, actions as appActions } from './app'
 import { actions as postsActions } from './posts'
 import axios from 'axios'
 
@@ -54,7 +54,7 @@ const read = id => (dispatch, getState) => {
     dispatch(appActions.setLoading(false))
     return
   }
-  load(dispatch, `/post/${id}`,
+  appLoad(dispatch, `/post/${id}`,
     data => {
       dispatch(postsActions.setPost(data))
       dispatch(set(clearPostForm(data)))
@@ -87,11 +87,12 @@ const save = () => (dispatch, getState) => {
       const post = response.data
       dispatch(postsActions.setPost(post))
       dispatch(push(`/post/${post.id}/`))
-      dispatch(setSubmitting(false))
     })
     .catch(error => {
-      dispatch(setSubmitting(false))
       dispatch(appActions.setMainError(error.toString()))
+    })
+    .then(() => {
+      dispatch(setSubmitting(false))
     })
 }
 
