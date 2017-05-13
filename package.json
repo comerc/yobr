@@ -12,11 +12,13 @@
     ],
     "parser": "babel-eslint",
     "global": [
-      "it", "describe"
+      "it",
+      "describe"
     ]
   },
   "devDependencies": {
     "babel-plugin-flow-react-proptypes": "^2.1.3",
+    "babel-plugin-idx": "^1.5.1",
     "babel-plugin-tcomb": "^0.3.25",
     "enzyme": "^2.8.2",
     "jest-enzyme": "2.x",
