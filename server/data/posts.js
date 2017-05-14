@@ -18,7 +18,7 @@ module.exports = [
       rating: -2.35
     },
     flow: { id: 'develop', name: 'Разработка' },
-    hubs: [{ id: 'funcprog', name: 'Функциональное программирование', isProfiled: true }, { id: 'web_testing', name: 'Тестирование веб-сервисов' }, { id: 'webdev', name: 'Разработка веб-сайтов'}],
+    hubs: [{ id: 'funcprog', name: 'Функциональное программирование', isProfiled: true }, { id: 'web_testing', name: 'Тестирование веб-сервисов' }, { id: 'webdev', name: 'Разработка веб-сайтов' }],
     tags: ['вискас'],
     title: 'Как Clojure помогает ускорить написание Selenium-тестов',
     content: 'Привет, читатель! Если доводилось писать Selenuim-тесты чуть сложнее чем на пару полей ввода и одну кнопку, то эта статья может пригодиться.',
