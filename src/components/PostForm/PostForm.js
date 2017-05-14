@@ -1,7 +1,6 @@
 // @flow
 import React from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import { actions } from 'ducks/postForm'
 import { onSubmit } from 'utils'
 import PostFormIsTutorial from './PostFormIsTutorial'
@@ -66,7 +65,7 @@ const PostForm = ({
   input, save
 }: Props) => (
   <div>
-    <h2>{id ? 'Редактирование публикации' : 'Хочу разместить публикацию'}</h2>
+    <h2>{console.log('input', input) || id ? 'Редактирование публикации' : 'Хочу разместить публикацию'}</h2>
     <form onSubmit={onSubmit(isSubmitting, save)} autoComplete='off'>
       <PostFormIsTutorial {...{ isTutorial, input }} />
       <PostFormFlow {...{ flowId: flow.id, sourceFlows, input, error: errors.flow }} />
@@ -140,10 +139,8 @@ const mapStateToProps = (state) => ({
   sourceHubs: state.hubs
 })
 
-const mapDispatchToProps = (dispatch) => {
-  const { input, save } = actions
-  return bindActionCreators({ input, save }, dispatch)
-}
+const { input, save } = actions
+const mapDispatchToProps = { input, save }
 
 export { PostFormAddPage, PostFormEditPage }
 export { PostForm } // тупой компонент для тестирования

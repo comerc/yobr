@@ -4,7 +4,6 @@ import IconMenu from 'material-ui/IconMenu'
 import MenuItem from 'material-ui/MenuItem'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import { actions } from 'ducks/app'
 
 const originStyle = { horizontal: 'right', vertical: 'top' }
@@ -37,10 +36,8 @@ const PageHeaderMenu = ({ logout, ...props }) => {
 
 PageHeaderMenu.muiName = 'IconMenu'
 
-const mapDispatchToProps = (dispatch) => {
-  const { logout } = actions
-  return bindActionCreators({ logout }, dispatch)
-}
+const { logout } = actions
+const mapDispatchToProps = { logout }
 
 export { PageHeaderMenu } // тупой компонент для тестирования
 export default connect(null, mapDispatchToProps)(PageHeaderMenu)

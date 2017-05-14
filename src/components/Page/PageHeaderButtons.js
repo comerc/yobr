@@ -1,7 +1,6 @@
 import React from 'react'
 import FlatButton from 'material-ui/FlatButton'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import { actions } from 'ducks/app'
 
 const PageHeaderButtons = ({ setLoginDialog, ...props }) => {
@@ -17,10 +16,8 @@ const PageHeaderButtons = ({ setLoginDialog, ...props }) => {
 
 PageHeaderButtons.muiName = 'FlatButton'
 
-const mapDispatchToProps = (dispatch) => {
-  const { setLoginDialog } = actions
-  return bindActionCreators({ setLoginDialog }, dispatch)
-}
+const { setLoginDialog } = actions
+const mapDispatchToProps = { setLoginDialog }
 
 export { PageHeaderButtons } // тупой компонент для тестирования
 export default connect(null, mapDispatchToProps)(PageHeaderButtons)
