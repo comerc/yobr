@@ -5,17 +5,15 @@ import Helmet from 'react-helmet'
 import logo from 'resources/logo.svg'
 
 const NotFound = () => (
-  <div className='not-found'>
-    <Helmet
-      title='YOBR'
-    />
-    <div className='logo'>
-      <Link to='/' title='На главную страницу'><img alt='logo' src={logo} /></Link>
+  <div className="not-found">
+    <Helmet title="YOBR" />
+    <div className="logo">
+      <Link to="/" title="На главную страницу"><img alt="logo" src={logo} /></Link>
     </div>
     <h1>Страница не найдена</h1>
     <p>Страница устарела, была удалена или не существовала вовсе</p>
-    <div className='back-button'>
-      <Link to='/'><span className='back-text'>Вернуться на главную</span></Link>
+    <div className="back-button">
+      <Link to="/"><span className="back-text">Вернуться на главную</span></Link>
     </div>
     <style jsx global>{`
       html, body {

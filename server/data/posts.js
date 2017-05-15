@@ -10,22 +10,24 @@ module.exports = [
       name: 'comerc',
       avatar: '//habrastorage.org/getpro/habr/avatars/29a/d0a/09c/29ad0a09c3fa9790266c746e43635ca7.jpg',
       specialization: 'Пользователь',
-      contacts: [
-        { type: 'GitHub', url: 'https://github.com/comerc' }
-      ],
+      contacts: [{ type: 'GitHub', url: 'https://github.com/comerc' }],
       votingCounter: 50,
       karma: 8.0,
-      rating: -2.35
+      rating: -2.35,
     },
     flow: { id: 'develop', name: 'Разработка' },
-    hubs: [{ id: 'funcprog', name: 'Функциональное программирование', isProfiled: true }, { id: 'web_testing', name: 'Тестирование веб-сервисов' }, { id: 'webdev', name: 'Разработка веб-сайтов' }],
+    hubs: [
+      { id: 'funcprog', name: 'Функциональное программирование', isProfiled: true },
+      { id: 'web_testing', name: 'Тестирование веб-сервисов' },
+      { id: 'webdev', name: 'Разработка веб-сайтов' },
+    ],
     tags: ['вискас'],
     title: 'Как Clojure помогает ускорить написание Selenium-тестов',
     content: 'Привет, читатель! Если доводилось писать Selenuim-тесты чуть сложнее чем на пару полей ввода и одну кнопку, то эта статья может пригодиться.',
     isDraft: true,
     isTranslation: true,
     sourceAuthor: "Tim O'Reily",
-    sourceLink: 'http://habr.ru'
+    sourceLink: 'http://habr.ru',
   },
   {
     id: 321894,
@@ -40,7 +42,7 @@ module.exports = [
       specialization: 'Пользователь',
       votingCounter: 5,
       karma: 5.0,
-      rating: 12.0
+      rating: 12.0,
     },
     company: {
       id: 3349,
@@ -50,15 +52,15 @@ module.exports = [
       specialization: '',
       contacts: [
         { type: 'Facebook', url: 'http://facebook.com/atconsulting.ru' },
-        { type: 'Вконтакте', url: 'http://vk.com/atconsulting_ru' }
+        { type: 'Вконтакте', url: 'http://vk.com/atconsulting_ru' },
       ],
-      rating: 90.165
+      rating: 90.165,
     },
     flow: { id: 'admin', name: 'Администрирование' },
     hubs: [{ id: 'db_admins', name: 'Администрирование баз данных' }],
     tags: ['вискас'],
     title: 'Zabbix-мониторинг данных в БД Oracle без unixODBC',
-    content: 'Была поставлена задача: реализовать мониторинг БД Oracle средствами Zabbix, а именно — отслеживать параметры табличных пространств на определенном инстансе. Раз задача поставлена, значит делаем. Как известно, Zabbix предоставляет возможность через предопределенный тип данных осуществлять запросы к базам данным и получать результат запроса.'
+    content: 'Была поставлена задача: реализовать мониторинг БД Oracle средствами Zabbix, а именно — отслеживать параметры табличных пространств на определенном инстансе. Раз задача поставлена, значит делаем. Как известно, Zabbix предоставляет возможность через предопределенный тип данных осуществлять запросы к базам данным и получать результат запроса.',
   },
   {
     id: 321564,
@@ -73,13 +75,13 @@ module.exports = [
       specialization: 'Пользователь',
       votingCounter: 396,
       karma: 249.5,
-      rating: 0.7
+      rating: 0.7,
     },
     flow: { id: 'develop', name: 'Разработка' },
     hubs: [{ id: 'webdev', name: 'Разработка веб-сайтов' }],
     tags: ['вискас'],
     title: 'Процедурные макросы в Rust 1.15',
-    content: 'Ребята, свершилось! После долгих шести недель ожидания наконец вышла версия Rust 1.15 с блекджеком и процедурными макросами.'
+    content: 'Ребята, свершилось! После долгих шести недель ожидания наконец вышла версия Rust 1.15 с блекджеком и процедурными макросами.',
   },
   {
     id: 321560,
@@ -94,13 +96,13 @@ module.exports = [
       specialization: 'Пользователь',
       votingCounter: 56,
       karma: 36.0,
-      rating: 0.0
+      rating: 0.0,
     },
     flow: { id: 'develop', name: 'Разработка' },
     hubs: [{ id: 'webdev', name: 'Разработка веб-сайтов' }],
     tags: ['вискас'],
     title: 'Сравнение решений по балансировке высоконагруженных систем',
-    content: 'И вновь мы публикуем расшифровки выступлений с конференции HighLoad++, которая прошла в подмосковном Сколково 7—8 ноября 2016 года. Сегодня Евгений Пивень знакомит нас с решениями балансировки в облаках.'
+    content: 'И вновь мы публикуем расшифровки выступлений с конференции HighLoad++, которая прошла в подмосковном Сколково 7—8 ноября 2016 года. Сегодня Евгений Пивень знакомит нас с решениями балансировки в облаках.',
   },
   {
     id: 321606,
@@ -115,13 +117,13 @@ module.exports = [
       specialization: 'PM, Analyst, Developer, AVR Developer.',
       votingCounter: 7,
       karma: 7.0,
-      rating: 21.6
+      rating: 21.6,
     },
     flow: { id: 'develop', name: 'Разработка' },
     hubs: [{ id: 'webdev', name: 'Разработка веб-сайтов' }],
     tags: ['вискас'],
     title: 'Home Assistant или еще один «мозг» для проекта типа «Умный Дом»',
-    content: 'Добрый день, уважаемый читатель.'
+    content: 'Добрый день, уважаемый читатель.',
   },
   {
     id: 321622,
@@ -135,7 +137,7 @@ module.exports = [
       specialization: 'Пользователь',
       votingCounter: 7,
       karma: 1.0,
-      rating: 10.9
+      rating: 10.9,
     },
     company: {
       id: 4276,
@@ -143,14 +145,12 @@ module.exports = [
       name: 'GoTech.vc',
       specialization: 'GoTech – занимаемся поиском и развитием технологий',
       rating: 40.01,
-      contacts: [
-        { type: 'Сайт', url: 'http://www.gotech.vc/' }
-      ]
+      contacts: [{ type: 'Сайт', url: 'http://www.gotech.vc/' }],
     },
     flow: { id: 'management', name: 'Управление' },
     hubs: [{ id: 'webdev', name: 'Разработка веб-сайтов' }],
     tags: ['вискас'],
     title: 'Корпорации и стартапы: модели успешного сотрудничества',
-    content: 'Фонд развития инноваций GoTech продолжает рассказывать о том, каким образом корпорации видят успешное сотрудничество со стартапами в российском и международном масштабе.'
-  }
+    content: 'Фонд развития инноваций GoTech продолжает рассказывать о том, каким образом корпорации видят успешное сотрудничество со стартапами в российском и международном масштабе.',
+  },
 ]

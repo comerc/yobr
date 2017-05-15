@@ -16,16 +16,18 @@ const setError = createAction(`${NS}SET_ERROR`)
 const setSubmitting = createAction(`${NS}SET_SUBMITTING`)
 
 // Validate rules
-const required = value => value ? null : 'Required'
+const required = value => (value ? null : 'Required')
 const maxLength = max => value =>
   value && value.length > max ? `Must be ${max} characters or less` : null
 const range = (value, min, max) =>
-  value && value.length >= min && value.length <= max ? null : `Must be from ${min} to ${max} elements`
+  value && value.length >= min && value.length <= max
+    ? null
+    : `Must be from ${min} to ${max} elements`
 
 const validators = {
-  flow: (value) => required(value.id),
-  title: (value) => required(value) || maxLength(POST_FORM_TITLE_MAX)(value),
-  content: (value) => required(value),
+  flow: value => required(value.id),
+  title: value => required(value) || maxLength(POST_FORM_TITLE_MAX)(value),
+  content: value => required(value),
   searchHub: (value, state) => {
     const hubs = state.postForm.hubs
     return required(!isEmpty(hubs)) || range(hubs, 1, POST_FORM_HUBS_MAX)
@@ -35,7 +37,7 @@ const validators = {
   },
   sourceLink: (value, state) => {
     return state.postForm.isTranslation && required(value)
-  }
+  },
 }
 
 const read = id => (dispatch, getState) => {
@@ -54,12 +56,10 @@ const read = id => (dispatch, getState) => {
     dispatch(appActions.setLoading(false))
     return
   }
-  appLoad(dispatch, `/post/${id}`,
-    data => {
-      dispatch(postsActions.setPost(data))
-      dispatch(set(clearPostForm(data)))
-    }
-  )
+  appLoad(dispatch, `/post/${id}`, data => {
+    dispatch(postsActions.setPost(data))
+    dispatch(set(clearPostForm(data)))
+  })
 }
 
 const save = () => (dispatch, getState) => {
@@ -82,7 +82,8 @@ const save = () => (dispatch, getState) => {
     dispatch(appActions.setMainError())
   }
   dispatch(setSubmitting(true))
-  axios.post('/post/', clearPost(state.postForm))
+  axios
+    .post('/post/', clearPost(state.postForm))
     .then(response => {
       const post = response.data
       dispatch(postsActions.setPost(post))
@@ -117,7 +118,7 @@ const initialState = {
   id: null,
   flow: {
     id: null,
-    name: ''
+    name: '',
   },
   title: '',
   content: '',
@@ -130,20 +131,23 @@ const initialState = {
   // meta data
   searchHub: '',
   errors: {},
-  isSubmitting: false
+  isSubmitting: false,
 }
 
-const reducer = createReducer({
-  [reset]: () => ({ ...initialState }),
-  [set]: (state, post) => ({ ...state, ...post }),
-  [setField]: (state, { key, value }) =>
-    ({ ...state, [key]: value }),
-  [setErrors]: (state, errors) => ({ ...state, errors: { ...errors } }),
-  [setError]: (state, { key, error }) =>
-    ({ ...state, errors: { ...state.errors, [key]: error } }),
-  [setSubmitting]: (state, isSubmitting) =>
-    ({ ...state, isSubmitting })
-}, initialState)
+const reducer = createReducer(
+  {
+    [reset]: () => ({ ...initialState }),
+    [set]: (state, post) => ({ ...state, ...post }),
+    [setField]: (state, { key, value }) => ({ ...state, [key]: value }),
+    [setErrors]: (state, errors) => ({ ...state, errors: { ...errors } }),
+    [setError]: (state, { key, error }) => ({
+      ...state,
+      errors: { ...state.errors, [key]: error },
+    }),
+    [setSubmitting]: (state, isSubmitting) => ({ ...state, isSubmitting }),
+  },
+  initialState,
+)
 
 export const actions = { read, save, input }
 export default reducer

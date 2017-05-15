@@ -4,7 +4,7 @@ import Toggle from 'material-ui/Toggle'
 import { pure } from 'utils'
 import memoize from 'fast-memoize'
 
-const onToggle = memoize((input) => (event, isInputChecked) => {
+const onToggle = memoize(input => (event, isInputChecked) => {
   input({ key: 'isTranslation', value: isInputChecked })
   if (!isInputChecked) {
     input({ key: 'sourceAuthor', value: '', isValidate: true })
@@ -18,11 +18,11 @@ type Props = {
 }
 
 const PostFormIsTranslation = ({ isTranslation, input }: Props) => (
-  <div className='root'>
+  <div className="root">
     <Toggle
-      id='PostFormIsTranslation'
-      label='Перевод'
-      labelPosition='right'
+      id="PostFormIsTranslation"
+      label="Перевод"
+      labelPosition="right"
       toggled={isTranslation}
       onToggle={onToggle(input)}
     />

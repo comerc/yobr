@@ -14,9 +14,7 @@ type Props = {
 
 const PostFormEditPage = (props: Props) => (
   <Page {...props}>
-    <Helmet
-      title='YOBR'
-    />
+    <Helmet title="YOBR" />
     <PostForm />
   </Page>
 )
@@ -27,7 +25,7 @@ const PostFormEditPage = (props: Props) => (
 // }
 
 const mapStateToProps = (state, props) => ({
-  isNotFound: !state.postForm.id
+  isNotFound: !state.postForm.id,
 })
 
 const onMounted = memoize((dispatch, id) => () => {
@@ -35,7 +33,7 @@ const onMounted = memoize((dispatch, id) => () => {
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
-  onMounted: onMounted(dispatch, parseInt(props.match.params.id, 10))
+  onMounted: onMounted(dispatch, parseInt(props.match.params.id, 10)),
 })
 
 export { PostFormEditPage } // тупой компонент для тестирования

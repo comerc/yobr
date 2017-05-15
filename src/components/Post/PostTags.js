@@ -8,14 +8,13 @@ type Props = {
 
 const PostTags = ({ tags }: Props) => (
   <ul>
-    {tags.map(tag =>
+    {tags.map(tag => (
       <li key={tag}>
-        <Link
-          to={`/search/?q=%5B${encodeURIComponent(tag)}%5D&target_type=posts`}
-          rel='tag'
-        >{tag}</Link>
+        <Link to={`/search/?q=%5B${encodeURIComponent(tag)}%5D&target_type=posts`} rel="tag">
+          {tag}
+        </Link>
       </li>
-    )}
+    ))}
     <style jsx>{`
       ul {
         margin: 0;

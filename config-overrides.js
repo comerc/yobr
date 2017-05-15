@@ -1,8 +1,8 @@
-const babelLoader = function (conf) {
+const babelLoader = function(conf) {
   return conf.loader === 'babel'
 }
 
-function rewire (config, env) {
+function rewire(config, env) {
   const babelrc = config.module.loaders.find(babelLoader).query
   babelrc.plugins = [
     // не работает jest, заменил на NODE_PATH=src/ в .env
@@ -10,7 +10,7 @@ function rewire (config, env) {
     'babel-plugin-idx',
     'styled-jsx-postcss/babel',
     // 'flow-react-proptypes',
-    'tcomb'
+    'tcomb',
   ].concat(babelrc.plugins || [])
 
   // config.eslint.configFile = './.eslintrc.js'

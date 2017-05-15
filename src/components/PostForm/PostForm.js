@@ -80,9 +80,7 @@ const PostForm = ({
 }: Props) => (
   <div>
     <h2>
-      {console.log('input', input) || id
-        ? 'Редактирование публикации'
-        : 'Хочу разместить публикацию'}
+      {id ? 'Редактирование публикации' : 'Хочу разместить публикацию'}
     </h2>
     <form onSubmit={onSubmit(isSubmitting, save)} autoComplete="off">
       <PostFormIsTutorial {...{ isTutorial, input }} />

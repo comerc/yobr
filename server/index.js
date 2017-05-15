@@ -7,7 +7,7 @@ const server = express()
 // server.use(helmet())
 
 // Add headers
-server.use(function (req, res, next) {
+server.use(function(req, res, next) {
   // Website you wish to allow to connect
   res.setHeader('Access-Control-Allow-Origin', '*')
 

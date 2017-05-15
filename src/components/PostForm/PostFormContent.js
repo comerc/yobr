@@ -11,9 +11,9 @@ type Props = {
 
 const PostFormContent = ({ content, input, error }: Props) => (
   <TextField
-    id='PostFormContent'
-    floatingLabelText='Текст'
-    hintText='Для переноса строк в тексте нажмите [ENTER]'
+    id="PostFormContent"
+    floatingLabelText="Текст"
+    hintText="Для переноса строк в тексте нажмите [ENTER]"
     value={content}
     fullWidth
     errorText={error}

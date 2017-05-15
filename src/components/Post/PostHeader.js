@@ -24,7 +24,7 @@ type Props = {
 
 const PostHeader = ({ isTeaser, published, flow, id, title, hubs, isDraft, isMy }: Props) => (
   <div>
-    <span className='published'>{formatDateTime(published)}</span>
+    <span className="published">{formatDateTime(published)}</span>
     <PostTitle {...{ isTeaser, flow, id, title, isDraft, isMy }} />
     <PostHubs {...{ hubs }} />
   </div>

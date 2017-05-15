@@ -17,9 +17,7 @@ type Props = {
 
 const PostViewPage = ({ post, ...props }: Props) => (
   <Page {...props}>
-    <Helmet
-      title='YOBR'
-    />
+    <Helmet title="YOBR" />
     <Post {...post} />
   </Page>
 )
@@ -30,12 +28,11 @@ const PostViewPage = ({ post, ...props }: Props) => (
 //   post: PropTypes.object,
 // }
 
-const isMy = (state) =>
-  state.postView.author.id === state.currentUser.id
+const isMy = state => state.postView.author.id === state.currentUser.id
 
 const mapStateToProps = (state, props) => ({
   isNotFound: isEmpty(state.postView),
-  post: isEmpty(state.postView) ? state.postView : { ...state.postView, isMy: isMy(state) }
+  post: isEmpty(state.postView) ? state.postView : { ...state.postView, isMy: isMy(state) },
 })
 
 const onMounted = memoize((dispatch, id) => () => {
@@ -43,7 +40,7 @@ const onMounted = memoize((dispatch, id) => () => {
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
-  onMounted: onMounted(dispatch, parseInt(props.match.params.id, 10))
+  onMounted: onMounted(dispatch, parseInt(props.match.params.id, 10)),
 })
 
 export { PostViewPage } // тупой компонент для тестирования

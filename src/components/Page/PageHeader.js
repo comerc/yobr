@@ -6,14 +6,14 @@ import PageHeaderButtons from './PageHeaderButtons'
 
 const Header = ({ isLogged, logout, setLoginDialog }) => (
   <AppBar
-    title='YOBR'
+    title="YOBR"
     showMenuIconButton={false}
     iconElementRight={isLogged ? <PageHeaderMenu /> : <PageHeaderButtons />}
   />
 )
 
 const mapStateToProps = (state, props) => ({
-  isLogged: state.app.isLogged
+  isLogged: state.app.isLogged,
 })
 
 export { Header } // тупой компонент для тестирования

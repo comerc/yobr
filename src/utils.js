@@ -5,7 +5,7 @@ import memoize from 'fast-memoize'
 
 export const pure = (fn: Function) => {
   class Wrapper extends React.PureComponent {
-    render () {
+    render() {
       return fn(this.props, this.context)
     }
   }
@@ -18,14 +18,14 @@ export const pure = (fn: Function) => {
 
 export const withState = (fn: Function, defaultState: Object = {}) => {
   class Wrapper extends React.Component {
-    render () {
+    render() {
       return fn(
         {
           ...this.props,
           state: this.state || defaultState,
-          setState: this.setState.bind(this)
+          setState: this.setState.bind(this),
         },
-        this.context
+        this.context,
       )
     }
   }
@@ -35,7 +35,7 @@ export const withState = (fn: Function, defaultState: Object = {}) => {
 
 export const withLog = (BaseComponent: typeof React.Component) => (
   props: Object,
-  context: Object
+  context: Object,
 ) => {
   console.log(`Rendering ${BaseComponent.name}`)
   return <BaseComponent {...props} context={context} />
@@ -45,18 +45,13 @@ export const onCheck = memoize((key, input) => (event, isInputChecked) => {
   input({ key, value: isInputChecked })
 })
 
-export const onChange = memoize((key, input, isValidate) => (
-  event,
-  newValue
-) => {
+export const onChange = memoize((key, input, isValidate) => (event, newValue) => {
   input({ key, value: newValue, isValidate })
 })
 
-export const onSelectFieldChange = memoize(
-  (key, input, options, isValidate) => (event, index) => {
-    input({ key, value: options[index], isValidate })
-  }
-)
+export const onSelectFieldChange = memoize((key, input, options, isValidate) => (event, index) => {
+  input({ key, value: options[index], isValidate })
+})
 
 export const onSubmit = memoize((isSubmitting, save) => event => {
   event.preventDefault()
@@ -71,12 +66,7 @@ export const ga = memoize((eventCategory, eventAction, eventLabel) => () => {
   }
 })
 
-export const plural = (
-  value: number,
-  form1: string,
-  form2: string,
-  form3: string
-) => {
+export const plural = (value: number, form1: string, form2: string, form3: string) => {
   // formatjs.io
   return value
 }
@@ -87,13 +77,9 @@ export const formatDateTime = (dateTime: number) => {
   return new Date(dateTime).toLocaleString()
 }
 
-export const sleep = (ms: number) =>
-  new Promise((resolve, reject) => setTimeout(resolve, ms))
+export const sleep = (ms: number) => new Promise((resolve, reject) => setTimeout(resolve, ms))
 
 export const msgBoxYesNo = (s: string) =>
-  new Promise(
-    (resolve, reject) =>
-      (window.confirm(s) ? resolve() : reject(new Error('No')))
-  )
+  new Promise((resolve, reject) => (window.confirm(s) ? resolve() : reject(new Error('No'))))
 
 export const inputHintStyle = { whiteSpace: 'nowrap', textOverflow: 'ellipsis' }

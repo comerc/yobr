@@ -18,20 +18,21 @@ const read = id => (dispatch, getState) => {
     dispatch(appActions.setLoading(false))
     return
   }
-  appLoad(dispatch, `/post/${id}`,
-    data => {
-      dispatch(postsActions.setPost(data))
-      dispatch(set(data))
-    }
-  )
+  appLoad(dispatch, `/post/${id}`, data => {
+    dispatch(postsActions.setPost(data))
+    dispatch(set(data))
+  })
 }
 
 const initialState = {}
 
-const reducer = createReducer({
-  [reset]: () => ({ ...initialState }),
-  [set]: (state, post) => ({ ...state, ...post })
-}, initialState)
+const reducer = createReducer(
+  {
+    [reset]: () => ({ ...initialState }),
+    [set]: (state, post) => ({ ...state, ...post }),
+  },
+  initialState,
+)
 
 export const actions = { read }
 export default reducer

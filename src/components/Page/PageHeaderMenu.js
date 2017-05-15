@@ -11,25 +11,23 @@ const originStyle = { horizontal: 'right', vertical: 'top' }
 const PageHeaderMenu = ({ logout, ...props }) => {
   const handleItemTouchTap = (event, child) => {
     const cases = {
-      'profile': () => {},
-      'settings': () => {},
-      'logout': () => logout()
+      profile: () => {},
+      settings: () => {},
+      logout: () => logout(),
     }
     cases[child.props.id]()
   }
   return (
     <IconMenu
       {...props}
-      iconButtonElement={
-        <IconButton><MoreVertIcon /></IconButton>
-      }
+      iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
       targetOrigin={originStyle}
       anchorOrigin={originStyle}
       onItemTouchTap={handleItemTouchTap}
     >
-      <MenuItem primaryText='Профиль' id='profile' />
-      <MenuItem primaryText='Настройки' id='settings' />
-      <MenuItem primaryText='Выйти' id='logout' />
+      <MenuItem primaryText="Профиль" id="profile" />
+      <MenuItem primaryText="Настройки" id="settings" />
+      <MenuItem primaryText="Выйти" id="logout" />
     </IconMenu>
   )
 }

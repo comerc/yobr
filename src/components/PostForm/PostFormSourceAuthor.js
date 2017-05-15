@@ -12,8 +12,8 @@ type Props = {
 
 const PostFormSourceAuthor = ({ sourceAuthor, isTranslation, input, error }: Props) => (
   <TextField
-    id='PostFormSourceAuthor'
-    floatingLabelText='Автор оригинального текста'
+    id="PostFormSourceAuthor"
+    floatingLabelText="Автор оригинального текста"
     hintText="Например, Tim O'Reily"
     value={sourceAuthor}
     errorText={error}

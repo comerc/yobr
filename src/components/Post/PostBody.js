@@ -9,10 +9,8 @@ type Props = {
 }
 
 const PostBody = ({ isTeaser, content, children }: Props) => (
-  <div className={cx({ 'crop': isTeaser })}>
-    <div
-      className={cx('content', 'htmlFormat')}
-    >{content}</div>
+  <div className={cx({ crop: isTeaser })}>
+    <div className={cx('content', 'htmlFormat')}>{content}</div>
     {children}
   </div>
 )

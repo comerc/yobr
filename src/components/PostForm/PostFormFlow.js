@@ -16,16 +16,14 @@ type Props = {
 
 const PostFormFlow = ({ flowId, sourceFlows, input, error }: Props) => (
   <SelectField
-    id='PostFormFlow'
-    floatingLabelText='Поток'
-    hintText='Выберите поток'
+    id="PostFormFlow"
+    floatingLabelText="Поток"
+    hintText="Выберите поток"
     value={flowId}
     errorText={error}
     onChange={onSelectFieldChange('flow', input, sourceFlows, !!error)}
   >
-    {sourceFlows.map(({ id, name }) =>
-      <MenuItem key={id} value={id} primaryText={name} />
-    )}
+    {sourceFlows.map(({ id, name }) => <MenuItem key={id} value={id} primaryText={name} />)}
   </SelectField>
 )
 

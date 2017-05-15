@@ -14,17 +14,19 @@ type Props = {
 
 const PostHubs = ({ hubs }: Props) => (
   <ul>
-    {hubs.map(hub =>
+    {hubs.map(hub => (
       <li key={hub.id}>
         <Link
           to={`/hub/${hub.id}/`}
           title={hub.isSubscribed ? 'Вы подписаны на этот хаб' : 'Вы не подписаны на этот хаб'}
           onClick={ga('hub', 'feed page', hub.name)}
-          className={cx({ 'subscribed': hub.isSubscribed })}
-        >{hub.name}</Link>
-        {hub.isProfiled && <span className='profiled' title='Профильный хаб'>*</span>}
+          className={cx({ subscribed: hub.isSubscribed })}
+        >
+          {hub.name}
+        </Link>
+        {hub.isProfiled && <span className="profiled" title="Профильный хаб">*</span>}
       </li>
-    )}
+    ))}
     <style jsx>{`
       ul {
         margin: 0;

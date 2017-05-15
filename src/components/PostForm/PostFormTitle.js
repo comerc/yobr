@@ -13,12 +13,10 @@ type Props = {
 const PostFormTitle = ({ title, input, error }: Props) => (
   <TextField
     floatingLabelText={
-      title.length === 0
-        ? 'Заголовок'
-        : `Заголовок (ещё ${POST_FORM_TITLE_MAX - title.length})`
+      title.length === 0 ? 'Заголовок' : `Заголовок (ещё ${POST_FORM_TITLE_MAX - title.length})`
     }
-    id='PostFormTitle'
-    hintText='Заголовок должен быть наполнен смыслом'
+    id="PostFormTitle"
+    hintText="Заголовок должен быть наполнен смыслом"
     value={title}
     fullWidth
     errorText={error}

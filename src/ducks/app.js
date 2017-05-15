@@ -50,19 +50,18 @@ const initialState = {
   isLoading: false,
   mainError: '',
   isLoginDialog: false,
-  isLogged: true
+  isLogged: true,
 }
 
-const reducer = createReducer({
-  [setLoading]: (state, isLoading) =>
-    ({ ...state, isLoading }),
-  [setMainError]: (state, mainError = '') =>
-    ({ ...state, mainError }),
-  [setLoginDialog]: (state, isLoginDialog) =>
-    ({ ...state, isLoginDialog }),
-  [setLogged]: (state, isLogged) =>
-    ({ ...state, isLogged })
-}, initialState)
+const reducer = createReducer(
+  {
+    [setLoading]: (state, isLoading) => ({ ...state, isLoading }),
+    [setMainError]: (state, mainError = '') => ({ ...state, mainError }),
+    [setLoginDialog]: (state, isLoginDialog) => ({ ...state, isLoginDialog }),
+    [setLogged]: (state, isLogged) => ({ ...state, isLogged }),
+  },
+  initialState,
+)
 
 export const actions = { setLoading, setMainError, setLoginDialog, login, logout }
 export default reducer

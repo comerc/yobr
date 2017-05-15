@@ -12,9 +12,9 @@ type Props = {
 
 const PostFormSourceLink = ({ sourceLink, isTranslation, input, error }: Props) => (
   <TextField
-    id='PostFormSourceLink'
-    floatingLabelText='Ссылка на оригинал'
-    hintText='Например, http://www.oreillynet.com/pub/a/oreilly/tim/news/2005/09/30/what-is-web-20.html?page=1'
+    id="PostFormSourceLink"
+    floatingLabelText="Ссылка на оригинал"
+    hintText="Например, http://www.oreillynet.com/pub/a/oreilly/tim/news/2005/09/30/what-is-web-20.html?page=1"
     value={sourceLink}
     errorText={error}
     onChange={onChange('sourceLink', input, !!error)}

@@ -6,9 +6,7 @@ type Props = {
   id: number,
 }
 
-const PostReadMore = ({ id }: Props) => (
-  <Link to={`/post/${id}/#more`}>Читать дальше →</Link>
-)
+const PostReadMore = ({ id }: Props) => <Link to={`/post/${id}/#more`}>Читать дальше →</Link>
 
 // PostReadMore.propTypes = {
 //   id: PropTypes.number,

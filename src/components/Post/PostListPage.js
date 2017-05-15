@@ -22,9 +22,7 @@ type Props = {
 
 const PostListPage = ({ flows, posts, currentUserId, ...props }: Props) => (
   <Page {...props}>
-    <Helmet
-      title='YOBR'
-    />
+    <Helmet title="YOBR" />
     {/* <div className='flows'>
      <ul>
      {Object.keys(flows).map(key =>
@@ -35,11 +33,14 @@ const PostListPage = ({ flows, posts, currentUserId, ...props }: Props) => (
      </ul>
      </div> */}
     {/* <div class='selected-hub'></div> */}
-    <div className='posts'>
+    <div className="posts">
       <PostAdd />
-      {posts.map(post =>
-        <Post key={post.id} {...{ ...post, isTeaser: true, isMy: post.author.id === currentUserId }} />
-      )}
+      {posts.map(post => (
+        <Post
+          key={post.id}
+          {...{ ...post, isTeaser: true, isMy: post.author.id === currentUserId }}
+        />
+      ))}
     </div>
   </Page>
 )
@@ -54,35 +55,29 @@ const PostListPage = ({ flows, posts, currentUserId, ...props }: Props) => (
 //   onMounted: PropTypes.func,
 // }
 
-const getFilterType = (state, props) =>
-  props.match.params.filterType || ''
+const getFilterType = (state, props) => props.match.params.filterType || ''
 
-const getFilterId = (state, props) =>
-  props.match.params.filterId || ''
+const getFilterId = (state, props) => props.match.params.filterId || ''
 
-const getPosts = (state) =>
-  state.posts
+const getPosts = state => state.posts
 
 const filteredPosts = createSelector(
   [getPosts, getFilterType, getFilterId],
   (posts, filterType, filterId) => {
     if (filterType === 'flow') {
-      return posts.filter(element =>
-        element.flow.id === filterId)
+      return posts.filter(element => element.flow.id === filterId)
     }
     if (filterType === 'hub') {
-      return posts.filter(post =>
-        post.hubs.find(hub => hub.id === filterId)
-      )
+      return posts.filter(post => post.hubs.find(hub => hub.id === filterId))
     }
     return posts
-  }
+  },
 )
 
 const mapStateToProps = (state, props) => ({
   flows: state.flows,
   posts: filteredPosts(state, props),
-  currentUserId: state.currentUser.id
+  currentUserId: state.currentUser.id,
 })
 
 const onMounted = memoize((dispatch, filterType, filterId) => () => {
@@ -90,7 +85,7 @@ const onMounted = memoize((dispatch, filterType, filterId) => () => {
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
-  onMounted: onMounted(dispatch, getFilterType(null, props), getFilterId(null, props))
+  onMounted: onMounted(dispatch, getFilterType(null, props), getFilterId(null, props)),
 })
 
 export { PostListPage } // тупой компонент для тестирования

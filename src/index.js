@@ -50,5 +50,5 @@ ReactDOM.render(
       <ConnectedRouter history={history}>{routes}</ConnectedRouter>
     </Provider>
   </MuiThemeProvider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 )

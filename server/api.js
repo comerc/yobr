@@ -19,15 +19,13 @@ const currentUser = {
   name: 'comerc',
   avatar: '//habrastorage.org/getpro/habr/avatars/29a/d0a/09c/29ad0a09c3fa9790266c746e43635ca7.jpg',
   specialization: 'Пользователь',
-  contacts: [
-    { type: 'GitHub', url: 'https://github.com/comerc' }
-  ],
+  contacts: [{ type: 'GitHub', url: 'https://github.com/comerc' }],
   votingCounter: 50,
   karma: 8.0,
-  rating: -2.35
+  rating: -2.35,
 }
 
-const api = (server) => {
+const api = server => {
   server.get('/posts/', (req, res) => {
     pify(fs.readFile)(fileName)
       .then(posts => {
@@ -85,7 +83,7 @@ const api = (server) => {
           posts[index] = post = merge(posts[index], post)
         } else {
           post.id = +Math.random().toString().slice(2)
-          post.published = (new Date()).valueOf()
+          post.published = new Date().valueOf()
           post.author = currentUser
           post.viewsCount = 0
           post.favoritesCount = 0
@@ -96,9 +94,7 @@ const api = (server) => {
         }
         return posts
       })
-      .then(posts =>
-        pify(fs.writeFile)(fileName, JSON.stringify(posts), 'utf-8')
-      )
+      .then(posts => pify(fs.writeFile)(fileName, JSON.stringify(posts), 'utf-8'))
       .then(() => {
         res.set('Content-Type', 'application/json; charset=utf-8')
         res.send(JSON.stringify(post))

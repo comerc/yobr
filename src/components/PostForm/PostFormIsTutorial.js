@@ -10,8 +10,8 @@ type Props = {
 
 const PostFormIsTutorial = ({ isTutorial, input }: Props) => (
   <Checkbox
-    id='PostFormIsTutorial'
-    label='Tutorial'
+    id="PostFormIsTutorial"
+    label="Tutorial"
     checked={isTutorial}
     onCheck={onCheck('isTutorial', input)}
   />

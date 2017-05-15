@@ -7,12 +7,12 @@ import { PostFormAddPage, PostFormEditPage } from 'components/PostForm'
 
 export default (
   <Switch>
-    <Route exact path='/'><Redirect to='/all/' /></Route>
-    <Route exact path='/all/' component={PostListPage} />
-    <Route exact path='/:filterType(flow|hub)/:filterId/' component={PostListPage} />
-    <Route exact path='/post/:id(\d+)/' component={PostViewPage} />
-    <Route exact path='/post/edit/:id(\d+)/' component={PostFormEditPage} />
-    <Route exact path='/post/add/' component={PostFormAddPage} />
+    <Route exact path="/"><Redirect to="/all/" /></Route>
+    <Route exact path="/all/" component={PostListPage} />
+    <Route exact path="/:filterType(flow|hub)/:filterId/" component={PostListPage} />
+    <Route exact path="/post/:id(\d+)/" component={PostViewPage} />
+    <Route exact path="/post/edit/:id(\d+)/" component={PostFormEditPage} />
+    <Route exact path="/post/add/" component={PostFormAddPage} />
     <Route component={NotFound} />
   </Switch>
 )

@@ -13,9 +13,7 @@ type Props = {
 
 const PostFormAddPage = (props: Props) => (
   <Page {...props}>
-    <Helmet
-      title='YOBR'
-    />
+    <Helmet title="YOBR" />
     <PostForm />
   </Page>
 )
@@ -24,12 +22,12 @@ const PostFormAddPage = (props: Props) => (
 //   onMounted: PropTypes.func,
 // }
 
-const onMounted = memoize((dispatch) => () => {
+const onMounted = memoize(dispatch => () => {
   dispatch(actions.read())
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
-  onMounted: onMounted(dispatch)
+  onMounted: onMounted(dispatch),
 })
 
 export { PostFormAddPage } // тупой компонент для тестирования

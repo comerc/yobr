@@ -7,7 +7,7 @@ import { actions } from 'ducks/app'
 type Props = {
   isLoginDialog: boolean,
   setLoginDialog: Function,
-  login: Function
+  login: Function,
 }
 
 const PageLoginDialog = ({ isLoginDialog, setLoginDialog, login }: Props) => {
@@ -21,22 +21,13 @@ const PageLoginDialog = ({ isLoginDialog, setLoginDialog, login }: Props) => {
   }
 
   const actions = [
-    <FlatButton
-      label='Отмена'
-      primary
-      onTouchTap={closeLoginDialog}
-    />,
-    <FlatButton
-      label='Войти'
-      primary
-      keyboardFocused
-      onTouchTap={handleLogin}
-    />
+    <FlatButton label="Отмена" primary onTouchTap={closeLoginDialog} />,
+    <FlatButton label="Войти" primary keyboardFocused onTouchTap={handleLogin} />,
   ]
 
   return (
     <Dialog
-      title='Представьтесь, пожалуйста'
+      title="Представьтесь, пожалуйста"
       actions={actions}
       modal={false}
       open={isLoginDialog}
@@ -49,7 +40,7 @@ const PageLoginDialog = ({ isLoginDialog, setLoginDialog, login }: Props) => {
 }
 
 const mapStateToProps = (state, props) => ({
-  isLoginDialog: state.app.isLoginDialog
+  isLoginDialog: state.app.isLoginDialog,
 })
 
 const { setLoginDialog, login } = actions

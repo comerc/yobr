@@ -8,14 +8,9 @@ type Props = {
 }
 
 const PostFormSubmit = ({ isSubmitting }: Props) => (
-  <div className='root'>
-    <RaisedButton
-      label='Отправить'
-      primary
-      disabled={isSubmitting}
-      containerElement='label'
-    >
-      <button className='ghostButton' />
+  <div className="root">
+    <RaisedButton label="Отправить" primary disabled={isSubmitting} containerElement="label">
+      <button className="ghostButton" />
     </RaisedButton>
     <style jsx>{`
       .root {
