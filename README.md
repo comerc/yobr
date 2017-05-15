@@ -49,12 +49,18 @@ import MyComponent from 'components/MyComponent'
 
 ### Форматирование кода
 
-Использую Standard, [настройка редакторов](https://github.com/feross/standard#are-there-text-editor-plugins).
-
-Если не WebStorm, то нужно установить дополнительно:
-```bash
-$ npm install eslint-plugin-flowtype babel-eslint standard --global
+Использую [Prettier](https://github.com/prettier/prettier) с настройками:
 ```
+{
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 100,
+  "prettier.trailingComma": "all",
+  "prettier.semi": false,
+  "prettier.parser": "flow"
+}
+```
+
+Форматирование кода выполняется автоматически при коммите в git.
 
 ### Общие настройки VSCode
 
