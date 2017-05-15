@@ -49,18 +49,25 @@ import MyComponent from 'components/MyComponent'
 
 ### Форматирование кода
 
-Использую [Prettier](https://github.com/prettier/prettier) с настройками:
-```
+Выполняется автоматически при коммите в git, благодаря [Prettier](https://github.com/prettier/prettier) - все настройки в package.json:
+```json
 {
-  "prettier.singleQuote": true,
-  "prettier.printWidth": 100,
-  "prettier.trailingComma": "all",
-  "prettier.semi": false,
-  "prettier.parser": "flow"
+  "devDependencies": {
+    "husky": "^0.13.3",
+    "lint-staged": "^3.4.1",
+    "prettier": "^1.3.1",
+  },
+  "scripts": {
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --print-width 100 --single-quote --trailing-comma all --no-semi --write",
+      "git add"
+    ]
+  }
 }
 ```
-
-Форматирование кода выполняется автоматически при коммите в git.
 
 ### Общие настройки VSCode
 
