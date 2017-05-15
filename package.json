@@ -6,16 +6,6 @@
   "moduleRoots": [
     "src"
   ],
-  "standard": {
-    "plugin": [
-      "flowtype"
-    ],
-    "parser": "babel-eslint",
-    "global": [
-      "it",
-      "describe"
-    ]
-  },
   "devDependencies": {
     "babel-plugin-flow-react-proptypes": "^2.1.3",
     "babel-plugin-idx": "^1.5.1",
