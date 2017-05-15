@@ -60,13 +60,31 @@ type Props = {
 }
 
 const PostForm = ({
-  id, flow, title, content, hubs, isTranslation, sourceAuthor, sourceLink,
-  isTutorial, searchHub, sourceFlows, sourceHubs, errors, isSubmitting, mainError,
-  input, save
+  id,
+  flow,
+  title,
+  content,
+  hubs,
+  isTranslation,
+  sourceAuthor,
+  sourceLink,
+  isTutorial,
+  searchHub,
+  sourceFlows,
+  sourceHubs,
+  errors,
+  isSubmitting,
+  mainError,
+  input,
+  save,
 }: Props) => (
   <div>
-    <h2>{console.log('input', input) || id ? 'Редактирование публикации' : 'Хочу разместить публикацию'}</h2>
-    <form onSubmit={onSubmit(isSubmitting, save)} autoComplete='off'>
+    <h2>
+      {console.log('input', input) || id
+        ? 'Редактирование публикации'
+        : 'Хочу разместить публикацию'}
+    </h2>
+    <form onSubmit={onSubmit(isSubmitting, save)} autoComplete="off">
       <PostFormIsTutorial {...{ isTutorial, input }} />
       <PostFormFlow {...{ flowId: flow.id, sourceFlows, input, error: errors.flow }} />
       <PostFormTitle {...{ title, input, error: errors.title }} />
@@ -74,7 +92,9 @@ const PostForm = ({
       <PostFormSearchHub {...{ searchHub, sourceHubs, hubs, input, error: errors.searchHub }} />
       <PostFormHubs {...{ hubs, input, error: errors.searchHub }} />
       <PostFormIsTranslation {...{ isTranslation, input }} />
-      <PostFormSourceAuthor {...{ sourceAuthor, isTranslation, input, error: errors.sourceAuthor }} />
+      <PostFormSourceAuthor
+        {...{ sourceAuthor, isTranslation, input, error: errors.sourceAuthor }}
+      />
       <PostFormSourceLink {...{ sourceLink, isTranslation, input, error: errors.sourceLink }} />
       <PostFormSubmit {...{ isSubmitting }} />
     </form>
@@ -132,11 +152,11 @@ const PostForm = ({
 //   save: PropTypes.func,
 // }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   ...state.postForm,
   mainError: state.app.mainError,
   sourceFlows: state.flows,
-  sourceHubs: state.hubs
+  sourceHubs: state.hubs,
 })
 
 const { input, save } = actions
