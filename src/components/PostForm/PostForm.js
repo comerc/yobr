@@ -137,7 +137,7 @@ const mapStateToProps = (state) => ({
   mainError: state.app.mainError,
   sourceFlows: state.flows,
   sourceHubs: state.hubs
-});
+})
 
 const { input, save } = actions
 const mapDispatchToProps = { input, save }
