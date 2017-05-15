@@ -35,7 +35,7 @@ const isMy = (state) =>
 
 const mapStateToProps = (state, props) => ({
   isNotFound: isEmpty(state.postView),
-  post: isEmpty(state.postView) ? state.postView : { ...state.postView, isMy: isMy(state) },
+  post: isEmpty(state.postView) ? state.postView : { ...state.postView, isMy: isMy(state) }
 })
 
 const onMounted = memoize((dispatch, id) => () => {

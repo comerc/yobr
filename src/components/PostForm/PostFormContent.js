@@ -9,8 +9,6 @@ type Props = {
   error?: string,
 }
 
-
-
 const PostFormContent = ({ content, input, error }: Props) => (
   <TextField
     id='PostFormContent'
