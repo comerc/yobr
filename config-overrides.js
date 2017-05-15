@@ -13,9 +13,7 @@ function rewire (config, env) {
     'tcomb'
   ].concat(babelrc.plugins || [])
 
-  // console.log('config.eslint.configFile', config.eslint.configFile)
-  config.eslint.configFile = './.eslintrc.js'
-  // config.eslint.useEslintrc = true
+  // config.eslint.configFile = './.eslintrc.js'
 
   return config
 }
