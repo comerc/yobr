@@ -82,6 +82,8 @@ const api = server => {
           delete post.favoritesCount
           posts[index] = post = merge(posts[index], post)
         } else {
+          // const uuid = require('uuid')
+          // post.id = uuid()
           post.id = +Math.random().toString().slice(2)
           post.published = new Date().valueOf()
           post.author = currentUser
