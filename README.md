@@ -92,5 +92,5 @@ import MyComponent from 'components/MyComponent'
 
 ### Литература
 
-- [Итераторы и генераторы](https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Iterators_and_Generators)
+- [Введение в JavaScript итераторы на ES6](https://habrahabr.ru/post/264345/)
 - [Редакс в реальной жизни](https://iamakulov.com/talks/redux-in-real-life/) (про redux-saga)
