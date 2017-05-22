@@ -89,3 +89,8 @@ import MyComponent from 'components/MyComponent'
 - [Организация компонентов в проекте](https://habrahabr.ru/post/326018/)
 - [Блог а-ля Хабр, выбор платформы](https://habrahabr.ru/post/325088/)
 - [React Native — одного JS мало](https://habrahabr.ru/post/323214/)
+
+### Литература
+
+- [Итераторы и генераторы](https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Iterators_and_Generators)
+- [Редакс в реальной жизни](https://iamakulov.com/talks/redux-in-real-life/) (про redux-saga)
