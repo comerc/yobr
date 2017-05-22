@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/server/node_modules
 
 # testing
 /coverage
@@ -17,4 +18,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+/server/yarn-debug.log*
+/server/yarn-error.log*
 /server/data/storage.json
