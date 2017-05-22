@@ -11,7 +11,8 @@ const HTTP_BAD_REQUEST = 400
 
 const jsonParser = bodyParser.json()
 // можно иначе: path.join(process.cwd(), 'server/data/storage.json')
-const fileName = path.resolve('server/data/storage.json')
+// const fileName = path.resolve('data/storage.json')
+const fileName = path.resolve('/tmp/storage.json')
 
 const currentUser = {
   id: 3678,

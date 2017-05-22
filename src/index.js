@@ -27,7 +27,7 @@ if (isLogger && process.env.NODE_ENV === 'development') {
 }
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(...middlewares)))
 
-axios.defaults.baseURL = 'http://localhost:9000'
+axios.defaults.baseURL = 'https://yobr-server.now.sh' //'http://localhost:9000'
 
 // Make taps on links and buttons work fast on mobiles
 FastClick.attach(document.body)

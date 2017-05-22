@@ -11,8 +11,8 @@ const originStyle = { horizontal: 'right', vertical: 'top' }
 const PageHeaderMenu = ({ logout, ...props }) => {
   const handleItemTouchTap = (event, child) => {
     const cases = {
-      profile: () => {},
-      settings: () => {},
+      profile: () => alert('profile'),
+      settings: () => alert('settings'),
       logout: () => logout(),
     }
     cases[child.props.id]()
