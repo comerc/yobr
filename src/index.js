@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
+import createSagaMiddleware from 'redux-saga'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import createHistory from 'history/createBrowserHistory'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
@@ -13,19 +14,21 @@ import 'es6-promise/auto'
 import 'setimmediate'
 import axios from 'axios'
 
-import reducer from 'ducks'
+import reducer, { rootSaga } from 'ducks'
 import routes from 'routes'
 import { actions as appActions } from 'ducks/app'
 
 const history = createHistory()
 const router = routerMiddleware(history)
-const middlewares = [router, thunk]
+const sagaMiddleware = createSagaMiddleware()
+const middlewares = [router, thunk, sagaMiddleware]
 const isLogger = false
 if (isLogger && process.env.NODE_ENV === 'development') {
   const { logger } = require('redux-logger')
   middlewares.push(logger)
 }
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(...middlewares)))
+sagaMiddleware.run(rootSaga)
 
 axios.defaults.baseURL = 'https://yobr-server.now.sh' //'http://localhost:9000'
 

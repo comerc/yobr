@@ -5,6 +5,7 @@ import isEmpty from 'lodash/isEmpty'
 import { appLoad, actions as appActions } from './app'
 import { actions as postsActions } from './posts'
 import axios from 'axios'
+import { select, put, call, takeEvery } from 'redux-saga/effects'
 
 const NS = '@@post-form/'
 
@@ -14,6 +15,7 @@ const setField = createAction(`${NS}SET_FIELD`)
 const setErrors = createAction(`${NS}SET_ERRORS`)
 const setError = createAction(`${NS}SET_ERROR`)
 const setSubmitting = createAction(`${NS}SET_SUBMITTING`)
+const save = () => ({ type: `${NS}SAVE` })
 
 // Validate rules
 const required = value => (value ? null : 'Required')
@@ -62,9 +64,9 @@ const read = id => (dispatch, getState) => {
   })
 }
 
-const save = () => (dispatch, getState) => {
+function* saveSaga(action) {
   const clearPost = ({ searchHub, errors, isSubmitting, ...result }) => result
-  const state = getState()
+  const state = yield select()
   const errors = {}
   Object.keys(validators).forEach(key => {
     const validate = validators[key]
@@ -74,28 +76,64 @@ const save = () => (dispatch, getState) => {
     }
   })
   if (!isEmpty(errors)) {
-    dispatch(setErrors(errors))
-    dispatch(appActions.setMainError('Исправьте ошибки в форме'))
+    yield put(setErrors(errors))
+    yield put(appActions.setMainError('Исправьте ошибки в форме'))
     return
   }
   if (state.app.mainError) {
-    dispatch(appActions.setMainError())
+    yield put(appActions.setMainError())
   }
-  dispatch(setSubmitting(true))
-  axios
-    .post('/post/', clearPost(state.postForm))
-    .then(response => {
-      const post = response.data
-      dispatch(postsActions.setPost(post))
-      dispatch(push(`/post/${post.id}/`))
-    })
-    .catch(error => {
-      dispatch(appActions.setMainError(error.toString()))
-    })
-    .then(() => {
-      dispatch(setSubmitting(false))
-    })
+  yield put(setSubmitting(true))
+  try {
+    const response = yield call(axios.post, '/post/', clearPost(state.postForm))
+    const post = response.data
+    yield put(postsActions.setPost(post))
+    yield put(push(`/post/${post.id}/`))
+  } catch (error) {
+    yield put(appActions.setMainError(error.toString()))
+  } finally {
+    yield put(setSubmitting(false))
+  }
 }
+
+export function* subscribeForSave() {
+  yield takeEvery(`${NS}SAVE`, saveSaga)
+}
+
+// const save = () => (dispatch, getState) => {
+//   const clearPost = ({ searchHub, errors, isSubmitting, ...result }) => result
+//   const state = getState()
+//   const errors = {}
+//   Object.keys(validators).forEach(key => {
+//     const validate = validators[key]
+//     const error = validate(state.postForm[key], state)
+//     if (error) {
+//       errors[key] = error
+//     }
+//   })
+//   if (!isEmpty(errors)) {
+//     dispatch(setErrors(errors))
+//     dispatch(appActions.setMainError('Исправьте ошибки в форме'))
+//     return
+//   }
+//   if (state.app.mainError) {
+//     dispatch(appActions.setMainError())
+//   }
+//   dispatch(setSubmitting(true))
+//   axios
+//     .post('/post/', clearPost(state.postForm))
+//     .then(response => {
+//       const post = response.data
+//       dispatch(postsActions.setPost(post))
+//       dispatch(push(`/post/${post.id}/`))
+//     })
+//     .catch(error => {
+//       dispatch(appActions.setMainError(error.toString()))
+//     })
+//     .then(() => {
+//       dispatch(setSubmitting(false))
+//     })
+// }
 
 const input = ({ key, value, isValidate = false }) => (dispatch, getState) => {
   if (isValidate) {

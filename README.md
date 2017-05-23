@@ -93,4 +93,4 @@ import MyComponent from 'components/MyComponent'
 ### Литература
 
 - [Введение в JavaScript итераторы на ES6](https://habrahabr.ru/post/264345/)
-- [Редакс в реальной жизни](https://iamakulov.com/talks/redux-in-real-life/) (про redux-saga)
+- [Редакс в реальной жизни](https://iamakulov.com/talks/redux-in-real-life/)
