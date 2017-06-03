@@ -1,6 +1,6 @@
 # yobr
 
-[DEMO](https://yobr.now.sh/)
+[DEMO](https://yobr.now.sh/) (если не видно данных, то нужно выполнить [reset-запрос к API](https://yobr-server.now.sh/posts/reset/))
 
 ### SETUP
 
