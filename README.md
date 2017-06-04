@@ -12,7 +12,7 @@ $ cd yobr
 $ yarn install
 $ yarn start
 $ cd server 
-$ yarn server
+$ yarn start
 ```
 
 ### Абсолютные пути в импорте
