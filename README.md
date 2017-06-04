@@ -10,8 +10,9 @@
 $ git clone git@github.com:comerc/yobr.git
 $ cd yobr
 $ yarn install
-$ yarn server
 $ yarn start
+$ cd server 
+$ yarn server
 ```
 
 ### Абсолютные пути в импорте
