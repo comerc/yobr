@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
-    "classnames": "^2.2.5",
     "es6-promise": "^4.1.0",
     "fast-memoize": "^2.2.7",
     "fastclick": "^1.0.6",
