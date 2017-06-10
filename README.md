@@ -1,4 +1,4 @@
-# yobr
+# YOBR
 
 [DEMO](https://yobr.now.sh/) (если не видно данных, то нужно выполнить [reset-запрос к API](https://yobr-server.now.sh/posts/reset/))
 
@@ -29,7 +29,7 @@ $ yarn start
 import MyComponent from 'components/MyComponent'
 ```
 
-#### VSCode
+### VSCode
 
 Нужно добавить jsconfig.json в корень проекта: 
 ```javascript
@@ -43,10 +43,10 @@ import MyComponent from 'components/MyComponent'
 }
 ```
 
-#### WebStorm
+### WebStorm
 Для папки src в контекстом меню выполнить: Mark Directory as > Resource Root.
 
-#### Atom
+### Atom
 - Установить плагин [js-hyperclick](https://atom.io/packages/js-hyperclick).
 - Для доменных компонентов прописывать в package.json путь до src:
 ```json
@@ -81,11 +81,11 @@ import MyComponent from 'components/MyComponent'
 
 ## Общие настройки IDE
 
-#### VSCode
+### VSCode
 
 Чтобы выполнить импорт настроек редактора, нужно установить [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync), потом [Shift]+[Alt]+[D] и ввести ключ: 37f6bb06dfd1b4bc93efbfbf19d60cea
 
-#### WebStorm
+### WebStorm
 
 Выполнить 'Import Settings...' из ./webstorm.jar
 
