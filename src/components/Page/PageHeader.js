@@ -11,7 +11,7 @@ const styles = {
   },
 }
 
-const Header = ({ isLogged, logout, setLoginDialog, dispatch }) => {
+const Header = ({ isLogged, dispatch }) => {
   const handleTouchTap = () => {
     dispatch(push(`/`))
   }
