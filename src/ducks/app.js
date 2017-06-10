@@ -22,29 +22,54 @@ const logout = () => (dispatch, getState) => {
   }
 }
 
-export const appLoad = (dispatch, config, cb) => {
-  let isTimeout = false
-  let isFetch = false
-  setTimeout(() => {
-    isTimeout = true
-    if (!isFetch) {
-      dispatch(setLoading(false))
-    }
-  }, 500) // демонстрировать state.app.isLoading не менее 500 мс
-  axios(config)
-    .then(response => {
-      cb(response.data)
-    })
-    .catch(error => {
-      dispatch(setMainError(error.toString()))
-    })
-    .then(() => {
-      isFetch = true
-      if (!isTimeout) {
+// export const appLoad = (dispatch, config, cb) => {
+//   let isTimeout = false
+//   let isFetch = false
+//   setTimeout(() => {
+//     isTimeout = true
+//     if (!isFetch) {
+//       dispatch(setLoading(false))
+//     }
+//   }, 500) // демонстрировать state.app.isLoading не менее 500 мс
+//   axios(config)
+//     .then(response => {
+//       cb(response.data)
+//     })
+//     .catch(error => {
+//       dispatch(setMainError(error.toString()))
+//     })
+//     .then(() => {
+//       isFetch = true
+//       if (!isTimeout) {
+//         dispatch(setLoading(false))
+//       }
+//     })
+// }
+
+export const appLoad = (dispatch, config) =>
+  new Promise(resolve => {
+    let isTimeout = false
+    let isFetch = false
+    setTimeout(() => {
+      isTimeout = true
+      if (!isFetch) {
         dispatch(setLoading(false))
       }
-    })
-}
+    }, 500) // демонстрировать state.app.isLoading не менее 500 мс
+    axios(config)
+      .then(response => {
+        resolve(response.data)
+      })
+      .catch(error => {
+        dispatch(setMainError(error.toString()))
+      })
+      .then(() => {
+        isFetch = true
+        if (!isTimeout) {
+          dispatch(setLoading(false))
+        }
+      })
+  })
 
 const initialState = {
   isLoading: false,

@@ -8,7 +8,7 @@ const setPost = createAction(`${NS}SET_POST`)
 
 const read = () => dispatch => {
   dispatch(appActions.setLoading(true))
-  appLoad(dispatch, '/posts/', data => {
+  appLoad(dispatch, '/posts/').then(data => {
     dispatch(set(data))
   })
 }

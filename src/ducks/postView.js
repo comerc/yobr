@@ -18,7 +18,7 @@ const read = id => (dispatch, getState) => {
     dispatch(appActions.setLoading(false))
     return
   }
-  appLoad(dispatch, `/post/${id}`, data => {
+  appLoad(dispatch, `/post/${id}`).then(data => {
     dispatch(postsActions.setPost(data))
     dispatch(set(data))
   })
