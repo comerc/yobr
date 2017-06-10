@@ -12,6 +12,7 @@ $ cd yobr
 $ yarn install
 $ yarn start
 $ cd server 
+$ yarn install
 $ yarn start
 ```
 
