@@ -30,7 +30,7 @@ if (isLogger && process.env.NODE_ENV === 'development') {
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(...middlewares)))
 sagaMiddleware.run(rootSaga)
 
-const isLocalServer = false
+const isLocalServer = true
 axios.defaults.baseURL = isLocalServer ? 'http://localhost:9000' : 'https://yobr-server.now.sh'
 
 // Make taps on links and buttons work fast on mobiles
