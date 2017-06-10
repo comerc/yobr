@@ -6,15 +6,15 @@ type Props = {
   tags: Array<string>,
 }
 
-const PostTags = ({ tags }: Props) => (
+const PostTags = ({ tags }: Props) =>
   <ul>
-    {tags.map(tag => (
+    {tags.map(tag =>
       <li key={tag}>
-        <Link to={`/search/?q=%5B${encodeURIComponent(tag)}%5D&target_type=posts`} rel="tag">
+        <Link to={`/search/?q=%5B${encodeURIComponent(tag)}%5D&target_type=posts`}>
           {tag}
         </Link>
-      </li>
-    ))}
+      </li>,
+    )}
     <style jsx>{`
       ul {
         margin: 0;
@@ -32,7 +32,6 @@ const PostTags = ({ tags }: Props) => (
       }
     `}</style>
   </ul>
-)
 
 // PostTags.propTypes = {
 //   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
