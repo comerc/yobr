@@ -1,5 +1,5 @@
 {
-  "name": "PostForm",
+  "name": "post-form",
   "version": "0.0.0",
   "private": true,
   "main": "./PostForm.js",
