@@ -23,7 +23,7 @@ const logout = () => (dispatch, getState) => {
 }
 
 export const appLoad = (dispatch, config) =>
-  new Promise(resolve => {
+  new Promise((resolve, reject) => {
     let isTimeout = false
     let isFetch = false
     setTimeout(() => {
@@ -38,6 +38,7 @@ export const appLoad = (dispatch, config) =>
       })
       .catch(error => {
         dispatch(setMainError(error.toString()))
+        reject(error)
       })
       .then(() => {
         isFetch = true
