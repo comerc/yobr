@@ -2,7 +2,7 @@
 
 [DEMO](https://yobr.now.sh/) (если не видно данных, то нужно выполнить [reset-запрос к API](https://yobr-server.now.sh/posts/reset/))
 
-### SETUP
+## SETUP
 
 - Поставить: [nodejs](https://nodejs.org/), [yarn](https://yarnpkg.com/), [git](https://www.atlassian.com/git/tutorials/install-git).
 - Клонировать и запустить проект:
@@ -16,28 +16,14 @@ $ yarn install
 $ yarn start
 ```
 
-### Абсолютные пути в импорте
+## Абсолютные пути в импорте
 
 Работают относительно папки src:
 ```javascript
 import MyComponent from 'components/MyComponent'
 ```
 
-##### Настройка WebStorm
-Для папки src в контекстом меню выполнить: Mark Directory as > Resource Root.
-
-##### Настройка Atom
-- Установить плагин [js-hyperclick](https://atom.io/packages/js-hyperclick).
-- Для доменных компонентов прописывать в package.json путь до src:
-```json
-{
-  "moduleRoots": [
-    "../.."
-  ]
-}
-```
-
-##### Настройка VSCode
+#### VSCode
 
 Нужно добавить jsconfig.json в корень проекта: 
 ```javascript
@@ -51,7 +37,21 @@ import MyComponent from 'components/MyComponent'
 }
 ```
 
-### Форматирование кода
+#### WebStorm
+Для папки src в контекстом меню выполнить: Mark Directory as > Resource Root.
+
+#### Atom
+- Установить плагин [js-hyperclick](https://atom.io/packages/js-hyperclick).
+- Для доменных компонентов прописывать в package.json путь до src:
+```json
+{
+  "moduleRoots": [
+    "../.."
+  ]
+}
+```
+
+## Форматирование кода
 
 Выполняется автоматически при коммите в git, благодаря [Prettier](https://github.com/prettier/prettier) - все настройки в package.json:
 ```json
@@ -73,15 +73,17 @@ import MyComponent from 'components/MyComponent'
 }
 ```
 
-### Общие настройки VSCode
+## Общие настройки IDE
+
+#### VSCode
 
 Чтобы выполнить импорт настроек редактора, нужно установить [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync), потом [Shift]+[Alt]+[D] и ввести ключ: 37f6bb06dfd1b4bc93efbfbf19d60cea
 
-### Общие настройки WebStorm
+#### WebStorm
 
 Выполнить 'Import Settings...' из ./webstorm.jar
 
-### Публикации
+## Публикации
 
 - [Быстрый старт на React Native](https://habrahabr.ru/post/327668/)
 - [Загрузка данных из REST API](https://habrahabr.ru/post/327422/)
@@ -92,7 +94,7 @@ import MyComponent from 'components/MyComponent'
 - [Блог а-ля Хабр, выбор платформы](https://habrahabr.ru/post/325088/)
 - [React Native — одного JS мало](https://habrahabr.ru/post/323214/)
 
-### Литература
+## Литература
 
 - [Введение в JavaScript итераторы на ES6](https://habrahabr.ru/post/264345/)
 - [Редакс в реальной жизни](https://iamakulov.com/talks/redux-in-real-life/)
