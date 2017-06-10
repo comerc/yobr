@@ -5,13 +5,19 @@
 ## SETUP
 
 - Поставить: [nodejs](https://nodejs.org/), [yarn](https://yarnpkg.com/), [git](https://www.atlassian.com/git/tutorials/install-git).
-- Клонировать и запустить проект:
+- Клонировать репозиторий:
 ```bash
 $ git clone git@github.com:comerc/yobr.git
-$ cd yobr
+```
+- Запустить сервер:
+```bash
+$ cd ~/yobr/server 
 $ yarn install
 $ yarn start
-$ cd server 
+```
+- Запустить клиент:
+```bash
+$ cd ~/yobr
 $ yarn install
 $ yarn start
 ```
