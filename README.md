@@ -2,6 +2,10 @@
 
 [DEMO](https://yobr.now.sh/) (если не видно данных, то нужно выполнить [reset-запрос к API](https://yobr-server.now.sh/posts/reset/))
 
+## TL;DR
+
+Тут можно оценить, как я применяю следующие инструменты: react, styled-jsx + postcss, material-ui, css-анимацию, axios, express, react-router, flow + tcomb, prettier, redux, reselect, recompose, thunk, saga, ducks-pattern + redux-act, загрузку данных через API, доменную организацию компонентов, функциональные компоненты, промисы, генераторы, мемоизацию, спреды, оператор расширения, деструкцию, стрелочные функции, шаблонные строки, настройки VSCode и WebStorm.
+
 ## SETUP
 
 - Поставить: [nodejs](https://nodejs.org/), [yarn](https://yarnpkg.com/), [git](https://www.atlassian.com/git/tutorials/install-git).
@@ -91,6 +95,7 @@ import MyComponent from 'components/MyComponent'
 
 ## Публикации
 
+- [Интеграция React и DataTables (React + jQuery)](https://habrahabr.ru/post/330656/)
 - [Быстрый старт на React Native](https://habrahabr.ru/post/327668/)
 - [Загрузка данных из REST API](https://habrahabr.ru/post/327422/)
 - [Способы отладки JS на клиенте](https://habrahabr.ru/post/327190/)
