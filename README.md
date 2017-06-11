@@ -95,7 +95,7 @@ import MyComponent from 'components/MyComponent'
 
 ## Публикации
 
-- [Интеграция React и DataTables (React + jQuery)](https://habrahabr.ru/post/330656/)
+- [Интеграция React и DataTables (jQuery)](https://habrahabr.ru/post/330656/)
 - [Быстрый старт на React Native](https://habrahabr.ru/post/327668/)
 - [Загрузка данных из REST API](https://habrahabr.ru/post/327422/)
 - [Способы отладки JS на клиенте](https://habrahabr.ru/post/327190/)
