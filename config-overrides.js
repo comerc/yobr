@@ -1,21 +1,9 @@
-const babelLoader = function(conf) {
-  return conf.loader === 'babel'
-}
-
 function rewire(config, env) {
-  const babelrc = config.module.loaders.find(babelLoader).query
-  babelrc.plugins = [
-    // не работает jest, заменил на NODE_PATH=src/ в .env
-    ['module-resolver', { root: ['src'] }],
-    'lodash',
-    'babel-plugin-idx',
-    'styled-jsx-postcss/babel',
-    // 'flow-react-proptypes',
-    'tcomb',
-  ].concat(babelrc.plugins || [])
-
-  // config.eslint.configFile = './.eslintrc.js'
-
+  const babelOptions = config.module.rules.find(
+    conf => conf.loader && conf.loader.includes('babel-loader'),
+  ).options
+  const path = require('path')
+  babelOptions.presets = babelOptions.presets.concat(path.resolve('babel-preset.js'))
   return config
 }
 
