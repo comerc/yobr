@@ -6,11 +6,11 @@ import flows from './flows'
 import hubs from './hubs'
 import posts from './posts'
 import postView from './postView'
-import postForm, { subscribeForSave } from './postForm'
+import postForm, { subscribeToSagas } from './postForm'
 import currentUser from './currentUser'
 
 export function* rootSaga() {
-  yield all([subscribeForSave()])
+  yield all([subscribeToSagas()])
 }
 
 export default combineReducers({

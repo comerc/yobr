@@ -5,7 +5,7 @@ import isEmpty from 'lodash/isEmpty'
 import { appLoad, actions as appActions } from './app'
 import { actions as postsActions } from './posts'
 import axios from 'axios'
-import { select, put, call, takeEvery } from 'redux-saga/effects'
+import { select, put, call, takeEvery, all } from 'redux-saga/effects'
 
 const NS = '@@post-form/'
 
@@ -15,7 +15,7 @@ const setField = createAction(`${NS}SET_FIELD`)
 const setErrors = createAction(`${NS}SET_ERRORS`)
 const setError = createAction(`${NS}SET_ERROR`)
 const setSubmitting = createAction(`${NS}SET_SUBMITTING`)
-const save = () => ({ type: `${NS}SAVE` })
+const save = createAction(`${NS}SAVE`)
 
 // Validate rules
 const required = value => (value ? null : 'Required')
@@ -96,8 +96,8 @@ function* saveSaga(action) {
   }
 }
 
-export function* subscribeForSave() {
-  yield takeEvery(`${NS}SAVE`, saveSaga)
+export function* subscribeToSagas() {
+  yield all([takeEvery(save, saveSaga)])
 }
 
 // const save = () => (dispatch, getState) => {
