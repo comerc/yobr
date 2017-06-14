@@ -1,9 +1,8 @@
-const babelLoader = function(conf) {
-  return conf.loader === 'babel'
-}
-
 function rewire(config, env) {
-  const babelrc = config.module.loaders.find(babelLoader).query
+  const babelOptions = config.module.rules.find(conf => {
+    return conf.loader && conf.loader.includes('babel-loader')
+  }).options
+  const babelrc = require(babelOptions.presets[0])
   babelrc.plugins = [
     // не работает jest, заменил на NODE_PATH=src/ в .env
     ['module-resolver', { root: ['src'] }],
@@ -13,9 +12,8 @@ function rewire(config, env) {
     // 'flow-react-proptypes',
     'tcomb',
   ].concat(babelrc.plugins || [])
-
-  // config.eslint.configFile = './.eslintrc.js'
-
+  console.log(babelrc.plugins)
+  babelOptions.presets = babelrc
   return config
 }
 
