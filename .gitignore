@@ -21,3 +21,4 @@ yarn-error.log*
 /server/yarn-debug.log*
 /server/yarn-error.log*
 /server/data/storage.json
+output.mp4
