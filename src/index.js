@@ -39,14 +39,15 @@ FastClick.attach(document.body)
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin()
 
-history.listen((location, action) => {
-  // console.log(`The current URL is ${location.pathname}${location.search}${location.hash}`)
-  // console.log(`The last navigation action was ${action}`)
-  const state = store.getState()
-  if (state.app.mainError) {
-    store.dispatch(appActions.setMainError())
-  }
-})
+// ???
+// history.listen((location, action) => {
+//   // console.log(`The current URL is ${location.pathname}${location.search}${location.hash}`)
+//   // console.log(`The last navigation action was ${action}`)
+//   const state = store.getState()
+//   if (state.app.mainError) {
+//     store.dispatch(appActions.setMainError())
+//   }
+// })
 
 ReactDOM.render(
   <MuiThemeProvider>
