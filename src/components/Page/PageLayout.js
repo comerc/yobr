@@ -14,6 +14,7 @@ const PageLayout = () =>
     <PageLoginDialog />
     <PageHeader />
     <Switch>
+      <Redirect exact from="/" to="/all/" />
       <Route exact path="/all/" component={PostListPage} />
       <Route exact path="/:filterType(flow|hub)/:filterId/" component={PostListPage} />
       <Route exact path="/post/:id(\d+)/" component={PostViewPage} />
@@ -66,18 +67,4 @@ const PageLayout = () =>
     `}</style>
   </div>
 
-const RedirectWithWarn = ({ to, ...rest }) =>
-  <Route
-    {...rest}
-    children={match => {
-      // редиректов следует избегать - это приводит к перерисовке PageLayout
-      console.warn('redirect to:', match)
-      return <Redirect to={to} />
-    }}
-  />
-
-export default () =>
-  <Switch>
-    <RedirectWithWarn exact path="/" to="/all/" />
-    <Route component={PageLayout} />
-  </Switch>
+export default PageLayout
