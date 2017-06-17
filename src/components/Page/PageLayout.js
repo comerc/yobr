@@ -61,6 +61,7 @@ const PageLayout = () =>
         display: flex;
         flex-direction: column;
         min-height: 100%;
+        width: 100%;
       }
     `}</style>
   </div>
