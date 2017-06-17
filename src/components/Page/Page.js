@@ -22,13 +22,15 @@ class Page extends React.Component {
   }
 
   render() {
-    const { isNotFound, isLoading, children } = this.props
-    if (this._isMounted && !isLoading && isNotFound) {
+    const { onMounted, isNotFound, isLoading, children } = this.props
+    if ((onMounted === void 0 || (this._isMounted && !isLoading)) && isNotFound) {
       return <PageNotFound />
     }
     return (
       <div className="page">
-        {this._isMounted && !isLoading ? children : <div>Загрузка...</div>}
+        {onMounted === void 0 || (this._isMounted && !isLoading)
+          ? children
+          : <div>Загрузка...</div>}
         <style jsx>{`
           .page {
             flex: 1;
