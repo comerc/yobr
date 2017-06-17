@@ -15,8 +15,8 @@ import 'setimmediate'
 import axios from 'axios'
 
 import reducer, { rootSaga } from 'ducks'
-import routes from 'routes'
-import { actions as appActions } from 'ducks/app'
+// import { actions as appActions } from 'ducks/app'
+import { PageLayout } from 'components/Page'
 
 const history = createHistory()
 const router = routerMiddleware(history)
@@ -52,7 +52,9 @@ injectTapEventPlugin()
 ReactDOM.render(
   <MuiThemeProvider>
     <Provider store={store}>
-      <ConnectedRouter history={history}>{routes}</ConnectedRouter>
+      <ConnectedRouter history={history}>
+        <PageLayout />
+      </ConnectedRouter>
     </Provider>
   </MuiThemeProvider>,
   document.getElementById('root'),

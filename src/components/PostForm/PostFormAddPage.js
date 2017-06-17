@@ -11,12 +11,11 @@ type Props = {
   onMounted?: Function,
 }
 
-const PostFormAddPage = (props: Props) => (
+const PostFormAddPage = (props: Props) =>
   <Page {...props}>
     <Helmet title="YOBR" />
     <PostForm />
   </Page>
-)
 
 // PostFormAddPage.propTypes = {
 //   onMounted: PropTypes.func,

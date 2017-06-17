@@ -4,9 +4,9 @@ import Helmet from 'react-helmet'
 
 import logo from 'resources/logo.svg'
 
-const NotFound = () => (
+const PageNotFound = () =>
   <div className="not-found">
-    <Helmet title="YOBR" />
+    <Helmet title="YOBR - 404" />
     <div className="logo">
       <Link to="/" title="На главную страницу"><img alt="logo" src={logo} /></Link>
     </div>
@@ -15,7 +15,7 @@ const NotFound = () => (
     <div className="back-button">
       <Link to="/"><span className="back-text">Вернуться на главную</span></Link>
     </div>
-    <style jsx global>{`
+    {/*<style jsx global>{`
       html, body {
         height: 100%;
       }
@@ -34,7 +34,7 @@ const NotFound = () => (
       a {
         text-decoration: none;
       }
-    `}</style>
+    `}</style>*/}
     <style jsx>{`
       .not-found {
         height: 50vh;
@@ -59,6 +59,5 @@ const NotFound = () => (
       }
     `}</style>
   </div>
-)
 
-export default NotFound
+export default PageNotFound

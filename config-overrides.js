@@ -12,7 +12,6 @@ function rewire(config, env) {
     // 'flow-react-proptypes',
     'tcomb',
   ].concat(babelrc.plugins || [])
-  console.log(babelrc.plugins)
   babelOptions.presets = babelrc
   return config
 }

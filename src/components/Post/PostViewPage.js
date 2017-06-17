@@ -15,12 +15,11 @@ type Props = {
   isNotFound: boolean,
 }
 
-const PostViewPage = ({ post, ...props }: Props) => (
+const PostViewPage = ({ post, ...props }: Props) =>
   <Page {...props}>
-    <Helmet title="YOBR" />
+    <Helmet title="YOBR - post" />
     <Post {...post} />
   </Page>
-)
 
 // PostViewPage.propTypes = {
 //   onMounted: PropTypes.func,

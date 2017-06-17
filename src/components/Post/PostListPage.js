@@ -20,9 +20,9 @@ type Props = {
   onMounted?: Function,
 }
 
-const PostListPage = ({ flows, posts, currentUserId, ...props }: Props) => (
+const PostListPage = ({ flows, posts, currentUserId, ...props }: Props) =>
   <Page {...props}>
-    <Helmet title="YOBR" />
+    <Helmet title="YOBR - list" />
     {/* <div className='flows'>
      <ul>
      {Object.keys(flows).map(key =>
@@ -35,15 +35,14 @@ const PostListPage = ({ flows, posts, currentUserId, ...props }: Props) => (
     {/* <div class='selected-hub'></div> */}
     <div className="posts">
       <PostAdd />
-      {posts.map(post => (
+      {posts.map(post =>
         <Post
           key={post.id}
           {...{ ...post, isTeaser: true, isMy: post.author.id === currentUserId }}
-        />
-      ))}
+        />,
+      )}
     </div>
   </Page>
-)
 
 // PostListPage.propTypes = {
 //   flows: PropTypes.arrayOf(PropTypes.shape({

@@ -25,7 +25,7 @@ const Post = ({
   content,
   viewsCount,
   favoritesCount,
-}: Props) => (
+}: Props) =>
   <div>
     <PostHeader {...{ isTeaser, id, published, flow, hubs, title, isDraft, isMy }} />
     <PostBody {...{ isTeaser, content }}>
@@ -36,7 +36,6 @@ const Post = ({
     </div>
     <br />
   </div>
-)
 
 // Post.propTypes = {
 //   isTeaser: PropTypes.bool,
