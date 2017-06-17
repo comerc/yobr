@@ -1,6 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
-import { Switch, Redirect } from 'react-router'
+import { Switch, Redirect, Route } from 'react-router-dom'
 import { NotFound } from 'components/Page'
 import { PostViewPage, PostListPage } from 'components/Post'
 import { PostFormAddPage, PostFormEditPage } from 'components/PostForm'
