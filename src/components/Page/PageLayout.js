@@ -1,10 +1,9 @@
 // @flow
 import React from 'react'
-import { Switch, Redirect, Route } from 'react-router-dom'
 import PageLoginDialog from './PageLoginDialog'
 import PageHeader from './PageHeader'
 import PageFooter from './PageFooter'
-import PageNotFound from './PageNotFound'
+import PageRoutes from './PageRoutes'
 
 const PageLayout = () =>
   <div className="layout">
