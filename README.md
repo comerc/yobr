@@ -110,7 +110,7 @@ import MyComponent from 'components/MyComponent'
 - [Введение в JavaScript итераторы на ES6](https://habrahabr.ru/post/264345/)
 - [Редакс в реальной жизни](https://iamakulov.com/talks/redux-in-real-life/)
 
-## Визуализация
+## Визуализация изменений в git
 
 ```bash
 gource \
