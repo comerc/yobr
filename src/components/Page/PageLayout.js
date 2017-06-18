@@ -6,22 +6,11 @@ import PageHeader from './PageHeader'
 import PageFooter from './PageFooter'
 import PageNotFound from './PageNotFound'
 
-import { PostViewPage, PostListPage } from 'components/Post'
-import { PostFormAddPage, PostFormEditPage } from 'components/PostForm'
-
 const PageLayout = () =>
   <div className="layout">
     <PageLoginDialog />
     <PageHeader />
-    <Switch>
-      <Redirect exact from="/" to="/all/" />
-      <Route exact path="/all/" component={PostListPage} />
-      <Route exact path="/:filterType(flow|hub)/:filterId/" component={PostListPage} />
-      <Route exact path="/post/:id(\d+)/" component={PostViewPage} />
-      <Route exact path="/post/edit/:id(\d+)/" component={PostFormEditPage} />
-      <Route exact path="/post/add/" component={PostFormAddPage} />
-      <Route component={PageNotFound} />
-    </Switch>
+    <PageRoutes />
     <PageFooter />
     <style jsx global>{`
       .u-fancy-scrollbar{-webkit-overflow-scrolling:touch}
