@@ -13,13 +13,13 @@
 ```bash
 $ git clone git@github.com:comerc/yobr.git
 ```
-- Запустить сервер:
+- Запустить сервер (console #1):
 ```bash
 $ cd ~/yobr/server 
 $ yarn install
 $ yarn start
 ```
-- Запустить клиент:
+- Запустить клиент (console #2):
 ```bash
 $ cd ~/yobr
 $ yarn install
