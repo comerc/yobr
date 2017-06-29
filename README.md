@@ -145,3 +145,9 @@ gource \
 -bf 0 \
 ~/yobr/output.mp4
 ```
+
+## Отзывы
+
+![YOU DA REAL MVP](https://user-images.githubusercontent.com/2321259/27685684-940c5464-5ccf-11e7-8f43-c494433d5842.jpg)
+
+@mauriciosoares - [решение по кастомизации babel в CRA](https://github.com/timarney/react-app-rewired/issues/46)
