@@ -2,13 +2,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PageLayout from './PageLayout'
-import NotFound from './PageNotFound'
-import Footer from './Page.Footer'
+import PageNotFound from './PageNotFound'
 
 class Page extends React.Component {
-  static NotFound = NotFound
-  static Footer = Footer
-
   props: {
     onMounted?: Function,
     isNotFound?: boolean,
@@ -30,7 +26,7 @@ class Page extends React.Component {
     return (
       <div className="page">
         {onMounted === void 0 || (this._isMounted && !isLoading)
-          ? isNotFound ? <Page.NotFound /> : children
+          ? isNotFound ? <PageNotFound /> : children
           : <div>Загрузка...</div>}
         <style jsx>{`
           .page {
