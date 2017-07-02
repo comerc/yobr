@@ -3,9 +3,9 @@ import { Switch, Redirect, Route } from 'react-router-dom'
 import { PostViewPage, PostListPage } from 'components/Post'
 import { PostFormAddPage, PostFormEditPage } from 'components/PostForm'
 
-import PageNotFound from './PageNotFound'
+import Page from './Page'
 
-const PageRoutes = () =>
+const Routes = () =>
   <Switch>
     <Redirect exact from="/" to="/all/" />
     <Route exact path="/all/" component={PostListPage} />
@@ -13,7 +13,7 @@ const PageRoutes = () =>
     <Route exact path="/post/:id(\d+)/" component={PostViewPage} />
     <Route exact path="/post/edit/:id(\d+)/" component={PostFormEditPage} />
     <Route exact path="/post/add/" component={PostFormAddPage} />
-    <Route component={PageNotFound} />
+    <Route component={Page.NotFound} />
   </Switch>
 
-export default PageRoutes
+export default Routes

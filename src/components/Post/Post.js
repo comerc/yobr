@@ -1,8 +1,8 @@
 // @flow
 import React from 'react'
 import { pure } from 'utils'
-import PostHeader from './PostHeader'
-import PostBody from './PostBody'
+import Header from './PostHeader'
+import Body from './PostBody'
 import PostReadMore from './PostReadMore'
 import PostTags from './PostTags'
 import PostInfoPanel from './PostInfoPanel'
@@ -27,15 +27,18 @@ const Post = ({
   favoritesCount,
 }: Props) =>
   <div>
-    <PostHeader {...{ isTeaser, id, published, flow, hubs, title, isDraft, isMy }} />
-    <PostBody {...{ isTeaser, content }}>
+    <Post.Header {...{ isTeaser, id, published, flow, hubs, title, isDraft, isMy }} />
+    <Post.Body {...{ isTeaser, content }}>
       {isTeaser ? <PostReadMore {...{ id }} /> : <PostTags {...{ tags }} />}
-    </PostBody>
+    </Post.Body>
     <div className="footer">
       <PostInfoPanel {...{ isTeaser, id, author, viewsCount, favoritesCount }} />
     </div>
     <br />
   </div>
+
+Post.Header = Header
+Post.Body = Body
 
 // Post.propTypes = {
 //   isTeaser: PropTypes.bool,
