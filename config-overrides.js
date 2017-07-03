@@ -11,6 +11,7 @@ function rewire(config, env) {
     'styled-jsx-postcss/babel',
     // 'flow-react-proptypes',
     'tcomb',
+    'transform-decorators-legacy',
   ].concat(babelrc.plugins || [])
   babelOptions.presets = babelrc
   return config

@@ -10,50 +10,6 @@ import Post from './Post'
 import PostAdd from './PostAdd'
 import type { Props as PostProps } from './Post.Props'
 
-type Props = {
-  flows: Array<{
-    id: string,
-    name: string,
-  }>,
-  posts: Array<PostProps>,
-  currentUserId: number,
-  onMounted?: Function,
-}
-
-const PostListPage = ({ flows, posts, currentUserId, ...props }: Props) =>
-  <Page {...props}>
-    <Helmet title="YOBR - list" />
-    {/* <div className='flows'>
-     <ul>
-     {Object.keys(flows).map(key =>
-     <li key={key}>
-     <Link to={`/flows/${key}/`}>{flows[key].name}</Link>
-     </li>
-     )}
-     </ul>
-     </div> */}
-    {/* <div class='selected-hub'></div> */}
-    <div className="posts">
-      <PostAdd />
-      {posts.map(post =>
-        <Post
-          key={post.id}
-          {...{ ...post, isTeaser: true, isMy: post.author.id === currentUserId }}
-        />,
-      )}
-    </div>
-  </Page>
-
-// PostListPage.propTypes = {
-//   flows: PropTypes.arrayOf(PropTypes.shape({
-//     id: PropTypes.string,
-//     name: PropType s.string,
-//   })),
-//   posts: PropTypes.arrayOf(PropTypes.object),
-//   currentUserId: PropTypes.number,
-//   onMounted: PropTypes.func,
-// }
-
 const getFilterType = (state, props) => props.match.params.filterType || ''
 
 const getFilterId = (state, props) => props.match.params.filterId || ''
@@ -87,5 +43,58 @@ const mapDispatchToProps = (dispatch, props) => ({
   onMounted: onMounted(dispatch, getFilterType(null, props), getFilterId(null, props)),
 })
 
+// type Props = {
+//   flows: Array<{
+//     id: string,
+//     name: string,
+//   }>,
+//   posts: Array<PostProps>,
+//   currentUserId: number,
+//   onMounted?: Function,
+// }
+
+@connect(mapStateToProps, mapDispatchToProps)
+class PostListPage extends React.Component {
+  render() {
+    const { flows, posts, currentUserId, ...props } = this.props
+    return (
+      <Page {...props}>
+        <Helmet title="YOBR - list" />
+        {/* <div className='flows'>
+     <ul>
+     {Object.keys(flows).map(key =>
+     <li key={key}>
+     <Link to={`/flows/${key}/`}>{flows[key].name}</Link>
+     </li>
+     )}
+     </ul>
+     </div> */}
+        {/* <div class='selected-hub'></div> */}
+        <div className="posts">
+          <PostAdd />
+          {posts.map(post =>
+            <Post
+              key={post.id}
+              {...{ ...post, isTeaser: true, isMy: post.author.id === currentUserId }}
+            />,
+          )}
+        </div>
+      </Page>
+    )
+  }
+}
+
+// const PostListPage = ({ flows, posts, currentUserId, ...props }: Props) =>
+
+// PostListPage.propTypes = {
+//   flows: PropTypes.arrayOf(PropTypes.shape({
+//     id: PropTypes.string,
+//     name: PropType s.string,
+//   })),
+//   posts: PropTypes.arrayOf(PropTypes.object),
+//   currentUserId: PropTypes.number,
+//   onMounted: PropTypes.func,
+// }
+
 export { PostListPage } // тупой компонент для тестирования
-export default connect(mapStateToProps, mapDispatchToProps)(PostListPage)
+export default PostListPage
