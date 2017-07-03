@@ -35,13 +35,12 @@ class PageLoginDialog extends React.Component {
     this.closeLoginDialog()
   }
 
-  actions = [
-    <FlatButton label="Отмена" primary onTouchTap={this.closeLoginDialog} />,
-    <FlatButton label="Войти" primary keyboardFocused onTouchTap={this.handleLogin} />,
-  ]
-
   render() {
     const { isLoginDialog } = this.props
+    const actions = [
+      <FlatButton label="Отмена" primary onTouchTap={this.closeLoginDialog} />,
+      <FlatButton label="Войти" primary keyboardFocused onTouchTap={this.handleLogin} />,
+    ]
     return (
       <Dialog
         title="Представьтесь, пожалуйста"
