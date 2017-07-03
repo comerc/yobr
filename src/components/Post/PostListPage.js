@@ -3,7 +3,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { actions } from 'ducks/posts'
 import { createSelector } from 'reselect'
-import memoize from 'fast-memoize'
 import Page from 'components/Page'
 import Helmet from 'react-helmet'
 import Post from './Post'
@@ -35,12 +34,12 @@ const mapStateToProps = (state, props) => ({
   currentUserId: state.currentUser.id,
 })
 
-const onMounted = memoize((dispatch, filterType, filterId) => () => {
-  dispatch(actions.read({ filterType, filterId }))
-})
-
 const mapDispatchToProps = (dispatch, props) => ({
-  onMounted: onMounted(dispatch, getFilterType(null, props), getFilterId(null, props)),
+  onMounted: () => {
+    const filterType = getFilterType(null, props)
+    const filterId = getFilterId(null, props)
+    dispatch(actions.read({ filterType, filterId }))
+  },
 })
 
 @connect(mapStateToProps, mapDispatchToProps)
@@ -52,13 +51,25 @@ class PostListPage extends React.Component {
     }>,
     posts: Array<PostProps>,
     currentUserId: number,
-    onMounted?: Function,
+    onMounted: Function,
+  }
+
+  static defaultProps = {
+    flows: [],
+    posts: [],
+    currentUserId: null,
+    onMounted: () => {},
   }
 
   render() {
-    const { flows, posts, currentUserId, ...props } = this.props
+    const {
+      // flows,
+      posts,
+      currentUserId,
+      onMounted,
+    } = this.props
     return (
-      <Page {...props}>
+      <Page {...{ onMounted }}>
         <Helmet title="YOBR - list" />
         {/* <div className='flows'>
      <ul>
@@ -91,7 +102,6 @@ class PostListPage extends React.Component {
 //   })),
 //   posts: PropTypes.arrayOf(PropTypes.object),
 //   currentUserId: PropTypes.number,
-//   onMounted: PropTypes.func,
 // }
 
 export default PostListPage

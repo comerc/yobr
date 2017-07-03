@@ -2,39 +2,39 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { actions } from 'ducks/postForm'
-import memoize from 'fast-memoize'
 import Page from 'components/Page'
 import Helmet from 'react-helmet'
 import PostForm from './PostForm'
-
-type Props = {
-  onMounted?: Function,
-  isNotFound: boolean,
-}
-
-const PostFormEditPage = (props: Props) => (
-  <Page {...props}>
-    <Helmet title="YOBR" />
-    <PostForm />
-  </Page>
-)
-
-// PostFormEditPage.propTypes = {
-//   onMounted: PropTypes.func,
-//   isNotFound: PropTypes.bool,
-// }
 
 const mapStateToProps = (state, props) => ({
   isNotFound: !state.postForm.id,
 })
 
-const onMounted = memoize((dispatch, id) => () => {
-  dispatch(actions.read(id))
-})
-
 const mapDispatchToProps = (dispatch, props) => ({
-  onMounted: onMounted(dispatch, parseInt(props.match.params.id, 10)),
+  onMounted: () => dispatch(actions.read(parseInt(props.match.params.id, 10))),
 })
 
-export { PostFormEditPage } // тупой компонент для тестирования
-export default connect(mapStateToProps, mapDispatchToProps)(PostFormEditPage)
+@connect(mapStateToProps, mapDispatchToProps)
+class PostFormEditPage extends React.Component {
+  props: {
+    isNotFound: boolean,
+    onMounted: Function,
+  }
+
+  static defaultProps = {
+    isNotFound: false,
+    onMounted: () => {},
+  }
+
+  render() {
+    const { isNotFound, onMounted } = this.props
+    return (
+      <Page {...{ isNotFound, onMounted }}>
+        <Helmet title="YOBR" />
+        <PostForm />
+      </Page>
+    )
+  }
+}
+
+export default PostFormEditPage

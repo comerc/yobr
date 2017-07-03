@@ -10,16 +10,17 @@ const mapStateToProps = (state, props) => ({
 
 @connect(mapStateToProps)
 class Page extends React.Component {
-  static defaultProps: {
-    isLoading: false,
-  }
-
   props: {
     onMounted?: Function,
     isNotFound?: boolean,
     isLoading: boolean,
     children?: typeof React.Element,
   }
+
+  static defaultProps = {
+    isLoading: false,
+  }
+
   _isMounted = false
 
   componentDidMount() {

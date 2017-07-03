@@ -14,16 +14,16 @@ const mapDispatchToProps = { setLoginDialog, login }
 
 @connect(mapStateToProps, mapDispatchToProps)
 class PageLoginDialog extends React.Component {
-  static defaultProps: {
-    isLoginDialog: false,
-    setLoginDialog: null,
-    login: null,
-  }
-
   props: {
     isLoginDialog: boolean,
     setLoginDialog: Function,
     login: Function,
+  }
+
+  static defaultProps = {
+    isLoginDialog: false,
+    setLoginDialog: () => {},
+    login: () => {},
   }
 
   closeLoginDialog = () => {
