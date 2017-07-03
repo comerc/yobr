@@ -43,18 +43,18 @@ const mapDispatchToProps = (dispatch, props) => ({
   onMounted: onMounted(dispatch, getFilterType(null, props), getFilterId(null, props)),
 })
 
-// type Props = {
-//   flows: Array<{
-//     id: string,
-//     name: string,
-//   }>,
-//   posts: Array<PostProps>,
-//   currentUserId: number,
-//   onMounted?: Function,
-// }
-
 @connect(mapStateToProps, mapDispatchToProps)
 class PostListPage extends React.Component {
+  props: {
+    flows: Array<{
+      id: string,
+      name: string,
+    }>,
+    posts: Array<PostProps>,
+    currentUserId: number,
+    onMounted?: Function,
+  }
+
   render() {
     const { flows, posts, currentUserId, ...props } = this.props
     return (
@@ -84,8 +84,6 @@ class PostListPage extends React.Component {
   }
 }
 
-// const PostListPage = ({ flows, posts, currentUserId, ...props }: Props) =>
-
 // PostListPage.propTypes = {
 //   flows: PropTypes.arrayOf(PropTypes.shape({
 //     id: PropTypes.string,
@@ -96,5 +94,4 @@ class PostListPage extends React.Component {
 //   onMounted: PropTypes.func,
 // }
 
-export { PostListPage } // тупой компонент для тестирования
 export default PostListPage

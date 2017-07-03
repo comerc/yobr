@@ -4,7 +4,16 @@ import { connect } from 'react-redux'
 import PageLayout from './PageLayout'
 import PageNotFound from './PageNotFound'
 
+const mapStateToProps = (state, props) => ({
+  isLoading: state.app.isLoading,
+})
+
+@connect(mapStateToProps)
 class Page extends React.Component {
+  static defaultProps: {
+    isLoading: false,
+  }
+
   props: {
     onMounted?: Function,
     isNotFound?: boolean,
@@ -46,9 +55,5 @@ class Page extends React.Component {
 //   isNotFound: PropTypes.bool,
 // }
 
-const mapStateToProps = (state, props) => ({
-  isLoading: state.app.isLoading,
-})
-
 export { PageLayout }
-export default connect(mapStateToProps)(Page)
+export default Page
