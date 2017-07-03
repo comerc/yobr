@@ -95,6 +95,7 @@ import MyComponent from 'components/MyComponent'
 
 ## Публикации
 
+- [Redux Business Logic](https://habrahabr.ru/post/332146/)
 - [Интеграция React и DataTables (jQuery)](https://habrahabr.ru/post/330656/)
 - [Быстрый старт на React Native](https://habrahabr.ru/post/327668/)
 - [Загрузка данных из REST API](https://habrahabr.ru/post/327422/)

@@ -2,32 +2,33 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { actions } from 'ducks/postForm'
-import memoize from 'fast-memoize'
 import Page from 'components/Page'
 import Helmet from 'react-helmet'
 import PostForm from './PostForm'
 
-type Props = {
-  onMounted?: Function,
+const mapDispatchToProps = (dispatch, props) => ({
+  onMounted: () => dispatch(actions.read()),
+})
+
+@connect(null, mapDispatchToProps)
+class PostFormAddPage extends React.Component {
+  props: {
+    onMounted: Function,
+  }
+
+  static defaultProps = {
+    onMounted: () => {},
+  }
+
+  render() {
+    const { onMounted } = this.props
+    return (
+      <Page {...{ onMounted }}>
+        <Helmet title="YOBR" />
+        <PostForm />
+      </Page>
+    )
+  }
 }
 
-const PostFormAddPage = (props: Props) =>
-  <Page {...props}>
-    <Helmet title="YOBR" />
-    <PostForm />
-  </Page>
-
-// PostFormAddPage.propTypes = {
-//   onMounted: PropTypes.func,
-// }
-
-const onMounted = memoize(dispatch => () => {
-  dispatch(actions.read())
-})
-
-const mapDispatchToProps = (dispatch, props) => ({
-  onMounted: onMounted(dispatch),
-})
-
-export { PostFormAddPage } // тупой компонент для тестирования
-export default connect(null, mapDispatchToProps)(PostFormAddPage)
+export default PostFormAddPage

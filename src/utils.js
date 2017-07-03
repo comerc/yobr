@@ -41,24 +41,24 @@ export const withLog = (BaseComponent: typeof React.Component) => (
   return <BaseComponent {...props} context={context} />
 }
 
-export const onCheck = memoize((key, input) => (event, isInputChecked) => {
+export const onCheck = (key, input) => (event, isInputChecked) => {
   input({ key, value: isInputChecked })
-})
+}
 
-export const onChange = memoize((key, input, isValidate) => (event, newValue) => {
+export const onChange = (key, input, isValidate) => (event, newValue) => {
   input({ key, value: newValue, isValidate })
-})
+}
 
-export const onSelectFieldChange = memoize((key, input, options, isValidate) => (event, index) => {
+export const onSelectFieldChange = (key, input, options, isValidate) => (event, index) => {
   input({ key, value: options[index], isValidate })
-})
+}
 
-export const onSubmit = memoize((isSubmitting, save) => event => {
+export const onSubmit = (isSubmitting, save) => event => {
   event.preventDefault()
   if (!isSubmitting) {
     save()
   }
-})
+}
 
 export const ga = memoize((eventCategory, eventAction, eventLabel) => () => {
   if (isFunction(window.ga)) {

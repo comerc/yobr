@@ -1,6 +1,7 @@
+// @flow
 import React from 'react'
 
-const Footer = () => (
+const PageFooter = () =>
   <div className="root">
     <div className="copyright">
       <i className="fa fa-code" aria-hidden="true" />
@@ -19,7 +20,9 @@ const Footer = () => (
           fillRule="evenodd"
         />
       </svg>
-      &nbsp;by&nbsp;<a href="//github.com/comerc/" className="developer">comerc</a>&nbsp;
+      &nbsp;by&nbsp;<a href="//github.com/comerc/" className="developer">
+        comerc
+      </a>&nbsp;
       <i className="fa fa-copyright" aria-hidden="true" />
       &nbsp;{new Date().getFullYear()}&nbsp;
     </div>
@@ -79,9 +82,8 @@ const Footer = () => (
         70% {
           transform: scale(1);
         }
-      }  
+      }
     `}</style>
   </div>
-)
 
-export default Footer
+export default PageFooter

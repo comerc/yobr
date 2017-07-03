@@ -1,3 +1,4 @@
+// @flow
 import React from 'react'
 import { Switch, Redirect, Route } from 'react-router-dom'
 import { PostViewPage, PostListPage } from 'components/Post'
