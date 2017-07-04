@@ -1,7 +1,7 @@
 import { createAction, createReducer } from 'redux-act'
 import { push } from 'react-router-redux'
 import { POST_FORM_TITLE_MAX, POST_FORM_HUBS_MAX } from 'consts'
-import isEmpty from 'lodash/isEmpty'
+import { isEmpty } from 'lodash'
 import { appLoad, actions as appActions } from './app'
 import { actions as postsActions } from './posts'
 import axios from 'axios'

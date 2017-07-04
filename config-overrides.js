@@ -6,7 +6,7 @@ function rewire(config, env) {
   babelrc.plugins = [
     // не работает jest, заменил на NODE_PATH=src/ в .env
     ['module-resolver', { root: ['src'] }],
-    'lodash',
+    'lodash', // сократил на 23 KB
     'babel-plugin-idx',
     'styled-jsx-postcss/babel',
     // 'flow-react-proptypes',

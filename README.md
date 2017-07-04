@@ -4,7 +4,7 @@
 
 ## TL;DR
 
-Тут можно оценить, как я применяю следующие инструменты: react, styled-jsx + postcss, material-ui, css-анимацию, axios, express, react-router, flow + tcomb, prettier, redux, reselect, recompose, thunk, saga, ducks-pattern + redux-act, загрузку данных через API, доменную организацию компонентов, функциональные компоненты, промисы, генераторы, мемоизацию, спреды, оператор расширения, деструкцию, стрелочные функции, шаблонные строки, декораторы, настройки VSCode и WebStorm.
+Тут можно оценить, как я применяю следующие инструменты: react, styled-jsx + postcss, material-ui, axios, express, react-router, flow + tcomb, prettier, redux, reselect, recompose, thunk, saga, ducks-pattern + redux-act, css-анимацию, загрузку данных через API, доменную организацию компонентов, функциональные компоненты, промисы, генераторы, мемоизацию, спреды, оператор расширения, деструкцию, стрелочные функции, шаблонные строки, декораторы, idx (Элвис-оператор), настройки VSCode и WebStorm.
 
 ## SETUP
 

@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import isFunction from 'lodash/isFunction'
+import { isFunction } from 'lodash'
 import memoize from 'fast-memoize'
 
 export const pure = (fn: Function) => {

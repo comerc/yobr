@@ -6,7 +6,7 @@ import Page from 'components/Page'
 import Helmet from 'react-helmet'
 import Post from './Post'
 import type { Props as PostProps } from './Post.Props'
-import isEmpty from 'lodash/isEmpty'
+import { isEmpty } from 'lodash'
 
 const isMy = state => state.postView.author.id === state.currentUser.id
 
