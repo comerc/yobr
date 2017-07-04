@@ -6,6 +6,7 @@ function rewire(config, env) {
   babelrc.plugins = [
     // не работает jest, заменил на NODE_PATH=src/ в .env
     ['module-resolver', { root: ['src'] }],
+    ['import', { libraryName: 'antd', style: true }], // сократил на 122 KB
     'lodash', // сократил на 23 KB
     'babel-plugin-idx',
     'styled-jsx-postcss/babel',
