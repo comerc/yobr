@@ -5,9 +5,8 @@ import IconMenu from 'material-ui/IconMenu'
 import MenuItem from 'material-ui/MenuItem'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import { connect } from 'react-redux'
-import { actions } from 'ducks/app'
+import { logout } from 'ducks/app'
 
-const { logout } = actions
 const mapDispatchToProps = { logout }
 
 @connect(null, mapDispatchToProps)

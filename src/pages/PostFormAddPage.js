@@ -1,13 +1,13 @@
 // @flow
 import React from 'react'
 import { connect } from 'react-redux'
-import { actions } from 'ducks/postForm'
+import { read } from 'ducks/postForm'
 import Page from 'components/Page'
 import Helmet from 'react-helmet'
 import PostForm from 'components/PostForm'
 
 const mapDispatchToProps = (dispatch, props) => ({
-  onMounted: () => dispatch(actions.read()),
+  onMounted: () => dispatch(read()),
 })
 
 @connect(null, mapDispatchToProps)

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import { connect } from 'react-redux'
-import { actions } from 'ducks/posts'
+import { read } from 'ducks/posts'
 import { createSelector } from 'reselect'
 import Page from 'components/Page'
 import Helmet from 'react-helmet'
@@ -36,7 +36,7 @@ const mapDispatchToProps = (dispatch, props) => ({
   onMounted: () => {
     const filterType = getFilterType(null, props)
     const filterId = getFilterId(null, props)
-    dispatch(actions.read({ filterType, filterId }))
+    dispatch(read({ filterType, filterId }))
   },
 })
 

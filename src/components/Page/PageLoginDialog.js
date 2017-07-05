@@ -3,13 +3,12 @@ import React from 'react'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import { connect } from 'react-redux'
-import { actions } from 'ducks/app'
+import { setLoginDialog, login } from 'ducks/app'
 
 const mapStateToProps = (state, props) => ({
   isLoginDialog: state.app.isLoginDialog,
 })
 
-const { setLoginDialog, login } = actions
 const mapDispatchToProps = { setLoginDialog, login }
 
 @connect(mapStateToProps, mapDispatchToProps)

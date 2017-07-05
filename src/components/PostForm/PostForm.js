@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import { connect } from 'react-redux'
-import { actions } from 'ducks/postForm'
+import { input, save } from 'ducks/postForm'
 import { onSubmit } from 'utils'
 import PostFormIsTutorial from './PostFormIsTutorial'
 import PostFormFlow from './PostFormFlow'
@@ -157,7 +157,6 @@ const mapStateToProps = state => ({
   sourceHubs: state.hubs,
 })
 
-const { input, save } = actions
 const mapDispatchToProps = { input, save }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostForm)

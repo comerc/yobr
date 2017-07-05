@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import { connect } from 'react-redux'
-import { actions } from 'ducks/postView'
+import { read } from 'ducks/postView'
 import Page from 'components/Page'
 import Helmet from 'react-helmet'
 import Post, { Props as PostProps } from 'components/Post'
@@ -16,7 +16,7 @@ const mapStateToProps = (state, props) => ({
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
-  onMounted: () => dispatch(actions.read(parseInt(props.match.params.id, 10))),
+  onMounted: () => dispatch(read(parseInt(props.match.params.id, 10))),
 })
 
 @connect(mapStateToProps, mapDispatchToProps)

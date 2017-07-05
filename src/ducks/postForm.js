@@ -2,8 +2,8 @@ import { createAction, createReducer } from 'redux-act'
 import { push } from 'react-router-redux'
 import { POST_FORM_TITLE_MAX, POST_FORM_HUBS_MAX } from 'consts'
 import { isEmpty } from 'lodash'
-import { appLoad, actions as appActions } from './app'
-import { actions as postsActions } from './posts'
+import * as appActions from './app'
+import * as postsActions from './posts'
 import axios from 'axios'
 import { select, put, call, takeEvery, all } from 'redux-saga/effects'
 
@@ -58,7 +58,7 @@ const read = id => (dispatch, getState) => {
     dispatch(appActions.setLoading(false))
     return
   }
-  appLoad(dispatch, `/post/${id}`).then(data => {
+  dispatch(appActions.appLoad(`/post/${id}`)).then(data => {
     dispatch(postsActions.setPost(data))
     dispatch(set(clearPostForm(data)))
   })
@@ -187,5 +187,5 @@ const reducer = createReducer(
   initialState,
 )
 
-export const actions = { read, save, input }
+export { read, save, input }
 export default reducer

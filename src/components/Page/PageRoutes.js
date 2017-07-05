@@ -2,7 +2,6 @@
 import React from 'react'
 import { Switch, Redirect, Route } from 'react-router-dom'
 import Loadable from 'react-loadable'
-// import Page from './Page'
 import PageLoading from './PageLoading'
 import PageNotFound from './PageNotFound'
 

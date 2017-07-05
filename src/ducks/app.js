@@ -22,7 +22,7 @@ const logout = () => (dispatch, getState) => {
   }
 }
 
-export const appLoad = (dispatch, config) =>
+const appLoad = config => (dispatch, getState) =>
   new Promise((resolve, reject) => {
     let isTimeout = false
     let isFetch = false
@@ -65,5 +65,5 @@ const reducer = createReducer(
   initialState,
 )
 
-export const actions = { setLoading, setMainError, setLoginDialog, login, logout }
+export { appLoad, setLoading, setMainError, setLoginDialog, login, logout }
 export default reducer

@@ -15,7 +15,7 @@ import 'setimmediate'
 import axios from 'axios'
 
 import reducer, { rootSaga } from 'ducks'
-// import { actions as appActions } from 'ducks/app'
+// import { setMainError } from 'ducks/app'
 import { PageLayout } from 'components/Page'
 
 const history = createHistory()
@@ -45,7 +45,7 @@ injectTapEventPlugin()
 //   // console.log(`The last navigation action was ${action}`)
 //   const state = store.getState()
 //   if (state.app.mainError) {
-//     store.dispatch(appActions.setMainError())
+//     store.dispatch(setMainError())
 //   }
 // })
 
