@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { read } from 'ducks/postView'
 import Page from 'components/Page'
 import Helmet from 'react-helmet'
-import Post, { Props as PostProps } from 'components/Post'
+import Post, { type Props as PostProps } from 'components/Post'
 
 import { isEmpty } from 'lodash'
 

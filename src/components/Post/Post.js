@@ -81,5 +81,6 @@ const Post = ({
 //   favoritesCount: PropTypes.number,
 // }
 
-export { Props, PostAdd }
+export type { Props }
+export { PostAdd }
 export default pure(Post)
