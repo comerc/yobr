@@ -2,7 +2,7 @@
 import React from 'react'
 
 const PageFooter = () =>
-  <div className="root">
+  <div className="footer">
     <div className="copyright">
       <i className="fa fa-code" aria-hidden="true" />
       &nbsp;with&nbsp;
@@ -43,7 +43,7 @@ const PageFooter = () =>
       &nbsp;Помощь&nbsp;
     </div>
     <style jsx>{`
-      .root {
+      .footer {
         margin: 8px auto;
       }
       .copyright {
