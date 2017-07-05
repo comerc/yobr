@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { actions } from 'ducks/postForm'
 import Page from 'components/Page'
 import Helmet from 'react-helmet'
-import PostForm from './PostForm'
+import PostForm from 'components/PostForm'
 
 const mapStateToProps = (state, props) => ({
   isNotFound: !state.postForm.id,

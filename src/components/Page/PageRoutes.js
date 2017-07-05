@@ -1,10 +1,21 @@
 // @flow
 import React from 'react'
 import { Switch, Redirect, Route } from 'react-router-dom'
-import { PostViewPage, PostListPage } from 'components/Post'
-import { PostFormAddPage, PostFormEditPage } from 'components/PostForm'
-
+import Loadable from 'react-loadable'
+// import Page from './Page'
+import PageLoading from './PageLoading'
 import PageNotFound from './PageNotFound'
+
+const loadable = loader =>
+  Loadable({
+    loader,
+    loading: () => <PageLoading />,
+  })
+
+const PostViewPage = loadable(() => import('pages/PostViewPage'))
+const PostListPage = loadable(() => import('pages/PostListPage'))
+const PostFormAddPage = loadable(() => import('pages/PostFormAddPage'))
+const PostFormEditPage = loadable(() => import('pages/PostFormEditPage'))
 
 const PageRoutes = () =>
   <Switch>

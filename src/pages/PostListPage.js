@@ -5,9 +5,7 @@ import { actions } from 'ducks/posts'
 import { createSelector } from 'reselect'
 import Page from 'components/Page'
 import Helmet from 'react-helmet'
-import Post from './Post'
-import PostAdd from './PostAdd'
-import type { Props as PostProps } from './Post.Props'
+import Post, { Props as PostProps, PostAdd } from 'components/Post'
 
 const getFilterType = (state, props) => props.match.params.filterType || ''
 

@@ -7,8 +7,7 @@ import PostReadMore from './PostReadMore'
 import PostTags from './PostTags'
 import PostInfoPanel from './PostInfoPanel'
 import type { Props } from './Post.Props'
-import PostViewPage from './PostViewPage'
-import PostListPage from './PostListPage'
+import PostAdd from './PostAdd'
 
 const Post = ({
   isTeaser,
@@ -82,5 +81,5 @@ const Post = ({
 //   favoritesCount: PropTypes.number,
 // }
 
-export { PostViewPage, PostListPage }
+export { Props, PostAdd }
 export default pure(Post)

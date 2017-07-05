@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { actions } from 'ducks/postView'
 import Page from 'components/Page'
 import Helmet from 'react-helmet'
-import Post from './Post'
-import type { Props as PostProps } from './Post.Props'
+import Post, { Props as PostProps } from 'components/Post'
+
 import { isEmpty } from 'lodash'
 
 const isMy = state => state.postView.author.id === state.currentUser.id
