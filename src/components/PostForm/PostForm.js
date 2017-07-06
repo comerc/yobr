@@ -3,16 +3,16 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { input, save } from 'ducks/postForm'
 import { onSubmit } from 'utils'
-import PostFormIsTutorial from './PostFormIsTutorial'
-import PostFormFlow from './PostFormFlow'
-import PostFormTitle from './PostFormTitle'
-import PostFormContent from './PostFormContent'
-import PostFormSearchHub from './PostFormSearchHub'
-import PostFormHubs from './PostFormHubs'
-import PostFormIsTranslation from './PostFormIsTranslation'
-import PostFormSourceAuthor from './PostFormSourceAuthor'
-import PostFormSourceLink from './PostFormSourceLink'
-import PostFormSubmit from './PostFormSubmit'
+import PostFormCIsTutorial from './PostFormCIsTutorial'
+import PostFormCFlow from './PostFormCFlow'
+import PostFormCTitle from './PostFormCTitle'
+import PostFormCContent from './PostFormCContent'
+import PostFormCSearchHub from './PostFormCSearchHub'
+import PostFormCHubs from './PostFormCHubs'
+import PostFormCIsTranslation from './PostFormCIsTranslation'
+import PostFormCSourceAuthor from './PostFormCSourceAuthor'
+import PostFormCSourceLink from './PostFormCSourceLink'
+import PostFormCSubmit from './PostFormCSubmit'
 
 // Q: можно ли объявить компонент чистым, если в props - router?
 // A: да, PureComponent применяет неглубокое сравнение
@@ -57,7 +57,7 @@ type Props = {
   save: Function,
 }
 
-const PostForm = ({
+const PostFormC = ({
   id,
   flow,
   title,
@@ -81,18 +81,18 @@ const PostForm = ({
       {id ? 'Редактирование публикации' : 'Хочу разместить публикацию'}
     </h2>
     <form onSubmit={onSubmit(isSubmitting, save)} autoComplete="off">
-      <PostFormIsTutorial {...{ isTutorial, input }} />
-      <PostFormFlow {...{ flowId: flow.id, sourceFlows, input, error: errors.flow }} />
-      <PostFormTitle {...{ title, input, error: errors.title }} />
-      <PostFormContent {...{ content, input, error: errors.content }} />
-      <PostFormSearchHub {...{ searchHub, sourceHubs, hubs, input, error: errors.searchHub }} />
-      <PostFormHubs {...{ hubs, input, error: errors.searchHub }} />
-      <PostFormIsTranslation {...{ isTranslation, input }} />
-      <PostFormSourceAuthor
+      <PostFormCIsTutorial {...{ isTutorial, input }} />
+      <PostFormCFlow {...{ flowId: flow.id, sourceFlows, input, error: errors.flow }} />
+      <PostFormCTitle {...{ title, input, error: errors.title }} />
+      <PostFormCContent {...{ content, input, error: errors.content }} />
+      <PostFormCSearchHub {...{ searchHub, sourceHubs, hubs, input, error: errors.searchHub }} />
+      <PostFormCHubs {...{ hubs, input, error: errors.searchHub }} />
+      <PostFormCIsTranslation {...{ isTranslation, input }} />
+      <PostFormCSourceAuthor
         {...{ sourceAuthor, isTranslation, input, error: errors.sourceAuthor }}
       />
-      <PostFormSourceLink {...{ sourceLink, isTranslation, input, error: errors.sourceLink }} />
-      <PostFormSubmit {...{ isSubmitting }} />
+      <PostFormCSourceLink {...{ sourceLink, isTranslation, input, error: errors.sourceLink }} />
+      <PostFormCSubmit {...{ isSubmitting }} />
     </form>
     <br />
     {!!mainError &&
@@ -112,7 +112,7 @@ const PostForm = ({
     `}</style>
   </div>
 
-// PostForm.propTypes = {
+// PostFormC.propTypes = {
 //   id: PropTypes.number,
 //   flow: PropTypes.shape({
 //     id: PropTypes.string,
@@ -151,7 +151,7 @@ const PostForm = ({
 // }
 
 const mapStateToProps = state => ({
-  ...state.postForm,
+  ...state.PostFormC,
   mainError: state.app.mainError,
   sourceFlows: state.flows,
   sourceHubs: state.hubs,
@@ -159,4 +159,4 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = { input, save }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostForm)
+export default connect(mapStateToProps, mapDispatchToProps)(PostFormC)

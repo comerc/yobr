@@ -1,8 +1,8 @@
 // @flow
 import React from 'react'
 import { formatDateTime } from 'utils'
-import PostTitle from './PostTitle'
-import PostHubs from './PostHubs'
+import PostCTitle from './PostCTitle'
+import PostCHubs from './PostCHubs'
 
 type Props = {
   isTeaser?: boolean,
@@ -22,15 +22,16 @@ type Props = {
   isMy?: boolean,
 }
 
-const PostHeader = ({ isTeaser, published, flow, id, title, hubs, isDraft, isMy }: Props) => (
+const PostCHeader = ({ isTeaser, published, flow, id, title, hubs, isDraft, isMy }: Props) =>
   <div>
-    <span className="published">{formatDateTime(published)}</span>
-    <PostTitle {...{ isTeaser, flow, id, title, isDraft, isMy }} />
-    <PostHubs {...{ hubs }} />
+    <span className="published">
+      {formatDateTime(published)}
+    </span>
+    <PostCTitle {...{ isTeaser, flow, id, title, isDraft, isMy }} />
+    <PostCHubs {...{ hubs }} />
   </div>
-)
 
-// PostHeader.propTypes = {
+// PostCHeader.propTypes = {
 //   isTeaser: PropTypes.bool,
 //   published: PropTypes.number,
 //   flow: PropTypes.shape({
@@ -47,4 +48,4 @@ const PostHeader = ({ isTeaser, published, flow, id, title, hubs, isDraft, isMy 
 //   isMy: PropTypes.bool,
 // }
 
-export default PostHeader
+export default PostCHeader

@@ -1,8 +1,8 @@
 // @flow
 import React from 'react'
 import { connect } from 'react-redux'
-import PageLayout from './PageLayout'
-import PageNotFound from './PageNotFound'
+import PageCLayout from './PageCLayout'
+import PageCNotFound from './PageCNotFound'
 
 const mapStateToProps = (state, props) => ({
   isLoading: state.app.isLoading,
@@ -36,7 +36,7 @@ class Page extends React.Component {
     return (
       <div className="page">
         {onMounted === void 0 || (this._isMounted && !isLoading)
-          ? isNotFound ? <PageNotFound /> : children
+          ? isNotFound ? <PageCNotFound /> : children
           : <div>Загрузка...</div>}
         <style jsx>{`
           .page {
@@ -56,5 +56,5 @@ class Page extends React.Component {
 //   isNotFound: PropTypes.bool,
 // }
 
-export { PageLayout }
+export { PageCLayout }
 export default Page

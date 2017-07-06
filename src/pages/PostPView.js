@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch, props) => ({
 })
 
 @connect(mapStateToProps, mapDispatchToProps)
-class PostViewPage extends React.Component {
+class PostPView extends React.Component {
   props: {
     post: PostProps | {},
     isNotFound: boolean,
@@ -44,8 +44,8 @@ class PostViewPage extends React.Component {
   }
 }
 
-// PostViewPage.propTypes = {
+// PostPView.propTypes = {
 //   post: PropTypes.object,
 // }
 
-export default PostViewPage
+export default PostPView

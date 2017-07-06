@@ -4,7 +4,7 @@ import FloatingActionButton from 'material-ui/FloatingActionButton'
 import ContentAdd from 'material-ui/svg-icons/content/add'
 import { pure } from 'utils'
 
-const PostAdd = () => (
+const PostCAdd = () =>
   <div className="root">
     <FloatingActionButton mini href="/post/add/">
       <ContentAdd />
@@ -17,10 +17,9 @@ const PostAdd = () => (
       }
     `}</style>
   </div>
-)
 
-// PostAdd.propTypes = {
+// PostCAdd.propTypes = {
 //
 // }
 
-export default pure(PostAdd)
+export default pure(PostCAdd)

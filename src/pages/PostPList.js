@@ -5,7 +5,7 @@ import { read } from 'ducks/posts'
 import { createSelector } from 'reselect'
 import Page from 'components/Page'
 import Helmet from 'react-helmet'
-import Post, { Props as PostProps, PostAdd } from 'components/Post'
+import Post, { Props as PostProps, PostCAdd } from 'components/Post'
 
 const getFilterType = (state, props) => props.match.params.filterType || ''
 
@@ -41,7 +41,7 @@ const mapDispatchToProps = (dispatch, props) => ({
 })
 
 @connect(mapStateToProps, mapDispatchToProps)
-class PostListPage extends React.Component {
+class PostPList extends React.Component {
   props: {
     flows: Array<{
       id: string,
@@ -80,7 +80,7 @@ class PostListPage extends React.Component {
      </div> */}
         {/* <div class='selected-hub'></div> */}
         <div className="posts">
-          <PostAdd />
+          <PostCAdd />
           {posts.map(post =>
             <Post
               key={post.id}
@@ -93,7 +93,7 @@ class PostListPage extends React.Component {
   }
 }
 
-// PostListPage.propTypes = {
+// PostPList.propTypes = {
 //   flows: PropTypes.arrayOf(PropTypes.shape({
 //     id: PropTypes.string,
 //     name: PropType s.string,
@@ -102,4 +102,4 @@ class PostListPage extends React.Component {
 //   currentUserId: PropTypes.number,
 // }
 
-export default PostListPage
+export default PostPList

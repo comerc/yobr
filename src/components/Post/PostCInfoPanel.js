@@ -21,16 +21,23 @@ type Props = {
   favoritesCount: number,
 }
 
-const PostInfoPanel = ({ isTeaser, id, author, viewsCount, favoritesCount }: Props) => (
+const PostCInfoPanel = ({ isTeaser, id, author, viewsCount, favoritesCount }: Props) =>
   <div>
-    <div>id: {id}</div>
-    <div>author.nick: {author.nick}</div>
-    <div>viewsCount: {viewsCount}</div>
-    <div>favoritesCount: {favoritesCount}</div>
+    <div>
+      id: {id}
+    </div>
+    <div>
+      author.nick: {author.nick}
+    </div>
+    <div>
+      viewsCount: {viewsCount}
+    </div>
+    <div>
+      favoritesCount: {favoritesCount}
+    </div>
   </div>
-)
 
-// PostInfoPanel.propTypes = {
+// PostCInfoPanel.propTypes = {
 //   isTeaser: PropTypes.bool,
 //   author: PropTypes.shape({
 //     id: PropTypes.number,
@@ -49,4 +56,4 @@ const PostInfoPanel = ({ isTeaser, id, author, viewsCount, favoritesCount }: Pro
 //   favoritesCount: PropTypes.number,
 // }
 
-export default PostInfoPanel
+export default PostCInfoPanel

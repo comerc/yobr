@@ -1,16 +1,16 @@
 // @flow
 import React from 'react'
-import PageLoginDialog from './PageLoginDialog'
-import PageHeader from './PageHeader'
-import PageFooter from './PageFooter'
-import PageRoutes from './PageRoutes'
+import PageCLoginDialog from './PageCLoginDialog'
+import PageCHeader from './PageCHeader'
+import PageCFooter from './PageCFooter'
+import PageCRoutes from './PageCRoutes'
 
-const PageLayout = () =>
+const PageCLayout = () =>
   <div className="layout">
-    <PageLoginDialog />
-    <PageHeader />
-    <PageRoutes />
-    <PageFooter />
+    <PageCLoginDialog />
+    <PageCHeader />
+    <PageCRoutes />
+    <PageCFooter />
     <style jsx global>{`
       .u-fancy-scrollbar {
         -webkit-overflow-scrolling: touch;
@@ -71,4 +71,4 @@ const PageLayout = () =>
     `}</style>
   </div>
 
-export default PageLayout
+export default PageCLayout
