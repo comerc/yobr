@@ -112,7 +112,7 @@ const PostFormC = ({
     `}</style>
   </div>
 
-// PostFormC.propTypes = {
+// PostForm.propTypes = {
 //   id: PropTypes.number,
 //   flow: PropTypes.shape({
 //     id: PropTypes.string,
@@ -151,7 +151,7 @@ const PostFormC = ({
 // }
 
 const mapStateToProps = state => ({
-  ...state.PostFormC,
+  ...state.postForm,
   mainError: state.app.mainError,
   sourceFlows: state.flows,
   sourceHubs: state.hubs,

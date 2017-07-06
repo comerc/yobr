@@ -7,7 +7,7 @@ import Helmet from 'react-helmet'
 import PostForm from 'components/PostForm'
 
 const mapStateToProps = (state, props) => ({
-  isNotFound: !state.PostFormC.id,
+  isNotFound: !state.postForm.id,
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
