@@ -57,7 +57,7 @@ type Props = {
   save: Function,
 }
 
-const PostFormC = ({
+const PostForm = ({
   id,
   flow,
   title,
@@ -159,4 +159,4 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = { input, save }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostFormC)
+export default connect(mapStateToProps, mapDispatchToProps)(PostForm)

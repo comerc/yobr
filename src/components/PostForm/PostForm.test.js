@@ -1,12 +1,12 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import reducer from 'ducks/PostFormC'
-import { PostFormC } from './PostFormC'
+import reducer from 'ducks/postForm'
+import { PostForm } from './PostForm'
 
 const props = reducer()
 
-describe('PostFormC', () => {
+describe('PostForm', () => {
   it('renders without crashing', () => {
-    shallow(<PostFormC {...props} />)
+    shallow(<PostForm {...props} />)
   })
 })
