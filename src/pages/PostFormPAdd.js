@@ -11,7 +11,7 @@ const mapDispatchToProps = (dispatch, props) => ({
 })
 
 @connect(null, mapDispatchToProps)
-class PostFormAddPage extends React.Component {
+class PostFormPAdd extends React.Component {
   props: {
     onMounted: Function,
   }
@@ -31,4 +31,4 @@ class PostFormAddPage extends React.Component {
   }
 }
 
-export default PostFormAddPage
+export default PostFormPAdd

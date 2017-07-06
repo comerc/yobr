@@ -6,7 +6,7 @@ type Props = {
   tags: Array<string>,
 }
 
-const PostTags = ({ tags }: Props) =>
+const PostCTags = ({ tags }: Props) =>
   <ul>
     {tags.map(tag =>
       <li key={tag}>
@@ -25,16 +25,16 @@ const PostTags = ({ tags }: Props) =>
         display: inline;
       }
       li:after {
-        content: ', '
+        content: ', ';
       }
       li:last-child:after {
-        content: ''
+        content: '';
       }
     `}</style>
   </ul>
 
-// PostTags.propTypes = {
+// PostCTags.propTypes = {
 //   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
 // }
 
-export default PostTags
+export default PostCTags

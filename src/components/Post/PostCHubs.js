@@ -12,9 +12,9 @@ type Props = {
   }>,
 }
 
-const PostHubs = ({ hubs }: Props) => (
+const PostCHubs = ({ hubs }: Props) =>
   <ul>
-    {hubs.map(hub => (
+    {hubs.map(hub =>
       <li key={hub.id}>
         <Link
           to={`/hub/${hub.id}/`}
@@ -24,9 +24,12 @@ const PostHubs = ({ hubs }: Props) => (
         >
           {hub.name}
         </Link>
-        {hub.isProfiled && <span className="profiled" title="Профильный хаб">*</span>}
-      </li>
-    ))}
+        {hub.isProfiled &&
+          <span className="profiled" title="Профильный хаб">
+            *
+          </span>}
+      </li>,
+    )}
     <style jsx>{`
       ul {
         margin: 0;
@@ -37,20 +40,19 @@ const PostHubs = ({ hubs }: Props) => (
         display: inline;
       }
       li:after {
-        content: ', '
+        content: ', ';
       }
       li:last-child:after {
-        content: ''
+        content: '';
       }
     `}</style>
   </ul>
-)
 
-// PostHubs.propTypes = {
+// PostCHubs.propTypes = {
 //   hubs: PropTypes.arrayOf(PropTypes.shape({
 //     id: PropTypes.string,
 //     name: PropTypes.string,
 //   })).isRequired,
 // }
 
-export default PostHubs
+export default PostCHubs

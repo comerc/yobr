@@ -7,7 +7,7 @@ import Helmet from 'react-helmet'
 import PostForm from 'components/PostForm'
 
 const mapStateToProps = (state, props) => ({
-  isNotFound: !state.postForm.id,
+  isNotFound: !state.PostFormC.id,
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch, props) => ({
 })
 
 @connect(mapStateToProps, mapDispatchToProps)
-class PostFormEditPage extends React.Component {
+class PostFormPEdit extends React.Component {
   props: {
     isNotFound: boolean,
     onMounted: Function,
@@ -37,4 +37,4 @@ class PostFormEditPage extends React.Component {
   }
 }
 
-export default PostFormEditPage
+export default PostFormPEdit

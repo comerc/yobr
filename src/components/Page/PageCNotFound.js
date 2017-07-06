@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 
 import logo from 'resources/logo.svg'
 
-const PageNotFound = () =>
+const PageCNotFound = () =>
   <div className="not-found">
     <Helmet title="YOBR - 404" />
     <div className="logo">
@@ -65,4 +65,4 @@ const PageNotFound = () =>
     `}</style>
   </div>
 
-export default PageNotFound
+export default PageCNotFound

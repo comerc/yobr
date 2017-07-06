@@ -3,15 +3,15 @@ import React from 'react'
 import AppBar from 'material-ui/AppBar'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
-import PageHeaderMenu from './PageHeaderMenu'
-import PageHeaderButtons from './PageHeaderButtons'
+import PageCHeaderMenu from './PageCHeaderMenu'
+import PageCHeaderButtons from './PageCHeaderButtons'
 
 const mapStateToProps = (state, props) => ({
   isLogged: state.app.isLogged,
 })
 
 @connect(mapStateToProps)
-class PageHeader extends React.Component {
+class PageXHeader extends React.Component {
   styles = {
     title: {
       cursor: 'pointer',
@@ -29,10 +29,10 @@ class PageHeader extends React.Component {
         title={<span style={this.styles.title}>YOBR</span>}
         onTitleTouchTap={this.handleTouchTap}
         showMenuIconButton={false}
-        iconElementRight={isLogged ? <PageHeaderMenu /> : <PageHeaderButtons />}
+        iconElementRight={isLogged ? <PageCHeaderMenu /> : <PageCHeaderButtons />}
       />
     )
   }
 }
 
-export default PageHeader
+export default PageXHeader

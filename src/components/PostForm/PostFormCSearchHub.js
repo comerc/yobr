@@ -37,9 +37,9 @@ const onUpdateInput = memoize(input => (searchText, dataSource, params) => {
 
 const dataSourceConfig = { value: 'id', text: 'name' }
 
-const PostFormSearchHub = ({ searchHub, sourceHubs, hubs, input, error }: Props) => (
+const PostFormCSearchHub = ({ searchHub, sourceHubs, hubs, input, error }: Props) =>
   <AutoComplete
-    id="PostFormHubs"
+    id="PostFormCHubs"
     floatingLabelText="Хабы"
     hintText={`Выберите от 1 до ${POST_FORM_HUBS_MAX} хабов`}
     filter={AutoComplete.fuzzyFilter}
@@ -53,9 +53,8 @@ const PostFormSearchHub = ({ searchHub, sourceHubs, hubs, input, error }: Props)
     openOnFocus
     onUpdateInput={onUpdateInput(input)}
   />
-)
 
-// PostFormSearchHub.propTypes = {
+// PostFormCSearchHub.propTypes = {
 //   searchHub: PropTypes.string,
 //   sourceHubs: PropTypes.arrayOf(
 //     PropTypes.shape({
@@ -73,4 +72,4 @@ const PostFormSearchHub = ({ searchHub, sourceHubs, hubs, input, error }: Props)
 //   error: PropTypes.string,
 // }
 
-export default pure(PostFormSearchHub)
+export default pure(PostFormCSearchHub)

@@ -10,12 +10,12 @@ type Props = {
   error?: string,
 }
 
-const PostFormTitle = ({ title, input, error }: Props) => (
+const PostFormCTitle = ({ title, input, error }: Props) =>
   <TextField
     floatingLabelText={
       title.length === 0 ? 'Заголовок' : `Заголовок (ещё ${POST_FORM_TITLE_MAX - title.length})`
     }
-    id="PostFormTitle"
+    id="PostFormCTitle"
     hintText="Заголовок должен быть наполнен смыслом"
     value={title}
     fullWidth
@@ -24,12 +24,11 @@ const PostFormTitle = ({ title, input, error }: Props) => (
     maxLength={POST_FORM_TITLE_MAX}
     hintStyle={inputHintStyle}
   />
-)
 
-// PostFormTitle.propTypes = {
+// PostFormCTitle.propTypes = {
 //   title: PropTypes.string,
 //   input: PropTypes.func,
 //   error: PropTypes.string,
 // }
 
-export default pure(PostFormTitle)
+export default pure(PostFormCTitle)

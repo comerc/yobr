@@ -8,17 +8,18 @@ type Props = {
   children?: typeof React.Element,
 }
 
-const PostBody = ({ isTeaser, content, children }: Props) => (
+const PostCBody = ({ isTeaser, content, children }: Props) =>
   <div className={cx({ crop: isTeaser })}>
-    <div className={cx('content', 'htmlFormat')}>{content}</div>
+    <div className={cx('content', 'htmlFormat')}>
+      {content}
+    </div>
     {children}
   </div>
-)
 
-// PostBody.propTypes = {
+// PostCBody.propTypes = {
 //   isTeaser: PropTypes.bool,
 //   content: PropTypes.string,
 //   children: PropTypes.element,
 // }
 
-export default PostBody
+export default PostCBody
