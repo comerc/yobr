@@ -2,8 +2,8 @@ import { createAction, createReducer } from 'redux-act'
 import { push } from 'react-router-redux'
 import { POST_FORM_TITLE_MAX, POST_FORM_HUBS_MAX } from 'consts'
 import { isEmpty } from 'lodash'
-import * as appActions from './app'
-import * as postsActions from './posts'
+import * as app from './app'
+import * as posts from './posts'
 import axios from 'axios'
 import { select, put, call, takeEvery, all } from 'redux-saga/effects'
 
@@ -44,22 +44,21 @@ const validators = {
 
 const read = id => (dispatch, getState) => {
   const clearPostForm = ({ published, author, viewsCount, favoritesCount, ...result }) => result
-  dispatch(appActions.setLoading(true))
+  dispatch(app.setLoading(true))
   dispatch(reset())
   if (!id) {
-    dispatch(appActions.setLoading(false))
+    dispatch(app.setLoading(false))
     return
   }
   const state = getState()
-  const posts = state.posts
-  const post = posts.find(element => element.id === id)
+  const post = state.posts.find(element => element.id === id)
   if (post) {
     dispatch(set(clearPostForm(post)))
-    dispatch(appActions.setLoading(false))
+    dispatch(app.setLoading(false))
     return
   }
-  dispatch(appActions.appLoad(`/post/${id}`)).then(data => {
-    dispatch(postsActions.setPost(data))
+  dispatch(app.appLoad(`/post/${id}`)).then(data => {
+    dispatch(posts.setPost(data))
     dispatch(set(clearPostForm(data)))
   })
 }
@@ -77,20 +76,20 @@ function* saveSaga(action) {
   })
   if (!isEmpty(errors)) {
     yield put(setErrors(errors))
-    yield put(appActions.setMainError('Исправьте ошибки в форме'))
+    yield put(app.setMainError('Исправьте ошибки в форме'))
     return
   }
   if (state.app.mainError) {
-    yield put(appActions.setMainError())
+    yield put(app.setMainError())
   }
   yield put(setSubmitting(true))
   try {
     const response = yield call(axios.post, '/post/', clearPost(state.postForm))
     const post = response.data
-    yield put(postsActions.setPost(post))
+    yield put(posts.setPost(post))
     yield put(push(`/post/${post.id}/`))
   } catch (error) {
-    yield put(appActions.setMainError(error.toString()))
+    yield put(app.setMainError(error.toString()))
   } finally {
     yield put(setSubmitting(false))
   }
@@ -113,22 +112,22 @@ export function* subscribeToSagas() {
 //   })
 //   if (!isEmpty(errors)) {
 //     dispatch(setErrors(errors))
-//     dispatch(appActions.setMainError('Исправьте ошибки в форме'))
+//     dispatch(app.setMainError('Исправьте ошибки в форме'))
 //     return
 //   }
 //   if (state.app.mainError) {
-//     dispatch(appActions.setMainError())
+//     dispatch(app.setMainError())
 //   }
 //   dispatch(setSubmitting(true))
 //   axios
 //     .post('/post/', clearPost(state.postForm))
 //     .then(response => {
 //       const post = response.data
-//       dispatch(postsActions.setPost(post))
+//       dispatch(posts.setPost(post))
 //       dispatch(push(`/post/${post.id}/`))
 //     })
 //     .catch(error => {
-//       dispatch(appActions.setMainError(error.toString()))
+//       dispatch(app.setMainError(error.toString()))
 //     })
 //     .then(() => {
 //       dispatch(setSubmitting(false))

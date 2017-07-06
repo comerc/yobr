@@ -1,5 +1,5 @@
 import { createAction, createReducer } from 'redux-act'
-import * as appActions from './app'
+import * as app from './app'
 
 const NS = '@@posts/'
 
@@ -7,8 +7,8 @@ const set = createAction(`${NS}SET`)
 const setPost = createAction(`${NS}SET_POST`)
 
 const read = () => dispatch => {
-  dispatch(appActions.setLoading(true))
-  dispatch(appActions.appLoad('/posts/')).then(data => {
+  dispatch(app.setLoading(true))
+  dispatch(app.appLoad('/posts/')).then(data => {
     dispatch(set(data))
   })
 }
