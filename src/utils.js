@@ -16,7 +16,7 @@ export const pure = (fn: Function) => {
   return Wrapper
 }
 
-export const withState = (defaultState: Object = {}) => (fn: Function) => {
+export const withState = (fn: Function, defaultState: Object = {}) => {
   class Wrapper extends React.Component {
     render() {
       return fn(
