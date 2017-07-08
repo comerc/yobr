@@ -115,7 +115,7 @@ import MyComponent from 'components/MyComponent'
 
 ```bash
 gource \
---path ~/yobr \
+--path ./ \
 --seconds-per-day 0.15 \
 --title "YOBR" \
 -1280x720 \
@@ -144,7 +144,7 @@ gource \
 -crf 1 \
 -threads 0 \
 -bf 0 \
-~/yobr/output.mp4
+./output.mp4
 ```
 
 ## Отзывы
