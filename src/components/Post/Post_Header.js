@@ -1,8 +1,8 @@
 // @flow
 import React from 'react'
 import { formatDateTime } from 'utils'
-import Title from './Post.Title'
-import Hubs from './Post.Hubs'
+import Title from './Post_Title'
+import Hubs from './Post_Hubs'
 
 type Props = {
   isTeaser?: boolean,

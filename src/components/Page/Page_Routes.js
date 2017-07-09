@@ -2,8 +2,8 @@
 import React from 'react'
 import { Switch, Redirect, Route } from 'react-router-dom'
 import Loadable from 'react-loadable'
-import Loading from './Page.Loading'
-import NotFound from './Page.NotFound'
+import Loading from './Page_Loading'
+import NotFound from './Page_NotFound'
 
 const loadable = loader =>
   Loadable({
@@ -11,10 +11,10 @@ const loadable = loader =>
     loading: () => <Loading />,
   })
 
-const Post_ViewPage = loadable(() => import('pages/Post.ViewPage'))
-const Post_ListPage = loadable(() => import('pages/Post.ListPage'))
-const PostForm_AddPage = loadable(() => import('pages/PostForm.AddPage'))
-const PostForm_EditPage = loadable(() => import('pages/PostForm.EditPage'))
+const Post_ViewPage = loadable(() => import('pages/Post_ViewPage'))
+const Post_ListPage = loadable(() => import('pages/Post_ListPage'))
+const PostForm_AddPage = loadable(() => import('pages/PostForm_AddPage'))
+const PostForm_EditPage = loadable(() => import('pages/PostForm_EditPage'))
 
 const Routes = () =>
   <Switch>

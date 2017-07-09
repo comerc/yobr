@@ -1,9 +1,9 @@
 // @flow
 import React from 'react'
-import LoginDialog from './Page.LoginDialog'
-import Header from './Page.Header'
-import Footer from './Page.Footer'
-import Routes from './Page.Routes'
+import LoginDialog from './Page_LoginDialog'
+import Header from './Page_Header'
+import Footer from './Page_Footer'
+import Routes from './Page_Routes'
 
 const Layout = () =>
   <div className="layout">

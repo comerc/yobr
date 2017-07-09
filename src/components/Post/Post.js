@@ -1,13 +1,13 @@
 // @flow
 import React from 'react'
 import { pure } from 'utils'
-import Header from './Post.Header'
-import Body from './Post.Body'
-import ReadMore from './Post.ReadMore'
-import Tags from './Post.Tags'
-import InfoPanel from './Post.InfoPanel'
+import Header from './Post_Header'
+import Body from './Post_Body'
+import ReadMore from './Post_ReadMore'
+import Tags from './Post_Tags'
+import InfoPanel from './Post_InfoPanel'
 import type { Props } from './Post.Props'
-import Add from './Post.Add'
+import Add from './Post_Add'
 
 const Post = ({
   isTeaser,

@@ -1,8 +1,8 @@
 // @flow
 import React from 'react'
 import { connect } from 'react-redux'
-import Layout from './Page.Layout'
-import NotFound from './Page.NotFound'
+import Layout from './Page_Layout'
+import NotFound from './Page_NotFound'
 
 const mapStateToProps = (state, props) => ({
   isLoading: state.app.isLoading,
