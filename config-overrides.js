@@ -1,3 +1,5 @@
+const rewireLess = require('react-app-rewire-less')
+
 function rewire(config, env) {
   const babelOptions = config.module.rules.find(conf => {
     return conf.loader && conf.loader.includes('babel-loader')
@@ -13,7 +15,7 @@ function rewire(config, env) {
         webpackRequireWeakId: true,
       },
     ], // см. react-loadable
-    ['import', { libraryName: 'antd', style: true }], // сократил на 122 KB
+    ['import', { libraryName: 'antd', style: false }], // сократил на 122 KB
     'lodash', // сократил на 23 KB
     'babel-plugin-idx',
     'styled-jsx-postcss/babel',
@@ -22,6 +24,9 @@ function rewire(config, env) {
     'transform-decorators-legacy',
   ].concat(babelrc.plugins || [])
   babelOptions.presets = babelrc
+
+  config = rewireLess(config, env)
+
   return config
 }
 

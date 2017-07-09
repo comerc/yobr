@@ -27,6 +27,7 @@
     "postcss-inline-comment": "^3.0.0",
     "prettier": "^1.5.2",
     "react-addons-perf": "^15.4.2",
+    "react-app-rewire-less": "^2.0.3",
     "react-app-rewired": "^1.0.8",
     "react-scripts": "^1.0.10",
     "react-test-renderer": "^15.6.1",
