@@ -16,7 +16,7 @@ import axios from 'axios'
 
 import reducer, { rootSaga } from 'ducks'
 // import { setMainError } from 'ducks/app'
-import { PageCLayout } from 'components/Page'
+import { Layout } from 'components/Page'
 
 const history = createHistory()
 const router = routerMiddleware(history)
@@ -53,7 +53,7 @@ ReactDOM.render(
   <MuiThemeProvider>
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <PageCLayout />
+        <Layout />
       </ConnectedRouter>
     </Provider>
   </MuiThemeProvider>,

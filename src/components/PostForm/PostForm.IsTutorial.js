@@ -8,17 +8,17 @@ type Props = {
   input: Function,
 }
 
-const PostFormCIsTutorial = ({ isTutorial, input }: Props) =>
+const IsTutorial = ({ isTutorial, input }: Props) =>
   <Checkbox
-    id="PostFormCIsTutorial"
+    id="IsTutorial"
     label="Tutorial"
     checked={isTutorial}
     onCheck={onCheck('isTutorial', input)}
   />
 
-// PostFormCIsTutorial.propTypes = {
+// IsTutorial.propTypes = {
 //   isTutorial: PropTypes.bool,
 //   input: PropTypes.func,
 // }
 
-export default pure(PostFormCIsTutorial)
+export default pure(IsTutorial)

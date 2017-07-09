@@ -6,7 +6,7 @@ type Props = {
   tags: Array<string>,
 }
 
-const PostCTags = ({ tags }: Props) =>
+const Tags = ({ tags }: Props) =>
   <ul>
     {tags.map(tag =>
       <li key={tag}>
@@ -33,8 +33,8 @@ const PostCTags = ({ tags }: Props) =>
     `}</style>
   </ul>
 
-// PostCTags.propTypes = {
+// Tags.propTypes = {
 //   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
 // }
 
-export default PostCTags
+export default Tags

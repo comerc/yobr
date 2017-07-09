@@ -7,7 +7,7 @@ import { setLoginDialog } from 'ducks/app'
 const mapDispatchToProps = { setLoginDialog }
 
 @connect(null, mapDispatchToProps)
-class PageCHeaderButtons extends React.Component {
+class HeaderButtons extends React.Component {
   static muiName = 'FlatButton'
 
   openLoginDialog = () => {
@@ -25,4 +25,4 @@ class PageCHeaderButtons extends React.Component {
   }
 }
 
-export default PageCHeaderButtons
+export default HeaderButtons

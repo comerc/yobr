@@ -3,16 +3,16 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { input, save } from 'ducks/postForm'
 import { onSubmit } from 'utils'
-import PostFormCIsTutorial from './PostFormCIsTutorial'
-import PostFormCFlow from './PostFormCFlow'
-import PostFormCTitle from './PostFormCTitle'
-import PostFormCContent from './PostFormCContent'
-import PostFormCSearchHub from './PostFormCSearchHub'
-import PostFormCHubs from './PostFormCHubs'
-import PostFormCIsTranslation from './PostFormCIsTranslation'
-import PostFormCSourceAuthor from './PostFormCSourceAuthor'
-import PostFormCSourceLink from './PostFormCSourceLink'
-import PostFormCSubmit from './PostFormCSubmit'
+import IsTutorial from './PostForm.IsTutorial'
+import Flow from './PostForm.Flow'
+import Title from './PostForm.Title'
+import Content from './PostForm.Content'
+import SearchHub from './PostForm.SearchHub'
+import Hubs from './PostForm.Hubs'
+import IsTranslation from './PostForm.IsTranslation'
+import SourceAuthor from './PostForm.SourceAuthor'
+import SourceLink from './PostForm.SourceLink'
+import Submit from './PostForm.Submit'
 
 // Q: можно ли объявить компонент чистым, если в props - router?
 // A: да, PureComponent применяет неглубокое сравнение
@@ -81,18 +81,16 @@ const PostForm = ({
       {id ? 'Редактирование публикации' : 'Хочу разместить публикацию'}
     </h2>
     <form onSubmit={onSubmit(isSubmitting, save)} autoComplete="off">
-      <PostFormCIsTutorial {...{ isTutorial, input }} />
-      <PostFormCFlow {...{ flowId: flow.id, sourceFlows, input, error: errors.flow }} />
-      <PostFormCTitle {...{ title, input, error: errors.title }} />
-      <PostFormCContent {...{ content, input, error: errors.content }} />
-      <PostFormCSearchHub {...{ searchHub, sourceHubs, hubs, input, error: errors.searchHub }} />
-      <PostFormCHubs {...{ hubs, input, error: errors.searchHub }} />
-      <PostFormCIsTranslation {...{ isTranslation, input }} />
-      <PostFormCSourceAuthor
-        {...{ sourceAuthor, isTranslation, input, error: errors.sourceAuthor }}
-      />
-      <PostFormCSourceLink {...{ sourceLink, isTranslation, input, error: errors.sourceLink }} />
-      <PostFormCSubmit {...{ isSubmitting }} />
+      <IsTutorial {...{ isTutorial, input }} />
+      <Flow {...{ flowId: flow.id, sourceFlows, input, error: errors.flow }} />
+      <Title {...{ title, input, error: errors.title }} />
+      <Content {...{ content, input, error: errors.content }} />
+      <SearchHub {...{ searchHub, sourceHubs, hubs, input, error: errors.searchHub }} />
+      <Hubs {...{ hubs, input, error: errors.searchHub }} />
+      <IsTranslation {...{ isTranslation, input }} />
+      <SourceAuthor {...{ sourceAuthor, isTranslation, input, error: errors.sourceAuthor }} />
+      <SourceLink {...{ sourceLink, isTranslation, input, error: errors.sourceLink }} />
+      <Submit {...{ isSubmitting }} />
     </form>
     <br />
     {!!mainError &&

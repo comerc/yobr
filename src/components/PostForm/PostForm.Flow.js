@@ -14,9 +14,9 @@ type Props = {
   error?: string,
 }
 
-const PostFormCFlow = ({ flowId, sourceFlows, input, error }: Props) =>
+const Flow = ({ flowId, sourceFlows, input, error }: Props) =>
   <SelectField
-    id="PostFormCFlow"
+    id="Flow"
     floatingLabelText="Поток"
     hintText="Выберите поток"
     value={flowId}
@@ -26,7 +26,7 @@ const PostFormCFlow = ({ flowId, sourceFlows, input, error }: Props) =>
     {sourceFlows.map(({ id, name }) => <MenuItem key={id} value={id} primaryText={name} />)}
   </SelectField>
 
-// PostFormCFlow.propTypes = {
+// Flow.propTypes = {
 //   flowId: PropTypes.string,
 //   sourceFlows: PropTypes.arrayOf(PropTypes.shape({
 //
@@ -35,4 +35,4 @@ const PostFormCFlow = ({ flowId, sourceFlows, input, error }: Props) =>
 //   error: PropTypes.string,
 // }
 
-export default pure(PostFormCFlow)
+export default pure(Flow)

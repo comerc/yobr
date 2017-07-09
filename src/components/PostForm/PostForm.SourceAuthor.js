@@ -10,9 +10,9 @@ type Props = {
   error?: string,
 }
 
-const PostFormCSourceAuthor = ({ sourceAuthor, isTranslation, input, error }: Props) =>
+const SourceAuthor = ({ sourceAuthor, isTranslation, input, error }: Props) =>
   <TextField
-    id="PostFormCSourceAuthor"
+    id="SourceAuthor"
     floatingLabelText="Автор оригинального текста"
     hintText="Например, Tim O'Reily"
     value={sourceAuthor}
@@ -22,11 +22,11 @@ const PostFormCSourceAuthor = ({ sourceAuthor, isTranslation, input, error }: Pr
     disabled={!isTranslation}
   />
 
-// PostFormCSourceAuthor.propTypes = {
+// SourceAuthor.propTypes = {
 //   sourceAuthor: PropTypes.string,
 //   isTranslation: PropTypes.bool,
 //   input: PropTypes.func,
 //   error: PropTypes.string,
 // }
 
-export default pure(PostFormCSourceAuthor)
+export default pure(SourceAuthor)

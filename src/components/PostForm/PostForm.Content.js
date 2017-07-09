@@ -9,9 +9,9 @@ type Props = {
   error?: string,
 }
 
-const PostFormCContent = ({ content, input, error }: Props) =>
+const Content = ({ content, input, error }: Props) =>
   <TextField
-    id="PostFormCContent"
+    id="Content"
     floatingLabelText="Текст"
     hintText="Для переноса строк в тексте нажмите [ENTER]"
     value={content}
@@ -22,10 +22,10 @@ const PostFormCContent = ({ content, input, error }: Props) =>
     hintStyle={inputHintStyle}
   />
 
-// PostFormCContent.propTypes = {
+// Content.propTypes = {
 //   content: PropTypes.string,
 //   input: PropTypes.func,
 //   error: PropTypes.string,
 // }
 
-export default pure(PostFormCContent)
+export default pure(Content)

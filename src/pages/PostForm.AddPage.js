@@ -6,30 +6,24 @@ import Page from 'components/Page'
 import Helmet from 'react-helmet'
 import PostForm from 'components/PostForm'
 
-const mapStateToProps = (state, props) => ({
-  isNotFound: !state.postForm.id,
-})
-
 const mapDispatchToProps = (dispatch, props) => ({
-  onMounted: () => dispatch(read(parseInt(props.match.params.id, 10))),
+  onMounted: () => dispatch(read()),
 })
 
-@connect(mapStateToProps, mapDispatchToProps)
-class PostFormPEdit extends React.Component {
+@connect(null, mapDispatchToProps)
+class AddPage extends React.Component {
   props: {
-    isNotFound: boolean,
     onMounted: Function,
   }
 
   static defaultProps = {
-    isNotFound: false,
     onMounted: () => {},
   }
 
   render() {
-    const { isNotFound, onMounted } = this.props
+    const { onMounted } = this.props
     return (
-      <Page {...{ isNotFound, onMounted }}>
+      <Page {...{ onMounted }}>
         <Helmet title="YOBR" />
         <PostForm />
       </Page>
@@ -37,4 +31,4 @@ class PostFormPEdit extends React.Component {
   }
 }
 
-export default PostFormPEdit
+export default AddPage

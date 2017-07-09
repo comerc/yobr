@@ -10,7 +10,7 @@ import { logout } from 'ducks/app'
 const mapDispatchToProps = { logout }
 
 @connect(null, mapDispatchToProps)
-class PageCHeaderMenu extends React.Component {
+class HeaderMenu extends React.Component {
   static muiName = 'IconMenu'
 
   originStyle = { horizontal: 'right', vertical: 'top' }
@@ -46,4 +46,4 @@ class PageCHeaderMenu extends React.Component {
   }
 }
 
-export default PageCHeaderMenu
+export default HeaderMenu

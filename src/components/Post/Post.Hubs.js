@@ -12,7 +12,7 @@ type Props = {
   }>,
 }
 
-const PostCHubs = ({ hubs }: Props) =>
+const Hubs = ({ hubs }: Props) =>
   <ul>
     {hubs.map(hub =>
       <li key={hub.id}>
@@ -48,11 +48,11 @@ const PostCHubs = ({ hubs }: Props) =>
     `}</style>
   </ul>
 
-// PostCHubs.propTypes = {
+// Hubs.propTypes = {
 //   hubs: PropTypes.arrayOf(PropTypes.shape({
 //     id: PropTypes.string,
 //     name: PropTypes.string,
 //   })).isRequired,
 // }
 
-export default PostCHubs
+export default Hubs

@@ -3,8 +3,8 @@ import React from 'react'
 import AppBar from 'material-ui/AppBar'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
-import PageCHeaderMenu from './PageCHeaderMenu'
-import PageCHeaderButtons from './PageCHeaderButtons'
+import HeaderMenu from './Page.HeaderMenu'
+import HeaderButtons from './Page.HeaderButtons'
 
 const mapStateToProps = (state, props) => ({
   isLogged: state.app.isLogged,
@@ -29,7 +29,7 @@ class PageXHeader extends React.Component {
         title={<span style={this.styles.title}>YOBR</span>}
         onTitleTouchTap={this.handleTouchTap}
         showMenuIconButton={false}
-        iconElementRight={isLogged ? <PageCHeaderMenu /> : <PageCHeaderButtons />}
+        iconElementRight={isLogged ? <HeaderMenu /> : <HeaderButtons />}
       />
     )
   }

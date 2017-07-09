@@ -1,13 +1,13 @@
 // @flow
 import React from 'react'
 import { pure } from 'utils'
-import PostCHeader from './PostCHeader'
-import PostCBody from './PostCBody'
-import PostCReadMore from './PostCReadMore'
-import PostCTags from './PostCTags'
-import PostCInfoPanel from './PostCInfoPanel'
+import Header from './Post.Header'
+import Body from './Post.Body'
+import ReadMore from './Post.ReadMore'
+import Tags from './Post.Tags'
+import InfoPanel from './Post.InfoPanel'
 import type { Props } from './Post.Props'
-import PostCAdd from './PostCAdd'
+import Add from './Post.Add'
 
 const Post = ({
   isTeaser,
@@ -26,12 +26,12 @@ const Post = ({
   favoritesCount,
 }: Props) =>
   <div>
-    <PostCHeader {...{ isTeaser, id, published, flow, hubs, title, isDraft, isMy }} />
-    <PostCBody {...{ isTeaser, content }}>
-      {isTeaser ? <PostCReadMore {...{ id }} /> : <PostCTags {...{ tags }} />}
-    </PostCBody>
+    <Header {...{ isTeaser, id, published, flow, hubs, title, isDraft, isMy }} />
+    <Body {...{ isTeaser, content }}>
+      {isTeaser ? <ReadMore {...{ id }} /> : <Tags {...{ tags }} />}
+    </Body>
     <div className="footer">
-      <PostCInfoPanel {...{ isTeaser, id, author, viewsCount, favoritesCount }} />
+      <InfoPanel {...{ isTeaser, id, author, viewsCount, favoritesCount }} />
     </div>
     <br />
   </div>
@@ -82,5 +82,5 @@ const Post = ({
 // }
 
 export type { Props }
-export { PostCAdd }
+export { Add }
 export default pure(Post)

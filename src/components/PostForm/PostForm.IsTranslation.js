@@ -17,10 +17,10 @@ type Props = {
   input: Function,
 }
 
-const PostFormCIsTranslation = ({ isTranslation, input }: Props) =>
+const IsTranslation = ({ isTranslation, input }: Props) =>
   <div className="root">
     <Toggle
-      id="PostFormCIsTranslation"
+      id="IsTranslation"
       label="Перевод"
       labelPosition="right"
       toggled={isTranslation}
@@ -33,9 +33,9 @@ const PostFormCIsTranslation = ({ isTranslation, input }: Props) =>
     `}</style>
   </div>
 
-// PostFormCIsTranslation.propTypes = {
+// IsTranslation.propTypes = {
 //   isTranslation: PropTypes.bool,
 //   input: PropTypes.func,
 // }
 
-export default pure(PostFormCIsTranslation)
+export default pure(IsTranslation)

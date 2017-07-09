@@ -15,7 +15,7 @@ type Props = {
   isMy?: boolean,
 }
 
-const PostCTitle = ({ isTeaser, flow, id, title, isDraft, isMy }: Props) => {
+const Title = ({ isTeaser, flow, id, title, isDraft, isMy }: Props) => {
   const titleWithLinks = () =>
     <span>
       <Link className="flow" to={`/flow/${flow.id}/`} onClick={ga('flow', 'feed page', flow.name)}>
@@ -49,7 +49,7 @@ const PostCTitle = ({ isTeaser, flow, id, title, isDraft, isMy }: Props) => {
   )
 }
 
-// PostCTitle.propTypes = {
+// Title.propTypes = {
 //   isTeaser: PropTypes.bool,
 //   flow: PropTypes.shape({
 //     id: PropTypes.string,
@@ -61,4 +61,4 @@ const PostCTitle = ({ isTeaser, flow, id, title, isDraft, isMy }: Props) => {
 //   isMy: PropTypes.bool,
 // }
 
-export default PostCTitle
+export default Title

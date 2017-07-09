@@ -7,7 +7,7 @@ type Props = {
   isSubmitting: boolean,
 }
 
-const PostFormCSubmit = ({ isSubmitting }: Props) =>
+const Submit = ({ isSubmitting }: Props) =>
   <div className="root">
     <RaisedButton label="Отправить" primary disabled={isSubmitting} containerElement="label">
       <button className="ghostButton" />
@@ -29,8 +29,8 @@ const PostFormCSubmit = ({ isSubmitting }: Props) =>
     `}</style>
   </div>
 
-// PostFormCSubmit.propTypes = {
+// Submit.propTypes = {
 //   isSubmitting: PropTypes.bool,
 // }
 
-export default pure(PostFormCSubmit)
+export default pure(Submit)

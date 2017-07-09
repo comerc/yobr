@@ -12,7 +12,7 @@ const mapStateToProps = (state, props) => ({
 const mapDispatchToProps = { setLoginDialog, login }
 
 @connect(mapStateToProps, mapDispatchToProps)
-class PageCLoginDialog extends React.Component {
+class LoginDialog extends React.Component {
   props: {
     isLoginDialog: boolean,
     setLoginDialog: Function,
@@ -55,4 +55,4 @@ class PageCLoginDialog extends React.Component {
   }
 }
 
-export default PageCLoginDialog
+export default LoginDialog

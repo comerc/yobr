@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 
-const PageCFooter = () =>
+const Footer = () =>
   <div className="footer">
     <div className="copyright">
       <i className="fa fa-code" aria-hidden="true" />
@@ -86,4 +86,4 @@ const PageCFooter = () =>
     `}</style>
   </div>
 
-export default PageCFooter
+export default Footer

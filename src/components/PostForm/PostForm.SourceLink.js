@@ -10,9 +10,9 @@ type Props = {
   error?: string,
 }
 
-const PostFormCSourceLink = ({ sourceLink, isTranslation, input, error }: Props) =>
+const SourceLink = ({ sourceLink, isTranslation, input, error }: Props) =>
   <TextField
-    id="PostFormCSourceLink"
+    id="SourceLink"
     floatingLabelText="Ссылка на оригинал"
     hintText="Например, http://www.oreillynet.com/pub/a/oreilly/tim/news/2005/09/30/what-is-web-20.html?page=1"
     value={sourceLink}
@@ -23,11 +23,11 @@ const PostFormCSourceLink = ({ sourceLink, isTranslation, input, error }: Props)
     disabled={!isTranslation}
   />
 
-// PostFormCSourceLink.propTypes = {
+// SourceLink.propTypes = {
 //   sourceLink: PropTypes.string,
 //   isTranslation: PropTypes.bool,
 //   input: PropTypes.func,
 //   error: PropTypes.string,
 // }
 
-export default pure(PostFormCSourceLink)
+export default pure(SourceLink)

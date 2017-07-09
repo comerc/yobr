@@ -22,7 +22,7 @@ const onRequestDelete = memoize((input, hubs, index, isValidate) => () => {
 
 const chipStyle = { margin: 4 }
 
-const PostFormCHubs = ({ hubs, input, error }: Props) =>
+const Hubs = ({ hubs, input, error }: Props) =>
   <div className="root">
     {hubs.map((hub, index) =>
       <Chip
@@ -41,7 +41,7 @@ const PostFormCHubs = ({ hubs, input, error }: Props) =>
     `}</style>
   </div>
 
-// PostFormCHubs.propTypes = {
+// Hubs.propTypes = {
 //   hubs: PropTypes.arrayOf(
 //     PropTypes.shape({
 //       id: PropTypes.string,
@@ -52,4 +52,4 @@ const PostFormCHubs = ({ hubs, input, error }: Props) =>
 //   error: PropTypes.string,
 // }
 
-export default pure(PostFormCHubs)
+export default pure(Hubs)
