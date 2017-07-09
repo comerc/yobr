@@ -17,6 +17,7 @@ import axios from 'axios'
 import reducer, { rootSaga } from 'ducks'
 // import { setMainError } from 'ducks/app'
 import { Layout } from 'components/Page'
+import 'resources/main.less'
 
 const history = createHistory()
 const router = routerMiddleware(history)

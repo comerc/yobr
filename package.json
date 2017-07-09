@@ -37,6 +37,7 @@
     "tcomb": "^3.2.21"
   },
   "dependencies": {
+    "antd": "^2.12.0",
     "axios": "^0.16.2",
     "classnames": "^2.2.5",
     "es6-promise": "^4.1.1",
