@@ -1,5 +1,3 @@
-const rewireLess = require('react-app-rewire-less')
-
 function rewire(config, env) {
   const babelOptions = config.module.rules.find(conf => {
     return conf.loader && conf.loader.includes('babel-loader')
@@ -25,6 +23,7 @@ function rewire(config, env) {
   ].concat(babelrc.plugins || [])
   babelOptions.presets = babelrc
 
+  const rewireLess = require('react-app-rewire-less')
   config = rewireLess(config, env)
 
   return config
