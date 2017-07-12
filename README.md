@@ -1,10 +1,10 @@
 # YOBR
 
+[DEMO](https://yobr.now.sh/) (если не видно данных, то нужно выполнить [reset-запрос к API](https://yobr-server.now.sh/posts/reset/))
+
 ## Статус 
 
 В мастере Альфа-версия, релиз [тут](https://github.com/comerc/yobr/releases/tag/0.2.0).
-
-[DEMO](https://yobr.now.sh/) (если не видно данных, то нужно выполнить [reset-запрос к API](https://yobr-server.now.sh/posts/reset/))
 
 ## TL;DR
 
