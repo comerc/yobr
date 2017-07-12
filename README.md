@@ -83,6 +83,12 @@ import MyComponent from 'components/MyComponent'
 }
 ```
 
+## VSCode Emmet Helper
+
+```
+$ npm install vscode-emmet-helper -g
+```
+
 ## Общие настройки IDE
 
 ### VSCode
