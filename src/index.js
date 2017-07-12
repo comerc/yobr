@@ -7,7 +7,7 @@ import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
 import createSagaMiddleware from 'redux-saga'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import createHistory from 'history/createBrowserHistory'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import FastClick from 'fastclick'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import 'es6-promise/auto'
@@ -16,8 +16,9 @@ import axios from 'axios'
 
 import reducer, { rootSaga } from 'ducks'
 // import { setMainError } from 'ducks/app'
-import { Layout } from 'components/Page'
-import 'resources/main.less'
+// import { Layout } from 'components/Page'
+import App from 'components/App'
+// import 'resources/main.less'
 
 const history = createHistory()
 const router = routerMiddleware(history)
@@ -50,13 +51,15 @@ injectTapEventPlugin()
 //   }
 // })
 
-ReactDOM.render(
-  <MuiThemeProvider>
-    <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <Layout />
-      </ConnectedRouter>
-    </Provider>
-  </MuiThemeProvider>,
-  document.getElementById('root'),
-)
+ReactDOM.render(<App />, document.getElementById('app'))
+
+// ReactDOM.render(
+//   <MuiThemeProvider>
+//     <Provider store={store}>
+//       <ConnectedRouter history={history}>
+//          <Layout />
+//       </ConnectedRouter>
+//     </Provider>
+//   </MuiThemeProvider>,
+//   document.getElementById('root'),
+// )
