@@ -4,8 +4,9 @@ function rewire(config, env) {
   }).options
   const babelrc = require(babelOptions.presets[0])
   babelrc.plugins = [
-    // не работает jest, заменил на NODE_PATH=src/ в .env
-    ['module-resolver', { root: ['src'] }],
+    // 1. не работает jest, заменил на NODE_PATH=src/ в .env
+    // 2. не работает webpack2, заменил на config.resolve.modules
+    // ['module-resolver', { root: ['src'] }],
     [
       'import-inspector',
       {
@@ -25,6 +26,9 @@ function rewire(config, env) {
 
   const rewireLess = require('react-app-rewire-less')
   config = rewireLess(config, env)
+
+  const path = require('path')
+  config.resolve.modules = [path.resolve('src')].concat(config.resolve.modules)
 
   return config
 }
