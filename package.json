@@ -21,6 +21,7 @@
     "jest-enzyme": "^3.5.3",
     "lint-staged": "^4.0.2",
     "moxios": "^0.4.0",
+    "path": "^0.12.7",
     "postcss-cssnext": "^3.0.2",
     "postcss-discard-comments": "^2.0.4",
     "postcss-inline-comment": "^3.0.0",
