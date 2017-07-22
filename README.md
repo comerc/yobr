@@ -92,6 +92,9 @@ import MyComponent from 'components/MyComponent'
 ```
 $ npm install vscode-emmet-helper -g
 ```
+## Шрифт Fira Code
+
+[Установить](https://github.com/tonsky/FiraCode) для применения лигатур.
 
 ## Общие настройки IDE
 
