@@ -12,7 +12,7 @@
 
 ## SETUP
 
-- Поставить: [go](https://golang.org/doc/install)(для simplehttp2server внутри preact), [nodejs](https://nodejs.org/), [yarn](https://yarnpkg.com/), [git](https://www.atlassian.com/git/tutorials/install-git).
+- Поставить: [go](https://golang.org/doc/install)(для simplehttp2server внутри preact), [fixing-npm-permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions), [nodejs](https://nodejs.org/), [yarn](https://yarnpkg.com/), [git](https://www.atlassian.com/git/tutorials/install-git).
 - Клонировать репозиторий:
 ```bash
 $ git clone git@github.com:comerc/yobr.git
