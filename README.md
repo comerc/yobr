@@ -123,6 +123,7 @@ $ npm install vscode-emmet-helper -g
 
 - [Введение в JavaScript итераторы на ES6](https://habrahabr.ru/post/264345/)
 - [Редакс в реальной жизни](https://iamakulov.com/talks/redux-in-real-life/)
+- [TypeScript with Webpack2: how to do import with absolute path?](https://medium.com/@timwong/typescript-with-webpack2-how-to-do-import-with-absolute-path-f33b1826d330)
 
 ## Визуализация изменений в git
 
