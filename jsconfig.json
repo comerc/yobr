@@ -1,7 +1,0 @@
-{
-  "compilerOptions": {
-    "target": "ES6",
-    "experimentalDecorators": true
-  },
-  "exclude": ["node_modules", "server2/node_modules"]
-}
