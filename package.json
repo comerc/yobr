@@ -9,6 +9,9 @@
     "babel-plugin-import-inspector": "^2.0.0",
     "babel-plugin-lodash": "^3.2.11",
     "babel-preset-react-app": "^3.0.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.0.3",
+    "prettier": "^1.5.3",
     "react-app-rewire-less": "^2.0.4",
     "react-app-rewired": "^1.1.0",
     "react-scripts-ts": "2.5.0"
@@ -25,10 +28,17 @@
     "react-dom": "^15.6.1",
     "react-loadable": "^4.0.4"
   },
+  "lint-staged": {
+    "*.js": [
+      "prettier --print-width 120 --single-quote --trailing-comma all --no-semi --write",
+      "git add"
+    ]
+  },
   "scripts": {
     "start": "BROWSER=none react-app-rewired start --scripts-version react-scripts-ts",
     "build": "react-app-rewired build --scripts-version react-scripts-ts",
     "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "eject": "react-scripts-ts eject",
+    "precommit": "lint-staged"
   }
 }

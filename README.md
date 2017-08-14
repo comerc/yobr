@@ -37,33 +37,13 @@ $ yarn start
 import MyComponent from 'components/MyComponent'
 ```
 
-### VSCode
-
-Нужно добавить jsconfig.json в корень проекта: 
-```javascript
-{
-  "compilerOptions": {
-    "target": "ES6"
-  },
-  "exclude": [
-    "node_modules"
-  ]
-}
-```
-
 ### WebStorm
+
 Для папки src в контекстом меню выполнить: Mark Directory as > Resource Root.
 
-### Atom
-- Установить плагин [js-hyperclick](https://atom.io/packages/js-hyperclick).
-- Для доменных компонентов прописывать в package.json путь до src:
-```json
-{
-  "moduleRoots": [
-    "../.."
-  ]
-}
-```
+### VSCode
+
+Дополнительные настройки не требуются.
 
 ## Форматирование кода
 
@@ -80,7 +60,7 @@ import MyComponent from 'components/MyComponent'
   },
   "lint-staged": {
     "*.js": [
-      "prettier --print-width 100 --single-quote --trailing-comma all --no-semi --write",
+      "prettier --print-width 120 --single-quote --trailing-comma all --no-semi --write",
       "git add"
     ]
   }
@@ -92,19 +72,20 @@ import MyComponent from 'components/MyComponent'
 ```
 $ npm install vscode-emmet-helper -g
 ```
+
 ## Шрифт Fira Code
 
 [Установить](https://github.com/tonsky/FiraCode) для применения лигатур.
 
 ## Общие настройки IDE
 
-### VSCode
-
-Чтобы выполнить импорт настроек редактора, нужно установить [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync), потом [Shift]+[Alt]+[D] и ввести ключ: 37f6bb06dfd1b4bc93efbfbf19d60cea
-
 ### WebStorm
 
 Выполнить 'Import Settings...' из ./webstorm.jar
+
+### VSCode
+
+Чтобы выполнить импорт настроек редактора, нужно установить [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync), потом [Shift]+[Alt]+[D] и ввести ключ: 37f6bb06dfd1b4bc93efbfbf19d60cea
 
 ## Публикации
 
@@ -167,7 +148,7 @@ gource \
 
 @mauriciosoares - [решение по кастомизации babel в CRA](https://github.com/timarney/react-app-rewired/issues/46)
 
-## Модификация tsconfig.json
+## Модификация tsconfig.json из CRA-TS
 
 ```diff
 {
@@ -186,7 +167,7 @@ gource \
 }
 ```
 
-## Модификация tslint.json
+## Модификация tslint.json из CRA-TS
 
 ```diff
 -   "no-any": true,
