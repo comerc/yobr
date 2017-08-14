@@ -1,7 +1,8 @@
 {
-  "name": "cra-ts-antd",
-  "version": "0.1.0",
-  "private": true,
+  "name": "yobr",
+  "version": "0.3.0",
+  "license": "MIT",
+  "homepage": "https://yobr.ru",
   "devDependencies": {
     "awesome-typescript-loader": "^3.2.2",
     "babel-core": "^6.25.0",
@@ -29,10 +30,7 @@
     "react-loadable": "^4.0.4"
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --print-width 120 --single-quote --trailing-comma all --no-semi --write",
-      "git add"
-    ]
+    "*.js": ["prettier --print-width 120 --single-quote --trailing-comma all --no-semi --write", "git add"]
   },
   "scripts": {
     "start": "BROWSER=none react-app-rewired start --scripts-version react-scripts-ts",
