@@ -108,6 +108,7 @@ $ npm install vscode-emmet-helper -g
 
 ## Публикации
 
+- [10 шагов настройки Create React App + TypeScript + Ant-Design](https://habrahabr.ru/post/334572/)
 - [Redux Business Logic](https://habrahabr.ru/post/332146/)
 - [Интеграция React и DataTables (jQuery)](https://habrahabr.ru/post/330656/)
 - [Быстрый старт на React Native](https://habrahabr.ru/post/327668/)
@@ -165,3 +166,29 @@ gource \
 ![YOU DA REAL MVP](https://user-images.githubusercontent.com/2321259/27685684-940c5464-5ccf-11e7-8f43-c494433d5842.jpg)
 
 @mauriciosoares - [решение по кастомизации babel в CRA](https://github.com/timarney/react-app-rewired/issues/46)
+
+## Модификация tsconfig.json
+
+```diff
+{
+  "compilerOptions": {
++   "allowSyntheticDefaultImports": true,
++   "baseUrl": ".",
++   "paths": {
++     "*": ["*", "src/*"]
++   },
+-   "jsx": "react",
++   "jsx": "preserve",
+  },
+  "exclude": [
++   "config-overrides.js",
+  ]
+}
+```
+
+## Модификация tslint.json
+
+```diff
+-        "semicolon": [true, "always"],
++        "semicolon": false,
+```
