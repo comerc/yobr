@@ -1,4 +1,13 @@
 {
   "presets": ["react-app"],
-  "plugins": [["import", { "libraryName": "antd", "style": false }], "lodash"]
+  "plugins": [
+    ["import", { "libraryName": "antd", "style": false }],
+    [
+      "import-inspector",
+      {
+        "webpackRequireWeakId": true
+      }
+    ],
+    "lodash"
+  ]
 }
