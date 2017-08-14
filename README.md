@@ -189,6 +189,10 @@ gource \
 ## Модификация tslint.json
 
 ```diff
--        "semicolon": [true, "always"],
-+        "semicolon": false,
+-   "no-any": true,
++   "no-any": false,
+-   "no-console": [true, "log", "error", "debug", "info", "time", "timeEnd", "trace"],
++   "no-console": false,
+-   "semicolon": [true, "always"],
++   "semicolon": false,
 ```
