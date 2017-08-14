@@ -44,6 +44,10 @@
   version "20.0.5"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-20.0.5.tgz#f463e58b2de6e801f40e33b05db894babdbad98c"
 
+"@types/lodash@^4.14.72":
+  version "4.14.72"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.72.tgz#f090cf6eb1fee1647a0efa1ebe18b0b78ed551c6"
+
 "@types/node@^8.0.17":
   version "8.0.17"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.17.tgz#677bc8c118cfb76013febb62ede1f31d2c7222a1"
@@ -630,6 +634,10 @@ babel-plugin-dynamic-import-node@1.0.2:
     babel-template "^6.24.1"
     babel-types "^6.24.1"
 
+babel-plugin-import-inspector@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-import-inspector/-/babel-plugin-import-inspector-2.0.0.tgz#6d422309f4f192313310cfde1556f7875cae5d07"
+
 babel-plugin-import@^1.2.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/babel-plugin-import/-/babel-plugin-import-1.3.1.tgz#70fc7dae982e5bc8c40e8abb10fc7f125ff61f04"
@@ -645,6 +653,13 @@ babel-plugin-istanbul@^4.0.0, babel-plugin-istanbul@^4.1.4:
 babel-plugin-jest-hoist@^20.0.3:
   version "20.0.3"
   resolved "https://registry.yarnpkg.com/babel-plugin-jest-hoist/-/babel-plugin-jest-hoist-20.0.3.tgz#afedc853bd3f8dc3548ea671fbe69d03cc2c1767"
+
+babel-plugin-lodash@^3.2.11:
+  version "3.2.11"
+  resolved "https://registry.yarnpkg.com/babel-plugin-lodash/-/babel-plugin-lodash-3.2.11.tgz#21c8fdec9fe1835efaa737873e3902bdd66d5701"
+  dependencies:
+    glob "^7.1.1"
+    lodash "^4.17.2"
 
 babel-plugin-syntax-async-functions@^6.8.0:
   version "6.13.0"
@@ -2950,6 +2965,10 @@ immutable@~3.7.4:
   version "3.7.6"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.7.6.tgz#13b4d3cb12befa15482a26fe1b2ebae640071e4b"
 
+import-inspector@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/import-inspector/-/import-inspector-2.0.0.tgz#ce75fdb6a277d2800effe097e2295bc8690b2923"
+
 imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
@@ -3247,6 +3266,10 @@ is-typedarray@~1.0.0:
 is-utf8@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/is-utf8/-/is-utf8-0.2.1.tgz#4b0da1442104d1b336340e80797e865cf39f7d72"
+
+is-webpack-bundle@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/is-webpack-bundle/-/is-webpack-bundle-1.0.0.tgz#576a50bb7c53d1d6a5c1647939c93ae2cbb90eea"
 
 is-wsl@^1.1.0:
   version "1.1.0"
@@ -5457,6 +5480,14 @@ react-lazy-load@^3.0.10:
     lodash.throttle "^4.0.0"
     prop-types "^15.5.8"
 
+react-loadable@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/react-loadable/-/react-loadable-4.0.4.tgz#ae96837729eeb7fd0d3bb1dc01dc0053ac147874"
+  dependencies:
+    import-inspector "^2.0.0"
+    is-webpack-bundle "^1.0.0"
+    webpack-require-weak "^1.0.1"
+
 react-scripts-ts@2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/react-scripts-ts/-/react-scripts-ts-2.5.0.tgz#bac40d432e90ae09ae4c07d8f0296be43b21f8b1"
@@ -6878,6 +6909,12 @@ webpack-manifest-plugin@1.1.0:
   dependencies:
     fs-extra "^0.30.0"
     lodash ">=3.5 <5"
+
+webpack-require-weak@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/webpack-require-weak/-/webpack-require-weak-1.0.1.tgz#a6a8e60871bebbe5b085a915ab0af633a412433f"
+  dependencies:
+    is-webpack-bundle "^1.0.0"
 
 webpack-sources@^0.1.0:
   version "0.1.5"
