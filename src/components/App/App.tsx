@@ -1,8 +1,13 @@
-import * as React from 'react';
-import './App.css';
-import { Button } from 'antd';
+import * as React from 'react'
+import './App.css'
+import { Button } from 'antd'
+import { isEmpty } from 'lodash'
 
-const logo = require('./logo.svg');
+const logo = require('logo.svg')
+
+const a = 123
+
+if (isEmpty(a)) console.log('test')
 
 class App extends React.Component<{}, {}> {
   render() {
@@ -17,8 +22,8 @@ class App extends React.Component<{}, {}> {
         </p>
         <Button type="primary">Test</Button>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
