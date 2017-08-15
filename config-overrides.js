@@ -5,6 +5,8 @@ module.exports = function override(config, env) {
   tsLoader.loader = require.resolve('awesome-typescript-loader')
   tsLoader.query = {
     useBabel: true,
+    // For speed?
+    // transpileOnly: env === 'production',
   }
 
   const tsLintLoader = config.module.rules.find(conf => {

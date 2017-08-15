@@ -7,7 +7,9 @@ const logo = require('logo.svg')
 
 const a = 123
 
-if (isEmpty(a)) console.log('test')
+if (isEmpty(a)) {
+  console.log('test')
+}
 
 class App extends React.Component<{}, {}> {
   render() {
