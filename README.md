@@ -105,6 +105,7 @@ $ npm install vscode-emmet-helper -g
 
 - [Введение в JavaScript итераторы на ES6](https://habrahabr.ru/post/264345/)
 - [Редакс в реальной жизни](https://iamakulov.com/talks/redux-in-real-life/)
+- [Understanding Redux Middleware](https://medium.com/@meagle/understanding-87566abcfb7a)
 
 ## Визуализация изменений в git
 
