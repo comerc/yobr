@@ -6,8 +6,8 @@ module.exports = function override(config, env) {
   tsLoader.query = {
     useBabel: true,
     useCache: true,
-    // For speed?
-    // transpileOnly: env === 'production',
+    // For speed
+    transpileOnly: env === 'production',
   }
 
   const tsLintLoader = config.module.rules.find(conf => {
