@@ -58,7 +58,7 @@ import MyComponent from 'components/MyComponent'
 
 ### VSCode
 
-Дополнительные настройки не требуются (установлено расширение christian-kohler.path-intellisense).
+Дополнительные настройки не требуются (установлено расширение [Path-Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)).
 
 ## Форматирование кода
 
