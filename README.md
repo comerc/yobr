@@ -106,6 +106,7 @@ $ npm install vscode-emmet-helper -g
 - [Введение в JavaScript итераторы на ES6](https://habrahabr.ru/post/264345/)
 - [Редакс в реальной жизни](https://iamakulov.com/talks/redux-in-real-life/)
 - [Understanding Redux Middleware](https://medium.com/@meagle/understanding-87566abcfb7a)
+- [SSR with Create React App v2](https://medium.com/@benlu/ssr-with-create-react-app-v2-1b8b520681d9)
 
 ## Визуализация изменений в git
 
