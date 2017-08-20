@@ -178,7 +178,7 @@ gource \
 -   "no-any": true,
 +   "no-any": false,
 -   "no-console": [true, "log", "error", "debug", "info", "time", "timeEnd", "trace"],
-+   "no-console": false,
++   "no-console": [false],
 -   "semicolon": [true, "always"],
-+   "semicolon": false,
++   "semicolon": [false],
 ```
