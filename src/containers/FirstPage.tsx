@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 
 import * as userActions from '../actions/user'
 import { Link } from 'react-router-dom'
-import './FirstPage.css'
+// import './FirstPage.css'
 
 class FirstPage extends Component<{ staticContext: any; user: any; userActions: any }> {
   render() {

@@ -12,10 +12,22 @@
 
 ## Setup
 
-- Поставить: [nodejs](https://nodejs.org/), [yarn](https://yarnpkg.com/), [git](https://www.atlassian.com/git/tutorials/install-git).
+- Установить: [nodejs](https://nodejs.org/), [yarn](https://yarnpkg.com/), [git](https://www.atlassian.com/git/tutorials/install-git).
+
+- Установить typescript:
+```bash
+$ npm install -g typescript
+```
+
 - Клонировать репозиторий:
 ```bash
 $ git clone git@github.com:comerc/yobr.git
+```
+
+- Опционально, для управления версиями node, удобно использовать [nvm](https://github.com/creationix/nvm):
+```bash
+$ cd ~/yobr
+$ nvm use
 ```
 
 - Запустить:
@@ -24,12 +36,6 @@ $ cd ~/yobr
 $ yarn install
 $ yarn build
 $ yarn start:server
-```
-
-Опционально, для управления версиями node, удобно использовать [nvm](https://github.com/creationix/nvm):
-```bash
-$ cd ~/yobr
-$ nvm use
 ```
 
 ## Development
