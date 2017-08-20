@@ -10,7 +10,7 @@
 
 Тут можно оценить, как я применяю следующие инструменты: react, typescript, prettier, styled-jsx, ant-design, react-router, redux, redux-thunk, redux-saga, ducks-pattern + redux-act, reselect, feathers, axios, css-анимацию, загрузку данных через API, доменную организацию компонентов, функциональные компоненты, промисы, генераторы, мемоизацию, спреды, оператор расширения, деструкцию, стрелочные функции, шаблонные строки, декораторы, динамический импорт, настройки VSCode и WebStorm.
 
-## SETUP
+## Setup
 
 - Поставить: [nodejs](https://nodejs.org/), [yarn](https://yarnpkg.com/), [git](https://www.atlassian.com/git/tutorials/install-git).
 - Клонировать репозиторий:
@@ -159,10 +159,7 @@ gource \
 {
   "compilerOptions": {
 +   "allowSyntheticDefaultImports": true,
-+   "baseUrl": ".",
-+   "paths": {
-+     "*": ["*", "src/*"]
-+   },
++   "baseUrl": "src",
 -   "jsx": "react",
 +   "jsx": "preserve",
   },
