@@ -17,23 +17,26 @@
 ```bash
 $ git clone git@github.com:comerc/yobr.git
 ```
-- Запустить сервер (console #1):
-```bash
-$ cd ~/yobr/server 
-$ yarn install
-$ yarn start
-```
-- Запустить клиент (console #2):
+
+- Запустить:
 ```bash
 $ cd ~/yobr
 $ yarn install
-$ yarn start
+$ yarn build
+$ yarn start:server
 ```
 
-Опционально, для управления версиями node удобно использовать [nvm](https://github.com/creationix/nvm)
-```
+Опционально, для управления версиями node, удобно использовать [nvm](https://github.com/creationix/nvm):
+```bash
 $ cd ~/yobr
 $ nvm use
+```
+
+## Development
+
+```
+$ cd ~/yobr
+$ yarn start
 ```
 
 ## Абсолютные пути в импорте
@@ -49,7 +52,7 @@ import MyComponent from 'components/MyComponent'
 
 ### VSCode
 
-Дополнительные настройки не требуются.
+Дополнительные настройки не требуются (установлено расширение christian-kohler.path-intellisense).
 
 ## Форматирование кода
 
