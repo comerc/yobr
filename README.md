@@ -30,6 +30,12 @@ $ yarn install
 $ yarn start
 ```
 
+Опционально, для управления версиями node удобно использовать [nvm](https://github.com/creationix/nvm)
+```
+$ cd ~/yobr
+$ nvm use
+```
+
 ## Абсолютные пути в импорте
 
 Работают относительно папки src:
