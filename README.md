@@ -186,4 +186,3 @@ gource \
 +   "semicolon": [false],
 ```
 
-YAY
