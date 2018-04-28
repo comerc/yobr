@@ -185,3 +185,5 @@ gource \
 -   "semicolon": [true, "always"],
 +   "semicolon": [false],
 ```
+
+YAY
